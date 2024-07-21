@@ -9,6 +9,10 @@ import 'package:flutter/material.dart';
 // Begin custom widget code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
+import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
+
+import 'index.dart'; // Imports other custom widgets
+
 class Videocall extends StatefulWidget {
   const Videocall({
     super.key,
@@ -34,12 +38,12 @@ class _VideocallState extends State<Videocall> {
   Widget build(BuildContext context) {
     return ZegoUIKitPrebuiltCall(
       appID:
-          yourAppID, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
+          0115458464, // Fill in the appID that you get from ZEGOCLOUD Admin Console.
       appSign:
-          yourAppSign, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
-      userID: 'user_id',
-      userName: 'user_name',
-      callID: callID,
+          "59982438461c55d40907a32a5634f712c5634be9ce212ef9ee9f59838e6bdfbd", // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
+      userID: widget.userID,
+      userName: widget.username,
+      callID: widget.callId,
       // You can also use groupVideo/groupVoice/oneOnOneVoice to make more types of calls.
       config: ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall(),
     );
