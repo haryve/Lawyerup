@@ -35,7 +35,7 @@ dependencies:
   dropdown_button2: 2.3.9
   easy_debounce: 2.0.1
   equatable: 2.0.5
-  file_picker: 8.0.3
+  file_picker: 8.0.6
   firebase_auth: 4.19.5
   firebase_auth_platform_interface: 7.2.6
   firebase_auth_web: 5.11.5
@@ -81,9 +81,9 @@ dependencies:
   plugin_platform_interface: 2.1.8
   provider: 6.1.2
   rxdart: 0.27.7
-  shared_preferences: 2.2.2
+  shared_preferences: 2.2.3
   shared_preferences_android: 2.2.1
-  shared_preferences_foundation: 2.3.4
+  shared_preferences_foundation: 2.3.5
   shared_preferences_platform_interface: 2.3.1
   shared_preferences_web: 2.2.1
   sign_in_with_apple: 4.3.0
@@ -103,7 +103,7 @@ dependencies:
   video_player_avfoundation: 2.6.1
   video_player_platform_interface: 6.2.2
   video_player_web: 2.3.1
-  zego_uikit_prebuilt_call: ^4.3.1
+  zego_uikit_prebuilt_call: ^4.14.3
 
 
   # The following adds the Cupertino Icons font to your application.
