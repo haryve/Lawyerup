@@ -1,6 +1,11 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'addfunds_widget.dart' show AddfundsWidget;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class AddfundsModel extends FlutterFlowModel<AddfundsWidget> {
   ///  State fields for stateful widgets in this page.

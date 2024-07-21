@@ -1,11 +1,18 @@
 import '/backend/backend.dart';
 import '/components/profilepicture_widget.dart';
 import '/components/ratingbar_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'feed_model.dart';
 export 'feed_model.dart';
 
@@ -59,7 +66,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
               backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
               automaticallyImplyLeading: false,
               leading: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 0.0, 0.0),
                 child: FlutterFlowIconButton(
                   borderRadius: 30.0,
                   buttonSize: 60.0,
@@ -74,9 +81,9 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                 ),
               ),
               title: Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'Connect With Lawyers',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -89,9 +96,9 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
               ),
               actions: [
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 5.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 5.0, 0.0),
                     child: Icon(
                       Icons.search_sharp,
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -100,7 +107,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
                   child: Icon(
                     Icons.filter_alt_sharp,
                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -125,7 +132,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                     child: Column(
                       children: [
                         Align(
-                          alignment: const Alignment(0.0, 0),
+                          alignment: Alignment(0.0, 0),
                           child: FlutterFlowButtonTabBar(
                             useToggleButtonStyle: true,
                             labelStyle: FlutterFlowTheme.of(context)
@@ -149,16 +156,16 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                 FlutterFlowTheme.of(context).accent1,
                             unselectedBackgroundColor:
                                 FlutterFlowTheme.of(context).alternate,
-                            borderColor: const Color(0xFF5B18D8),
+                            borderColor: Color(0xFF5B18D8),
                             unselectedBorderColor:
                                 FlutterFlowTheme.of(context).alternate,
                             borderWidth: 2.0,
                             borderRadius: 8.0,
                             elevation: 0.0,
-                            buttonMargin: const EdgeInsetsDirectional.fromSTEB(
+                            buttonMargin: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
-                            padding: const EdgeInsets.all(10.0),
-                            tabs: const [
+                            padding: EdgeInsets.all(10.0),
+                            tabs: [
                               Tab(
                                 text: 'All',
                               ),
@@ -180,7 +187,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                             controller: _model.tabBarController,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 1.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -204,7 +211,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: const SizedBox(
+                                            child: Container(
                                               height: 610.0,
                                               child: ProfilepictureWidget(),
                                             ),
@@ -215,7 +222,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                   },
                                   child: Container(
                                     width: 100.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       boxShadow: [
                                         BoxShadow(
@@ -264,12 +271,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                 listViewLawyersRecordList[
                                                     listViewIndex];
                                             return Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                               child: Container(
                                                 width: 100.0,
                                                 height: 119.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFFD9D5E8),
                                                   borderRadius:
                                                       BorderRadius.only(
@@ -284,7 +291,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -304,7 +311,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       4.0,
@@ -318,7 +325,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                               Card(
                                                                 clipBehavior: Clip
                                                                     .antiAliasWithSaveLayer,
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFFF1F4F8),
                                                                 elevation: 1.0,
                                                                 shape:
@@ -330,7 +337,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                 ),
                                                                 child: Align(
                                                                   alignment:
-                                                                      const AlignmentDirectional(
+                                                                      AlignmentDirectional(
                                                                           -1.0,
                                                                           -1.0),
                                                                   child:
@@ -349,7 +356,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                       fit: BoxFit
                                                                           .cover,
                                                                       alignment:
-                                                                          const Alignment(
+                                                                          Alignment(
                                                                               0.0,
                                                                               0.0),
                                                                     ),
@@ -374,7 +381,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                           fontFamily:
                                                                               'Outfit',
                                                                           color:
-                                                                              const Color(0xFF1D2429),
+                                                                              Color(0xFF1D2429),
                                                                           fontSize:
                                                                               18.0,
                                                                           letterSpacing:
@@ -400,7 +407,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                         'Key63m_${listViewIndex}_of_${listViewLawyersRecordList.length}'),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             4.0,
                                                                             0.0,
@@ -416,7 +423,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                             fontFamily:
                                                                                 'Outfit',
                                                                             color:
-                                                                                const Color(0xFF57636C),
+                                                                                Color(0xFF57636C),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
@@ -447,7 +454,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             40.0,
                                                                             0.0,
@@ -460,12 +467,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                   children: [
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               1.0,
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             15.0,
                                                                             0.0,
@@ -499,12 +506,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                     ),
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               1.0,
                                                                               1.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             0.0,
@@ -518,7 +525,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               .bodySmall
                                                                               .override(
                                                                                 fontFamily: 'Outfit',
-                                                                                color: const Color(0xFF57636C),
+                                                                                color: Color(0xFF57636C),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -528,12 +535,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                     ),
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               1.0,
                                                                               1.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             0.0,
@@ -545,7 +552,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               .bodySmall
                                                                               .override(
                                                                                 fontFamily: 'Outfit',
-                                                                                color: const Color(0xFF57636C),
+                                                                                color: Color(0xFF57636C),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -586,18 +593,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 12.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -616,7 +623,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -628,7 +635,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -642,7 +649,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -656,12 +663,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                           child: Container(
                                             width: double.infinity,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF1F4F8),
+                                              color: Color(0xFFF1F4F8),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       8.0, 8.0, 12.0, 8.0),
                                               child: Row(
@@ -682,7 +689,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -693,7 +700,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -710,18 +717,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -740,7 +747,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -752,7 +759,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -766,18 +773,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -796,7 +803,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -808,7 +815,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -822,18 +829,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -852,7 +859,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -864,7 +871,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -878,18 +885,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -908,7 +915,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -920,7 +927,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -934,18 +941,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -964,7 +971,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -976,7 +983,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -990,18 +997,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1020,7 +1027,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1032,7 +1039,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1046,18 +1053,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1076,7 +1083,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1088,7 +1095,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1102,18 +1109,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1132,7 +1139,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1144,7 +1151,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1158,12 +1165,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 44.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
@@ -1230,13 +1237,13 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                     listViewLawyersRecordList[
                                                         listViewIndex];
                                                 return Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 5.0),
                                                   child: Container(
                                                     width: 100.0,
                                                     height: 119.0,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       color: Color(0xFFD9D5E8),
                                                       borderRadius:
                                                           BorderRadius.only(
@@ -1256,7 +1263,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(8.0),
+                                                          EdgeInsets.all(8.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -1276,7 +1283,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           4.0,
@@ -1290,7 +1297,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                   Card(
                                                                     clipBehavior:
                                                                         Clip.antiAliasWithSaveLayer,
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFFF1F4F8),
                                                                     elevation:
                                                                         1.0,
@@ -1302,7 +1309,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                     ),
                                                                     child:
                                                                         Align(
-                                                                      alignment: const AlignmentDirectional(
+                                                                      alignment: AlignmentDirectional(
                                                                           -1.0,
                                                                           -1.0),
                                                                       child:
@@ -1319,7 +1326,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               92.0,
                                                                           fit: BoxFit
                                                                               .cover,
-                                                                          alignment: const Alignment(
+                                                                          alignment: Alignment(
                                                                               0.0,
                                                                               0.0),
                                                                         ),
@@ -1341,7 +1348,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                             .titleMedium
                                                                             .override(
                                                                               fontFamily: 'Outfit',
-                                                                              color: const Color(0xFF1D2429),
+                                                                              color: Color(0xFF1D2429),
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
@@ -1361,7 +1368,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                             'Keyb0f_${listViewIndex}_of_${listViewLawyersRecordList.length}'),
                                                                       ),
                                                                       Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             4.0,
                                                                             0.0,
                                                                             0.0,
@@ -1374,7 +1381,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               .bodySmall
                                                                               .override(
                                                                                 fontFamily: 'Outfit',
-                                                                                color: const Color(0xFF57636C),
+                                                                                color: Color(0xFF57636C),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -1398,7 +1405,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                     ],
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             40.0,
                                                                             0.0,
@@ -1411,12 +1418,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               .max,
                                                                       children: [
                                                                         Align(
-                                                                          alignment: const AlignmentDirectional(
+                                                                          alignment: AlignmentDirectional(
                                                                               1.0,
                                                                               0.0),
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 20.0,
                                                                                 15.0,
                                                                                 0.0,
@@ -1440,12 +1447,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                           ),
                                                                         ),
                                                                         Align(
-                                                                          alignment: const AlignmentDirectional(
+                                                                          alignment: AlignmentDirectional(
                                                                               1.0,
                                                                               1.0),
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 12.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -1455,7 +1462,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               listViewLawyersRecord.lawyerCharge.toString(),
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Outfit',
-                                                                                    color: const Color(0xFF57636C),
+                                                                                    color: Color(0xFF57636C),
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
@@ -1464,12 +1471,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                           ),
                                                                         ),
                                                                         Align(
-                                                                          alignment: const AlignmentDirectional(
+                                                                          alignment: AlignmentDirectional(
                                                                               1.0,
                                                                               1.0),
                                                                           child:
                                                                               Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 12.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -1479,7 +1486,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                               'Rs/min',
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Outfit',
-                                                                                    color: const Color(0xFF57636C),
+                                                                                    color: Color(0xFF57636C),
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,

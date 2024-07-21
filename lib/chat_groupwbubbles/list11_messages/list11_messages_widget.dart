@@ -2,9 +2,13 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'list11_messages_model.dart';
 export 'list11_messages_model.dart';
@@ -31,7 +35,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
     super.initState();
     _model = createModel(context, () => List11MessagesModel());
 
-    _model.textController ??= TextEditingController(text: widget.search);
+    _model.textController ??= TextEditingController(text: widget!.search);
     _model.textFieldFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -90,7 +94,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
               automaticallyImplyLeading: false,
               leading: Container(
                 height: 200.0,
-                decoration: const BoxDecoration(),
+                decoration: BoxDecoration(),
                 child: Icon(
                   Icons.arrow_back,
                   color: FlutterFlowTheme.of(context).secondaryText,
@@ -104,7 +108,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                       letterSpacing: 0.0,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 0.0,
             ),
@@ -114,16 +118,16 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(10.0, 16.0, 10.0, 5.0),
+                          EdgeInsetsDirectional.fromSTEB(10.0, 16.0, 10.0, 5.0),
                       child: TextFormField(
                         controller: _model.textController,
                         focusNode: _model.textFieldFocusNode,
                         onChanged: (_) => EasyDebounce.debounce(
                           '_model.textController',
-                          const Duration(milliseconds: 2000),
+                          Duration(milliseconds: 2000),
                           () async {
                             await queryUsersRecordOnce()
                                 .then(
@@ -133,8 +137,8 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                         .map(
                                           (record) => TextSearchItem.fromTerms(
                                               record, [
-                                            record.email,
-                                            record.displayName
+                                            record.email!,
+                                            record.displayName!
                                           ]),
                                         )
                                         .toList(),
@@ -190,9 +194,9 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                             ),
                             borderRadius: BorderRadius.circular(24.0),
                           ),
-                          contentPadding: const EdgeInsetsDirectional.fromSTEB(
+                          contentPadding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 0.0, 0.0),
-                          prefixIcon: const Icon(
+                          prefixIcon: Icon(
                             Icons.search_sharp,
                           ),
                         ),
@@ -207,7 +211,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 5.0, 5.0),
+                        EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 5.0, 5.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -236,7 +240,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: const BorderRadius.only(
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20.0),
                             bottomRight: Radius.circular(20.0),
                             topLeft: Radius.circular(20.0),
@@ -245,9 +249,10 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Visibility(
-                          visible: _model.textController.text == '',
+                          visible: _model.textController.text == null ||
+                              _model.textController.text == '',
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 5.0, 5.0, 5.0, 5.0),
                             child: StreamBuilder<List<UsersRecord>>(
                               stream: queryUsersRecord(),
@@ -305,7 +310,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                           listViewUsersRecordList[
                                               listViewIndex];
                                       return Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 12.0, 12.0, 12.0),
                                         child: FutureBuilder<UsersRecord>(
                                           future: FFAppState().userDocQuery(
@@ -347,17 +352,17 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 8.0),
-                                                  child: SizedBox(
+                                                  child: Container(
                                                     width: 44.0,
                                                     height: 54.0,
                                                     child: Stack(
                                                       children: [
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   1.0, 1.0),
                                                           child: FutureBuilder<
                                                               UsersRecord>(
@@ -419,10 +424,12 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                   builder:
                                                                       (context) {
                                                                     if (containerUsersRecord.photoUrl !=
+                                                                            null &&
+                                                                        containerUsersRecord.photoUrl !=
                                                                             '') {
                                                                       return Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(2.0),
+                                                                            EdgeInsets.all(2.0),
                                                                         child:
                                                                             ClipRRect(
                                                                           borderRadius:
@@ -430,9 +437,9 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                           child:
                                                                               CachedNetworkImage(
                                                                             fadeInDuration:
-                                                                                const Duration(milliseconds: 200),
+                                                                                Duration(milliseconds: 200),
                                                                             fadeOutDuration:
-                                                                                const Duration(milliseconds: 200),
+                                                                                Duration(milliseconds: 200),
                                                                             imageUrl:
                                                                                 valueOrDefault<String>(
                                                                               containerUsersRecord.photoUrl,
@@ -450,7 +457,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                     } else {
                                                                       return Padding(
                                                                         padding:
-                                                                            const EdgeInsets.all(2.0),
+                                                                            EdgeInsets.all(2.0),
                                                                         child:
                                                                             Container(
                                                                           width:
@@ -464,7 +471,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                             borderRadius:
                                                                                 BorderRadius.circular(8.0),
                                                                           ),
-                                                                          alignment: const AlignmentDirectional(
+                                                                          alignment: AlignmentDirectional(
                                                                               0.0,
                                                                               0.0),
                                                                           child:
@@ -497,7 +504,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(8.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Column(
@@ -514,7 +521,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                             Expanded(
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -540,7 +547,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 0.0),
                                                               child: Icon(
                                                                 Icons.done_all,
@@ -554,7 +561,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       4.0,
@@ -639,7 +646,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 0.0),
                                                               child: Icon(
                                                                 Icons
@@ -670,7 +677,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                             .w600,
                                                                   ),
                                                             ),
-                                                          ].divide(const SizedBox(
+                                                          ].divide(SizedBox(
                                                               width: 16.0)),
                                                         ),
                                                       ],
@@ -678,7 +685,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 15.0, 0.0, 0.0),
                                                   child: Icon(
@@ -707,7 +714,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 5.0, 5.0),
+                        EdgeInsetsDirectional.fromSTEB(5.0, 15.0, 5.0, 5.0),
                     child: InkWell(
                       splashColor: Colors.transparent,
                       focusColor: Colors.transparent,
@@ -736,7 +743,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          borderRadius: const BorderRadius.only(
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20.0),
                             bottomRight: Radius.circular(20.0),
                             topLeft: Radius.circular(20.0),
@@ -745,9 +752,10 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                           shape: BoxShape.rectangle,
                         ),
                         child: Visibility(
-                          visible: _model.textController.text == '',
+                          visible: _model.textController.text == null ||
+                              _model.textController.text == '',
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 5.0, 5.0, 5.0, 5.0),
                             child: Builder(
                               builder: (context) {
@@ -762,7 +770,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                     final searchdataItem =
                                         searchdata[searchdataIndex];
                                     return Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           16.0, 12.0, 12.0, 12.0),
                                       child: FutureBuilder<UsersRecord>(
                                         future: FFAppState().userDocQuery(
@@ -802,17 +810,17 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 8.0),
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: 44.0,
                                                   height: 54.0,
                                                   child: Stack(
                                                     children: [
                                                       Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 1.0, 1.0),
                                                         child: FutureBuilder<
                                                             UsersRecord>(
@@ -873,10 +881,13 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                     (context) {
                                                                   if (containerUsersRecord
                                                                               .photoUrl !=
+                                                                          null &&
+                                                                      containerUsersRecord
+                                                                              .photoUrl !=
                                                                           '') {
                                                                     return Padding(
                                                                       padding:
-                                                                          const EdgeInsets.all(
+                                                                          EdgeInsets.all(
                                                                               2.0),
                                                                       child:
                                                                           ClipRRect(
@@ -885,9 +896,9 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                         child:
                                                                             CachedNetworkImage(
                                                                           fadeInDuration:
-                                                                              const Duration(milliseconds: 200),
+                                                                              Duration(milliseconds: 200),
                                                                           fadeOutDuration:
-                                                                              const Duration(milliseconds: 200),
+                                                                              Duration(milliseconds: 200),
                                                                           imageUrl:
                                                                               searchdataItem.photoUrl,
                                                                           width:
@@ -902,7 +913,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                   } else {
                                                                     return Padding(
                                                                       padding:
-                                                                          const EdgeInsets.all(
+                                                                          EdgeInsets.all(
                                                                               2.0),
                                                                       child:
                                                                           Container(
@@ -917,7 +928,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                           borderRadius:
                                                                               BorderRadius.circular(8.0),
                                                                         ),
-                                                                        alignment: const AlignmentDirectional(
+                                                                        alignment: AlignmentDirectional(
                                                                             0.0,
                                                                             0.0),
                                                                         child:
@@ -953,7 +964,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                               ),
                                               Expanded(
                                                 child: Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           8.0, 0.0, 0.0, 0.0),
                                                   child: Column(
@@ -970,7 +981,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                           Expanded(
                                                             child: Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0.0,
                                                                           0.0,
@@ -996,7 +1007,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                           ),
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 0.0),
                                                             child: Icon(
                                                               Icons.done_all,
@@ -1010,7 +1021,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     4.0,
@@ -1091,7 +1102,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                         children: [
                                                           Align(
                                                             alignment:
-                                                                const AlignmentDirectional(
+                                                                AlignmentDirectional(
                                                                     1.0, 0.0),
                                                             child: Icon(
                                                               Icons
@@ -1122,7 +1133,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                                           .w600,
                                                                 ),
                                                           ),
-                                                        ].divide(const SizedBox(
+                                                        ].divide(SizedBox(
                                                             width: 16.0)),
                                                       ),
                                                     ],
@@ -1130,7 +1141,7 @@ class _List11MessagesWidgetState extends State<List11MessagesWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 15.0, 0.0, 0.0),
                                                 child: Icon(

@@ -48,3 +48,4 @@ export '/pages/b_profile_create_edit_copy/b_profile_create_edit_copy_widget.dart
     show BProfileCreateEditCopyWidget;
 export '/pages/feed_copy2/feed_copy2_widget.dart' show FeedCopy2Widget;
 export '/propert/propert_widget.dart' show PropertWidget;
+export '/callpage/callpage_widget.dart' show CallpageWidget;

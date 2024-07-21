@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'notificationsettings_model.dart';
 export 'notificationsettings_model.dart';
 
@@ -47,7 +49,7 @@ class _NotificationsettingsWidgetState
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFFF1F4F8),
+        backgroundColor: Color(0xFFF1F4F8),
         body: SafeArea(
           top: true,
           child: Column(
@@ -55,14 +57,14 @@ class _NotificationsettingsWidgetState
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     FlutterFlowIconButton(
                       borderRadius: 30.0,
                       buttonSize: 60.0,
-                      icon: const Icon(
+                      icon: Icon(
                         Icons.arrow_back_rounded,
                         color: Color(0xFF101213),
                         size: 30.0,
@@ -77,7 +79,7 @@ class _NotificationsettingsWidgetState
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Urbanist',
-                                color: const Color(0xFF101213),
+                                color: Color(0xFF101213),
                                 fontSize: 24.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
@@ -87,19 +89,19 @@ class _NotificationsettingsWidgetState
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                       child: Text(
                         'Push Notifications',
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Urbanist',
-                                  color: const Color(0xFF101213),
+                                  color: Color(0xFF101213),
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
@@ -108,7 +110,7 @@ class _NotificationsettingsWidgetState
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,7 +121,7 @@ class _NotificationsettingsWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Manrope',
-                                  color: const Color(0xFF57636C),
+                                  color: Color(0xFF57636C),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
@@ -128,25 +130,25 @@ class _NotificationsettingsWidgetState
                           Switch(
                             value: _model.switchValue1!,
                             onChanged: (newValue) async {
-                              setState(() => _model.switchValue1 = newValue);
+                              setState(() => _model.switchValue1 = newValue!);
                             },
-                            activeColor: const Color(0xFF101213),
-                            activeTrackColor: const Color(0xFF57636C),
-                            inactiveTrackColor: const Color(0xFFF1F4F8),
-                            inactiveThumbColor: const Color(0xFF57636C),
+                            activeColor: Color(0xFF101213),
+                            activeTrackColor: Color(0xFF57636C),
+                            inactiveTrackColor: Color(0xFFF1F4F8),
+                            inactiveThumbColor: Color(0xFF57636C),
                           ),
                         ],
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Text(
                         'Email Notifications',
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Urbanist',
-                                  color: const Color(0xFF101213),
+                                  color: Color(0xFF101213),
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
@@ -155,7 +157,7 @@ class _NotificationsettingsWidgetState
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -166,7 +168,7 @@ class _NotificationsettingsWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Manrope',
-                                  color: const Color(0xFF57636C),
+                                  color: Color(0xFF57636C),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
@@ -175,25 +177,25 @@ class _NotificationsettingsWidgetState
                           Switch(
                             value: _model.switchValue2!,
                             onChanged: (newValue) async {
-                              setState(() => _model.switchValue2 = newValue);
+                              setState(() => _model.switchValue2 = newValue!);
                             },
-                            activeColor: const Color(0xFF101213),
-                            activeTrackColor: const Color(0xFF57636C),
-                            inactiveTrackColor: const Color(0xFFF1F4F8),
-                            inactiveThumbColor: const Color(0xFF57636C),
+                            activeColor: Color(0xFF101213),
+                            activeTrackColor: Color(0xFF57636C),
+                            inactiveTrackColor: Color(0xFFF1F4F8),
+                            inactiveThumbColor: Color(0xFF57636C),
                           ),
                         ],
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Text(
                         'SMS Notifications',
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Urbanist',
-                                  color: const Color(0xFF101213),
+                                  color: Color(0xFF101213),
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
@@ -202,7 +204,7 @@ class _NotificationsettingsWidgetState
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -213,7 +215,7 @@ class _NotificationsettingsWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Manrope',
-                                  color: const Color(0xFF57636C),
+                                  color: Color(0xFF57636C),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
@@ -222,25 +224,25 @@ class _NotificationsettingsWidgetState
                           Switch(
                             value: _model.switchValue3!,
                             onChanged: (newValue) async {
-                              setState(() => _model.switchValue3 = newValue);
+                              setState(() => _model.switchValue3 = newValue!);
                             },
-                            activeColor: const Color(0xFF101213),
-                            activeTrackColor: const Color(0xFF57636C),
-                            inactiveTrackColor: const Color(0xFFF1F4F8),
-                            inactiveThumbColor: const Color(0xFF57636C),
+                            activeColor: Color(0xFF101213),
+                            activeTrackColor: Color(0xFF57636C),
+                            inactiveTrackColor: Color(0xFFF1F4F8),
+                            inactiveThumbColor: Color(0xFF57636C),
                           ),
                         ],
                       ),
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                       child: Text(
                         'In-App Notifications',
                         style:
                             FlutterFlowTheme.of(context).headlineSmall.override(
                                   fontFamily: 'Urbanist',
-                                  color: const Color(0xFF101213),
+                                  color: Color(0xFF101213),
                                   fontSize: 20.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.w500,
@@ -249,7 +251,7 @@ class _NotificationsettingsWidgetState
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -260,7 +262,7 @@ class _NotificationsettingsWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Manrope',
-                                  color: const Color(0xFF57636C),
+                                  color: Color(0xFF57636C),
                                   fontSize: 16.0,
                                   letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
@@ -269,12 +271,12 @@ class _NotificationsettingsWidgetState
                           Switch(
                             value: _model.switchValue4!,
                             onChanged: (newValue) async {
-                              setState(() => _model.switchValue4 = newValue);
+                              setState(() => _model.switchValue4 = newValue!);
                             },
-                            activeColor: const Color(0xFF101213),
-                            activeTrackColor: const Color(0xFF57636C),
-                            inactiveTrackColor: const Color(0xFFF1F4F8),
-                            inactiveThumbColor: const Color(0xFF57636C),
+                            activeColor: Color(0xFF101213),
+                            activeTrackColor: Color(0xFF57636C),
+                            inactiveTrackColor: Color(0xFFF1F4F8),
+                            inactiveThumbColor: Color(0xFF57636C),
                           ),
                         ],
                       ),
@@ -283,7 +285,7 @@ class _NotificationsettingsWidgetState
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button pressed ...');
@@ -292,10 +294,10 @@ class _NotificationsettingsWidgetState
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 55.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF9489F5),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF9489F5),
                     textStyle:
                         FlutterFlowTheme.of(context).titleMedium.override(
                               fontFamily: 'Manrope',

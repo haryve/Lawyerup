@@ -3,8 +3,12 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'bforgotpassword_model.dart';
 export 'bforgotpassword_model.dart';
 
@@ -47,8 +51,8 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(3.0, 3.0),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(3.0, 3.0),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -80,7 +84,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
               child: Container(
                 width: double.infinity,
                 height: 500.0,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
                       Color(0xFF4B39EF),
@@ -98,9 +102,9 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               32.0, 150.0, 32.0, 32.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -112,14 +116,14 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                     .displaySmall
                                     .override(
                                       fontFamily: 'Sora',
-                                      color: const Color(0xFF030303),
+                                      color: Color(0xFF030303),
                                       fontSize: 36.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 12.0, 0.0, 24.0),
                                 child: Text(
                                   'Enter your email address to reset your password.',
@@ -127,7 +131,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: const Color(0xFFECEEF0),
+                                        color: Color(0xFFECEEF0),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -135,7 +139,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: TextFormField(
                                   controller: _model.textController,
@@ -148,34 +152,34 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                         .bodyLarge
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: const Color(0xFF14181B),
+                                          color: Color(0xFF14181B),
                                           fontSize: 16.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                     enabledBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0xFFE3E7ED),
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     focusedBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0x00000000),
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     errorBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0x00000000),
                                         width: 2.0,
                                       ),
                                       borderRadius: BorderRadius.circular(12.0),
                                     ),
                                     focusedErrorBorder: OutlineInputBorder(
-                                      borderSide: const BorderSide(
+                                      borderSide: BorderSide(
                                         color: Color(0x00000000),
                                         width: 2.0,
                                       ),
@@ -186,7 +190,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Inter',
-                                        color: const Color(0xFF14181B),
+                                        color: Color(0xFF14181B),
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
@@ -196,7 +200,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 16.0),
                                 child: FFButtonWidget(
                                   onPressed: () async {
@@ -206,9 +210,9 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                   options: FFButtonOptions(
                                     width: 370.0,
                                     height: 44.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 0.0),
                                     color: FlutterFlowTheme.of(context).info,
                                     textStyle: FlutterFlowTheme.of(context)
@@ -230,7 +234,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 4.0),
                                     child: Text(
                                       'Remember your password? ',
@@ -238,7 +242,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Inter',
-                                            color: const Color(0xFF14181B),
+                                            color: Color(0xFF14181B),
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
@@ -246,7 +250,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 4.0, 0.0, 4.0),
                                     child: InkWell(
                                       splashColor: Colors.transparent,
@@ -262,7 +266,7 @@ class _BforgotpasswordWidgetState extends State<BforgotpasswordWidget>
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFF0013FF),
+                                              color: Color(0xFF0013FF),
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,

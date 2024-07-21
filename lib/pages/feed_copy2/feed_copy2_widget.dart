@@ -1,11 +1,18 @@
 import '/backend/backend.dart';
 import '/components/profilepicture_widget.dart';
 import '/components/ratingbar_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'feed_copy2_model.dart';
 export 'feed_copy2_model.dart';
 
@@ -60,7 +67,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
               backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
               automaticallyImplyLeading: false,
               leading: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 0.0, 0.0),
                 child: FlutterFlowIconButton(
                   borderRadius: 30.0,
                   buttonSize: 60.0,
@@ -75,9 +82,9 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                 ),
               ),
               title: Align(
-                alignment: const AlignmentDirectional(-1.0, 0.0),
+                alignment: AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'Connect With Lawyers',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -90,9 +97,9 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
               ),
               actions: [
                 Align(
-                  alignment: const AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 5.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 5.0, 0.0),
                     child: Icon(
                       Icons.search_sharp,
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -101,7 +108,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
                   child: Icon(
                     Icons.filter_alt_sharp,
                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -126,7 +133,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                     child: Column(
                       children: [
                         Align(
-                          alignment: const Alignment(0.0, 0),
+                          alignment: Alignment(0.0, 0),
                           child: FlutterFlowButtonTabBar(
                             useToggleButtonStyle: true,
                             labelStyle: FlutterFlowTheme.of(context)
@@ -150,16 +157,16 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                 FlutterFlowTheme.of(context).accent1,
                             unselectedBackgroundColor:
                                 FlutterFlowTheme.of(context).alternate,
-                            borderColor: const Color(0xFF5B18D8),
+                            borderColor: Color(0xFF5B18D8),
                             unselectedBorderColor:
                                 FlutterFlowTheme.of(context).alternate,
                             borderWidth: 2.0,
                             borderRadius: 8.0,
                             elevation: 0.0,
-                            buttonMargin: const EdgeInsetsDirectional.fromSTEB(
+                            buttonMargin: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
-                            padding: const EdgeInsets.all(10.0),
-                            tabs: const [
+                            padding: EdgeInsets.all(10.0),
+                            tabs: [
                               Tab(
                                 text: 'All',
                               ),
@@ -181,7 +188,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                             controller: _model.tabBarController,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 1.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -205,7 +212,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: const SizedBox(
+                                            child: Container(
                                               height: 610.0,
                                               child: ProfilepictureWidget(),
                                             ),
@@ -216,7 +223,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                   },
                                   child: Container(
                                     width: 100.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       boxShadow: [
                                         BoxShadow(
@@ -265,12 +272,12 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                 listViewLawyersRecordList[
                                                     listViewIndex];
                                             return Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                               child: Container(
                                                 width: 100.0,
                                                 height: 119.0,
-                                                decoration: const BoxDecoration(
+                                                decoration: BoxDecoration(
                                                   color: Color(0xFFD9D5E8),
                                                   borderRadius:
                                                       BorderRadius.only(
@@ -285,7 +292,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: const EdgeInsets.all(8.0),
+                                                  padding: EdgeInsets.all(8.0),
                                                   child: InkWell(
                                                     splashColor:
                                                         Colors.transparent,
@@ -313,7 +320,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                             Card(
                                                               clipBehavior: Clip
                                                                   .antiAliasWithSaveLayer,
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFFF1F4F8),
                                                               elevation: 1.0,
                                                               shape:
@@ -325,7 +332,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -1.0,
                                                                         -1.0),
                                                                 child:
@@ -344,7 +351,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                     fit: BoxFit
                                                                         .cover,
                                                                     alignment:
-                                                                        const Alignment(
+                                                                        Alignment(
                                                                             0.0,
                                                                             0.0),
                                                                   ),
@@ -355,7 +362,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                         ),
                                                         Align(
                                                           alignment:
-                                                              const AlignmentDirectional(
+                                                              AlignmentDirectional(
                                                                   -1.0, 0.0),
                                                           child: Column(
                                                             mainAxisSize:
@@ -374,7 +381,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                     .override(
                                                                       fontFamily:
                                                                           'Outfit',
-                                                                      color: const Color(
+                                                                      color: Color(
                                                                           0xFF1D2429),
                                                                       fontSize:
                                                                           18.0,
@@ -403,7 +410,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                               ),
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             4.0,
                                                                             0.0,
@@ -418,7 +425,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Outfit',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFF57636C),
                                                                         fontSize:
                                                                             14.0,
@@ -455,10 +462,10 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 1.0),
                                                               child: Padding(
-                                                                padding: const EdgeInsetsDirectional
+                                                                padding: EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         12.0,
                                                                         50.0,
@@ -474,7 +481,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Outfit',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFF57636C),
                                                                         fontSize:
                                                                             14.0,
@@ -488,11 +495,11 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 1.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             12.0,
                                                                             0.0,
@@ -506,7 +513,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                       .override(
                                                                         fontFamily:
                                                                             'Outfit',
-                                                                        color: const Color(
+                                                                        color: Color(
                                                                             0xFF57636C),
                                                                         fontSize:
                                                                             14.0,
@@ -526,11 +533,11 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 0.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -595,18 +602,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 12.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: InkWell(
                                               splashColor: Colors.transparent,
@@ -643,7 +650,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -654,7 +661,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -671,7 +678,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -685,12 +692,12 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                           child: Container(
                                             width: double.infinity,
                                             decoration: BoxDecoration(
-                                              color: const Color(0xFFF1F4F8),
+                                              color: Color(0xFFF1F4F8),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       8.0, 8.0, 12.0, 8.0),
                                               child: Row(
@@ -711,7 +718,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -722,7 +729,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -739,18 +746,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -769,7 +776,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -781,7 +788,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -795,18 +802,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -825,7 +832,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -837,7 +844,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -851,18 +858,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -881,7 +888,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -893,7 +900,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -907,18 +914,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -937,7 +944,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -949,7 +956,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -963,18 +970,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -993,7 +1000,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1005,7 +1012,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1019,18 +1026,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1049,7 +1056,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1061,7 +1068,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1075,18 +1082,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1105,7 +1112,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1117,7 +1124,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1131,18 +1138,18 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1161,7 +1168,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1173,7 +1180,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1187,12 +1194,12 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 44.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
@@ -1259,13 +1266,13 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                     listViewLawyersRecordList[
                                                         listViewIndex];
                                                 return Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 5.0),
                                                   child: Container(
                                                     width: 100.0,
                                                     height: 119.0,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       color: Color(0xFFD9D5E8),
                                                       borderRadius:
                                                           BorderRadius.only(
@@ -1285,7 +1292,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsets.all(8.0),
+                                                          EdgeInsets.all(8.0),
                                                       child: InkWell(
                                                         splashColor:
                                                             Colors.transparent,
@@ -1309,7 +1316,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                             Card(
                                                               clipBehavior: Clip
                                                                   .antiAliasWithSaveLayer,
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFFF1F4F8),
                                                               elevation: 1.0,
                                                               shape:
@@ -1321,7 +1328,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                               ),
                                                               child: Align(
                                                                 alignment:
-                                                                    const AlignmentDirectional(
+                                                                    AlignmentDirectional(
                                                                         -1.0,
                                                                         -1.0),
                                                                 child:
@@ -1340,7 +1347,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                     fit: BoxFit
                                                                         .cover,
                                                                     alignment:
-                                                                        const Alignment(
+                                                                        Alignment(
                                                                             0.0,
                                                                             0.0),
                                                                   ),
@@ -1349,7 +1356,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       -1.0,
                                                                       0.0),
                                                               child: Column(
@@ -1362,7 +1369,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                 children: [
                                                                   Align(
                                                                     alignment:
-                                                                        const AlignmentDirectional(
+                                                                        AlignmentDirectional(
                                                                             -1.0,
                                                                             -1.0),
                                                                     child: Text(
@@ -1375,7 +1382,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                             fontFamily:
                                                                                 'Outfit',
                                                                             color:
-                                                                                const Color(0xFF1D2429),
+                                                                                Color(0xFF1D2429),
                                                                             fontSize:
                                                                                 18.0,
                                                                             letterSpacing:
@@ -1402,7 +1409,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                         'Keypeq_${listViewIndex}_of_${listViewLawyersRecordList.length}'),
                                                                   ),
                                                                   Padding(
-                                                                    padding: const EdgeInsetsDirectional
+                                                                    padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             4.0,
                                                                             0.0,
@@ -1418,7 +1425,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                             fontFamily:
                                                                                 'Outfit',
                                                                             color:
-                                                                                const Color(0xFF57636C),
+                                                                                Color(0xFF57636C),
                                                                             fontSize:
                                                                                 14.0,
                                                                             letterSpacing:
@@ -1450,11 +1457,11 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                             ),
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       1.0, 0.0),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             40.0,
                                                                             0.0,
@@ -1467,12 +1474,12 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                   children: [
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               1.0,
                                                                               0.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             20.0,
                                                                             15.0,
                                                                             0.0,
@@ -1506,12 +1513,12 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                     ),
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               1.0,
                                                                               1.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             0.0,
@@ -1525,7 +1532,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                               .bodySmall
                                                                               .override(
                                                                                 fontFamily: 'Outfit',
-                                                                                color: const Color(0xFF57636C),
+                                                                                color: Color(0xFF57636C),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,
@@ -1535,12 +1542,12 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                     ),
                                                                     Align(
                                                                       alignment:
-                                                                          const AlignmentDirectional(
+                                                                          AlignmentDirectional(
                                                                               1.0,
                                                                               1.0),
                                                                       child:
                                                                           Padding(
-                                                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                        padding: EdgeInsetsDirectional.fromSTEB(
                                                                             12.0,
                                                                             0.0,
                                                                             0.0,
@@ -1552,7 +1559,7 @@ class _FeedCopy2WidgetState extends State<FeedCopy2Widget>
                                                                               .bodySmall
                                                                               .override(
                                                                                 fontFamily: 'Outfit',
-                                                                                color: const Color(0xFF57636C),
+                                                                                color: Color(0xFF57636C),
                                                                                 fontSize: 14.0,
                                                                                 letterSpacing: 0.0,
                                                                                 fontWeight: FontWeight.normal,

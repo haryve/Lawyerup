@@ -8,7 +8,10 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'b_profile_create_edit_model.dart';
 export 'b_profile_create_edit_model.dart';
 
@@ -56,24 +59,24 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: const Color(0xFFECDAFF),
+      backgroundColor: Color(0xFFECDAFF),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF9BAFF1),
+        backgroundColor: Color(0xFF9BAFF1),
         automaticallyImplyLeading: true,
         title: Padding(
-          padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 80.0, 3.0),
+          padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 80.0, 3.0),
           child: Text(
             'Create your Profile',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
-                  color: const Color(0xFF14181B),
+                  color: Color(0xFF14181B),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.normal,
                 ),
           ),
         ),
-        actions: const [],
+        actions: [],
         centerTitle: true,
         elevation: 4.0,
       ),
@@ -82,14 +85,14 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 8.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 8.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       context.pushNamed('Addfunds');
@@ -99,9 +102,9 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                       width: 134.0,
                       height: 42.0,
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                       iconPadding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).secondaryText,
                       textStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
@@ -111,7 +114,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                                 fontWeight: FontWeight.w600,
                               ),
                       elevation: 3.0,
-                      borderSide: const BorderSide(
+                      borderSide: BorderSide(
                         color: Colors.transparent,
                         width: 1.0,
                       ),
@@ -123,7 +126,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 50.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 50.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -133,10 +136,10 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(-1.0, 0.0),
+                      alignment: AlignmentDirectional(-1.0, 0.0),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
                         child: AuthUserStreamWidget(
                           builder: (context) =>
                               StreamBuilder<List<LawyersRecord>>(
@@ -240,11 +243,12 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                                   width: 120.0,
                                   height: 120.0,
                                   clipBehavior: Clip.antiAlias,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    currentUserPhoto != ''
+                                    currentUserPhoto != null &&
+                                            currentUserPhoto != ''
                                         ? currentUserPhoto
                                         : random_data.randomImageUrl(
                                             0,
@@ -266,7 +270,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 20.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(1.0, 0.0, 20.0, 0.0),
                       child: AuthUserStreamWidget(
                         builder: (context) => Text(
                           currentUserDisplayName,
@@ -281,7 +285,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      alignment: AlignmentDirectional(0.0, 1.0),
                       child: Text(
                         currentUserEmail,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -297,7 +301,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
             child: AuthUserStreamWidget(
               builder: (context) => TextFormField(
                 controller: _model.yourNameTextController,
@@ -307,7 +311,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: const Color(0xFF57636C),
+                        color: Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -315,34 +319,34 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   hintText: 'NAME',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: const Color(0xFF57636C),
+                        color: Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -351,11 +355,11 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: const Color(0xFF14181B),
+                      color: Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -366,7 +370,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
             child: AuthUserStreamWidget(
               builder: (context) => TextFormField(
                 controller: _model.cityTextController,
@@ -376,7 +380,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: const Color(0xFF57636C),
+                        color: Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -384,34 +388,34 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   hintText: 'CITY',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: const Color(0xFF57636C),
+                        color: Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -420,11 +424,11 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: const Color(0xFF14181B),
+                      color: Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -435,7 +439,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
             child: AuthUserStreamWidget(
               builder: (context) => FlutterFlowDropDown<String>(
                 controller: _model.stateValueController ??=
@@ -443,7 +447,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   _model.stateValue ??=
                       valueOrDefault(currentUserDocument?.state, ''),
                 ),
-                options: const [
+                options: [
                   'State',
                   'Ladakh',
                   'jammu',
@@ -481,23 +485,23 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                 height: 56.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: const Color(0xFF14181B),
+                      color: Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
                     ),
                 hintText: 'Select State',
-                icon: const Icon(
+                icon: Icon(
                   Icons.keyboard_arrow_down_rounded,
                   color: Color(0xFF57636C),
                   size: 15.0,
                 ),
                 fillColor: Colors.white,
                 elevation: 2.0,
-                borderColor: const Color(0xFFE0E3E7),
+                borderColor: Color(0xFFE0E3E7),
                 borderWidth: 2.0,
                 borderRadius: 8.0,
-                margin: const EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 12.0, 4.0),
+                margin: EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 12.0, 4.0),
                 hidesUnderline: true,
                 isSearchable: false,
                 isMultiSelect: false,
@@ -505,7 +509,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+            padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
             child: AuthUserStreamWidget(
               builder: (context) => TextFormField(
                 controller: _model.myBioTextController,
@@ -515,7 +519,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: const Color(0xFF57636C),
+                        color: Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -523,34 +527,34 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   hintText: 'Your bio',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: const Color(0xFF57636C),
+                        color: Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -559,11 +563,11 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: const Color(0xFF14181B),
+                      color: Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -576,9 +580,9 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(0.0, 0.05),
+            alignment: AlignmentDirectional(0.0, 0.05),
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
               child: FFButtonWidget(
                 onPressed: () async {
                   await currentUserReference!.update(createUsersRecordData(
@@ -595,10 +599,10 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                 options: FFButtonOptions(
                   width: 270.0,
                   height: 50.0,
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
-                      const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: const Color(0xFF4B39EF),
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: Color(0xFF4B39EF),
                   textStyle: FlutterFlowTheme.of(context).titleMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
                         color: Colors.white,
@@ -607,7 +611,7 @@ class _BProfileCreateEditWidgetState extends State<BProfileCreateEditWidget> {
                         fontWeight: FontWeight.normal,
                       ),
                   elevation: 2.0,
-                  borderSide: const BorderSide(
+                  borderSide: BorderSide(
                     color: Colors.transparent,
                     width: 1.0,
                   ),

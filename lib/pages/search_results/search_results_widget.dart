@@ -1,12 +1,19 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/profilepicture_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'search_results_model.dart';
 export 'search_results_model.dart';
@@ -85,7 +92,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 48.0,
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back_rounded,
                   color: Color(0xFF1D2429),
                   size: 30.0,
@@ -98,13 +105,13 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                 'Search Lawyers',
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Outfit',
-                      color: const Color(0xFF1D2429),
+                      color: Color(0xFF1D2429),
                       fontSize: 20.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 0.0,
             ),
@@ -132,7 +139,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                 : FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
-                              child: const SizedBox(
+                              child: Container(
                                 height: 330.0,
                                 child: ProfilepictureWidget(),
                               ),
@@ -146,7 +153,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 6.0, 0.0),
                           child: Container(
                             width: 394.0,
@@ -160,10 +167,10 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: Autocomplete<String>(
-                                      initialValue: const TextEditingValue(),
+                                      initialValue: TextEditingValue(),
                                       optionsBuilder: (textEditingValue) {
                                         if (textEditingValue.text == '') {
                                           return const Iterable<String>.empty();
@@ -192,7 +199,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                         'Playfair Display',
                                                     letterSpacing: 0.0,
                                                   ),
-                                          textHighlightStyle: const TextStyle(),
+                                          textHighlightStyle: TextStyle(),
                                           elevation: 4.0,
                                           optionBackgroundColor:
                                               FlutterFlowTheme.of(context)
@@ -236,8 +243,8 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                               TextSearchItem
                                                                   .fromTerms(
                                                                       record, [
-                                                            record.name,
-                                                            record.category
+                                                            record.name!,
+                                                            record.category!
                                                           ]),
                                                         )
                                                         .toList(),
@@ -317,7 +324,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                   BorderRadius.circular(8.0),
                                             ),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 0.0, 16.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -363,7 +370,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                     child: Column(
                       children: [
                         Align(
-                          alignment: const Alignment(0.0, 0),
+                          alignment: Alignment(0.0, 0),
                           child: FlutterFlowButtonTabBar(
                             useToggleButtonStyle: true,
                             labelStyle: FlutterFlowTheme.of(context)
@@ -393,10 +400,10 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                             borderWidth: 2.0,
                             borderRadius: 8.0,
                             elevation: 0.0,
-                            buttonMargin: const EdgeInsetsDirectional.fromSTEB(
+                            buttonMargin: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
-                            padding: const EdgeInsets.all(4.0),
-                            tabs: const [
+                            padding: EdgeInsets.all(4.0),
+                            tabs: [
                               Tab(
                                 text: 'All',
                               ),
@@ -418,7 +425,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                             controller: _model.tabBarController,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 1.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -442,7 +449,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: const SizedBox(
+                                            child: Container(
                                               height: 610.0,
                                               child: ProfilepictureWidget(),
                                             ),
@@ -453,7 +460,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                   },
                                   child: Container(
                                     width: 100.0,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       color: Colors.white,
                                       boxShadow: [
                                         BoxShadow(
@@ -470,7 +477,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                       visible: /* NOT RECOMMENDED */
                                           _model.textController.text == 'true',
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 8.0, 8.0, 0.0),
                                         child: Builder(
                                           builder: (context) {
@@ -488,7 +495,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                     lawyerssearch[
                                                         lawyerssearchIndex];
                                                 return Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 1.0),
                                                   child: InkWell(
@@ -523,7 +530,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                               padding: MediaQuery
                                                                   .viewInsetsOf(
                                                                       context),
-                                                              child: const SizedBox(
+                                                              child: Container(
                                                                 height: 610.0,
                                                                 child:
                                                                     ProfilepictureWidget(),
@@ -536,7 +543,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                     },
                                                     child: Container(
                                                       width: 100.0,
-                                                      decoration: const BoxDecoration(
+                                                      decoration: BoxDecoration(
                                                         color: Colors.white,
                                                         boxShadow: [
                                                           BoxShadow(
@@ -552,7 +559,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsets.all(8.0),
+                                                            EdgeInsets.all(8.0),
                                                         child: InkWell(
                                                           splashColor: Colors
                                                               .transparent,
@@ -597,7 +604,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                           .start,
                                                                   children: [
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           12.0,
                                                                           0.0,
                                                                           0.0,
@@ -611,7 +618,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                             .titleMedium
                                                                             .override(
                                                                               fontFamily: 'Outfit',
-                                                                              color: const Color(0xFF1D2429),
+                                                                              color: Color(0xFF1D2429),
                                                                               fontSize: 18.0,
                                                                               letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w500,
@@ -619,7 +626,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                       ),
                                                                     ),
                                                                     Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                      padding: EdgeInsetsDirectional.fromSTEB(
                                                                           0.0,
                                                                           4.0,
                                                                           0.0,
@@ -630,7 +637,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                             MainAxisSize.max,
                                                                         children: [
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 12.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -641,7 +648,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                                 currentPhoneNumber,
                                                                                 style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                       fontFamily: 'Outfit',
-                                                                                      color: const Color(0xFF57636C),
+                                                                                      color: Color(0xFF57636C),
                                                                                       fontSize: 14.0,
                                                                                       letterSpacing: 0.0,
                                                                                       fontWeight: FontWeight.normal,
@@ -650,7 +657,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                             ),
                                                                           ),
                                                                           Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                                                            padding: EdgeInsetsDirectional.fromSTEB(
                                                                                 4.0,
                                                                                 0.0,
                                                                                 0.0,
@@ -660,7 +667,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                               currentUserEmail,
                                                                               style: FlutterFlowTheme.of(context).bodySmall.override(
                                                                                     fontFamily: 'Outfit',
-                                                                                    color: const Color(0xFF57636C),
+                                                                                    color: Color(0xFF57636C),
                                                                                     fontSize: 14.0,
                                                                                     letterSpacing: 0.0,
                                                                                     fontWeight: FontWeight.normal,
@@ -691,7 +698,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                 child: Card(
                                                                   clipBehavior:
                                                                       Clip.antiAliasWithSaveLayer,
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFFF1F4F8),
                                                                   elevation:
                                                                       1.0,
@@ -704,7 +711,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                   child:
                                                                       Padding(
                                                                     padding:
-                                                                        const EdgeInsets.all(
+                                                                        EdgeInsets.all(
                                                                             4.0),
                                                                     child:
                                                                         InkWell(
@@ -726,7 +733,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                             'Details36ArticleDetails');
                                                                       },
                                                                       child:
-                                                                          const Icon(
+                                                                          Icon(
                                                                         Icons
                                                                             .keyboard_arrow_right_rounded,
                                                                         color: Color(
@@ -804,7 +811,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                             listViewLawyersRecordList[
                                                 listViewIndex];
                                         return Padding(
-                                          padding: const EdgeInsets.all(8.0),
+                                          padding: EdgeInsets.all(8.0),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -835,7 +842,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     12.0,
                                                                     0.0,
@@ -854,7 +861,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF1D2429),
                                                                 fontSize: 18.0,
                                                                 letterSpacing:
@@ -871,7 +878,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                 Card(
                                                   clipBehavior: Clip
                                                       .antiAliasWithSaveLayer,
-                                                  color: const Color(0xFFF1F4F8),
+                                                  color: Color(0xFFF1F4F8),
                                                   elevation: 1.0,
                                                   shape: RoundedRectangleBorder(
                                                     borderRadius:
@@ -880,7 +887,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsets.all(4.0),
+                                                        EdgeInsets.all(4.0),
                                                     child: InkWell(
                                                       splashColor:
                                                           Colors.transparent,
@@ -894,7 +901,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                         context.pushNamed(
                                                             'Details36ArticleDetails');
                                                       },
-                                                      child: const Icon(
+                                                      child: Icon(
                                                         Icons
                                                             .keyboard_arrow_right_rounded,
                                                         color:
@@ -925,7 +932,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                   scrollDirection: Axis.vertical,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: EdgeInsets.all(8.0),
                                       child: InkWell(
                                         splashColor: Colors.transparent,
                                         focusColor: Colors.transparent,
@@ -956,7 +963,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(12.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -968,7 +975,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                           .override(
                                                             fontFamily:
                                                                 'Outfit',
-                                                            color: const Color(
+                                                            color: Color(
                                                                 0xFF1D2429),
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
@@ -979,7 +986,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Row(
@@ -988,7 +995,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       0.0,
@@ -1006,7 +1013,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                   .override(
                                                                     fontFamily:
                                                                         'Outfit',
-                                                                    color: const Color(
+                                                                    color: Color(
                                                                         0xFF57636C),
                                                                     fontSize:
                                                                         14.0,
@@ -1021,7 +1028,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       4.0,
                                                                       0.0,
@@ -1035,7 +1042,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                                 .override(
                                                                   fontFamily:
                                                                       'Outfit',
-                                                                  color: const Color(
+                                                                  color: Color(
                                                                       0xFF57636C),
                                                                   fontSize:
                                                                       14.0,
@@ -1056,14 +1063,14 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                             Card(
                                               clipBehavior:
                                                   Clip.antiAliasWithSaveLayer,
-                                              color: const Color(0xFFF1F4F8),
+                                              color: Color(0xFFF1F4F8),
                                               elevation: 1.0,
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(40.0),
                                               ),
                                               child: Padding(
-                                                padding: const EdgeInsets.all(4.0),
+                                                padding: EdgeInsets.all(4.0),
                                                 child: InkWell(
                                                   splashColor:
                                                       Colors.transparent,
@@ -1077,7 +1084,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                     context.pushNamed(
                                                         'Details36ArticleDetails');
                                                   },
-                                                  child: const Icon(
+                                                  child: Icon(
                                                     Icons
                                                         .keyboard_arrow_right_rounded,
                                                     color: Color(0xFF57636C),

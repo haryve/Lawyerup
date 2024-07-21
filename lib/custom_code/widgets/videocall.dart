@@ -14,10 +14,16 @@ class Videocall extends StatefulWidget {
     super.key,
     this.width,
     this.height,
+    required this.callId,
+    required this.userID,
+    required this.username,
   });
 
   final double? width;
   final double? height;
+  final String callId;
+  final String userID;
+  final String username;
 
   @override
   State<Videocall> createState() => _VideocallState();
@@ -33,7 +39,7 @@ class _VideocallState extends State<Videocall> {
           yourAppSign, // Fill in the appSign that you get from ZEGOCLOUD Admin Console.
       userID: 'user_id',
       userName: 'user_name',
-      callID: 'callID',
+      callID: callID,
       // You can also use groupVideo/groupVoice/oneOnOneVoice to make more types of calls.
       config: ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall(),
     );

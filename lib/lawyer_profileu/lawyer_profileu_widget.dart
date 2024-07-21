@@ -4,9 +4,14 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:math';
 import 'dart:ui';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'lawyer_profileu_model.dart';
 export 'lawyer_profileu_model.dart';
 
@@ -46,15 +51,15 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(1.7, 1.7),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(1.7, 1.7),
+            end: Offset(1.0, 1.0),
           ),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(0.0, 200.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 200.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -73,22 +78,22 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(0.698, 0),
-            end: const Offset(0, 0),
+            begin: Offset(0.698, 0),
+            end: Offset(0, 0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(0.7, 0.7),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.7, 0.7),
+            end: Offset(1.0, 1.0),
           ),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 500.0.ms,
-            begin: const Offset(0.0, 30.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 30.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -162,20 +167,20 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                   context.pop();
                 },
               ),
-              actions: const [],
+              actions: [],
               elevation: 0.0,
             ),
             body: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SizedBox(
+                  Container(
                     width: double.infinity,
                     child: Stack(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       children: [
                         ClipRRect(
-                          borderRadius: const BorderRadius.only(
+                          borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(16.0),
                             bottomRight: Radius.circular(16.0),
                             topLeft: Radius.circular(0.0),
@@ -190,12 +195,12 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation']!),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 370.0, 0.0, 0.0),
                             child: ClipRRect(
-                              borderRadius: const BorderRadius.only(
+                              borderRadius: BorderRadius.only(
                                 bottomLeft: Radius.circular(0.0),
                                 bottomRight: Radius.circular(0.0),
                                 topLeft: Radius.circular(16.0),
@@ -209,7 +214,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context).accent4,
-                                    borderRadius: const BorderRadius.only(
+                                    borderRadius: BorderRadius.only(
                                       bottomLeft: Radius.circular(0.0),
                                       bottomRight: Radius.circular(0.0),
                                       topLeft: Radius.circular(16.0),
@@ -220,16 +225,16 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsets.all(12.0),
+                                        padding: EdgeInsets.all(12.0),
                                         child: Container(
                                           width: double.infinity,
-                                          constraints: const BoxConstraints(
+                                          constraints: BoxConstraints(
                                             maxWidth: 800.0,
                                           ),
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .secondaryBackground,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 3.0,
                                                 color: Color(0x33000000),
@@ -243,7 +248,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(12.0),
+                                            padding: EdgeInsets.all(12.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
                                               crossAxisAlignment:
@@ -252,7 +257,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                 Text(
                                                   valueOrDefault<String>(
                                                     lawyerProfileuLawyersRecord
-                                                        .name,
+                                                        ?.name,
                                                     'Lawyer',
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -281,10 +286,10 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                                 valueOrDefault<
                                                                     String>(
                                                               lawyerProfileuLawyersRecord
-                                                                  .city,
+                                                                  ?.city,
                                                               'city',
                                                             ),
-                                                            style: const TextStyle(),
+                                                            style: TextStyle(),
                                                           )
                                                         ],
                                                         style:
@@ -303,22 +308,22 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                       height: 32.0,
                                                       decoration: BoxDecoration(
                                                         color:
-                                                            const Color(0xFF2032DD),
+                                                            Color(0xFF2032DD),
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(12.0),
                                                         border: Border.all(
                                                           color:
-                                                              const Color(0xFFC72020),
+                                                              Color(0xFFC72020),
                                                         ),
                                                       ),
                                                       child: Align(
                                                         alignment:
-                                                            const AlignmentDirectional(
+                                                            AlignmentDirectional(
                                                                 0.0, 0.0),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       0.0,
@@ -340,7 +345,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                       ),
                                                     ),
                                                   ].divide(
-                                                      const SizedBox(width: 8.0)),
+                                                      SizedBox(width: 8.0)),
                                                 ),
                                                 Divider(
                                                   height: 16.0,
@@ -381,8 +386,8 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                           valueOrDefault<
                                                               String>(
                                                             lawyerProfileuLawyersRecord
-                                                                .lawyerCharge
-                                                                .toString(),
+                                                                ?.lawyerCharge
+                                                                ?.toString(),
                                                             'charge',
                                                           ),
                                                           style: FlutterFlowTheme
@@ -408,7 +413,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                               ),
                                                         ),
                                                       ].divide(
-                                                          const SizedBox(width: 4.0)),
+                                                          SizedBox(width: 4.0)),
                                                     ),
                                                     FFButtonWidget(
                                                       onPressed: () {
@@ -419,21 +424,21 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                       options: FFButtonOptions(
                                                         height: 40.0,
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     24.0,
                                                                     0.0,
                                                                     24.0,
                                                                     0.0),
                                                         iconPadding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
                                                                     0.0,
                                                                     0.0),
                                                         color:
-                                                            const Color(0xFF394DB3),
+                                                            Color(0xFF394DB3),
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -447,7 +452,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                                       0.0,
                                                                 ),
                                                         elevation: 3.0,
-                                                        borderSide: const BorderSide(
+                                                        borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent,
                                                           width: 2.0,
@@ -492,7 +497,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 1.0),
                                                   child: Container(
@@ -505,7 +510,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                     ),
                                                     child: Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   4.0,
@@ -530,10 +535,10 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                                 valueOrDefault<
                                                                     String>(
                                                                   lawyerProfileuLawyersRecord
-                                                                      .lawyerSkills
-                                                                      .take(5)
+                                                                      ?.lawyerSkills
+                                                                      ?.take(5)
                                                                       .toList()
-                                                                      .first,
+                                                                      ?.first,
                                                                   'skills',
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
@@ -546,10 +551,10 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                                           0.0,
                                                                     ),
                                                               ),
-                                                            ].divide(const SizedBox(
+                                                            ].divide(SizedBox(
                                                                 height: 4.0)),
                                                           ),
-                                                        ].divide(const SizedBox(
+                                                        ].divide(SizedBox(
                                                             width: 12.0)),
                                                       ),
                                                     ),
@@ -575,7 +580,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                 Text(
                                                   valueOrDefault<String>(
                                                     lawyerProfileuLawyersRecord
-                                                        .bio,
+                                                        ?.bio,
                                                     'bio',
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -607,7 +612,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                 Text(
                                                   valueOrDefault<String>(
                                                     lawyerProfileuLawyersRecord
-                                                        .location,
+                                                        ?.location,
                                                     'address',
                                                   ),
                                                   style: FlutterFlowTheme.of(
@@ -619,7 +624,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                       ),
                                                 ),
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 8.0, 0.0, 0.0),
                                                   child: Container(
@@ -641,7 +646,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                     ),
                                                     child: Align(
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Text(
                                                         'Map goes here...',
@@ -659,7 +664,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                                                     ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(height: 4.0)),
+                                              ].divide(SizedBox(height: 4.0)),
                                             ),
                                           ),
                                         ),
@@ -675,7 +680,7 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                       ],
                     ),
                   ),
-                ].addToEnd(const SizedBox(height: 38.0)),
+                ].addToEnd(SizedBox(height: 38.0)),
               ),
             ),
           ),

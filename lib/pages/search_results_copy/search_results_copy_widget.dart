@@ -5,7 +5,10 @@ import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:text_search/text_search.dart';
 import 'search_results_copy_model.dart';
 export 'search_results_copy_model.dart';
@@ -84,7 +87,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 48.0,
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back_rounded,
                   color: Color(0xFF1D2429),
                   size: 30.0,
@@ -95,18 +98,18 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
               ),
               title: Text(
                 valueOrDefault<String>(
-                  widget.category,
+                  widget!.category,
                   '--',
                 ),
                 style: FlutterFlowTheme.of(context).headlineSmall.override(
                       fontFamily: 'Outfit',
-                      color: const Color(0xFF1D2429),
+                      color: Color(0xFF1D2429),
                       fontSize: 20.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 0.0,
             ),
@@ -134,7 +137,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                 : FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
-                              child: const SizedBox(
+                              child: Container(
                                 height: 330.0,
                                 child: ProfilepictureWidget(),
                               ),
@@ -148,7 +151,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 6.0, 0.0),
                           child: Container(
                             width: 394.0,
@@ -162,10 +165,10 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: Autocomplete<String>(
-                                      initialValue: const TextEditingValue(),
+                                      initialValue: TextEditingValue(),
                                       optionsBuilder: (textEditingValue) {
                                         if (textEditingValue.text == '') {
                                           return const Iterable<String>.empty();
@@ -194,7 +197,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                         'Playfair Display',
                                                     letterSpacing: 0.0,
                                                   ),
-                                          textHighlightStyle: const TextStyle(),
+                                          textHighlightStyle: TextStyle(),
                                           elevation: 4.0,
                                           optionBackgroundColor:
                                               FlutterFlowTheme.of(context)
@@ -238,8 +241,8 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                               TextSearchItem
                                                                   .fromTerms(
                                                                       record, [
-                                                            record.name,
-                                                            record.category
+                                                            record.name!,
+                                                            record.category!
                                                           ]),
                                                         )
                                                         .toList(),
@@ -319,7 +322,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                   BorderRadius.circular(8.0),
                                             ),
                                             contentPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 16.0, 0.0, 16.0),
                                           ),
                                           style: FlutterFlowTheme.of(context)
@@ -369,8 +372,8 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                           final categorylawyer =
                               searchResultsCopyLawyersRecordList
                                   .where((e) =>
-                                      widget.category != null &&
-                                      widget.category != '')
+                                      widget!.category != null &&
+                                      widget!.category != '')
                                   .toList();
 
                           return ListView.builder(
@@ -389,7 +392,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -419,7 +422,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Text(
@@ -431,7 +434,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                       .override(
                                                         fontFamily: 'Outfit',
                                                         color:
-                                                            const Color(0xFF1D2429),
+                                                            Color(0xFF1D2429),
                                                         fontSize: 18.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
@@ -440,7 +443,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 4.0, 0.0, 0.0),
                                                 child: Row(
@@ -449,7 +452,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   12.0,
                                                                   0.0,
@@ -466,7 +469,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                               .override(
                                                                 fontFamily:
                                                                     'Outfit',
-                                                                color: const Color(
+                                                                color: Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -480,7 +483,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                     ),
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   4.0,
                                                                   0.0,
@@ -494,7 +497,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                             .override(
                                                               fontFamily:
                                                                   'Outfit',
-                                                              color: const Color(
+                                                              color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -523,14 +526,14 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                           child: Card(
                                             clipBehavior:
                                                 Clip.antiAliasWithSaveLayer,
-                                            color: const Color(0xFFF1F4F8),
+                                            color: Color(0xFFF1F4F8),
                                             elevation: 1.0,
                                             shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(40.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(4.0),
+                                              padding: EdgeInsets.all(4.0),
                                               child: InkWell(
                                                 splashColor: Colors.transparent,
                                                 focusColor: Colors.transparent,
@@ -541,7 +544,7 @@ class _SearchResultsCopyWidgetState extends State<SearchResultsCopyWidget> {
                                                   context.pushNamed(
                                                       'Details36ArticleDetails');
                                                 },
-                                                child: const Icon(
+                                                child: Icon(
                                                   Icons
                                                       .keyboard_arrow_right_rounded,
                                                   color: Color(0xFF57636C),

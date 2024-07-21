@@ -4,9 +4,13 @@ import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'chats_model.dart';
 export 'chats_model.dart';
 
@@ -18,7 +22,7 @@ class ChatsWidget extends StatefulWidget {
     required this.chatuser,
     required this.userRef,
     required this.userProfile,
-  }) : username = username ?? '';
+  }) : this.username = username ?? '';
 
   final String username;
   final String? useremail;
@@ -105,13 +109,13 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 0.0, 20.0, 15.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -138,7 +142,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                 size: 24.0,
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: InkWell(
@@ -159,18 +163,18 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                     height: 42.0,
                                                     clipBehavior:
                                                         Clip.antiAlias,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Image.network(
-                                                      widget.userProfile!,
+                                                      widget!.userProfile!,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         12.0, 0.0, 0.0, 0.0),
                                                 child: Column(
@@ -183,7 +187,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -203,7 +207,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                               'Lawyer_profileu');
                                                         },
                                                         child: Text(
-                                                          widget.username,
+                                                          widget!.username,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -224,7 +228,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                     ),
                                                     Text(
                                                       valueOrDefault<String>(
-                                                        widget.useremail,
+                                                        widget!.useremail,
                                                         '--',
                                                       ),
                                                       style: FlutterFlowTheme
@@ -274,7 +278,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               20.0, 24.0, 20.0, 24.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -286,7 +290,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                       chatMessagesRecord
                                           .where(
                                             'chat',
-                                            isEqualTo: widget.chatuser,
+                                            isEqualTo: widget!.chatuser,
                                           )
                                           .orderBy('timestamp'),
                                 ),
@@ -331,6 +335,9 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                     currentUserReference) &&
                                                 (listViewChatMessagesRecord
                                                             .image !=
+                                                        null &&
+                                                    listViewChatMessagesRecord
+                                                            .image !=
                                                         ''))
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -341,7 +348,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 24.0,
                                                                 16.0, 0.0),
                                                     child: Container(
@@ -349,25 +356,25 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                       height: 40.0,
                                                       clipBehavior:
                                                           Clip.antiAlias,
-                                                      decoration: const BoxDecoration(
+                                                      decoration: BoxDecoration(
                                                         shape: BoxShape.circle,
                                                       ),
                                                       child: Image.network(
-                                                        widget.userProfile!,
+                                                        widget!.userProfile!,
                                                         fit: BoxFit.cover,
                                                       ),
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 24.0,
                                                                 0.0, 0.0),
                                                     child: Container(
                                                       width: 300.0,
                                                       height: 180.0,
                                                       constraints:
-                                                          const BoxConstraints(
+                                                          BoxConstraints(
                                                         maxWidth: 260.0,
                                                         maxHeight: 180.0,
                                                       ),
@@ -383,7 +390,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                           ).image,
                                                         ),
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   24.0),
@@ -412,9 +419,12 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                     currentUserReference) &&
                                                 (listViewChatMessagesRecord
                                                             .image !=
+                                                        null &&
+                                                    listViewChatMessagesRecord
+                                                            .image !=
                                                         ''))
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 20.0),
                                                 child: Row(
@@ -427,7 +437,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   24.0,
@@ -437,7 +447,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                         width: 300.0,
                                                         height: 180.0,
                                                         constraints:
-                                                            const BoxConstraints(
+                                                            BoxConstraints(
                                                           maxWidth: 260.0,
                                                           maxHeight: 180.0,
                                                         ),
@@ -456,7 +466,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                             ).image,
                                                           ),
                                                           borderRadius:
-                                                              const BorderRadius.only(
+                                                              BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     24.0),
@@ -480,12 +490,12 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                           children: [
                                                             Align(
                                                               alignment:
-                                                                  const AlignmentDirectional(
+                                                                  AlignmentDirectional(
                                                                       0.92,
                                                                       0.96),
                                                               child: Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             0.0,
                                                                             0.0,
@@ -494,7 +504,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                                 child: Icon(
                                                                   Icons
                                                                       .done_all,
-                                                                  color: chatsChatsRecord?.lastMessageSeenBy.contains(widget
+                                                                  color: chatsChatsRecord?.lastMessageSeenBy?.contains(widget!
                                                                               .chatuser) ==
                                                                           true
                                                                       ? FlutterFlowTheme.of(
@@ -519,6 +529,9 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                     currentUserReference) &&
                                                 (listViewChatMessagesRecord
                                                             .text !=
+                                                        null &&
+                                                    listViewChatMessagesRecord
+                                                            .text !=
                                                         ''))
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -530,23 +543,23 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                     height: 40.0,
                                                     clipBehavior:
                                                         Clip.antiAlias,
-                                                    decoration: const BoxDecoration(
+                                                    decoration: BoxDecoration(
                                                       shape: BoxShape.circle,
                                                     ),
                                                     child: Image.network(
-                                                      widget.userProfile!,
+                                                      widget!.userProfile!,
                                                       fit: BoxFit.cover,
                                                     ),
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Container(
                                                       width: 300.0,
                                                       constraints:
-                                                          const BoxConstraints(
+                                                          BoxConstraints(
                                                         maxWidth: 2260.0,
                                                       ),
                                                       decoration: BoxDecoration(
@@ -554,7 +567,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                                 .of(context)
                                                             .secondaryBackground,
                                                         borderRadius:
-                                                            const BorderRadius.only(
+                                                            BorderRadius.only(
                                                           bottomLeft:
                                                               Radius.circular(
                                                                   24.0),
@@ -576,7 +589,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                       ),
                                                       child: Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     12.0,
                                                                     12.0,
@@ -655,9 +668,12 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                     currentUserReference) &&
                                                 (listViewChatMessagesRecord
                                                             .text !=
+                                                        null &&
+                                                    listViewChatMessagesRecord
+                                                            .text !=
                                                         ''))
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 24.0, 0.0, 0.0),
                                                 child: Row(
@@ -670,7 +686,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   16.0,
                                                                   0.0,
@@ -680,7 +696,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                         width: 300.0,
                                                         height: 50.0,
                                                         constraints:
-                                                            const BoxConstraints(
+                                                            BoxConstraints(
                                                           maxWidth: 2260.0,
                                                         ),
                                                         decoration:
@@ -689,7 +705,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                                   .of(context)
                                                               .secondaryBackground,
                                                           borderRadius:
-                                                              const BorderRadius.only(
+                                                              BorderRadius.only(
                                                             bottomLeft:
                                                                 Radius.circular(
                                                                     24.0),
@@ -711,7 +727,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                         ),
                                                         child: Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       12.0,
                                                                       12.0,
@@ -771,7 +787,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                                         children: [
                                                                           Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(1.0, 0.0),
+                                                                                AlignmentDirectional(1.0, 0.0),
                                                                             child:
                                                                                 Text(
                                                                               dateTimeFormat('jm', listViewChatMessagesRecord.timestamp!),
@@ -789,8 +805,8 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                                   ),
                                                                   if (chatsChatsRecord
                                                                           ?.lastMessageSeenBy
-                                                                          .contains(
-                                                                              widget.chatuser) ==
+                                                                          ?.contains(
+                                                                              widget!.chatuser) ==
                                                                       true)
                                                                     Icon(
                                                                       Icons
@@ -803,8 +819,8 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                                     ),
                                                                   if (chatsChatsRecord
                                                                           ?.lastMessageSeenBy
-                                                                          .contains(
-                                                                              widget.chatuser) ==
+                                                                          ?.contains(
+                                                                              widget!.chatuser) ==
                                                                       false)
                                                                     Icon(
                                                                       Icons
@@ -840,7 +856,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 10.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -856,7 +872,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                borderRadius: const BorderRadius.only(
+                                borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(24.0),
                                   bottomRight: Radius.circular(24.0),
                                   topLeft: Radius.circular(6.0),
@@ -872,7 +888,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                       focusNode: _model.textFieldFocusNode,
                                       onChanged: (_) => EasyDebounce.debounce(
                                         '_model.textController',
-                                        const Duration(milliseconds: 2000),
+                                        Duration(milliseconds: 2000),
                                         () => setState(() {}),
                                       ),
                                       autofocus: true,
@@ -929,7 +945,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                               BorderRadius.circular(24.0),
                                         ),
                                         contentPadding:
-                                            const EdgeInsetsDirectional.fromSTEB(
+                                            EdgeInsetsDirectional.fromSTEB(
                                                 20.0, 0.0, 0.0, 0.0),
                                       ),
                                       style: FlutterFlowTheme.of(context)
@@ -1022,7 +1038,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                           .doc()
                                           .set(createChatMessagesRecordData(
                                             user: currentUserReference,
-                                            chat: widget.chatuser,
+                                            chat: widget!.chatuser,
                                             timestamp: getCurrentTimestamp,
                                             image: _model.uploadedFileUrl,
                                           ));
@@ -1053,7 +1069,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
-                                      borderRadius: const BorderRadius.only(
+                                      borderRadius: BorderRadius.only(
                                         bottomLeft: Radius.circular(24.0),
                                         bottomRight: Radius.circular(24.0),
                                         topLeft: Radius.circular(24.0),
@@ -1065,7 +1081,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                       ),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 4.0, 0.0, 4.0),
                                       child: SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
@@ -1075,7 +1091,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                               MainAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       15.0, 0.0, 0.0, 0.0),
                                               child: InkWell(
@@ -1087,6 +1103,9 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                 onTap: () async {
                                                   if (_model.textController
                                                               .text !=
+                                                          null &&
+                                                      _model.textController
+                                                              .text !=
                                                           '') {
                                                     await ChatMessagesRecord
                                                         .collection
@@ -1096,7 +1115,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                           user:
                                                               currentUserReference,
                                                           chat:
-                                                              widget.chatuser,
+                                                              widget!.chatuser,
                                                           text: _model
                                                               .textController
                                                               .text,
@@ -1133,7 +1152,7 @@ class _ChatsWidgetState extends State<ChatsWidget> {
                                                                 .primaryText,
                                                           ),
                                                         ),
-                                                        duration: const Duration(
+                                                        duration: Duration(
                                                             milliseconds: 4000),
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(

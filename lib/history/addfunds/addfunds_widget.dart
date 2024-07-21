@@ -3,6 +3,8 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'addfunds_model.dart';
 export 'addfunds_model.dart';
 
@@ -44,14 +46,14 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: const Color(0xFFF5FBFB),
+        backgroundColor: Color(0xFFF5FBFB),
         appBar: AppBar(
-          backgroundColor: const Color(0xFFF5FBFB),
+          backgroundColor: Color(0xFFF5FBFB),
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderRadius: 30.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.chevron_left_rounded,
               color: Color(0xFF57636C),
               size: 30.0,
@@ -64,31 +66,31 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
             'Wallet',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Readex Pro',
-                  color: const Color(0xFF101518),
+                  color: Color(0xFF101518),
                   fontSize: 28.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.normal,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: false,
           elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: Text(
                     'Add Funds to Wallet',
                     style: FlutterFlowTheme.of(context).headlineLarge.override(
                           fontFamily: 'Readex Pro',
-                          color: const Color(0xFF101518),
+                          color: Color(0xFF101518),
                           fontSize: 32.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
@@ -96,12 +98,12 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 16.0, 15.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 16.0, 15.0),
                   child: Text(
                     'Enter the amount you want to add to your wallet.',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Inter',
-                          color: const Color(0xFF101518),
+                          color: Color(0xFF101518),
                           fontSize: 14.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
@@ -110,7 +112,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 16.0, 20.0),
+                      EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 16.0, 20.0),
                   child: TextFormField(
                     controller: _model.textController,
                     focusNode: _model.textFieldFocusNode,
@@ -122,34 +124,34 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                       hintStyle:
                           FlutterFlowTheme.of(context).bodyLarge.override(
                                 fontFamily: 'Inter',
-                                color: const Color(0xFF101518),
+                                color: Color(0xFF101518),
                                 fontSize: 16.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
                               ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Color(0xFF06D5CD),
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Color(0x00000000),
                           width: 2.0,
                         ),
@@ -158,7 +160,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyLarge.override(
                           fontFamily: 'Inter',
-                          color: const Color(0xFF101518),
+                          color: Color(0xFF101518),
                           fontSize: 16.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
@@ -184,10 +186,10 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFF06D5CD),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFF06D5CD),
                     textStyle:
                         FlutterFlowTheme.of(context).titleMedium.override(
                               fontFamily: 'Inter',
@@ -201,7 +203,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'Your current balance is:',
                     style: FlutterFlowTheme.of(context).titleMedium.override(
@@ -217,23 +219,23 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                   'Wallet balance',
                   style: FlutterFlowTheme.of(context).displayLarge.override(
                         fontFamily: 'Readex Pro',
-                        color: const Color(0xFF101518),
+                        color: Color(0xFF101518),
                         fontSize: 24.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.w200,
                       ),
                 ),
-                const Divider(
+                Divider(
                   thickness: 1.0,
                   color: Color(0xFFDFEDEC),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                   child: Text(
                     'Recent Transactions',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                           fontFamily: 'Readex Pro',
-                          color: const Color(0xFF101518),
+                          color: Color(0xFF101518),
                           fontSize: 28.0,
                           letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
@@ -241,13 +243,13 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: Container(
                             width: double.infinity,
@@ -256,7 +258,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -274,14 +276,14 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                             .bodyLarge
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFF101518),
+                                              color: Color(0xFF101518),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           'Mon. July 3rd',
@@ -289,7 +291,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                color: const Color(0xFF57636C),
+                                                color: Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -305,7 +307,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                         .titleLarge
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: const Color(0xFF101518),
+                                          color: Color(0xFF101518),
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
@@ -317,7 +319,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: Container(
                             width: double.infinity,
@@ -326,7 +328,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -344,14 +346,14 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                             .bodyLarge
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFF101518),
+                                              color: Color(0xFF101518),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           'Tue. July 4th',
@@ -359,7 +361,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                color: const Color(0xFF57636C),
+                                                color: Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -375,7 +377,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                         .titleLarge
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: const Color(0xFF101518),
+                                          color: Color(0xFF101518),
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
@@ -387,7 +389,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 0.0, 8.0, 0.0),
                           child: Container(
                             width: double.infinity,
@@ -396,7 +398,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   12.0, 12.0, 12.0, 12.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -414,14 +416,14 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                             .bodyLarge
                                             .override(
                                               fontFamily: 'Inter',
-                                              color: const Color(0xFF101518),
+                                              color: Color(0xFF101518),
                                               fontSize: 16.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 4.0, 0.0, 0.0),
                                         child: Text(
                                           'Wed. July 5th',
@@ -429,7 +431,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Inter',
-                                                color: const Color(0xFF57636C),
+                                                color: Color(0xFF57636C),
                                                 fontSize: 14.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w500,
@@ -445,7 +447,7 @@ class _AddfundsWidgetState extends State<AddfundsWidget> {
                                         .titleLarge
                                         .override(
                                           fontFamily: 'Inter',
-                                          color: const Color(0xFF101518),
+                                          color: Color(0xFF101518),
                                           fontSize: 22.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
