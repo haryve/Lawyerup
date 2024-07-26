@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'termsofservice_widget.dart' show TermsofserviceWidget;
+import 'image_details_widget.dart' show ImageDetailsWidget;
 import 'package:flutter/material.dart';
 
-class TermsofserviceModel extends FlutterFlowModel<TermsofserviceWidget> {
+class ImageDetailsModel extends FlutterFlowModel<ImageDetailsWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

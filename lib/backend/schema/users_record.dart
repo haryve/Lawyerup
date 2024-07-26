@@ -3,16 +3,15 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class UsersRecord extends FirestoreRecord {
   UsersRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -25,11 +24,6 @@ class UsersRecord extends FirestoreRecord {
   String? _photoUrl;
   String get photoUrl => _photoUrl ?? '';
   bool hasPhotoUrl() => _photoUrl != null;
-
-  // "uid" field.
-  String? _uid;
-  String get uid => _uid ?? '';
-  bool hasUid() => _uid != null;
 
   // "created_time" field.
   DateTime? _createdTime;
@@ -106,10 +100,14 @@ class UsersRecord extends FirestoreRecord {
   List<AddressStruct> get addresses => _addresses ?? const [];
   bool hasAddresses() => _addresses != null;
 
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
-    _uid = snapshotData['uid'] as String?;
     _createdTime = snapshotData['created_time'] as DateTime?;
     _favorites = getDataList(snapshotData['favorites']);
     _phoneNumber = snapshotData['phone_number'] as String?;
@@ -128,6 +126,7 @@ class UsersRecord extends FirestoreRecord {
       snapshotData['addresses'],
       AddressStruct.fromMap,
     );
+    _uid = snapshotData['uid'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -166,7 +165,6 @@ class UsersRecord extends FirestoreRecord {
 Map<String, dynamic> createUsersRecordData({
   String? email,
   String? photoUrl,
-  String? uid,
   DateTime? createdTime,
   String? phoneNumber,
   String? userName,
@@ -179,12 +177,12 @@ Map<String, dynamic> createUsersRecordData({
   String? role,
   String? title,
   String? state,
+  String? uid,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'email': email,
       'photo_url': photoUrl,
-      'uid': uid,
       'created_time': createdTime,
       'phone_number': phoneNumber,
       'user_name': userName,
@@ -197,6 +195,7 @@ Map<String, dynamic> createUsersRecordData({
       'role': role,
       'title': title,
       'state': state,
+      'uid': uid,
     }.withoutNulls,
   );
 
@@ -211,7 +210,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
     const listEquality = ListEquality();
     return e1?.email == e2?.email &&
         e1?.photoUrl == e2?.photoUrl &&
-        e1?.uid == e2?.uid &&
         e1?.createdTime == e2?.createdTime &&
         listEquality.equals(e1?.favorites, e2?.favorites) &&
         e1?.phoneNumber == e2?.phoneNumber &&
@@ -226,14 +224,14 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.title == e2?.title &&
         e1?.state == e2?.state &&
         listEquality.equals(e1?.blockedUsers, e2?.blockedUsers) &&
-        listEquality.equals(e1?.addresses, e2?.addresses);
+        listEquality.equals(e1?.addresses, e2?.addresses) &&
+        e1?.uid == e2?.uid;
   }
 
   @override
   int hash(UsersRecord? e) => const ListEquality().hash([
         e?.email,
         e?.photoUrl,
-        e?.uid,
         e?.createdTime,
         e?.favorites,
         e?.phoneNumber,
@@ -248,7 +246,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.title,
         e?.state,
         e?.blockedUsers,
-        e?.addresses
+        e?.addresses,
+        e?.uid
       ]);
 
   @override

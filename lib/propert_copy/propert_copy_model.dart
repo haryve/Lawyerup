@@ -1,12 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'p_details35_support_form_widget.dart' show PDetails35SupportFormWidget;
+import 'propert_copy_widget.dart' show PropertCopyWidget;
 import 'package:flutter/material.dart';
 
-class PDetails35SupportFormModel
-    extends FlutterFlowModel<PDetails35SupportFormWidget> {
+class PropertCopyModel extends FlutterFlowModel<PropertCopyWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode1;
   TextEditingController? textController1;
@@ -25,7 +23,6 @@ class PDetails35SupportFormModel
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode1?.dispose();
     textController1?.dispose();
 

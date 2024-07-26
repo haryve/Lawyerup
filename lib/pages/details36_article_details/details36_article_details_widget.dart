@@ -5,8 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'details36_article_details_model.dart';
 export 'details36_article_details_model.dart';
 
@@ -65,7 +63,6 @@ class _Details36ArticleDetailsWidgetState
         }
         List<LawyersRecord> details36ArticleDetailsLawyersRecordList =
             snapshot.data!;
-
         // Return an empty Container when the item does not exist.
         if (snapshot.data!.isEmpty) {
           return Container();
@@ -74,6 +71,7 @@ class _Details36ArticleDetailsWidgetState
             details36ArticleDetailsLawyersRecordList.isNotEmpty
                 ? details36ArticleDetailsLawyersRecordList.first
                 : null;
+
         return GestureDetector(
           onTap: () => _model.unfocusNode.canRequestFocus
               ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -89,7 +87,7 @@ class _Details36ArticleDetailsWidgetState
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_rounded,
                   color: Color(0xFF15161E),
                   size: 30.0,
@@ -102,13 +100,13 @@ class _Details36ArticleDetailsWidgetState
                 'Article Title',
                 style: FlutterFlowTheme.of(context).bodyLarge.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF15161E),
+                      color: const Color(0xFF15161E),
                       fontSize: 16.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              actions: [],
+              actions: const [],
               centerTitle: false,
               elevation: 0.0,
             ),
@@ -120,7 +118,7 @@ class _Details36ArticleDetailsWidgetState
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
@@ -128,15 +126,15 @@ class _Details36ArticleDetailsWidgetState
                           width: 44.0,
                           height: 44.0,
                           decoration: BoxDecoration(
-                            color: Color(0x4D9489F5),
+                            color: const Color(0x4D9489F5),
                             borderRadius: BorderRadius.circular(12.0),
                             border: Border.all(
-                              color: Color(0xFF6F61EF),
+                              color: const Color(0xFF6F61EF),
                               width: 2.0,
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsets.all(2.0),
+                            padding: const EdgeInsets.all(2.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10.0),
                               child: Image.network(
@@ -150,7 +148,7 @@ class _Details36ArticleDetailsWidgetState
                         ),
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 12.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -159,33 +157,33 @@ class _Details36ArticleDetailsWidgetState
                               children: [
                                 Text(
                                   valueOrDefault<String>(
-                                    details36ArticleDetailsLawyersRecord?.name,
+                                    details36ArticleDetailsLawyersRecord.name,
                                     '--',
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyLarge
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF15161E),
+                                        color: const Color(0xFF15161E),
                                         fontSize: 16.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     valueOrDefault<String>(
                                       details36ArticleDetailsLawyersRecord
-                                          ?.city,
+                                          .city,
                                       'nearby',
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .labelSmall
                                         .override(
                                           fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF606A85),
+                                          color: const Color(0xFF606A85),
                                           fontSize: 12.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
@@ -203,11 +201,11 @@ class _Details36ArticleDetailsWidgetState
                           text: 'Subscribe',
                           options: FFButtonOptions(
                             height: 40.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 16.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                            iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFF6F61EF),
+                            color: const Color(0xFF6F61EF),
                             textStyle: FlutterFlowTheme.of(context)
                                 .titleSmall
                                 .override(
@@ -218,7 +216,7 @@ class _Details36ArticleDetailsWidgetState
                                   fontWeight: FontWeight.w500,
                                 ),
                             elevation: 3.0,
-                            borderSide: BorderSide(
+                            borderSide: const BorderSide(
                               color: Colors.transparent,
                               width: 1.0,
                             ),
@@ -228,7 +226,7 @@ class _Details36ArticleDetailsWidgetState
                       ],
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     height: 240.0,
                     child: Stack(
                       children: [
@@ -253,7 +251,6 @@ class _Details36ArticleDetailsWidgetState
                             }
                             List<LawyersRecord> imageLawyersRecordList =
                                 snapshot.data!;
-
                             // Return an empty Container when the item does not exist.
                             if (snapshot.data!.isEmpty) {
                               return Container();
@@ -262,6 +259,7 @@ class _Details36ArticleDetailsWidgetState
                                 imageLawyersRecordList.isNotEmpty
                                     ? imageLawyersRecordList.first
                                     : null;
+
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(0.0),
                               child: Image.network(
@@ -274,9 +272,9 @@ class _Details36ArticleDetailsWidgetState
                           },
                         ),
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 1.0),
+                          alignment: const AlignmentDirectional(-1.0, 1.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 8.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12.0),
@@ -286,16 +284,16 @@ class _Details36ArticleDetailsWidgetState
                                   sigmaY: 2.0,
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsets.all(2.0),
+                                  padding: const EdgeInsets.all(2.0),
                                   child: Container(
                                     width: 64.0,
                                     height: 64.0,
                                     decoration: BoxDecoration(
-                                      color: Color(0x9AFFFFFF),
+                                      color: const Color(0x9AFFFFFF),
                                       borderRadius: BorderRadius.circular(10.0),
                                     ),
-                                    alignment: AlignmentDirectional(0.0, 0.0),
-                                    child: Icon(
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    child: const Icon(
                                       Icons.document_scanner_outlined,
                                       color: Color(0xFF6F61EF),
                                       size: 44.0,
@@ -311,23 +309,23 @@ class _Details36ArticleDetailsWidgetState
                   ),
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: Text(
                       valueOrDefault<String>(
-                        details36ArticleDetailsLawyersRecord?.quote,
+                        details36ArticleDetailsLawyersRecord.quote,
                         '--',
                       ),
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Outfit',
-                                color: Color(0xFF15161E),
+                                color: const Color(0xFF15161E),
                                 fontSize: 24.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w500,
                               ),
                     ),
                   ),
-                ].divide(SizedBox(height: 12.0)),
+                ].divide(const SizedBox(height: 12.0)),
               ),
             ),
           ),

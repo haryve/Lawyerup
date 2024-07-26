@@ -1,21 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/lat_lng.dart';
-import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -80,44 +73,44 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : AuthenticateSolo1Widget(),
+          appStateNotifier.loggedIn ? const NavBarPage() : const AuthenticateSolo1Widget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? NavBarPage()
-              : AuthenticateSolo1Widget(),
+              ? const NavBarPage()
+              : const AuthenticateSolo1Widget(),
         ),
         FFRoute(
           name: 'AuthenticateSolo1',
           path: '/authenticateSolo1',
-          builder: (context, params) => AuthenticateSolo1Widget(),
+          builder: (context, params) => const AuthenticateSolo1Widget(),
         ),
         FFRoute(
           name: 'bforgotpassword',
           path: '/bforgotpassword',
-          builder: (context, params) => BforgotpasswordWidget(),
+          builder: (context, params) => const BforgotpasswordWidget(),
         ),
         FFRoute(
           name: 'bOnboarding1',
           path: '/bOnboarding1',
-          builder: (context, params) => BOnboarding1Widget(),
+          builder: (context, params) => const BOnboarding1Widget(),
         ),
         FFRoute(
           name: 'bPinCode',
           path: '/otpcode',
-          builder: (context, params) => BPinCodeWidget(),
+          builder: (context, params) => const BPinCodeWidget(),
         ),
         FFRoute(
           name: 'List16ActivityNotifications',
           path: '/list16ActivityNotifications',
-          builder: (context, params) => List16ActivityNotificationsWidget(),
+          builder: (context, params) => const List16ActivityNotificationsWidget(),
         ),
         FFRoute(
           name: 'bProfileCreateEdit',
           path: '/createaccount',
-          builder: (context, params) => NavBarPage(
+          builder: (context, params) => const NavBarPage(
             initialPage: '',
             page: BProfileCreateEditWidget(),
           ),
@@ -125,78 +118,50 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'termsofservice',
           path: '/termsofservice',
-          builder: (context, params) => TermsofserviceWidget(),
+          builder: (context, params) => const TermsofserviceWidget(),
         ),
         FFRoute(
           name: 'notificationsettings',
           path: '/notificationsettings',
-          builder: (context, params) => NotificationsettingsWidget(),
+          builder: (context, params) => const NotificationsettingsWidget(),
         ),
         FFRoute(
           name: 'Details09Reviews',
           path: '/details09Reviews',
-          builder: (context, params) => Details09ReviewsWidget(),
+          builder: (context, params) => const Details09ReviewsWidget(),
         ),
         FFRoute(
           name: 'Details36ArticleDetails',
           path: '/details36ArticleDetails',
-          builder: (context, params) => Details36ArticleDetailsWidget(),
+          builder: (context, params) => const Details36ArticleDetailsWidget(),
         ),
         FFRoute(
           name: 'pDetails35SupportForm',
           path: '/details35SupportForm',
-          builder: (context, params) => PDetails35SupportFormWidget(),
+          builder: (context, params) => const PDetails35SupportFormWidget(),
         ),
         FFRoute(
           name: 'SearchResults',
           path: '/searchResults',
-          builder: (context, params) => SearchResultsWidget(),
+          builder: (context, params) => const SearchResultsWidget(),
         ),
         FFRoute(
           name: 'profilesettings',
           path: '/profilesettings',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'profilesettings')
-              : ProfilesettingsWidget(),
+              ? const NavBarPage(initialPage: 'profilesettings')
+              : const ProfilesettingsWidget(),
         ),
         FFRoute(
           name: 'feed',
           path: '/feed',
           builder: (context, params) =>
-              params.isEmpty ? NavBarPage(initialPage: 'feed') : FeedWidget(),
+              params.isEmpty ? const NavBarPage(initialPage: 'feed') : const FeedWidget(),
         ),
         FFRoute(
           name: 'bPinCodeCopy',
           path: '/signin',
-          builder: (context, params) => BPinCodeCopyWidget(),
-        ),
-        FFRoute(
-          name: 'List11Messages',
-          path: '/list11Messages',
-          builder: (context, params) => List11MessagesWidget(
-            search: params.getParam(
-              'search',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
-          name: 'chat_2_main',
-          path: '/chat2Main',
-          builder: (context, params) => Chat2MainWidget(),
-        ),
-        FFRoute(
-          name: 'chat_2_InviteUsers',
-          path: '/chat2InviteUsers',
-          asyncParams: {
-            'chatRef': getDoc(['chats'], ChatsRecord.fromSnapshot),
-          },
-          builder: (context, params) => Chat2InviteUsersWidget(
-            chatRef: params.getParam(
-              'chatRef',
-              ParamType.Document,
-            ),
-          ),
+          builder: (context, params) => const BPinCodeCopyWidget(),
         ),
         FFRoute(
           name: 'image_Details',
@@ -213,39 +178,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'chats',
-          path: '/chats',
-          builder: (context, params) => ChatsWidget(
-            username: params.getParam(
-              'username',
-              ParamType.String,
-            ),
-            useremail: params.getParam(
-              'useremail',
-              ParamType.String,
-            ),
-            chatuser: params.getParam(
-              'chatuser',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['chats'],
-            ),
-            userRef: params.getParam(
-              'userRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['users'],
-            ),
-            userProfile: params.getParam(
-              'userProfile',
-              ParamType.String,
-            ),
-          ),
-        ),
-        FFRoute(
           name: 'cart_OrderHistory',
           path: '/cartOrderHistory',
-          builder: (context, params) => CartOrderHistoryWidget(),
+          builder: (context, params) => const CartOrderHistoryWidget(),
         ),
         FFRoute(
           name: 'cart_Checkout',
@@ -260,12 +195,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'cart_successPage',
           path: '/cartSuccessPage',
-          builder: (context, params) => CartSuccessPageWidget(),
+          builder: (context, params) => const CartSuccessPageWidget(),
         ),
         FFRoute(
           name: 'Addfunds',
           path: '/addfunds',
-          builder: (context, params) => AddfundsWidget(),
+          builder: (context, params) => const AddfundsWidget(),
         ),
         FFRoute(
           name: 'SearchResultsCopy',
@@ -280,14 +215,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Lawyer_profileu',
           path: '/lawyerProfileu',
-          builder: (context, params) => LawyerProfileuWidget(),
+          builder: (context, params) => LawyerProfileuWidget(
+            name: params.getParam(
+              'name',
+              ParamType.String,
+            ),
+            lawyercharge: params.getParam(
+              'lawyercharge',
+              ParamType.int,
+            ),
+          ),
         ),
         FFRoute(
           name: 'bProfileCreateEditCopy',
           path: '/registerlawyer',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'bProfileCreateEditCopy')
-              : NavBarPage(
+              ? const NavBarPage(initialPage: 'bProfileCreateEditCopy')
+              : const NavBarPage(
                   initialPage: 'bProfileCreateEditCopy',
                   page: BProfileCreateEditCopyWidget(),
                 ),
@@ -296,13 +240,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'feedCopy2',
           path: '/feedCopy2',
           builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'feedCopy2')
-              : FeedCopy2Widget(),
+              ? const NavBarPage(initialPage: 'feedCopy2')
+              : const FeedCopy2Widget(),
         ),
         FFRoute(
           name: 'propert',
           path: '/propert',
-          builder: (context, params) => PropertWidget(),
+          builder: (context, params) => PropertWidget(
+            callid: params.getParam(
+              'callid',
+              ParamType.String,
+            ),
+            userid: params.getParam(
+              'userid',
+              ParamType.String,
+            ),
+            username: params.getParam(
+              'username',
+              ParamType.String,
+            ),
+          ),
         ),
         FFRoute(
           name: 'callpage',
@@ -321,9 +278,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ParamType.String,
             ),
           ),
+        ),
+        FFRoute(
+          name: 'propertCopy',
+          path: '/propertCopy',
+          builder: (context, params) => PropertCopyWidget(
+            callid: params.getParam(
+              'callid',
+              ParamType.String,
+            ),
+            userid: params.getParam(
+              'userid',
+              ParamType.String,
+            ),
+            username: params.getParam(
+              'username',
+              ParamType.String,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -557,7 +531,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

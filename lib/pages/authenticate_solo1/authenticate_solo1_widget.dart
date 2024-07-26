@@ -4,14 +4,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'authenticate_solo1_model.dart';
 export 'authenticate_solo1_model.dart';
 
@@ -93,12 +89,12 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Color(0xFF14181B),
+        backgroundColor: const Color(0xFF14181B),
         body: Container(
           width: MediaQuery.sizeOf(context).width * 1.0,
           height: MediaQuery.sizeOf(context).height * 1.0,
           decoration: BoxDecoration(
-            color: Color(0xFF14181B),
+            color: const Color(0xFF14181B),
             image: DecorationImage(
               fit: BoxFit.cover,
               image: Image.asset(
@@ -109,23 +105,23 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
           child: Container(
             width: 100.0,
             height: 100.0,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0x990F1113),
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 20.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 20.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 100.0, 0.0, 0.0),
                         child: ClipRRect(
-                          borderRadius: BorderRadius.only(
+                          borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(0.0),
                             bottomRight: Radius.circular(0.0),
                             topLeft: Radius.circular(50.0),
@@ -140,7 +136,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             0.0, 100.0, 0.0, 0.0),
                         child: Text(
                           'LAWYER UP',
@@ -159,11 +155,11 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                 Expanded(
                   child: Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 100.0, 0.0, 0.0),
                     child: Column(
                       children: [
                         Align(
-                          alignment: Alignment(0.0, 0),
+                          alignment: const Alignment(0.0, 0),
                           child: TabBar(
                             isScrollable: true,
                             labelColor: Colors.white,
@@ -173,10 +169,10 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                   fontFamily: 'Playfair Display',
                                   letterSpacing: 0.0,
                                 ),
-                            unselectedLabelStyle: TextStyle(),
+                            unselectedLabelStyle: const TextStyle(),
                             indicatorColor: Colors.white,
                             tabs: [
-                              Tab(
+                              const Tab(
                                 text: 'Sign In',
                                 icon: FaIcon(
                                   FontAwesomeIcons.signInAlt,
@@ -186,7 +182,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                 iconMargin: EdgeInsetsDirectional.fromSTEB(
                                     50.0, 0.0, 50.0, 0.0),
                               ),
-                              Tab(
+                              const Tab(
                                 text: 'Sign Up',
                                 icon: Icon(
                                   Icons.group_add,
@@ -210,7 +206,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                             children: [
                               KeepAliveWidgetWrapper(
                                 builder: (context) => Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       44.0, 0.0, 44.0, 0.0),
                                   child: SingleChildScrollView(
                                     child: Column(
@@ -218,7 +214,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: TextFormField(
                                             controller: _model
@@ -244,7 +240,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
+                                                    color: const Color(0xFF95A1AC),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -256,14 +252,14 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
+                                                    color: const Color(0xFF95A1AC),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -271,7 +267,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -279,7 +275,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -288,7 +284,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -298,7 +294,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0,
                                                           20.0, 24.0),
                                             ),
@@ -306,7 +302,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                 .titleSmall
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  color: Color(0xFF0F1113),
+                                                  color: const Color(0xFF0F1113),
                                                   letterSpacing: 0.0,
                                                 ),
                                             maxLines: null,
@@ -317,7 +313,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: TextFormField(
                                             controller: _model
@@ -333,7 +329,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
+                                                    color: const Color(0xFF95A1AC),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
@@ -345,14 +341,14 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
+                                                    color: const Color(0xFF95A1AC),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -360,7 +356,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -368,7 +364,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -377,7 +373,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -387,7 +383,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0,
                                                           20.0, 24.0),
                                               suffixIcon: InkWell(
@@ -405,7 +401,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                           .visibility_outlined
                                                       : Icons
                                                           .visibility_off_outlined,
-                                                  color: Color(0xFF95A1AC),
+                                                  color: const Color(0xFF95A1AC),
                                                   size: 20.0,
                                                 ),
                                               ),
@@ -414,7 +410,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                 .titleSmall
                                                 .override(
                                                   fontFamily: 'Poppins',
-                                                  color: Color(0xFF0F1113),
+                                                  color: const Color(0xFF0F1113),
                                                   letterSpacing: 0.0,
                                                 ),
                                             validator: _model
@@ -424,7 +420,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -451,9 +447,9 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             text: 'Login',
                                             options: FFButtonOptions(
                                               width: 2000.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -471,7 +467,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     fontWeight: FontWeight.w900,
                                                   ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -480,7 +476,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -489,11 +485,11 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             },
                                             text: 'Forgot Password?',
                                             options: FFButtonOptions(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0x0039D2C0),
+                                              color: const Color(0x0039D2C0),
                                               textStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .titleMedium
@@ -507,7 +503,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                         letterSpacing: 0.0,
                                                       ),
                                               elevation: 0.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -516,7 +512,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 0.0, 20.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -524,7 +520,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                 MainAxisAlignment.center,
                                             children: [
                                               Padding(
-                                                padding: EdgeInsetsDirectional
+                                                padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 12.0, 0.0, 0.0),
                                                 child: Text(
@@ -535,7 +531,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color:
-                                                            Color(0xC8FFFFFF),
+                                                            const Color(0xC8FFFFFF),
                                                         letterSpacing: 0.0,
                                                       ),
                                                 ),
@@ -545,7 +541,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 16.0, 0.0, 8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -579,7 +575,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 5.0,
                                                         color:
@@ -593,7 +589,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons.google,
@@ -629,7 +625,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 5.0,
                                                         color:
@@ -643,7 +639,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons.apple,
@@ -681,7 +677,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 5.0,
                                                         color:
@@ -695,7 +691,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons.facebookF,
@@ -723,7 +719,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 5.0,
                                                         color:
@@ -737,7 +733,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Icon(
                                                     Icons.phone_sharp,
@@ -758,7 +754,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                               ),
                               KeepAliveWidgetWrapper(
                                 builder: (context) => Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       44.0, 0.0, 44.0, 0.0),
                                   child: SingleChildScrollView(
                                     child: Column(
@@ -766,7 +762,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 20.0, 0.0, 0.0),
                                           child: TextFormField(
                                             controller: _model
@@ -788,14 +784,14 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
+                                                    color: const Color(0xFF95A1AC),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -803,7 +799,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -811,7 +807,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -820,7 +816,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -830,7 +826,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0,
                                                           20.0, 24.0),
                                             ),
@@ -838,7 +834,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF14181B),
+                                                  color: const Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -851,7 +847,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: TextFormField(
                                             controller:
@@ -860,7 +856,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             onChanged: (_) =>
                                                 EasyDebounce.debounce(
                                               '_model.passwordTextController',
-                                              Duration(milliseconds: 2000),
+                                              const Duration(milliseconds: 2000),
                                               () => setState(() {}),
                                             ),
                                             autofocus: true,
@@ -880,14 +876,14 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
+                                                    color: const Color(0xFF95A1AC),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -895,7 +891,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -903,7 +899,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -912,7 +908,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -922,7 +918,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0,
                                                           20.0, 24.0),
                                               suffixIcon: InkWell(
@@ -940,7 +936,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                           .visibility_outlined
                                                       : Icons
                                                           .visibility_off_outlined,
-                                                  color: Color(0xFF95A1AC),
+                                                  color: const Color(0xFF95A1AC),
                                                   size: 20.0,
                                                 ),
                                               ),
@@ -949,7 +945,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF14181B),
+                                                  color: const Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -961,7 +957,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 12.0, 0.0, 0.0),
                                           child: TextFormField(
                                             controller: _model
@@ -984,14 +980,14 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                   .bodyMedium
                                                   .override(
                                                     fontFamily: 'Lexend Deca',
-                                                    color: Color(0xFF95A1AC),
+                                                    color: const Color(0xFF95A1AC),
                                                     fontSize: 14.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -999,7 +995,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1007,7 +1003,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     BorderRadius.circular(8.0),
                                               ),
                                               errorBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1016,7 +1012,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               ),
                                               focusedErrorBorder:
                                                   OutlineInputBorder(
-                                                borderSide: BorderSide(
+                                                borderSide: const BorderSide(
                                                   color: Color(0x00000000),
                                                   width: 1.0,
                                                 ),
@@ -1026,7 +1022,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                               filled: true,
                                               fillColor: Colors.white,
                                               contentPadding:
-                                                  EdgeInsetsDirectional
+                                                  const EdgeInsetsDirectional
                                                       .fromSTEB(20.0, 24.0,
                                                           20.0, 24.0),
                                               suffixIcon: InkWell(
@@ -1044,7 +1040,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                           .visibility_outlined
                                                       : Icons
                                                           .visibility_off_outlined,
-                                                  color: Color(0xFF95A1AC),
+                                                  color: const Color(0xFF95A1AC),
                                                   size: 20.0,
                                                 ),
                                               ),
@@ -1053,7 +1049,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Lexend Deca',
-                                                  color: Color(0xFF14181B),
+                                                  color: const Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
@@ -1065,7 +1061,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 24.0, 0.0, 0.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
@@ -1078,7 +1074,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                       .text) {
                                                 ScaffoldMessenger.of(context)
                                                     .showSnackBar(
-                                                  SnackBar(
+                                                  const SnackBar(
                                                     content: Text(
                                                       'Passwords don\'t match!',
                                                     ),
@@ -1112,9 +1108,9 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             text: 'SIGN UP',
                                             options: FFButtonOptions(
                                               width: 1000.0,
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
+                                              iconPadding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -1127,7 +1123,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                         letterSpacing: 0.0,
                                                       ),
                                               elevation: 3.0,
-                                              borderSide: BorderSide(
+                                              borderSide: const BorderSide(
                                                 color: Colors.transparent,
                                                 width: 1.0,
                                               ),
@@ -1136,7 +1132,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   20.0, 20.0, 20.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1145,7 +1141,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                             children: [
                                               Expanded(
                                                 child: Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 12.0, 0.0, 0.0),
                                                   child: Text(
@@ -1157,7 +1153,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color:
-                                                              Color(0xC8FFFFFF),
+                                                              const Color(0xC8FFFFFF),
                                                           letterSpacing: 0.0,
                                                         ),
                                                   ),
@@ -1168,7 +1164,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
+                                              const EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 16.0, 0.0, 8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -1201,7 +1197,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 5.0,
                                                         color:
@@ -1215,7 +1211,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons.google,
@@ -1251,7 +1247,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 5.0,
                                                         color:
@@ -1265,7 +1261,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons.apple,
@@ -1302,7 +1298,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 5.0,
                                                         color:
@@ -1316,7 +1312,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: FaIcon(
                                                     FontAwesomeIcons.facebookF,
@@ -1336,14 +1332,13 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                 onTap: () async {
                                                   final phoneNumberVal =
                                                       currentPhoneNumber;
-                                                  if (phoneNumberVal == null ||
-                                                      phoneNumberVal.isEmpty ||
+                                                  if (phoneNumberVal.isEmpty ||
                                                       !phoneNumberVal
                                                           .startsWith('+')) {
                                                     ScaffoldMessenger.of(
                                                             context)
                                                         .showSnackBar(
-                                                      SnackBar(
+                                                      const SnackBar(
                                                         content: Text(
                                                             'Phone Number is required and has to start with +.'),
                                                       ),
@@ -1371,7 +1366,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .primaryText,
-                                                    boxShadow: [
+                                                    boxShadow: const [
                                                       BoxShadow(
                                                         blurRadius: 5.0,
                                                         color:
@@ -1385,7 +1380,7 @@ class _AuthenticateSolo1WidgetState extends State<AuthenticateSolo1Widget>
                                                     shape: BoxShape.circle,
                                                   ),
                                                   alignment:
-                                                      AlignmentDirectional(
+                                                      const AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Icon(
                                                     Icons.phone_sharp,

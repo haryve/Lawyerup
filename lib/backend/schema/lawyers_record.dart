@@ -3,16 +3,15 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class LawyersRecord extends FirestoreRecord {
   LawyersRecord._(
-    DocumentReference reference,
-    Map<String, dynamic> data,
-  ) : super(reference, data) {
+    super.reference,
+    super.data,
+  ) {
     _initializeFields();
   }
 
@@ -106,6 +105,11 @@ class LawyersRecord extends FirestoreRecord {
   int get lawyerMobile => _lawyerMobile ?? 0;
   bool hasLawyerMobile() => _lawyerMobile != null;
 
+  // "callid" field.
+  String? _callid;
+  String get callid => _callid ?? '';
+  bool hasCallid() => _callid != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _description = snapshotData['description'] as String?;
@@ -125,6 +129,7 @@ class LawyersRecord extends FirestoreRecord {
     _lawyerEmail = snapshotData['lawyer_email'] as String?;
     _lawyerExpertise = snapshotData['lawyer_expertise'] as String?;
     _lawyerMobile = castToType<int>(snapshotData['lawyer_mobile']);
+    _callid = snapshotData['callid'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -177,6 +182,7 @@ Map<String, dynamic> createLawyersRecordData({
   String? lawyerEmail,
   String? lawyerExpertise,
   int? lawyerMobile,
+  String? callid,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -195,6 +201,7 @@ Map<String, dynamic> createLawyersRecordData({
       'lawyer_email': lawyerEmail,
       'lawyer_expertise': lawyerExpertise,
       'lawyer_mobile': lawyerMobile,
+      'callid': callid,
     }.withoutNulls,
   );
 
@@ -224,7 +231,8 @@ class LawyersRecordDocumentEquality implements Equality<LawyersRecord> {
         e1?.lawyerCharge == e2?.lawyerCharge &&
         e1?.lawyerEmail == e2?.lawyerEmail &&
         e1?.lawyerExpertise == e2?.lawyerExpertise &&
-        e1?.lawyerMobile == e2?.lawyerMobile;
+        e1?.lawyerMobile == e2?.lawyerMobile &&
+        e1?.callid == e2?.callid;
   }
 
   @override
@@ -246,7 +254,8 @@ class LawyersRecordDocumentEquality implements Equality<LawyersRecord> {
         e?.lawyerCharge,
         e?.lawyerEmail,
         e?.lawyerExpertise,
-        e?.lawyerMobile
+        e?.lawyerMobile,
+        e?.callid
       ]);
 
   @override

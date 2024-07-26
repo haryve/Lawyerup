@@ -1,18 +1,12 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/profilepicture_widget.dart';
 import '/components/ratingbar_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'feed_model.dart';
 export 'feed_model.dart';
 
@@ -66,7 +60,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
               backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
               automaticallyImplyLeading: false,
               leading: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(12.0, 5.0, 0.0, 0.0),
                 child: FlutterFlowIconButton(
                   borderRadius: 30.0,
                   buttonSize: 60.0,
@@ -81,9 +75,9 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                 ),
               ),
               title: Align(
-                alignment: AlignmentDirectional(-1.0, 0.0),
+                alignment: const AlignmentDirectional(-1.0, 0.0),
                 child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
                   child: Text(
                     'Connect With Lawyers',
                     style: FlutterFlowTheme.of(context).headlineSmall.override(
@@ -96,9 +90,9 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
               ),
               actions: [
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: const AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 5.0, 0.0),
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 5.0, 0.0),
                     child: Icon(
                       Icons.search_sharp,
                       color: FlutterFlowTheme.of(context).secondaryText,
@@ -107,7 +101,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 8.0, 0.0),
                   child: Icon(
                     Icons.filter_alt_sharp,
                     color: FlutterFlowTheme.of(context).secondaryText,
@@ -132,7 +126,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                     child: Column(
                       children: [
                         Align(
-                          alignment: Alignment(0.0, 0),
+                          alignment: const Alignment(0.0, 0),
                           child: FlutterFlowButtonTabBar(
                             useToggleButtonStyle: true,
                             labelStyle: FlutterFlowTheme.of(context)
@@ -156,16 +150,16 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                 FlutterFlowTheme.of(context).accent1,
                             unselectedBackgroundColor:
                                 FlutterFlowTheme.of(context).alternate,
-                            borderColor: Color(0xFF5B18D8),
+                            borderColor: const Color(0xFF5B18D8),
                             unselectedBorderColor:
                                 FlutterFlowTheme.of(context).alternate,
                             borderWidth: 2.0,
                             borderRadius: 8.0,
                             elevation: 0.0,
-                            buttonMargin: EdgeInsetsDirectional.fromSTEB(
+                            buttonMargin: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
-                            padding: EdgeInsets.all(10.0),
-                            tabs: [
+                            padding: const EdgeInsets.all(10.0),
+                            tabs: const [
                               Tab(
                                 text: 'All',
                               ),
@@ -187,7 +181,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                             controller: _model.tabBarController,
                             children: [
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 1.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -211,7 +205,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                           child: Padding(
                                             padding: MediaQuery.viewInsetsOf(
                                                 context),
-                                            child: Container(
+                                            child: const SizedBox(
                                               height: 610.0,
                                               child: ProfilepictureWidget(),
                                             ),
@@ -222,7 +216,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                   },
                                   child: Container(
                                     width: 100.0,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       color: Colors.white,
                                       boxShadow: [
                                         BoxShadow(
@@ -271,12 +265,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                 listViewLawyersRecordList[
                                                     listViewIndex];
                                             return Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 5.0),
                                               child: Container(
                                                 width: 100.0,
                                                 height: 119.0,
-                                                decoration: BoxDecoration(
+                                                decoration: const BoxDecoration(
                                                   color: Color(0xFFD9D5E8),
                                                   borderRadius:
                                                       BorderRadius.only(
@@ -291,283 +285,294 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 child: Padding(
-                                                  padding: EdgeInsets.all(8.0),
-                                                  child: InkWell(
-                                                    splashColor:
-                                                        Colors.transparent,
-                                                    focusColor:
-                                                        Colors.transparent,
-                                                    hoverColor:
-                                                        Colors.transparent,
-                                                    highlightColor:
-                                                        Colors.transparent,
-                                                    onTap: () async {
-                                                      context.pushNamed(
-                                                          'Lawyer_profileu');
-                                                    },
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      4.0,
-                                                                      0.0,
-                                                                      0.0),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Card(
-                                                                clipBehavior: Clip
-                                                                    .antiAliasWithSaveLayer,
-                                                                color: Color(
-                                                                    0xFFF1F4F8),
-                                                                elevation: 1.0,
-                                                                shape:
-                                                                    RoundedRectangleBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              40.0),
-                                                                ),
-                                                                child: Align(
-                                                                  alignment:
-                                                                      AlignmentDirectional(
-                                                                          -1.0,
-                                                                          -1.0),
-                                                                  child:
-                                                                      ClipRRect(
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            40.0),
-                                                                    child: Image
-                                                                        .network(
-                                                                      listViewLawyersRecord
-                                                                          .lawyerDp,
-                                                                      width:
-                                                                          91.0,
-                                                                      height:
-                                                                          92.0,
-                                                                      fit: BoxFit
-                                                                          .cover,
-                                                                      alignment:
-                                                                          Alignment(
-                                                                              0.0,
-                                                                              0.0),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .start,
-                                                                children: [
-                                                                  Text(
-                                                                    listViewLawyersRecord
-                                                                        .name,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Outfit',
-                                                                          color:
-                                                                              Color(0xFF1D2429),
-                                                                          fontSize:
-                                                                              18.0,
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                          fontWeight:
-                                                                              FontWeight.w500,
-                                                                        ),
-                                                                  ),
-                                                                  Text(
-                                                                    'total calls',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Playfair Display',
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
-                                                                  ),
-                                                                  RatingbarWidget(
-                                                                    key: Key(
-                                                                        'Key63m_${listViewIndex}_of_${listViewLawyersRecordList.length}'),
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child: Text(
-                                                                      listViewLawyersRecord
-                                                                          .category,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodySmall
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                'Outfit',
-                                                                            color:
-                                                                                Color(0xFF57636C),
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.normal,
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                  Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      listViewLawyersRecord
-                                                                          .lawyerExpertise,
-                                                                      'Reviews',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Playfair Display',
-                                                                          letterSpacing:
-                                                                              0.0,
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            40.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                child: Column(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              1.0,
-                                                                              0.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            20.0,
-                                                                            15.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            FlutterFlowIconButton(
-                                                                          borderColor:
-                                                                              FlutterFlowTheme.of(context).primary,
-                                                                          borderRadius:
-                                                                              20.0,
-                                                                          borderWidth:
-                                                                              1.0,
-                                                                          buttonSize:
-                                                                              43.0,
-                                                                          fillColor:
-                                                                              FlutterFlowTheme.of(context).accent1,
-                                                                          icon:
-                                                                              Icon(
-                                                                            Icons.call_rounded,
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryText,
-                                                                            size:
-                                                                                24.0,
-                                                                          ),
-                                                                          onPressed:
-                                                                              () async {
-                                                                            context.pushNamed('propert');
-                                                                          },
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              1.0,
-                                                                              1.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          listViewLawyersRecord
-                                                                              .lawyerCharge
-                                                                              .toString(),
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                fontFamily: 'Outfit',
-                                                                                color: Color(0xFF57636C),
-                                                                                fontSize: 14.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    Align(
-                                                                      alignment:
-                                                                          AlignmentDirectional(
-                                                                              1.0,
-                                                                              1.0),
-                                                                      child:
-                                                                          Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            12.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          'Rs/min',
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                fontFamily: 'Outfit',
-                                                                                color: Color(0xFF57636C),
-                                                                                fontSize: 14.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ],
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceEvenly,
+                                                    children: [
+                                                      Card(
+                                                        clipBehavior: Clip
+                                                            .antiAliasWithSaveLayer,
+                                                        color:
+                                                            const Color(0xFFF1F4F8),
+                                                        elevation: 1.0,
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      40.0),
+                                                        ),
+                                                        child: Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  -1.0, -1.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        40.0),
+                                                            child:
+                                                                Image.network(
+                                                              listViewLawyersRecord
+                                                                  .lawyerDp,
+                                                              width: 91.0,
+                                                              height: 112.0,
+                                                              fit: BoxFit.cover,
+                                                              alignment:
+                                                                  const Alignment(
+                                                                      0.0, 0.0),
+                                                            ),
                                                           ),
                                                         ),
-                                                      ],
-                                                    ),
+                                                      ),
+                                                      Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.max,
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            listViewLawyersRecord
+                                                                .name,
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .titleMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Outfit',
+                                                                  color: const Color(
+                                                                      0xFF1D2429),
+                                                                  fontSize:
+                                                                      18.0,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                          ),
+                                                          Text(
+                                                            'total calls',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Playfair Display',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                          RatingbarWidget(
+                                                            key: Key(
+                                                                'Keym72_${listViewIndex}_of_${listViewLawyersRecordList.length}'),
+                                                          ),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        4.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              listViewLawyersRecord
+                                                                  .category,
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    color: const Color(
+                                                                        0xFF57636C),
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          Text(
+                                                            valueOrDefault<
+                                                                String>(
+                                                              listViewLawyersRecord
+                                                                  .lawyerExpertise,
+                                                              'Reviews',
+                                                            ),
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Playfair Display',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    40.0,
+                                                                    0.0,
+                                                                    10.0,
+                                                                    0.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Align(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      1.0, 0.0),
+                                                              child: Padding(
+                                                                padding: const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        20.0,
+                                                                        15.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                                child:
+                                                                    FlutterFlowIconButton(
+                                                                  borderColor:
+                                                                      FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primary,
+                                                                  borderRadius:
+                                                                      20.0,
+                                                                  borderWidth:
+                                                                      1.0,
+                                                                  buttonSize:
+                                                                      43.0,
+                                                                  fillColor: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .accent1,
+                                                                  icon: Icon(
+                                                                    Icons
+                                                                        .call_rounded,
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    size: 24.0,
+                                                                  ),
+                                                                  onPressed:
+                                                                      () async {
+                                                                    context
+                                                                        .pushNamed(
+                                                                      'callpage',
+                                                                      queryParameters:
+                                                                          {
+                                                                        'callID':
+                                                                            serializeParam(
+                                                                          listViewLawyersRecord
+                                                                              .callid,
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'userid':
+                                                                            serializeParam(
+                                                                          currentUserUid,
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                        'username':
+                                                                            serializeParam(
+                                                                          currentUserUid,
+                                                                          ParamType
+                                                                              .String,
+                                                                        ),
+                                                                      }.withoutNulls,
+                                                                    );
+                                                                  },
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      1.0, 1.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            12.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  listViewLawyersRecord
+                                                                      .lawyerCharge
+                                                                      .toString(),
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Outfit',
+                                                                        color: const Color(
+                                                                            0xFF57636C),
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Align(
+                                                              alignment:
+                                                                  const AlignmentDirectional(
+                                                                      1.0, 1.0),
+                                                              child: Padding(
+                                                                padding:
+                                                                    const EdgeInsetsDirectional
+                                                                        .fromSTEB(
+                                                                            12.0,
+                                                                            0.0,
+                                                                            0.0,
+                                                                            0.0),
+                                                                child: Text(
+                                                                  'Rs/min',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodySmall
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Outfit',
+                                                                        color: const Color(
+                                                                            0xFF57636C),
+                                                                        fontSize:
+                                                                            14.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.normal,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
@@ -593,18 +598,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 12.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -623,7 +628,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -635,7 +640,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -649,7 +654,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: InkWell(
                                           splashColor: Colors.transparent,
@@ -657,18 +662,17 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            context
-                                                .pushNamed('Lawyer_profileu');
+                                            context.pushNamed('feed');
                                           },
                                           child: Container(
                                             width: double.infinity,
                                             decoration: BoxDecoration(
-                                              color: Color(0xFFF1F4F8),
+                                              color: const Color(0xFFF1F4F8),
                                               borderRadius:
                                                   BorderRadius.circular(12.0),
                                             ),
                                             child: Padding(
-                                              padding: EdgeInsetsDirectional
+                                              padding: const EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       8.0, 8.0, 12.0, 8.0),
                                               child: Row(
@@ -689,7 +693,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        EdgeInsetsDirectional
+                                                        const EdgeInsetsDirectional
                                                             .fromSTEB(16.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
@@ -700,7 +704,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
-                                                            color: Color(
+                                                            color: const Color(
                                                                 0xFF14181B),
                                                             fontSize: 16.0,
                                                             letterSpacing: 0.0,
@@ -717,18 +721,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -747,7 +751,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -759,7 +763,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -773,18 +777,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -803,7 +807,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -815,7 +819,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -829,18 +833,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -859,7 +863,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -871,7 +875,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -885,18 +889,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -915,7 +919,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -927,7 +931,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -941,18 +945,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -971,7 +975,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -983,7 +987,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -997,18 +1001,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1027,7 +1031,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1039,7 +1043,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1053,18 +1057,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1083,7 +1087,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1095,7 +1099,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1109,18 +1113,18 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 0.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
+                                                const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 8.0, 12.0, 8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1139,7 +1143,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                   ),
                                                 ),
                                                 Padding(
-                                                  padding: EdgeInsetsDirectional
+                                                  padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           16.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -1151,7 +1155,7 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                           fontFamily:
                                                               'Plus Jakarta Sans',
                                                           color:
-                                                              Color(0xFF14181B),
+                                                              const Color(0xFF14181B),
                                                           fontSize: 16.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
@@ -1165,12 +1169,12 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
                                             16.0, 8.0, 16.0, 44.0),
                                         child: Container(
                                           width: double.infinity,
                                           decoration: BoxDecoration(
-                                            color: Color(0xFFF1F4F8),
+                                            color: const Color(0xFFF1F4F8),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
@@ -1187,332 +1191,347 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
                                 ),
-                                child: ListView(
-                                  padding: EdgeInsets.zero,
-                                  primary: false,
-                                  scrollDirection: Axis.vertical,
-                                  children: [
-                                    ListView(
-                                      padding: EdgeInsets.zero,
-                                      shrinkWrap: true,
-                                      scrollDirection: Axis.vertical,
-                                      children: [
-                                        StreamBuilder<List<LawyersRecord>>(
-                                          stream: queryLawyersRecord(),
-                                          builder: (context, snapshot) {
-                                            // Customize what your widget looks like when it's loading.
-                                            if (!snapshot.hasData) {
-                                              return Center(
-                                                child: SizedBox(
-                                                  width: 50.0,
-                                                  height: 50.0,
-                                                  child:
-                                                      CircularProgressIndicator(
-                                                    valueColor:
-                                                        AlwaysStoppedAnimation<
-                                                            Color>(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .primary,
-                                                    ),
-                                                  ),
-                                                ),
-                                              );
-                                            }
-                                            List<LawyersRecord>
-                                                listViewLawyersRecordList =
-                                                snapshot.data!;
+                                child: StreamBuilder<List<LawyersRecord>>(
+                                  stream: queryLawyersRecord(),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              FlutterFlowTheme.of(context)
+                                                  .primary,
+                                            ),
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<LawyersRecord>
+                                        listViewLawyersRecordList =
+                                        snapshot.data!;
 
-                                            return ListView.builder(
-                                              padding: EdgeInsets.zero,
-                                              primary: false,
-                                              shrinkWrap: true,
-                                              scrollDirection: Axis.vertical,
-                                              itemCount:
-                                                  listViewLawyersRecordList
-                                                      .length,
-                                              itemBuilder:
-                                                  (context, listViewIndex) {
-                                                final listViewLawyersRecord =
-                                                    listViewLawyersRecordList[
-                                                        listViewIndex];
-                                                return Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: Container(
-                                                    width: 100.0,
-                                                    height: 119.0,
-                                                    decoration: BoxDecoration(
-                                                      color: Color(0xFFD9D5E8),
+                                    return ListView.builder(
+                                      padding: EdgeInsets.zero,
+                                      primary: false,
+                                      scrollDirection: Axis.vertical,
+                                      itemCount:
+                                          listViewLawyersRecordList.length,
+                                      itemBuilder: (context, listViewIndex) {
+                                        final listViewLawyersRecord =
+                                            listViewLawyersRecordList[
+                                                listViewIndex];
+                                        return Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 5.0),
+                                          child: Container(
+                                            width: 100.0,
+                                            height: 119.0,
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFD9D5E8),
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(24.0),
+                                                bottomRight:
+                                                    Radius.circular(24.0),
+                                                topLeft: Radius.circular(24.0),
+                                                topRight: Radius.circular(24.0),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 4.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  Card(
+                                                    clipBehavior: Clip
+                                                        .antiAliasWithSaveLayer,
+                                                    color: const Color(0xFFF1F4F8),
+                                                    elevation: 1.0,
+                                                    shape:
+                                                        RoundedRectangleBorder(
                                                       borderRadius:
-                                                          BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                24.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                24.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                24.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                24.0),
-                                                      ),
+                                                          BorderRadius.circular(
+                                                              40.0),
                                                     ),
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsets.all(8.0),
-                                                      child: InkWell(
-                                                        splashColor:
-                                                            Colors.transparent,
-                                                        focusColor:
-                                                            Colors.transparent,
-                                                        hoverColor:
-                                                            Colors.transparent,
-                                                        highlightColor:
-                                                            Colors.transparent,
-                                                        onTap: () async {
-                                                          context.pushNamed(
-                                                              'Lawyer_profileu');
-                                                        },
-                                                        child: Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.max,
-                                                          children: [
-                                                            Padding(
-                                                              padding:
-                                                                  EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          4.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Card(
-                                                                    clipBehavior:
-                                                                        Clip.antiAliasWithSaveLayer,
-                                                                    color: Color(
-                                                                        0xFFF1F4F8),
-                                                                    elevation:
-                                                                        1.0,
-                                                                    shape:
-                                                                        RoundedRectangleBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              40.0),
-                                                                    ),
-                                                                    child:
-                                                                        Align(
-                                                                      alignment: AlignmentDirectional(
-                                                                          -1.0,
-                                                                          -1.0),
-                                                                      child:
-                                                                          ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(40.0),
-                                                                        child: Image
-                                                                            .network(
-                                                                          listViewLawyersRecord
-                                                                              .lawyerDp,
-                                                                          width:
-                                                                              91.0,
-                                                                          height:
-                                                                              92.0,
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                          alignment: Alignment(
-                                                                              0.0,
-                                                                              0.0),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Column(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Text(
-                                                                        listViewLawyersRecord
-                                                                            .name,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .titleMedium
-                                                                            .override(
-                                                                              fontFamily: 'Outfit',
-                                                                              color: Color(0xFF1D2429),
-                                                                              fontSize: 18.0,
-                                                                              letterSpacing: 0.0,
-                                                                              fontWeight: FontWeight.w500,
-                                                                            ),
-                                                                      ),
-                                                                      Text(
-                                                                        'total calls',
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Playfair Display',
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                      ),
-                                                                      RatingbarWidget(
-                                                                        key: Key(
-                                                                            'Keyb0f_${listViewIndex}_of_${listViewLawyersRecordList.length}'),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                        child:
-                                                                            Text(
-                                                                          listViewLawyersRecord
-                                                                              .category,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodySmall
-                                                                              .override(
-                                                                                fontFamily: 'Outfit',
-                                                                                color: Color(0xFF57636C),
-                                                                                fontSize: 14.0,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.normal,
-                                                                              ),
-                                                                        ),
-                                                                      ),
-                                                                      Text(
-                                                                        valueOrDefault<
-                                                                            String>(
-                                                                          listViewLawyersRecord
-                                                                              .lawyerExpertise,
-                                                                          'Reviews',
-                                                                        ),
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: 'Playfair Display',
-                                                                              letterSpacing: 0.0,
-                                                                            ),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                  Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            40.0,
-                                                                            0.0,
-                                                                            0.0,
-                                                                            0.0),
-                                                                    child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              1.0,
-                                                                              0.0),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                20.0,
-                                                                                15.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                FlutterFlowIconButton(
-                                                                              borderColor: FlutterFlowTheme.of(context).primary,
-                                                                              borderRadius: 20.0,
-                                                                              borderWidth: 1.0,
-                                                                              buttonSize: 43.0,
-                                                                              fillColor: FlutterFlowTheme.of(context).accent1,
-                                                                              icon: Icon(
-                                                                                Icons.call_rounded,
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                size: 24.0,
-                                                                              ),
-                                                                              onPressed: () {
-                                                                                print('IconButton pressed ...');
-                                                                              },
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              1.0,
-                                                                              1.0),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                12.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              listViewLawyersRecord.lawyerCharge.toString(),
-                                                                              style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                    fontFamily: 'Outfit',
-                                                                                    color: Color(0xFF57636C),
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                        Align(
-                                                                          alignment: AlignmentDirectional(
-                                                                              1.0,
-                                                                              1.0),
-                                                                          child:
-                                                                              Padding(
-                                                                            padding: EdgeInsetsDirectional.fromSTEB(
-                                                                                12.0,
-                                                                                0.0,
-                                                                                0.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Text(
-                                                                              'Rs/min',
-                                                                              style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                    fontFamily: 'Outfit',
-                                                                                    color: Color(0xFF57636C),
-                                                                                    fontSize: 14.0,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.normal,
-                                                                                  ),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            ),
-                                                          ],
+                                                    child: Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              -1.0, -1.0),
+                                                      child: ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(40.0),
+                                                        child: Image.network(
+                                                          listViewLawyersRecord
+                                                              .lawyerDp,
+                                                          width: 91.0,
+                                                          height: 112.0,
+                                                          fit: BoxFit.cover,
+                                                          alignment: const Alignment(
+                                                              0.0, 0.0),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                );
-                                              },
-                                            );
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                                  Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        listViewLawyersRecord
+                                                            .name,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .titleMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Outfit',
+                                                              color: const Color(
+                                                                  0xFF1D2429),
+                                                              fontSize: 18.0,
+                                                              letterSpacing:
+                                                                  0.0,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                      ),
+                                                      Text(
+                                                        'total calls',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Playfair Display',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                      RatingbarWidget(
+                                                        key: Key(
+                                                            'Keyuz9_${listViewIndex}_of_${listViewLawyersRecordList.length}'),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          listViewLawyersRecord
+                                                              .category,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodySmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Outfit',
+                                                                color: const Color(
+                                                                    0xFF57636C),
+                                                                fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        valueOrDefault<String>(
+                                                          listViewLawyersRecord
+                                                              .lawyerExpertise,
+                                                          'Reviews',
+                                                        ),
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Playfair Display',
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(40.0, 0.0,
+                                                                10.0, 0.0),
+                                                    child: Column(
+                                                      mainAxisSize:
+                                                          MainAxisSize.max,
+                                                      children: [
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  1.0, 0.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        20.0,
+                                                                        15.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child:
+                                                                FlutterFlowIconButton(
+                                                              borderColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                              borderRadius:
+                                                                  20.0,
+                                                              borderWidth: 1.0,
+                                                              buttonSize: 43.0,
+                                                              fillColor:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .accent1,
+                                                              icon: Icon(
+                                                                Icons
+                                                                    .call_rounded,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                size: 24.0,
+                                                              ),
+                                                              onPressed:
+                                                                  () async {
+                                                                context
+                                                                    .pushNamed(
+                                                                  'propert',
+                                                                  queryParameters:
+                                                                      {
+                                                                    'callid':
+                                                                        serializeParam(
+                                                                      listViewLawyersRecord
+                                                                          .callid,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'userid':
+                                                                        serializeParam(
+                                                                      currentUserUid,
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                    'username':
+                                                                        serializeParam(
+                                                                      valueOrDefault(
+                                                                          currentUserDocument
+                                                                              ?.userName,
+                                                                          ''),
+                                                                      ParamType
+                                                                          .String,
+                                                                    ),
+                                                                  }.withoutNulls,
+                                                                );
+                                                              },
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  1.0, 1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              listViewLawyersRecord
+                                                                  .lawyerCharge
+                                                                  .toString(),
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    color: const Color(
+                                                                        0xFF57636C),
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Align(
+                                                          alignment:
+                                                              const AlignmentDirectional(
+                                                                  1.0, 1.0),
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                        12.0,
+                                                                        0.0,
+                                                                        0.0,
+                                                                        0.0),
+                                                            child: Text(
+                                                              'Rs/min',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .bodySmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    color: const Color(
+                                                                        0xFF57636C),
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .normal,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  },
                                 ),
                               ),
                             ],

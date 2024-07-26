@@ -8,10 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'b_profile_create_edit_copy_model.dart';
 export 'b_profile_create_edit_copy_model.dart';
 
@@ -77,24 +74,24 @@ class _BProfileCreateEditCopyWidgetState
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Color(0xFFECDAFF),
+      backgroundColor: const Color(0xFFECDAFF),
       appBar: AppBar(
-        backgroundColor: Color(0xFF9BAFF1),
+        backgroundColor: const Color(0xFF9BAFF1),
         automaticallyImplyLeading: true,
         title: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 80.0, 3.0),
+          padding: const EdgeInsetsDirectional.fromSTEB(2.0, 0.0, 80.0, 3.0),
           child: Text(
             'Register as Lawyer',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Outfit',
-                  color: Color(0xFF14181B),
+                  color: const Color(0xFF14181B),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
                   fontWeight: FontWeight.normal,
                 ),
           ),
         ),
-        actions: [],
+        actions: const [],
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -103,9 +100,9 @@ class _BProfileCreateEditCopyWidgetState
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Align(
-              alignment: AlignmentDirectional(1.0, 1.0),
+              alignment: const AlignmentDirectional(1.0, 1.0),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -115,9 +112,9 @@ class _BProfileCreateEditCopyWidgetState
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(-1.0, 0.0),
+                          alignment: const AlignmentDirectional(-1.0, 0.0),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 5.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => InkWell(
@@ -191,12 +188,11 @@ class _BProfileCreateEditCopyWidgetState
                                   width: 120.0,
                                   height: 120.0,
                                   clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
                                   child: Image.network(
-                                    currentUserPhoto != null &&
-                                            currentUserPhoto != ''
+                                    currentUserPhoto != ''
                                         ? currentUserPhoto
                                         : random_data.randomImageUrl(
                                             0,
@@ -225,7 +221,7 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
               child: TextFormField(
                 controller: _model.yourNameTextController1,
                 focusNode: _model.yourNameFocusNode1,
@@ -234,7 +230,7 @@ class _BProfileCreateEditCopyWidgetState
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -242,34 +238,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: 'NAME',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -278,11 +274,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -292,7 +288,7 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
               child: TextFormField(
                 controller: _model.yourNameTextController2,
                 focusNode: _model.yourNameFocusNode2,
@@ -301,7 +297,7 @@ class _BProfileCreateEditCopyWidgetState
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -309,34 +305,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: 'Email',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -345,11 +341,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -360,13 +356,13 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
               child: FlutterFlowDropDown<String>(
                 controller: _model.stateValueController1 ??=
                     FormFieldController<String>(
                   _model.stateValue1 ??= 'State',
                 ),
-                options: [
+                options: const [
                   'State',
                   'Ladakh',
                   'jammu',
@@ -404,30 +400,30 @@ class _BProfileCreateEditCopyWidgetState
                 height: 56.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
                     ),
                 hintText: 'Select State',
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_arrow_down_rounded,
                   color: Color(0xFF57636C),
                   size: 15.0,
                 ),
                 fillColor: Colors.white,
                 elevation: 2.0,
-                borderColor: Color(0xFFE0E3E7),
+                borderColor: const Color(0xFFE0E3E7),
                 borderWidth: 2.0,
                 borderRadius: 8.0,
-                margin: EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 12.0, 4.0),
+                margin: const EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 12.0, 4.0),
                 hidesUnderline: true,
                 isSearchable: false,
                 isMultiSelect: false,
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
               child: TextFormField(
                 controller: _model.cityTextController,
                 focusNode: _model.cityFocusNode,
@@ -436,7 +432,7 @@ class _BProfileCreateEditCopyWidgetState
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -444,34 +440,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: 'CITY',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -480,11 +476,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -495,13 +491,13 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
               child: FlutterFlowDropDown<String>(
                 controller: _model.stateValueController2 ??=
                     FormFieldController<String>(
                   _model.stateValue2 ??= 'Family Lawyer',
                 ),
-                options: [
+                options: const [
                   'Family Lawyer',
                   'criminal lawyer',
                   'Labour& Employment Lawyer',
@@ -518,30 +514,30 @@ class _BProfileCreateEditCopyWidgetState
                 height: 56.0,
                 textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
                     ),
                 hintText: 'Categories',
-                icon: Icon(
+                icon: const Icon(
                   Icons.keyboard_arrow_down_rounded,
                   color: Color(0xFF57636C),
                   size: 15.0,
                 ),
                 fillColor: Colors.white,
                 elevation: 2.0,
-                borderColor: Color(0xFFE0E3E7),
+                borderColor: const Color(0xFFE0E3E7),
                 borderWidth: 2.0,
                 borderRadius: 8.0,
-                margin: EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 12.0, 4.0),
+                margin: const EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 12.0, 4.0),
                 hidesUnderline: true,
                 isSearchable: false,
                 isMultiSelect: false,
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
               child: TextFormField(
                 controller: _model.yourNameTextController3,
                 focusNode: _model.yourNameFocusNode3,
@@ -550,7 +546,7 @@ class _BProfileCreateEditCopyWidgetState
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -558,34 +554,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: 'mobile no.',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -594,11 +590,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -609,7 +605,7 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 12.0),
               child: TextFormField(
                 controller: _model.myBioTextController,
                 focusNode: _model.myBioFocusNode,
@@ -618,7 +614,7 @@ class _BProfileCreateEditCopyWidgetState
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -626,34 +622,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: 'Your bio',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -662,11 +658,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -678,7 +674,7 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
               child: TextFormField(
                 controller: _model.yourNameTextController4,
                 focusNode: _model.yourNameFocusNode4,
@@ -687,7 +683,7 @@ class _BProfileCreateEditCopyWidgetState
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -695,34 +691,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: 'college',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -731,11 +727,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -745,7 +741,7 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
               child: TextFormField(
                 controller: _model.yourNameTextController5,
                 focusNode: _model.yourNameFocusNode5,
@@ -754,7 +750,7 @@ class _BProfileCreateEditCopyWidgetState
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -762,34 +758,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: 'NAME',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -798,11 +794,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -812,7 +808,7 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
               child: TextFormField(
                 controller: _model.yourNameTextController6,
                 focusNode: _model.yourNameFocusNode6,
@@ -821,7 +817,7 @@ class _BProfileCreateEditCopyWidgetState
                 decoration: InputDecoration(
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -829,34 +825,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: 'NAME',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -865,11 +861,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -880,7 +876,7 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 20.0, 16.0),
               child: TextFormField(
                 controller: _model.yourNameTextController7,
                 focusNode: _model.yourNameFocusNode7,
@@ -890,7 +886,7 @@ class _BProfileCreateEditCopyWidgetState
                   labelText: 'Lawyer per Min charge',
                   labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
@@ -898,34 +894,34 @@ class _BProfileCreateEditCopyWidgetState
                   hintText: '15',
                   hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF57636C),
+                        color: const Color(0xFF57636C),
                         fontSize: 14.0,
                         letterSpacing: 0.0,
                         fontWeight: FontWeight.normal,
                       ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFE0E3E7),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFF4B39EF),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   focusedErrorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       color: Color(0xFFFF5963),
                       width: 2.0,
                     ),
@@ -934,11 +930,11 @@ class _BProfileCreateEditCopyWidgetState
                   filled: true,
                   fillColor: Colors.white,
                   contentPadding:
-                      EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(20.0, 24.0, 0.0, 24.0),
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                       fontFamily: 'Plus Jakarta Sans',
-                      color: Color(0xFF14181B),
+                      color: const Color(0xFF14181B),
                       fontSize: 14.0,
                       letterSpacing: 0.0,
                       fontWeight: FontWeight.normal,
@@ -949,9 +945,9 @@ class _BProfileCreateEditCopyWidgetState
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 0.05),
+              alignment: const AlignmentDirectional(0.0, 0.05),
               child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: StreamBuilder<List<LawyersRecord>>(
                   stream: queryLawyersRecord(
                     singleRecord: true,
@@ -973,7 +969,6 @@ class _BProfileCreateEditCopyWidgetState
                     }
                     List<LawyersRecord> buttonLawyersRecordList =
                         snapshot.data!;
-
                     // Return an empty Container when the item does not exist.
                     if (snapshot.data!.isEmpty) {
                       return Container();
@@ -982,6 +977,7 @@ class _BProfileCreateEditCopyWidgetState
                         buttonLawyersRecordList.isNotEmpty
                             ? buttonLawyersRecordList.first
                             : null;
+
                     return FFButtonWidget(
                       onPressed: () async {
                         await buttonLawyersRecord!.reference
@@ -1005,10 +1001,10 @@ class _BProfileCreateEditCopyWidgetState
                         width: 270.0,
                         height: 50.0,
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: Color(0xFF4B39EF),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: const Color(0xFF4B39EF),
                         textStyle:
                             FlutterFlowTheme.of(context).titleMedium.override(
                                   fontFamily: 'Plus Jakarta Sans',
@@ -1018,7 +1014,7 @@ class _BProfileCreateEditCopyWidgetState
                                   fontWeight: FontWeight.normal,
                                 ),
                         elevation: 2.0,
-                        borderSide: BorderSide(
+                        borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),

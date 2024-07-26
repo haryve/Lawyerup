@@ -3,11 +3,11 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'propert_model.dart';
-export 'propert_model.dart';
+import 'propert_copy_model.dart';
+export 'propert_copy_model.dart';
 
-class PropertWidget extends StatefulWidget {
-  const PropertWidget({
+class PropertCopyWidget extends StatefulWidget {
+  const PropertCopyWidget({
     super.key,
     required this.callid,
     required this.userid,
@@ -19,18 +19,18 @@ class PropertWidget extends StatefulWidget {
   final String? username;
 
   @override
-  State<PropertWidget> createState() => _PropertWidgetState();
+  State<PropertCopyWidget> createState() => _PropertCopyWidgetState();
 }
 
-class _PropertWidgetState extends State<PropertWidget> {
-  late PropertModel _model;
+class _PropertCopyWidgetState extends State<PropertCopyWidget> {
+  late PropertCopyModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => PropertModel());
+    _model = createModel(context, () => PropertCopyModel());
 
     _model.textController1 ??= TextEditingController();
     _model.textFieldFocusNode1 ??= FocusNode();
@@ -250,24 +250,8 @@ class _PropertWidgetState extends State<PropertWidget> {
             ),
           ),
           FFButtonWidget(
-            onPressed: () async {
-              context.pushNamed(
-                'callpage',
-                queryParameters: {
-                  'callID': serializeParam(
-                    _model.textController1.text,
-                    ParamType.String,
-                  ),
-                  'userid': serializeParam(
-                    _model.textController2.text,
-                    ParamType.String,
-                  ),
-                  'username': serializeParam(
-                    _model.textController3.text,
-                    ParamType.String,
-                  ),
-                }.withoutNulls,
-              );
+            onPressed: () {
+              print('Button pressed ...');
             },
             text: 'Call NOW',
             options: FFButtonOptions(

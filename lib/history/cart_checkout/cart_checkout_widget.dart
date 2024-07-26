@@ -1,16 +1,13 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/flutter_flow/random_data_util.dart' as random_data;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'cart_checkout_model.dart';
 export 'cart_checkout_model.dart';
@@ -39,7 +36,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if ((currentUserDocument?.addresses?.toList() ?? []).length >= 1) {
+      if ((currentUserDocument?.addresses.toList() ?? []).isNotEmpty) {
         // hideNewAddress
         _model.showNewAddress = false;
         setState(() {});
@@ -47,7 +44,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
         // showNewAddress
         _model.showNewAddress = true;
         _model.selectedAddress =
-            (currentUserDocument?.addresses?.toList() ?? []).first;
+            (currentUserDocument?.addresses.toList() ?? []).first;
         setState(() {});
       }
     });
@@ -85,17 +82,17 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
             context.pop();
           },
         ),
-        actions: [],
+        actions: const [],
         centerTitle: false,
         elevation: 0.0,
       ),
       body: Align(
-        alignment: AlignmentDirectional(0.0, -1.0),
+        alignment: const AlignmentDirectional(0.0, -1.0),
         child: Container(
-          constraints: BoxConstraints(
+          constraints: const BoxConstraints(
             maxWidth: 1230.0,
           ),
-          decoration: BoxDecoration(),
+          decoration: const BoxDecoration(),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -108,14 +105,14 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                 ))
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
+                        const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
                     child: SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 2.0, 0.0, 2.0),
                             child: FlutterFlowIconButton(
                               borderColor: Colors.transparent,
@@ -134,7 +131,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Icon(
                               Icons.chevron_right_rounded,
@@ -143,7 +140,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
@@ -159,9 +156,9 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                   color: FlutterFlowTheme.of(context).accent1,
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
                                       12.0, 4.0, 12.0, 4.0),
                                   child: Text(
                                     'My Cart',
@@ -179,7 +176,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 8.0, 0.0, 8.0, 0.0),
                             child: Icon(
                               Icons.chevron_right_rounded,
@@ -188,7 +185,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
                             child: Container(
                               height: 32.0,
@@ -196,9 +193,9 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                 color: FlutterFlowTheme.of(context).accent1,
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     12.0, 4.0, 12.0, 4.0),
                                 child: Text(
                                   'Checkout',
@@ -220,7 +217,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                   ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 24.0),
                   child: Wrap(
                     spacing: 16.0,
                     runSpacing: 16.0,
@@ -233,13 +230,13 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                     children: [
                       Container(
                         width: double.infinity,
-                        constraints: BoxConstraints(
+                        constraints: const BoxConstraints(
                           maxWidth: 430.0,
                         ),
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               blurRadius: 4.0,
                               color: Color(0x33000000),
@@ -252,7 +249,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               16.0, 16.0, 16.0, 24.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -268,7 +265,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                     ),
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 4.0, 0.0, 12.0),
                                 child: Text(
                                   'Below is a list of your items.',
@@ -286,14 +283,14 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                 color: FlutterFlowTheme.of(context).alternate,
                               ),
                               Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 24.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 12.0),
                                       child: Text(
                                         'Price Breakdown',
@@ -306,7 +303,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -329,7 +326,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                           ),
                                           Text(
                                             valueOrDefault<String>(
-                                              widget!.amount?.toString(),
+                                              widget.amount?.toString(),
                                               '--',
                                             ),
                                             textAlign: TextAlign.end,
@@ -344,7 +341,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 8.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -391,7 +388,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                           ),
                                           Text(
                                             valueOrDefault<String>(
-                                              widget!.amount?.toString(),
+                                              widget.amount?.toString(),
                                               '--',
                                             ),
                                             style: FlutterFlowTheme.of(context)
@@ -512,7 +509,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                     context.goNamed(
                                       'cart_successPage',
                                       extra: <String, dynamic>{
-                                        kTransitionInfoKey: TransitionInfo(
+                                        kTransitionInfoKey: const TransitionInfo(
                                           hasTransition: true,
                                           transitionType:
                                               PageTransitionType.bottomToTop,
@@ -536,7 +533,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                                 letterSpacing: 0.0,
                                               ),
                                         ),
-                                        duration: Duration(milliseconds: 4000),
+                                        duration: const Duration(milliseconds: 4000),
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
                                                 .tertiary,
@@ -550,8 +547,8 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 50.0,
-                                  padding: EdgeInsets.all(0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  padding: const EdgeInsets.all(0.0),
+                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).info,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -563,7 +560,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                                         letterSpacing: 0.0,
                                       ),
                                   elevation: 2.0,
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     color: Colors.transparent,
                                     width: 1.0,
                                   ),
@@ -584,7 +581,7 @@ class _CartCheckoutWidgetState extends State<CartCheckoutWidget> {
                       ),
                       Container(
                         height: 200.0,
-                        decoration: BoxDecoration(),
+                        decoration: const BoxDecoration(),
                       ),
                     ],
                   ),

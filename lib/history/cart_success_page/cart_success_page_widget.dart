@@ -3,12 +3,8 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'cart_success_page_model.dart';
 export 'cart_success_page_model.dart';
 
@@ -48,8 +44,8 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.8, 0.8),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.8, 0.8),
+            end: const Offset(1.0, 1.0),
           ),
           RotateEffect(
             curve: Curves.easeInOut,
@@ -75,8 +71,8 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.8, 0.8),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.8, 0.8),
+            end: const Offset(1.0, 1.0),
           ),
           RotateEffect(
             curve: Curves.easeInOut,
@@ -102,15 +98,15 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
             curve: Curves.easeInOut,
             delay: 100.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.8, 0.8),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.8, 0.8),
+            end: const Offset(1.0, 1.0),
           ),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 100.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.0, 40.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 40.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -129,15 +125,15 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
             curve: Curves.easeInOut,
             delay: 150.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.8, 0.8),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.8, 0.8),
+            end: const Offset(1.0, 1.0),
           ),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 150.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.0, 40.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 40.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -156,15 +152,15 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.8, 0.8),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.8, 0.8),
+            end: const Offset(1.0, 1.0),
           ),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 200.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.0, 40.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 40.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -183,15 +179,15 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.8, 0.8),
-            end: Offset(1.0, 1.0),
+            begin: const Offset(0.8, 0.8),
+            end: const Offset(1.0, 1.0),
           ),
           MoveEffect(
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 300.0.ms,
-            begin: Offset(0.0, 40.0),
-            end: Offset(0.0, 0.0),
+            begin: const Offset(0.0, 40.0),
+            end: const Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -218,7 +214,7 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 16.0),
+              padding: const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 16.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -242,13 +238,13 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
             ),
             Expanded(
               child: Container(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 530.0,
                 ),
-                decoration: BoxDecoration(),
+                decoration: const BoxDecoration(),
                 child: Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 70.0),
+                      const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 70.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -264,7 +260,7 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
                             width: 2.0,
                           ),
                         ),
-                        alignment: AlignmentDirectional(0.0, 0.0),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Icon(
                           Icons.check_rounded,
                           color: FlutterFlowTheme.of(context).info,
@@ -275,7 +271,7 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
                           animationsMap['containerOnPageLoadAnimation']!),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Text(
                           'Funds added',
                           textAlign: TextAlign.center,
@@ -291,7 +287,7 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
                       ),
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Text(
                           'Successfully!',
                           textAlign: TextAlign.center,
@@ -305,7 +301,7 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
                             animationsMap['textOnPageLoadAnimation2']!),
                       ),
                       Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
                             12.0, 8.0, 12.0, 24.0),
                         child: Text(
                           'Your payment has been confirmed, it may take 1-2 hours in order for your payment to go through and show up in your transation list.',
@@ -323,7 +319,7 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
                           context.pushNamed(
                             'SearchResults',
                             extra: <String, dynamic>{
-                              kTransitionInfoKey: TransitionInfo(
+                              kTransitionInfoKey: const TransitionInfo(
                                 hasTransition: true,
                                 transitionType: PageTransitionType.bottomToTop,
                                 duration: Duration(milliseconds: 300),
@@ -335,9 +331,9 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
                         options: FFButtonOptions(
                           width: 230.0,
                           height: 50.0,
-                          padding: EdgeInsetsDirectional.fromSTEB(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).alternate,
                           textStyle:
@@ -346,7 +342,7 @@ class _CartSuccessPageWidgetState extends State<CartSuccessPageWidget>
                                     letterSpacing: 0.0,
                                   ),
                           elevation: 0.0,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: Colors.transparent,
                             width: 1.0,
                           ),

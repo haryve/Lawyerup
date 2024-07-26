@@ -1,10 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'callpage_model.dart';
 export 'callpage_model.dart';
 
@@ -57,7 +53,7 @@ class _CallpageWidgetState extends State<CallpageWidget> {
           backgroundColor: FlutterFlowTheme.of(context).primary,
           automaticallyImplyLeading: false,
           title: Text(
-            'On Call',
+            'on call now',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Poppins',
                   color: Colors.white,
@@ -65,23 +61,9 @@ class _CallpageWidgetState extends State<CallpageWidget> {
                   letterSpacing: 0.0,
                 ),
           ),
-          actions: [],
+          actions: const [],
           centerTitle: false,
           elevation: 2.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            child: custom_widgets.Videocall(
-              width: double.infinity,
-              height: double.infinity,
-              callId: widget!.callID!,
-              userID: widget!.userid!,
-              username: widget!.username!,
-            ),
-          ),
         ),
       ),
     );

@@ -25,15 +25,7 @@ export '/pages/profilesettings/profilesettings_widget.dart'
 export '/pages/feed/feed_widget.dart' show FeedWidget;
 export '/pages/b_pin_code_copy/b_pin_code_copy_widget.dart'
     show BPinCodeCopyWidget;
-export '/chat_groupwbubbles/list11_messages/list11_messages_widget.dart'
-    show List11MessagesWidget;
-export '/chat_groupwbubbles/chat_2_main/chat2_main_widget.dart'
-    show Chat2MainWidget;
-export '/chat_groupwbubbles/chat_2_invite_users/chat2_invite_users_widget.dart'
-    show Chat2InviteUsersWidget;
-export '/chat_groupwbubbles/image_details/image_details_widget.dart'
-    show ImageDetailsWidget;
-export '/chats/chats_widget.dart' show ChatsWidget;
+export '/image_details/image_details_widget.dart' show ImageDetailsWidget;
 export '/history/cart_order_history/cart_order_history_widget.dart'
     show CartOrderHistoryWidget;
 export '/history/cart_checkout/cart_checkout_widget.dart'
@@ -49,3 +41,4 @@ export '/pages/b_profile_create_edit_copy/b_profile_create_edit_copy_widget.dart
 export '/pages/feed_copy2/feed_copy2_widget.dart' show FeedCopy2Widget;
 export '/propert/propert_widget.dart' show PropertWidget;
 export '/callpage/callpage_widget.dart' show CallpageWidget;
+export '/propert_copy/propert_copy_widget.dart' show PropertCopyWidget;
