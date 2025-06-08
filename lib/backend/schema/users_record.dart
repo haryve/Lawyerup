@@ -9,9 +9,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class UsersRecord extends FirestoreRecord {
   UsersRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -105,6 +105,96 @@ class UsersRecord extends FirestoreRecord {
   String get uid => _uid ?? '';
   bool hasUid() => _uid != null;
 
+  // "gender" field.
+  String? _gender;
+  String get gender => _gender ?? '';
+  bool hasGender() => _gender != null;
+
+  // "ref" field.
+  DocumentReference? _ref;
+  DocumentReference? get ref => _ref;
+  bool hasRef() => _ref != null;
+
+  // "usercallmanagement" field.
+  DocumentReference? _usercallmanagement;
+  DocumentReference? get usercallmanagement => _usercallmanagement;
+  bool hasUsercallmanagement() => _usercallmanagement != null;
+
+  // "callnotification" field.
+  List<DocumentReference>? _callnotification;
+  List<DocumentReference> get callnotification => _callnotification ?? const [];
+  bool hasCallnotification() => _callnotification != null;
+
+  // "lawref" field.
+  DocumentReference? _lawref;
+  DocumentReference? get lawref => _lawref;
+  bool hasLawref() => _lawref != null;
+
+  // "supportticket" field.
+  DocumentReference? _supportticket;
+  DocumentReference? get supportticket => _supportticket;
+  bool hasSupportticket() => _supportticket != null;
+
+  // "Waller" field.
+  int? _waller;
+  int get waller => _waller ?? 0;
+  bool hasWaller() => _waller != null;
+
+  // "MyLawyers" field.
+  List<DocumentReference>? _myLawyers;
+  List<DocumentReference> get myLawyers => _myLawyers ?? const [];
+  bool hasMyLawyers() => _myLawyers != null;
+
+  // "MyClients" field.
+  List<DocumentReference>? _myClients;
+  List<DocumentReference> get myClients => _myClients ?? const [];
+  bool hasMyClients() => _myClients != null;
+
+  // "pendingrequests" field.
+  List<DocumentReference>? _pendingrequests;
+  List<DocumentReference> get pendingrequests => _pendingrequests ?? const [];
+  bool hasPendingrequests() => _pendingrequests != null;
+
+  // "calls" field.
+  DocumentReference? _calls;
+  DocumentReference? get calls => _calls;
+  bool hasCalls() => _calls != null;
+
+  // "timer" field.
+  DocumentReference? _timer;
+  DocumentReference? get timer => _timer;
+  bool hasTimer() => _timer != null;
+
+  // "online" field.
+  bool? _online;
+  bool get online => _online ?? false;
+  bool hasOnline() => _online != null;
+
+  // "UserProfession" field.
+  String? _userProfession;
+  String get userProfession => _userProfession ?? '';
+  bool hasUserProfession() => _userProfession != null;
+
+  // "Age" field.
+  int? _age;
+  int get age => _age ?? 0;
+  bool hasAge() => _age != null;
+
+  // "AIchatref" field.
+  DocumentReference? _aIchatref;
+  DocumentReference? get aIchatref => _aIchatref;
+  bool hasAIchatref() => _aIchatref != null;
+
+  // "bankrf" field.
+  DocumentReference? _bankrf;
+  DocumentReference? get bankrf => _bankrf;
+  bool hasBankrf() => _bankrf != null;
+
+  // "Languages" field.
+  List<String>? _languages;
+  List<String> get languages => _languages ?? const [];
+  bool hasLanguages() => _languages != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -127,6 +217,25 @@ class UsersRecord extends FirestoreRecord {
       AddressStruct.fromMap,
     );
     _uid = snapshotData['uid'] as String?;
+    _gender = snapshotData['gender'] as String?;
+    _ref = snapshotData['ref'] as DocumentReference?;
+    _usercallmanagement =
+        snapshotData['usercallmanagement'] as DocumentReference?;
+    _callnotification = getDataList(snapshotData['callnotification']);
+    _lawref = snapshotData['lawref'] as DocumentReference?;
+    _supportticket = snapshotData['supportticket'] as DocumentReference?;
+    _waller = castToType<int>(snapshotData['Waller']);
+    _myLawyers = getDataList(snapshotData['MyLawyers']);
+    _myClients = getDataList(snapshotData['MyClients']);
+    _pendingrequests = getDataList(snapshotData['pendingrequests']);
+    _calls = snapshotData['calls'] as DocumentReference?;
+    _timer = snapshotData['timer'] as DocumentReference?;
+    _online = snapshotData['online'] as bool?;
+    _userProfession = snapshotData['UserProfession'] as String?;
+    _age = castToType<int>(snapshotData['Age']);
+    _aIchatref = snapshotData['AIchatref'] as DocumentReference?;
+    _bankrf = snapshotData['bankrf'] as DocumentReference?;
+    _languages = getDataList(snapshotData['Languages']);
   }
 
   static CollectionReference get collection =>
@@ -178,6 +287,19 @@ Map<String, dynamic> createUsersRecordData({
   String? title,
   String? state,
   String? uid,
+  String? gender,
+  DocumentReference? ref,
+  DocumentReference? usercallmanagement,
+  DocumentReference? lawref,
+  DocumentReference? supportticket,
+  int? waller,
+  DocumentReference? calls,
+  DocumentReference? timer,
+  bool? online,
+  String? userProfession,
+  int? age,
+  DocumentReference? aIchatref,
+  DocumentReference? bankrf,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -196,6 +318,19 @@ Map<String, dynamic> createUsersRecordData({
       'title': title,
       'state': state,
       'uid': uid,
+      'gender': gender,
+      'ref': ref,
+      'usercallmanagement': usercallmanagement,
+      'lawref': lawref,
+      'supportticket': supportticket,
+      'Waller': waller,
+      'calls': calls,
+      'timer': timer,
+      'online': online,
+      'UserProfession': userProfession,
+      'Age': age,
+      'AIchatref': aIchatref,
+      'bankrf': bankrf,
     }.withoutNulls,
   );
 
@@ -225,7 +360,25 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.state == e2?.state &&
         listEquality.equals(e1?.blockedUsers, e2?.blockedUsers) &&
         listEquality.equals(e1?.addresses, e2?.addresses) &&
-        e1?.uid == e2?.uid;
+        e1?.uid == e2?.uid &&
+        e1?.gender == e2?.gender &&
+        e1?.ref == e2?.ref &&
+        e1?.usercallmanagement == e2?.usercallmanagement &&
+        listEquality.equals(e1?.callnotification, e2?.callnotification) &&
+        e1?.lawref == e2?.lawref &&
+        e1?.supportticket == e2?.supportticket &&
+        e1?.waller == e2?.waller &&
+        listEquality.equals(e1?.myLawyers, e2?.myLawyers) &&
+        listEquality.equals(e1?.myClients, e2?.myClients) &&
+        listEquality.equals(e1?.pendingrequests, e2?.pendingrequests) &&
+        e1?.calls == e2?.calls &&
+        e1?.timer == e2?.timer &&
+        e1?.online == e2?.online &&
+        e1?.userProfession == e2?.userProfession &&
+        e1?.age == e2?.age &&
+        e1?.aIchatref == e2?.aIchatref &&
+        e1?.bankrf == e2?.bankrf &&
+        listEquality.equals(e1?.languages, e2?.languages);
   }
 
   @override
@@ -247,7 +400,25 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.state,
         e?.blockedUsers,
         e?.addresses,
-        e?.uid
+        e?.uid,
+        e?.gender,
+        e?.ref,
+        e?.usercallmanagement,
+        e?.callnotification,
+        e?.lawref,
+        e?.supportticket,
+        e?.waller,
+        e?.myLawyers,
+        e?.myClients,
+        e?.pendingrequests,
+        e?.calls,
+        e?.timer,
+        e?.online,
+        e?.userProfession,
+        e?.age,
+        e?.aIchatref,
+        e?.bankrf,
+        e?.languages
       ]);
 
   @override

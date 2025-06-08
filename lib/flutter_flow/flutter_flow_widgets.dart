@@ -16,6 +16,7 @@ class FFButtonOptions {
     this.splashColor,
     this.iconSize,
     this.iconColor,
+    this.iconAlignment,
     this.iconPadding,
     this.borderRadius,
     this.borderSide,
@@ -39,6 +40,7 @@ class FFButtonOptions {
   final Color? splashColor;
   final double? iconSize;
   final Color? iconColor;
+  final IconAlignment? iconAlignment;
   final EdgeInsetsGeometry? iconPadding;
   final BorderRadius? borderRadius;
   final BorderSide? borderSide;
@@ -184,6 +186,19 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           return widget.options.elevation ?? 2.0;
         },
       ),
+      iconColor: WidgetStateProperty.resolveWith<Color?>(
+        (states) {
+          if (states.contains(WidgetState.disabled) &&
+              widget.options.disabledTextColor != null) {
+            return widget.options.disabledTextColor;
+          }
+          if (states.contains(WidgetState.hovered) &&
+              widget.options.hoverTextColor != null) {
+            return widget.options.hoverTextColor;
+          }
+          return widget.options.iconColor;
+        },
+      ),
     );
 
     if ((widget.icon != null || widget.iconData != null) && !loading) {
@@ -227,6 +242,7 @@ class _FFButtonWidgetState extends State<FFButtonWidget> {
           label: textWidget,
           onPressed: onPressed,
           style: style,
+          iconAlignment: widget.options.iconAlignment ?? IconAlignment.start,
         ),
       );
     }

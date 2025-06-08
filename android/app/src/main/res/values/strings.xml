@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
-    <string name="app_name">constitutionsimplified</string>
-    <string name="facebook_app_id">1072114140687745</string>
-               <string name="fb_login_protocol_scheme">fb1072114140687745</string>
+    <string name="app_name">Caremeez</string>
+    <string name="facebook_app_id">2409523442768604</string>
+    <string name="fb_login_protocol_scheme">fb2409523442768604</string>
+     <string name="facebook_client_token">d026ed02f750de88ab8b669cdc17a8ba</string>
+          
 </resources>

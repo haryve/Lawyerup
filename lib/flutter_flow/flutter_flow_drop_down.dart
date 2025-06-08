@@ -36,6 +36,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
     this.isMultiSelect = false,
     this.labelText,
     this.labelTextStyle,
+    this.optionsHasValueKeys = false,
   }) : assert(
           isMultiSelect
               ? (controller == null &&
@@ -78,6 +79,7 @@ class FlutterFlowDropDown<T> extends StatefulWidget {
   final bool isMultiSelect;
   final String? labelText;
   final TextStyle? labelTextStyle;
+  final bool optionsHasValueKeys;
 
   @override
   State<FlutterFlowDropDown<T>> createState() => _FlutterFlowDropDownState<T>();
@@ -209,21 +211,27 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
       ? Text(widget.hintText!, style: widget.textStyle)
       : null;
 
+  ValueKey _getItemKey(T option) {
+    final widgetKey = (widget.key as ValueKey).value;
+    return ValueKey('$widgetKey ${widget.options.indexOf(option)}');
+  }
+
   List<DropdownMenuItem<T>> _createMenuItems() => widget.options
       .map(
         (option) => DropdownMenuItem<T>(
-          value: option,
-          child: Padding(
-            padding: _useDropdown2() ? horizontalMargin : EdgeInsets.zero,
-            child: Text(optionLabels[option] ?? '', style: widget.textStyle),
-          ),
-        ),
+            key: widget.optionsHasValueKeys ? _getItemKey(option) : null,
+            value: option,
+            child: Padding(
+              padding: _useDropdown2() ? horizontalMargin : EdgeInsets.zero,
+              child: Text(optionLabels[option] ?? '', style: widget.textStyle),
+            )),
       )
       .toList();
 
   List<DropdownMenuItem<T>> _createMultiselectMenuItems() => widget.options
       .map(
         (item) => DropdownMenuItem<T>(
+          key: widget.optionsHasValueKeys ? _getItemKey(item) : null,
           value: item,
           // Disable default onTap to avoid closing menu when selecting an item
           enabled: false,
@@ -232,37 +240,36 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
               final isSelected =
                   multiSelectController.value?.contains(item) ?? false;
               return InkWell(
-                onTap: () {
-                  multiSelectController.value ??= [];
-                  isSelected
-                      ? multiSelectController.value!.remove(item)
-                      : multiSelectController.value!.add(item);
-                  multiSelectController.update();
-                  // This rebuilds the StatefulWidget to update the button's text.
-                  setState(() {});
-                  // This rebuilds the dropdownMenu Widget to update the check mark.
-                  menuSetState(() {});
-                },
-                child: Container(
-                  height: double.infinity,
-                  padding: horizontalMargin,
-                  child: Row(
-                    children: [
-                      if (isSelected)
-                        const Icon(Icons.check_box_outlined)
-                      else
-                        const Icon(Icons.check_box_outline_blank),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Text(
-                          optionLabels[item]!,
-                          style: widget.textStyle,
+                  onTap: () {
+                    multiSelectController.value ??= [];
+                    isSelected
+                        ? multiSelectController.value!.remove(item)
+                        : multiSelectController.value!.add(item);
+                    multiSelectController.update();
+                    // This rebuilds the StatefulWidget to update the button's text.
+                    setState(() {});
+                    // This rebuilds the dropdownMenu Widget to update the check mark.
+                    menuSetState(() {});
+                  },
+                  child: Container(
+                    height: double.infinity,
+                    padding: horizontalMargin,
+                    child: Row(
+                      children: [
+                        if (isSelected)
+                          const Icon(Icons.check_box_outlined)
+                        else
+                          const Icon(Icons.check_box_outline_blank),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Text(
+                            optionLabels[item]!,
+                            style: widget.textStyle,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-              );
+                      ],
+                    ),
+                  ));
             },
           ),
         ),
@@ -307,18 +314,17 @@ class _FlutterFlowDropDownState<T> extends State<FlutterFlowDropDown<T>> {
       selectedItemBuilder: (context) => widget.options
           .map(
             (item) => Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                isMultiSelect
-                    ? currentValues
-                        .where((v) => optionLabels.containsKey(v))
-                        .map((v) => optionLabels[v])
-                        .join(', ')
-                    : optionLabels[item]!,
-                style: widget.textStyle,
-                maxLines: 1,
-              ),
-            ),
+                alignment: AlignmentDirectional.centerStart,
+                child: Text(
+                  isMultiSelect
+                      ? currentValues
+                          .where((v) => optionLabels.containsKey(v))
+                          .map((v) => optionLabels[v])
+                          .join(', ')
+                      : optionLabels[item]!,
+                  style: widget.textStyle,
+                  maxLines: 1,
+                )),
           )
           .toList(),
       dropdownSearchData: widget.isSearchable

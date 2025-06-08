@@ -9,75 +9,73 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class ChatsRecord extends FirestoreRecord {
   ChatsRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
-  // "users" field.
-  List<DocumentReference>? _users;
-  List<DocumentReference> get users => _users ?? const [];
-  bool hasUsers() => _users != null;
+  // "lastmessage" field.
+  String? _lastmessage;
+  String get lastmessage => _lastmessage ?? '';
+  bool hasLastmessage() => _lastmessage != null;
 
-  // "user_a" field.
-  DocumentReference? _userA;
-  DocumentReference? get userA => _userA;
-  bool hasUserA() => _userA != null;
+  // "lastmessagetime" field.
+  DateTime? _lastmessagetime;
+  DateTime? get lastmessagetime => _lastmessagetime;
+  bool hasLastmessagetime() => _lastmessagetime != null;
 
-  // "user_b" field.
-  DocumentReference? _userB;
-  DocumentReference? get userB => _userB;
-  bool hasUserB() => _userB != null;
+  // "Participantimages" field.
+  List<String>? _participantimages;
+  List<String> get participantimages => _participantimages ?? const [];
+  bool hasParticipantimages() => _participantimages != null;
 
-  // "last_message" field.
-  String? _lastMessage;
-  String get lastMessage => _lastMessage ?? '';
-  bool hasLastMessage() => _lastMessage != null;
+  // "participantids" field.
+  List<DocumentReference>? _participantids;
+  List<DocumentReference> get participantids => _participantids ?? const [];
+  bool hasParticipantids() => _participantids != null;
 
-  // "last_message_time" field.
-  DateTime? _lastMessageTime;
-  DateTime? get lastMessageTime => _lastMessageTime;
-  bool hasLastMessageTime() => _lastMessageTime != null;
+  // "participantsnames" field.
+  List<String>? _participantsnames;
+  List<String> get participantsnames => _participantsnames ?? const [];
+  bool hasParticipantsnames() => _participantsnames != null;
 
-  // "last_message_sent_by" field.
-  DocumentReference? _lastMessageSentBy;
-  DocumentReference? get lastMessageSentBy => _lastMessageSentBy;
-  bool hasLastMessageSentBy() => _lastMessageSentBy != null;
+  // "lastmessageimage" field.
+  String? _lastmessageimage;
+  String get lastmessageimage => _lastmessageimage ?? '';
+  bool hasLastmessageimage() => _lastmessageimage != null;
 
-  // "last_message_seen_by" field.
-  List<DocumentReference>? _lastMessageSeenBy;
-  List<DocumentReference> get lastMessageSeenBy =>
-      _lastMessageSeenBy ?? const [];
-  bool hasLastMessageSeenBy() => _lastMessageSeenBy != null;
+  // "lastmessagevideo" field.
+  String? _lastmessagevideo;
+  String get lastmessagevideo => _lastmessagevideo ?? '';
+  bool hasLastmessagevideo() => _lastmessagevideo != null;
 
-  // "group_chat_id" field.
-  int? _groupChatId;
-  int get groupChatId => _groupChatId ?? 0;
-  bool hasGroupChatId() => _groupChatId != null;
+  // "lastmessageaudio" field.
+  String? _lastmessageaudio;
+  String get lastmessageaudio => _lastmessageaudio ?? '';
+  bool hasLastmessageaudio() => _lastmessageaudio != null;
 
-  // "chatimage" field.
-  String? _chatimage;
-  String get chatimage => _chatimage ?? '';
-  bool hasChatimage() => _chatimage != null;
+  // "lastmessagetype" field.
+  String? _lastmessagetype;
+  String get lastmessagetype => _lastmessagetype ?? '';
+  bool hasLastmessagetype() => _lastmessagetype != null;
 
-  // "user" field.
-  String? _user;
-  String get user => _user ?? '';
-  bool hasUser() => _user != null;
+  // "Lastmessageseen" field.
+  bool? _lastmessageseen;
+  bool get lastmessageseen => _lastmessageseen ?? false;
+  bool hasLastmessageseen() => _lastmessageseen != null;
 
   void _initializeFields() {
-    _users = getDataList(snapshotData['users']);
-    _userA = snapshotData['user_a'] as DocumentReference?;
-    _userB = snapshotData['user_b'] as DocumentReference?;
-    _lastMessage = snapshotData['last_message'] as String?;
-    _lastMessageTime = snapshotData['last_message_time'] as DateTime?;
-    _lastMessageSentBy =
-        snapshotData['last_message_sent_by'] as DocumentReference?;
-    _lastMessageSeenBy = getDataList(snapshotData['last_message_seen_by']);
-    _groupChatId = castToType<int>(snapshotData['group_chat_id']);
-    _chatimage = snapshotData['chatimage'] as String?;
-    _user = snapshotData['user'] as String?;
+    _lastmessage = snapshotData['lastmessage'] as String?;
+    _lastmessagetime = snapshotData['lastmessagetime'] as DateTime?;
+    _participantimages = getDataList(snapshotData['Participantimages']);
+    _participantids = getDataList(snapshotData['participantids']);
+    _participantsnames = getDataList(snapshotData['participantsnames']);
+    _lastmessageimage = snapshotData['lastmessageimage'] as String?;
+    _lastmessagevideo = snapshotData['lastmessagevideo'] as String?;
+    _lastmessageaudio = snapshotData['lastmessageaudio'] as String?;
+    _lastmessagetype = snapshotData['lastmessagetype'] as String?;
+    _lastmessageseen = snapshotData['Lastmessageseen'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -114,25 +112,23 @@ class ChatsRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createChatsRecordData({
-  DocumentReference? userA,
-  DocumentReference? userB,
-  String? lastMessage,
-  DateTime? lastMessageTime,
-  DocumentReference? lastMessageSentBy,
-  int? groupChatId,
-  String? chatimage,
-  String? user,
+  String? lastmessage,
+  DateTime? lastmessagetime,
+  String? lastmessageimage,
+  String? lastmessagevideo,
+  String? lastmessageaudio,
+  String? lastmessagetype,
+  bool? lastmessageseen,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'user_a': userA,
-      'user_b': userB,
-      'last_message': lastMessage,
-      'last_message_time': lastMessageTime,
-      'last_message_sent_by': lastMessageSentBy,
-      'group_chat_id': groupChatId,
-      'chatimage': chatimage,
-      'user': user,
+      'lastmessage': lastmessage,
+      'lastmessagetime': lastmessagetime,
+      'lastmessageimage': lastmessageimage,
+      'lastmessagevideo': lastmessagevideo,
+      'lastmessageaudio': lastmessageaudio,
+      'lastmessagetype': lastmessagetype,
+      'Lastmessageseen': lastmessageseen,
     }.withoutNulls,
   );
 
@@ -145,30 +141,30 @@ class ChatsRecordDocumentEquality implements Equality<ChatsRecord> {
   @override
   bool equals(ChatsRecord? e1, ChatsRecord? e2) {
     const listEquality = ListEquality();
-    return listEquality.equals(e1?.users, e2?.users) &&
-        e1?.userA == e2?.userA &&
-        e1?.userB == e2?.userB &&
-        e1?.lastMessage == e2?.lastMessage &&
-        e1?.lastMessageTime == e2?.lastMessageTime &&
-        e1?.lastMessageSentBy == e2?.lastMessageSentBy &&
-        listEquality.equals(e1?.lastMessageSeenBy, e2?.lastMessageSeenBy) &&
-        e1?.groupChatId == e2?.groupChatId &&
-        e1?.chatimage == e2?.chatimage &&
-        e1?.user == e2?.user;
+    return e1?.lastmessage == e2?.lastmessage &&
+        e1?.lastmessagetime == e2?.lastmessagetime &&
+        listEquality.equals(e1?.participantimages, e2?.participantimages) &&
+        listEquality.equals(e1?.participantids, e2?.participantids) &&
+        listEquality.equals(e1?.participantsnames, e2?.participantsnames) &&
+        e1?.lastmessageimage == e2?.lastmessageimage &&
+        e1?.lastmessagevideo == e2?.lastmessagevideo &&
+        e1?.lastmessageaudio == e2?.lastmessageaudio &&
+        e1?.lastmessagetype == e2?.lastmessagetype &&
+        e1?.lastmessageseen == e2?.lastmessageseen;
   }
 
   @override
   int hash(ChatsRecord? e) => const ListEquality().hash([
-        e?.users,
-        e?.userA,
-        e?.userB,
-        e?.lastMessage,
-        e?.lastMessageTime,
-        e?.lastMessageSentBy,
-        e?.lastMessageSeenBy,
-        e?.groupChatId,
-        e?.chatimage,
-        e?.user
+        e?.lastmessage,
+        e?.lastmessagetime,
+        e?.participantimages,
+        e?.participantids,
+        e?.participantsnames,
+        e?.lastmessageimage,
+        e?.lastmessagevideo,
+        e?.lastmessageaudio,
+        e?.lastmessagetype,
+        e?.lastmessageseen
       ]);
 
   @override

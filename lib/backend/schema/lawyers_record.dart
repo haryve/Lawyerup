@@ -9,9 +9,9 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class LawyersRecord extends FirestoreRecord {
   LawyersRecord._(
-    super.reference,
-    super.data,
-  ) {
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
     _initializeFields();
   }
 
@@ -19,26 +19,6 @@ class LawyersRecord extends FirestoreRecord {
   String? _name;
   String get name => _name ?? '';
   bool hasName() => _name != null;
-
-  // "description" field.
-  String? _description;
-  String get description => _description ?? '';
-  bool hasDescription() => _description != null;
-
-  // "category" field.
-  String? _category;
-  String get category => _category ?? '';
-  bool hasCategory() => _category != null;
-
-  // "subjects" field.
-  List<String>? _subjects;
-  List<String> get subjects => _subjects ?? const [];
-  bool hasSubjects() => _subjects != null;
-
-  // "location" field.
-  String? _location;
-  String get location => _location ?? '';
-  bool hasLocation() => _location != null;
 
   // "author" field.
   DocumentReference? _author;
@@ -60,16 +40,6 @@ class LawyersRecord extends FirestoreRecord {
   String get lawyerDp => _lawyerDp ?? '';
   bool hasLawyerDp() => _lawyerDp != null;
 
-  // "post" field.
-  String? _post;
-  String get post => _post ?? '';
-  bool hasPost() => _post != null;
-
-  // "quote" field.
-  String? _quote;
-  String get quote => _quote ?? '';
-  bool hasQuote() => _quote != null;
-
   // "Lawyer_calls" field.
   String? _lawyerCalls;
   String get lawyerCalls => _lawyerCalls ?? '';
@@ -90,46 +60,185 @@ class LawyersRecord extends FirestoreRecord {
   int get lawyerCharge => _lawyerCharge ?? 0;
   bool hasLawyerCharge() => _lawyerCharge != null;
 
-  // "lawyer_email" field.
-  String? _lawyerEmail;
-  String get lawyerEmail => _lawyerEmail ?? '';
-  bool hasLawyerEmail() => _lawyerEmail != null;
-
-  // "lawyer_expertise" field.
-  String? _lawyerExpertise;
-  String get lawyerExpertise => _lawyerExpertise ?? '';
-  bool hasLawyerExpertise() => _lawyerExpertise != null;
-
-  // "lawyer_mobile" field.
-  int? _lawyerMobile;
-  int get lawyerMobile => _lawyerMobile ?? 0;
-  bool hasLawyerMobile() => _lawyerMobile != null;
-
   // "callid" field.
   String? _callid;
   String get callid => _callid ?? '';
   bool hasCallid() => _callid != null;
 
+  // "email_address" field.
+  String? _emailAddress;
+  String get emailAddress => _emailAddress ?? '';
+  bool hasEmailAddress() => _emailAddress != null;
+
+  // "display_name" field.
+  String? _displayName;
+  String get displayName => _displayName ?? '';
+  bool hasDisplayName() => _displayName != null;
+
+  // "uid" field.
+  String? _uid;
+  String get uid => _uid ?? '';
+  bool hasUid() => _uid != null;
+
+  // "created_time" field.
+  DateTime? _createdTime;
+  DateTime? get createdTime => _createdTime;
+  bool hasCreatedTime() => _createdTime != null;
+
+  // "phone_number" field.
+  String? _phoneNumber;
+  String get phoneNumber => _phoneNumber ?? '';
+  bool hasPhoneNumber() => _phoneNumber != null;
+
+  // "gender" field.
+  String? _gender;
+  String get gender => _gender ?? '';
+  bool hasGender() => _gender != null;
+
+  // "saves" field.
+  List<String>? _saves;
+  List<String> get saves => _saves ?? const [];
+  bool hasSaves() => _saves != null;
+
+  // "Allposts" field.
+  List<String>? _allposts;
+  List<String> get allposts => _allposts ?? const [];
+  bool hasAllposts() => _allposts != null;
+
+  // "about" field.
+  String? _about;
+  String get about => _about ?? '';
+  bool hasAbout() => _about != null;
+
+  // "availability" field.
+  String? _availability;
+  String get availability => _availability ?? '';
+  bool hasAvailability() => _availability != null;
+
+  // "state" field.
+  String? _state;
+  String get state => _state ?? '';
+  bool hasState() => _state != null;
+
+  // "college" field.
+  String? _college;
+  String get college => _college ?? '';
+  bool hasCollege() => _college != null;
+
+  // "Wallet" field.
+  int? _wallet;
+  int get wallet => _wallet ?? 0;
+  bool hasWallet() => _wallet != null;
+
+  // "availaibilitylist" field.
+  List<String>? _availaibilitylist;
+  List<String> get availaibilitylist => _availaibilitylist ?? const [];
+  bool hasAvailaibilitylist() => _availaibilitylist != null;
+
+  // "expertiselist" field.
+  List<String>? _expertiselist;
+  List<String> get expertiselist => _expertiselist ?? const [];
+  bool hasExpertiselist() => _expertiselist != null;
+
+  // "category" field.
+  String? _category;
+  String get category => _category ?? '';
+  bool hasCategory() => _category != null;
+
+  // "practicetime" field.
+  int? _practicetime;
+  int get practicetime => _practicetime ?? 0;
+  bool hasPracticetime() => _practicetime != null;
+
+  // "GraduationYear" field.
+  int? _graduationYear;
+  int get graduationYear => _graduationYear ?? 0;
+  bool hasGraduationYear() => _graduationYear != null;
+
+  // "reviews" field.
+  List<int>? _reviews;
+  List<int> get reviews => _reviews ?? const [];
+  bool hasReviews() => _reviews != null;
+
+  // "expertise" field.
+  String? _expertise;
+  String get expertise => _expertise ?? '';
+  bool hasExpertise() => _expertise != null;
+
+  // "type" field.
+  String? _type;
+  String get type => _type ?? '';
+  bool hasType() => _type != null;
+
+  // "online" field.
+  bool? _online;
+  bool get online => _online ?? false;
+  bool hasOnline() => _online != null;
+
+  // "bookref" field.
+  DocumentReference? _bookref;
+  DocumentReference? get bookref => _bookref;
+  bool hasBookref() => _bookref != null;
+
+  // "Experttype" field.
+  String? _experttype;
+  String get experttype => _experttype ?? '';
+  bool hasExperttype() => _experttype != null;
+
+  // "Languages" field.
+  List<String>? _languages;
+  List<String> get languages => _languages ?? const [];
+  bool hasLanguages() => _languages != null;
+
+  // "callref" field.
+  DocumentReference? _callref;
+  DocumentReference? get callref => _callref;
+  bool hasCallref() => _callref != null;
+
+  // "Usercallmanageref" field.
+  DocumentReference? _usercallmanageref;
+  DocumentReference? get usercallmanageref => _usercallmanageref;
+  bool hasUsercallmanageref() => _usercallmanageref != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
-    _description = snapshotData['description'] as String?;
-    _category = snapshotData['category'] as String?;
-    _subjects = getDataList(snapshotData['subjects']);
-    _location = snapshotData['location'] as String?;
     _author = snapshotData['author'] as DocumentReference?;
     _city = snapshotData['city'] as String?;
     _bio = snapshotData['bio'] as String?;
     _lawyerDp = snapshotData['lawyer_dp'] as String?;
-    _post = snapshotData['post'] as String?;
-    _quote = snapshotData['quote'] as String?;
     _lawyerCalls = snapshotData['Lawyer_calls'] as String?;
     _lawyerReviews = getDataList(snapshotData['Lawyer_reviews']);
     _lawyerSkills = getDataList(snapshotData['Lawyer_Skills']);
     _lawyerCharge = castToType<int>(snapshotData['Lawyer_charge']);
-    _lawyerEmail = snapshotData['lawyer_email'] as String?;
-    _lawyerExpertise = snapshotData['lawyer_expertise'] as String?;
-    _lawyerMobile = castToType<int>(snapshotData['lawyer_mobile']);
     _callid = snapshotData['callid'] as String?;
+    _emailAddress = snapshotData['email_address'] as String?;
+    _displayName = snapshotData['display_name'] as String?;
+    _uid = snapshotData['uid'] as String?;
+    _createdTime = snapshotData['created_time'] as DateTime?;
+    _phoneNumber = snapshotData['phone_number'] as String?;
+    _gender = snapshotData['gender'] as String?;
+    _saves = getDataList(snapshotData['saves']);
+    _allposts = getDataList(snapshotData['Allposts']);
+    _about = snapshotData['about'] as String?;
+    _availability = snapshotData['availability'] as String?;
+    _state = snapshotData['state'] as String?;
+    _college = snapshotData['college'] as String?;
+    _wallet = castToType<int>(snapshotData['Wallet']);
+    _availaibilitylist = getDataList(snapshotData['availaibilitylist']);
+    _expertiselist = getDataList(snapshotData['expertiselist']);
+    _category = snapshotData['category'] as String?;
+    _practicetime = castToType<int>(snapshotData['practicetime']);
+    _graduationYear = castToType<int>(snapshotData['GraduationYear']);
+    _reviews = getDataList(snapshotData['reviews']);
+    _expertise = snapshotData['expertise'] as String?;
+    _type = snapshotData['type'] as String?;
+    _online = snapshotData['online'] as bool?;
+    _bookref = snapshotData['bookref'] as DocumentReference?;
+    _experttype = snapshotData['Experttype'] as String?;
+    _languages = getDataList(snapshotData['Languages']);
+    _callref = snapshotData['callref'] as DocumentReference?;
+    _usercallmanageref =
+        snapshotData['Usercallmanageref'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -168,40 +277,66 @@ class LawyersRecord extends FirestoreRecord {
 
 Map<String, dynamic> createLawyersRecordData({
   String? name,
-  String? description,
-  String? category,
-  String? location,
   DocumentReference? author,
   String? city,
   String? bio,
   String? lawyerDp,
-  String? post,
-  String? quote,
   String? lawyerCalls,
   int? lawyerCharge,
-  String? lawyerEmail,
-  String? lawyerExpertise,
-  int? lawyerMobile,
   String? callid,
+  String? emailAddress,
+  String? displayName,
+  String? uid,
+  DateTime? createdTime,
+  String? phoneNumber,
+  String? gender,
+  String? about,
+  String? availability,
+  String? state,
+  String? college,
+  int? wallet,
+  String? category,
+  int? practicetime,
+  int? graduationYear,
+  String? expertise,
+  String? type,
+  bool? online,
+  DocumentReference? bookref,
+  String? experttype,
+  DocumentReference? callref,
+  DocumentReference? usercallmanageref,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
-      'description': description,
-      'category': category,
-      'location': location,
       'author': author,
       'city': city,
       'bio': bio,
       'lawyer_dp': lawyerDp,
-      'post': post,
-      'quote': quote,
       'Lawyer_calls': lawyerCalls,
       'Lawyer_charge': lawyerCharge,
-      'lawyer_email': lawyerEmail,
-      'lawyer_expertise': lawyerExpertise,
-      'lawyer_mobile': lawyerMobile,
       'callid': callid,
+      'email_address': emailAddress,
+      'display_name': displayName,
+      'uid': uid,
+      'created_time': createdTime,
+      'phone_number': phoneNumber,
+      'gender': gender,
+      'about': about,
+      'availability': availability,
+      'state': state,
+      'college': college,
+      'Wallet': wallet,
+      'category': category,
+      'practicetime': practicetime,
+      'GraduationYear': graduationYear,
+      'expertise': expertise,
+      'type': type,
+      'online': online,
+      'bookref': bookref,
+      'Experttype': experttype,
+      'callref': callref,
+      'Usercallmanageref': usercallmanageref,
     }.withoutNulls,
   );
 
@@ -215,47 +350,83 @@ class LawyersRecordDocumentEquality implements Equality<LawyersRecord> {
   bool equals(LawyersRecord? e1, LawyersRecord? e2) {
     const listEquality = ListEquality();
     return e1?.name == e2?.name &&
-        e1?.description == e2?.description &&
-        e1?.category == e2?.category &&
-        listEquality.equals(e1?.subjects, e2?.subjects) &&
-        e1?.location == e2?.location &&
         e1?.author == e2?.author &&
         e1?.city == e2?.city &&
         e1?.bio == e2?.bio &&
         e1?.lawyerDp == e2?.lawyerDp &&
-        e1?.post == e2?.post &&
-        e1?.quote == e2?.quote &&
         e1?.lawyerCalls == e2?.lawyerCalls &&
         listEquality.equals(e1?.lawyerReviews, e2?.lawyerReviews) &&
         listEquality.equals(e1?.lawyerSkills, e2?.lawyerSkills) &&
         e1?.lawyerCharge == e2?.lawyerCharge &&
-        e1?.lawyerEmail == e2?.lawyerEmail &&
-        e1?.lawyerExpertise == e2?.lawyerExpertise &&
-        e1?.lawyerMobile == e2?.lawyerMobile &&
-        e1?.callid == e2?.callid;
+        e1?.callid == e2?.callid &&
+        e1?.emailAddress == e2?.emailAddress &&
+        e1?.displayName == e2?.displayName &&
+        e1?.uid == e2?.uid &&
+        e1?.createdTime == e2?.createdTime &&
+        e1?.phoneNumber == e2?.phoneNumber &&
+        e1?.gender == e2?.gender &&
+        listEquality.equals(e1?.saves, e2?.saves) &&
+        listEquality.equals(e1?.allposts, e2?.allposts) &&
+        e1?.about == e2?.about &&
+        e1?.availability == e2?.availability &&
+        e1?.state == e2?.state &&
+        e1?.college == e2?.college &&
+        e1?.wallet == e2?.wallet &&
+        listEquality.equals(e1?.availaibilitylist, e2?.availaibilitylist) &&
+        listEquality.equals(e1?.expertiselist, e2?.expertiselist) &&
+        e1?.category == e2?.category &&
+        e1?.practicetime == e2?.practicetime &&
+        e1?.graduationYear == e2?.graduationYear &&
+        listEquality.equals(e1?.reviews, e2?.reviews) &&
+        e1?.expertise == e2?.expertise &&
+        e1?.type == e2?.type &&
+        e1?.online == e2?.online &&
+        e1?.bookref == e2?.bookref &&
+        e1?.experttype == e2?.experttype &&
+        listEquality.equals(e1?.languages, e2?.languages) &&
+        e1?.callref == e2?.callref &&
+        e1?.usercallmanageref == e2?.usercallmanageref;
   }
 
   @override
   int hash(LawyersRecord? e) => const ListEquality().hash([
         e?.name,
-        e?.description,
-        e?.category,
-        e?.subjects,
-        e?.location,
         e?.author,
         e?.city,
         e?.bio,
         e?.lawyerDp,
-        e?.post,
-        e?.quote,
         e?.lawyerCalls,
         e?.lawyerReviews,
         e?.lawyerSkills,
         e?.lawyerCharge,
-        e?.lawyerEmail,
-        e?.lawyerExpertise,
-        e?.lawyerMobile,
-        e?.callid
+        e?.callid,
+        e?.emailAddress,
+        e?.displayName,
+        e?.uid,
+        e?.createdTime,
+        e?.phoneNumber,
+        e?.gender,
+        e?.saves,
+        e?.allposts,
+        e?.about,
+        e?.availability,
+        e?.state,
+        e?.college,
+        e?.wallet,
+        e?.availaibilitylist,
+        e?.expertiselist,
+        e?.category,
+        e?.practicetime,
+        e?.graduationYear,
+        e?.reviews,
+        e?.expertise,
+        e?.type,
+        e?.online,
+        e?.bookref,
+        e?.experttype,
+        e?.languages,
+        e?.callref,
+        e?.usercallmanageref
       ]);
 
   @override

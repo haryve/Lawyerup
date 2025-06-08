@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>constitutionsimplified</string>
+	<string>Caremeez</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,8 +28,8 @@
             <string>Editor</string>
             <key>CFBundleURLSchemes</key>
             <array>
-                <string>com.googleusercontent.apps.263618685588-lv5f8f4up3h4co83ffncoh3cj0sjgqrn</string>
-                <string>fb1072114140687745</string>
+                <string>com.googleusercontent.apps.263618685588-kk2vloqhvqb13l62t83o35vrdcdgcftp</string>
+                <string>fb2409523442768604</string>
             </array>
         </dict>
 
@@ -37,32 +37,50 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>constitutionsimplified.com</string>
+        <string>constitutionsimplified</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>constitutionsimplified</string>
+        <string>com.flutterflow.caremeez</string>
         </array>
         </dict>
     </array>
     <key>FlutterDeepLinkingEnabled</key>
-    <true/>
+    <false/>
 
     <key>FacebookAppID</key>
-    <string>1072114140687745</string>
+    <string>2409523442768604</string>
+
     <key>FacebookDisplayName</key>
-    <string>constitutionsimplified</string>
+    <string>constitution</string>
+
+    <key>FacebookClientToken</key>
+    <string>d026ed02f750de88ab8b669cdc17a8ba</string>
+
 
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 
 	<key>NSCameraUsageDescription</key>
     <string>Please turn on your camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+    <string>Please turn on your microphone</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload data, this app requires permission to access the photo library.</string>
+    <string>Need Access to Photo Library</string>
 	<key>PermissionGroupNotification</key>
     <string>Need notification access</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string> Turn on your Location</string>
+	<key>NSContactsUsageDescription</key>
+    <string>Turn on contacts sync</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>remote-notification</string>
+    </array>
 
     <key>LSApplicationQueriesSchemes</key>
     <array>
@@ -83,6 +101,7 @@
       <string>fbshareextension</string>
 
     </array>
+
 
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

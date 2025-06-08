@@ -15,6 +15,7 @@ class AddressStruct extends FFFirebaseStruct {
     String? city,
     String? state,
     String? postalCode,
+    String? version,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _latLong = latLong,
         _name = name,
@@ -23,6 +24,7 @@ class AddressStruct extends FFFirebaseStruct {
         _city = city,
         _state = state,
         _postalCode = postalCode,
+        _version = version,
         super(firestoreUtilData);
 
   // "latLong" field.
@@ -74,6 +76,13 @@ class AddressStruct extends FFFirebaseStruct {
 
   bool hasPostalCode() => _postalCode != null;
 
+  // "version" field.
+  String? _version;
+  String get version => _version ?? '';
+  set version(String? val) => _version = val;
+
+  bool hasVersion() => _version != null;
+
   static AddressStruct fromMap(Map<String, dynamic> data) => AddressStruct(
         latLong: data['latLong'] as LatLng?,
         name: data['Name'] as String?,
@@ -82,6 +91,7 @@ class AddressStruct extends FFFirebaseStruct {
         city: data['City'] as String?,
         state: data['State'] as String?,
         postalCode: data['PostalCode'] as String?,
+        version: data['version'] as String?,
       );
 
   static AddressStruct? maybeFromMap(dynamic data) =>
@@ -95,6 +105,7 @@ class AddressStruct extends FFFirebaseStruct {
         'City': _city,
         'State': _state,
         'PostalCode': _postalCode,
+        'version': _version,
       }.withoutNulls;
 
   @override
@@ -125,6 +136,10 @@ class AddressStruct extends FFFirebaseStruct {
         ),
         'PostalCode': serializeParam(
           _postalCode,
+          ParamType.String,
+        ),
+        'version': serializeParam(
+          _version,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -166,6 +181,11 @@ class AddressStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        version: deserializeParam(
+          data['version'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -180,12 +200,21 @@ class AddressStruct extends FFFirebaseStruct {
         streetAddress2 == other.streetAddress2 &&
         city == other.city &&
         state == other.state &&
-        postalCode == other.postalCode;
+        postalCode == other.postalCode &&
+        version == other.version;
   }
 
   @override
-  int get hashCode => const ListEquality().hash(
-      [latLong, name, streetAddress, streetAddress2, city, state, postalCode]);
+  int get hashCode => const ListEquality().hash([
+        latLong,
+        name,
+        streetAddress,
+        streetAddress2,
+        city,
+        state,
+        postalCode,
+        version
+      ]);
 }
 
 AddressStruct createAddressStruct({
@@ -196,6 +225,7 @@ AddressStruct createAddressStruct({
   String? city,
   String? state,
   String? postalCode,
+  String? version,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -209,6 +239,7 @@ AddressStruct createAddressStruct({
       city: city,
       state: state,
       postalCode: postalCode,
+      version: version,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

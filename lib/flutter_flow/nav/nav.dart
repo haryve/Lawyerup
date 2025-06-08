@@ -1,19 +1,27 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/index.dart';
-import '/main.dart';
+import '/backend/push_notifications/push_notifications_handler.dart'
+    show PushNotificationsHandler;
 import '/flutter_flow/flutter_flow_util.dart';
+
+import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
+export '/backend/firebase_dynamic_links/firebase_dynamic_links.dart'
+    show generateCurrentPageLink;
 
 const kTransitionInfoKey = '__transition_info__';
+
+GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppStateNotifier extends ChangeNotifier {
   AppStateNotifier._();
@@ -72,120 +80,75 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const AuthenticateSolo1Widget(),
+      navigatorKey: appNavigatorKey,
+      errorBuilder: (context, state) => _RouteErrorBuilder(
+        state: state,
+        child: appStateNotifier.loggedIn
+            ? ExpCopyWidget()
+            : AuthenticateSolo1Widget(),
+      ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? const NavBarPage()
-              : const AuthenticateSolo1Widget(),
+              ? ExpCopyWidget()
+              : AuthenticateSolo1Widget(),
         ),
         FFRoute(
-          name: 'AuthenticateSolo1',
-          path: '/authenticateSolo1',
-          builder: (context, params) => const AuthenticateSolo1Widget(),
+          name: AuthenticateSolo1Widget.routeName,
+          path: AuthenticateSolo1Widget.routePath,
+          builder: (context, params) => AuthenticateSolo1Widget(),
         ),
         FFRoute(
-          name: 'bforgotpassword',
-          path: '/bforgotpassword',
-          builder: (context, params) => const BforgotpasswordWidget(),
+          name: BforgotpasswordWidget.routeName,
+          path: BforgotpasswordWidget.routePath,
+          builder: (context, params) => BforgotpasswordWidget(),
         ),
         FFRoute(
-          name: 'bOnboarding1',
-          path: '/bOnboarding1',
-          builder: (context, params) => const BOnboarding1Widget(),
-        ),
-        FFRoute(
-          name: 'bPinCode',
-          path: '/otpcode',
-          builder: (context, params) => const BPinCodeWidget(),
-        ),
-        FFRoute(
-          name: 'List16ActivityNotifications',
-          path: '/list16ActivityNotifications',
-          builder: (context, params) => const List16ActivityNotificationsWidget(),
-        ),
-        FFRoute(
-          name: 'bProfileCreateEdit',
-          path: '/createaccount',
-          builder: (context, params) => const NavBarPage(
-            initialPage: '',
-            page: BProfileCreateEditWidget(),
-          ),
-        ),
-        FFRoute(
-          name: 'termsofservice',
-          path: '/termsofservice',
-          builder: (context, params) => const TermsofserviceWidget(),
-        ),
-        FFRoute(
-          name: 'notificationsettings',
-          path: '/notificationsettings',
-          builder: (context, params) => const NotificationsettingsWidget(),
-        ),
-        FFRoute(
-          name: 'Details09Reviews',
-          path: '/details09Reviews',
-          builder: (context, params) => const Details09ReviewsWidget(),
-        ),
-        FFRoute(
-          name: 'Details36ArticleDetails',
-          path: '/details36ArticleDetails',
-          builder: (context, params) => const Details36ArticleDetailsWidget(),
-        ),
-        FFRoute(
-          name: 'pDetails35SupportForm',
-          path: '/details35SupportForm',
-          builder: (context, params) => const PDetails35SupportFormWidget(),
-        ),
-        FFRoute(
-          name: 'SearchResults',
-          path: '/searchResults',
-          builder: (context, params) => const SearchResultsWidget(),
-        ),
-        FFRoute(
-          name: 'profilesettings',
-          path: '/profilesettings',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'profilesettings')
-              : const ProfilesettingsWidget(),
-        ),
-        FFRoute(
-          name: 'feed',
-          path: '/feed',
-          builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'feed') : const FeedWidget(),
-        ),
-        FFRoute(
-          name: 'bPinCodeCopy',
-          path: '/signin',
-          builder: (context, params) => const BPinCodeCopyWidget(),
-        ),
-        FFRoute(
-          name: 'image_Details',
-          path: '/imageDetails',
-          asyncParams: {
-            'chatMessage':
-                getDoc(['chat_messages'], ChatMessagesRecord.fromSnapshot),
-          },
-          builder: (context, params) => ImageDetailsWidget(
-            chatMessage: params.getParam(
-              'chatMessage',
-              ParamType.Document,
+          name: BPinCodeWidget.routeName,
+          path: BPinCodeWidget.routePath,
+          builder: (context, params) => BPinCodeWidget(
+            mobile: params.getParam(
+              'mobile',
+              ParamType.int,
             ),
           ),
         ),
         FFRoute(
-          name: 'cart_OrderHistory',
-          path: '/cartOrderHistory',
-          builder: (context, params) => const CartOrderHistoryWidget(),
+          name: BProfileCreateEditWidget.routeName,
+          path: BProfileCreateEditWidget.routePath,
+          builder: (context, params) => BProfileCreateEditWidget(),
         ),
         FFRoute(
-          name: 'cart_Checkout',
-          path: '/cartCheckout',
-          builder: (context, params) => CartCheckoutWidget(
+          name: TermsofserviceWidget.routeName,
+          path: TermsofserviceWidget.routePath,
+          builder: (context, params) => TermsofserviceWidget(),
+        ),
+        FFRoute(
+          name: SupportticketWidget.routeName,
+          path: SupportticketWidget.routePath,
+          builder: (context, params) => SupportticketWidget(),
+        ),
+        FFRoute(
+          name: SearchResultsWidget.routeName,
+          path: SearchResultsWidget.routePath,
+          builder: (context, params) => SearchResultsWidget(),
+        ),
+        FFRoute(
+          name: PsychologistsWidget.routeName,
+          path: PsychologistsWidget.routePath,
+          builder: (context, params) => PsychologistsWidget(),
+        ),
+        FFRoute(
+          name: AddfundstransactionsWidget.routeName,
+          path: AddfundstransactionsWidget.routePath,
+          builder: (context, params) => AddfundstransactionsWidget(),
+        ),
+        FFRoute(
+          name: AddfundCheckoutWidget.routeName,
+          path: AddfundCheckoutWidget.routePath,
+          builder: (context, params) => AddfundCheckoutWidget(
             amount: params.getParam(
               'amount',
               ParamType.int,
@@ -193,19 +156,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'cart_successPage',
-          path: '/cartSuccessPage',
-          builder: (context, params) => const CartSuccessPageWidget(),
+          name: AddfundssuccessWidget.routeName,
+          path: AddfundssuccessWidget.routePath,
+          builder: (context, params) => AddfundssuccessWidget(),
         ),
         FFRoute(
-          name: 'Addfunds',
-          path: '/addfunds',
-          builder: (context, params) => const AddfundsWidget(),
+          name: AddfundsWidget.routeName,
+          path: AddfundsWidget.routePath,
+          builder: (context, params) => AddfundsWidget(),
         ),
         FFRoute(
-          name: 'SearchResultsCopy',
-          path: '/categoriessearch',
-          builder: (context, params) => SearchResultsCopyWidget(
+          name: SearchResultscategoryWidget.routeName,
+          path: SearchResultscategoryWidget.routePath,
+          builder: (context, params) => SearchResultscategoryWidget(
             category: params.getParam(
               'category',
               ParamType.String,
@@ -213,91 +176,235 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Lawyer_profileu',
-          path: '/lawyerProfileu',
-          builder: (context, params) => LawyerProfileuWidget(
-            name: params.getParam(
-              'name',
-              ParamType.String,
+          name: MobileloginWidget.routeName,
+          path: MobileloginWidget.routePath,
+          builder: (context, params) => MobileloginWidget(),
+        ),
+        FFRoute(
+          name: DoctorProfiledemoWidget.routeName,
+          path: DoctorProfiledemoWidget.routePath,
+          builder: (context, params) => DoctorProfiledemoWidget(
+            lawyerrefere: params.getParam(
+              'lawyerrefere',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Lawyers'],
             ),
-            lawyercharge: params.getParam(
-              'lawyercharge',
+          ),
+        ),
+        FFRoute(
+          name: AdmindoctoregisterWidget.routeName,
+          path: AdmindoctoregisterWidget.routePath,
+          builder: (context, params) => AdmindoctoregisterWidget(),
+        ),
+        FFRoute(
+          name: CallScreenWidget.routeName,
+          path: CallScreenWidget.routePath,
+          builder: (context, params) => CallScreenWidget(
+            callRef: params.getParam(
+              'callRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['calls'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: WithdrawFundsWidget.routeName,
+          path: WithdrawFundsWidget.routePath,
+          builder: (context, params) => WithdrawFundsWidget(),
+        ),
+        FFRoute(
+          name: WithdrawCheckoutWidget.routeName,
+          path: WithdrawCheckoutWidget.routePath,
+          builder: (context, params) => WithdrawCheckoutWidget(
+            amount: params.getParam(
+              'amount',
               ParamType.int,
             ),
           ),
         ),
         FFRoute(
-          name: 'bProfileCreateEditCopy',
-          path: '/registerlawyer',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'bProfileCreateEditCopy')
-              : const NavBarPage(
-                  initialPage: 'bProfileCreateEditCopy',
-                  page: BProfileCreateEditCopyWidget(),
-                ),
+          name: SuccessfulwithdrawalWidget.routeName,
+          path: SuccessfulwithdrawalWidget.routePath,
+          builder: (context, params) => SuccessfulwithdrawalWidget(),
         ),
         FFRoute(
-          name: 'feedCopy2',
-          path: '/feedCopy2',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'feedCopy2')
-              : const FeedCopy2Widget(),
+          name: WithdrawlhistoryWidget.routeName,
+          path: WithdrawlhistoryWidget.routePath,
+          builder: (context, params) => WithdrawlhistoryWidget(),
         ),
         FFRoute(
-          name: 'propert',
-          path: '/propert',
-          builder: (context, params) => PropertWidget(
-            callid: params.getParam(
-              'callid',
+          name: VideocallWidget.routeName,
+          path: VideocallWidget.routePath,
+          builder: (context, params) => VideocallWidget(
+            callref: params.getParam(
+              'callref',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['calls'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ChattingPageWidget.routeName,
+          path: ChattingPageWidget.routePath,
+          builder: (context, params) => ChattingPageWidget(
+            participantsimages: params.getParam<String>(
+              'participantsimages',
+              ParamType.String,
+              isList: true,
+            ),
+            participantnames: params.getParam<String>(
+              'participantnames',
+              ParamType.String,
+              isList: true,
+            ),
+            chatID: params.getParam(
+              'chatID',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['chats'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: DoctorpostdetailsWidget.routeName,
+          path: DoctorpostdetailsWidget.routePath,
+          builder: (context, params) => DoctorpostdetailsWidget(
+            postid: params.getParam(
+              'postid',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Lawyr_post'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: NotificationsWidget.routeName,
+          path: NotificationsWidget.routePath,
+          builder: (context, params) => NotificationsWidget(),
+        ),
+        FFRoute(
+          name: DoctorprofileadminWidget.routeName,
+          path: DoctorprofileadminWidget.routePath,
+          builder: (context, params) => DoctorprofileadminWidget(),
+        ),
+        FFRoute(
+          name: DoctorslobbyWidget.routeName,
+          path: DoctorslobbyWidget.routePath,
+          builder: (context, params) => DoctorslobbyWidget(),
+        ),
+        FFRoute(
+          name: UserprofileWidget.routeName,
+          path: UserprofileWidget.routePath,
+          builder: (context, params) => UserprofileWidget(),
+        ),
+        FFRoute(
+          name: DoctorprofileWidget.routeName,
+          path: DoctorprofileWidget.routePath,
+          builder: (context, params) => DoctorprofileWidget(
+            lawyrref: params.getParam(
+              'lawyrref',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['Lawyers'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: PrivacypolicyWidget.routeName,
+          path: PrivacypolicyWidget.routePath,
+          builder: (context, params) => PrivacypolicyWidget(),
+        ),
+        FFRoute(
+          name: DraroviaWidget.routeName,
+          path: DraroviaWidget.routePath,
+          builder: (context, params) => DraroviaWidget(),
+        ),
+        FFRoute(
+          name: PsychiatristsWidget.routeName,
+          path: PsychiatristsWidget.routePath,
+          builder: (context, params) => PsychiatristsWidget(
+            doctortype: params.getParam(
+              'doctortype',
               ParamType.String,
             ),
-            userid: params.getParam(
-              'userid',
+            t2: params.getParam(
+              't2',
               ParamType.String,
             ),
-            username: params.getParam(
-              'username',
+            t3: params.getParam(
+              't3',
+              ParamType.String,
+            ),
+            t4: params.getParam(
+              't4',
+              ParamType.String,
+            ),
+            t5: params.getParam(
+              't5',
+              ParamType.String,
+            ),
+            t6: params.getParam(
+              't6',
+              ParamType.String,
+            ),
+            t7: params.getParam(
+              't7',
+              ParamType.String,
+            ),
+            t8: params.getParam(
+              't8',
+              ParamType.String,
+            ),
+            t9: params.getParam(
+              't9',
+              ParamType.String,
+            ),
+            t10: params.getParam(
+              't10',
               ParamType.String,
             ),
           ),
         ),
         FFRoute(
-          name: 'callpage',
-          path: '/callpage',
-          builder: (context, params) => CallpageWidget(
-            callID: params.getParam(
-              'callID',
-              ParamType.String,
-            ),
-            userid: params.getParam(
-              'userid',
-              ParamType.String,
-            ),
-            username: params.getParam(
-              'username',
+          name: Onboarding02Widget.routeName,
+          path: Onboarding02Widget.routePath,
+          builder: (context, params) => Onboarding02Widget(),
+        ),
+        FFRoute(
+          name: AichatWidget.routeName,
+          path: AichatWidget.routePath,
+          builder: (context, params) => AichatWidget(),
+        ),
+        FFRoute(
+          name: ExpWidget.routeName,
+          path: ExpWidget.routePath,
+          builder: (context, params) => ExpWidget(
+            rest: params.getParam(
+              'rest',
               ParamType.String,
             ),
           ),
         ),
         FFRoute(
-          name: 'propertCopy',
-          path: '/propertCopy',
-          builder: (context, params) => PropertCopyWidget(
-            callid: params.getParam(
-              'callid',
-              ParamType.String,
-            ),
-            userid: params.getParam(
-              'userid',
-              ParamType.String,
-            ),
-            username: params.getParam(
-              'username',
-              ParamType.String,
-            ),
-          ),
+          name: LandingpageWidget.routeName,
+          path: LandingpageWidget.routePath,
+          builder: (context, params) => LandingpageWidget(),
+        ),
+        FFRoute(
+          name: DocWidget.routeName,
+          path: DocWidget.routePath,
+          builder: (context, params) => DocWidget(),
+        ),
+        FFRoute(
+          name: ExpCopyWidget.routeName,
+          path: ExpCopyWidget.routePath,
+          builder: (context, params) => ExpCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -483,13 +590,17 @@ class FFRoute {
               : builder(context, ffParams);
           final child = appStateNotifier.loading
               ? Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/9fa82b9c-c064-401d-94d0-89eef0c9c098.jpeg',
-                    fit: BoxFit.fill,
+                  color: Color(0xFF475797),
+                  child: Center(
+                    child: Image.asset(
+                      'assets/images/ChatGPT_Image_May_16,_2025,_08_17_29_PM.png',
+                      width: MediaQuery.sizeOf(context).width * 2.0,
+                      height: MediaQuery.sizeOf(context).height * 2.0,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 )
-              : page;
+              : PushNotificationsHandler(child: page);
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition
@@ -531,7 +642,59 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+}
+
+class _RouteErrorBuilder extends StatefulWidget {
+  const _RouteErrorBuilder({
+    Key? key,
+    required this.state,
+    required this.child,
+  }) : super(key: key);
+
+  final GoRouterState state;
+  final Widget child;
+
+  @override
+  State<_RouteErrorBuilder> createState() => _RouteErrorBuilderState();
+}
+
+class _RouteErrorBuilderState extends State<_RouteErrorBuilder> {
+  @override
+  void initState() {
+    super.initState();
+
+    // Handle erroneous links from Firebase Dynamic Links.
+
+    String? location;
+
+    /*
+    Handle `links` routes that have dynamic-link entangled with deep-link 
+    */
+    if (widget.state.uri.toString().startsWith('/link') &&
+        widget.state.uri.queryParameters.containsKey('deep_link_id')) {
+      final deepLinkId = widget.state.uri.queryParameters['deep_link_id'];
+      if (deepLinkId != null) {
+        final deepLinkUri = Uri.parse(deepLinkId);
+        final link = deepLinkUri.toString();
+        final host = deepLinkUri.host;
+        location = link.split(host).last;
+      }
+    }
+
+    if (widget.state.uri.toString().startsWith('/link') &&
+        widget.state.uri.toString().contains('request_ip_version')) {
+      location = '/';
+    }
+
+    if (location != null) {
+      SchedulerBinding.instance
+          .addPostFrameCallback((_) => context.go(location!));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
 }
 
 class RootPageContext {

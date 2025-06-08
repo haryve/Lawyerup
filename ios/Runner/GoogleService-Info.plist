@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>263618685588-lv5f8f4up3h4co83ffncoh3cj0sjgqrn.apps.googleusercontent.com</string>
+	<string>263618685588-kk2vloqhvqb13l62t83o35vrdcdgcftp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.263618685588-lv5f8f4up3h4co83ffncoh3cj0sjgqrn</string>
+	<string>com.googleusercontent.apps.263618685588-kk2vloqhvqb13l62t83o35vrdcdgcftp</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>263618685588-3ji6utb3gis3k8npua8vhn7o39qc6m7i.apps.googleusercontent.com</string>
+	<string>263618685588-1el7tv5o7t98lpfagm1sjtt61f9spjln.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyApP3ZT-3t4lHa3oouopcrvTet1jHZilwE</string>
 	<key>GCM_SENDER_ID</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.flutterflow.fluttermet</string>
+	<string>com.flutterflow.caremeez</string>
 	<key>PROJECT_ID</key>
 	<string>constitution-simplified</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,6 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:263618685588:ios:26ea673cbcbbc2ba99a281</string>
+	<string>1:263618685588:ios:7bc3121ad897007799a281</string>
 </dict>
 </plist>

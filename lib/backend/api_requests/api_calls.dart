@@ -13,12 +13,16 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class OpenAIAPIGroup {
   static String getBaseUrl({
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) =>
       'https://api.openai.com/v1';
   static Map<String, String> headers = {};
   static CreateChatCompletionCall createChatCompletionCall =
       CreateChatCompletionCall();
+  static CreateChatCompletionCopyCall createChatCompletionCopyCall =
+      CreateChatCompletionCopyCall();
+  static AroviaVisionCall aroviaVisionCall = AroviaVisionCall();
   static CreateCompletionCall createCompletionCall = CreateCompletionCall();
   static CreateEditCall createEditCall = CreateEditCall();
   static CreateImageCall createImageCall = CreateImageCall();
@@ -92,9 +96,9 @@ class OpenAIAPIGroup {
 
 class CreateChatCompletionCall {
   Future<ApiCallResponse> call({
-    String? query = '',
-    String? imageUrl = '',
-    String? apikey = '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',
+    String? prompt = '',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -102,32 +106,24 @@ class CreateChatCompletionCall {
 
     final ffApiRequestBody = '''
 {
-  "model": "gpt-4-vision-preview",
+  "model": "gpt-4o",
   "messages": [
     {
+      "role": "system",
+      "content": "Don't use emojis,dont use too much ** ,be little friendly indian Act as a digital doctor receptionist (name - Arovia) — the CareMeez Virtual Health Expert — who:• Listens empathetically to user health concerns•  Offers safe, common first-aid or OTC suggestions when appropriate • Clearly warns of risks and never oversteps into prescription-only advice • ALWAYS Escalates to real doctor consults AND SPECIFY DOCTORS CATEGORY THE SPECIALIST GIVE USER WHOM HE/SHE CAN CONSULT ALSO TELLS ISSUES AND WHY PEOPLE GO TO THESE SPECIALISTS• Keeps tone warm, professional, and simple at all times,be casual friendly humble and make make sure people can understand it keep it lucid as simple as possible"
+    },
+    {
       "role": "user",
-      "content": [
-        {
-          "type": "text",
-          "text": "$query"
-        },
-        {
-          "type": "image_url",
-          "image_url": {
-            "url": "$imageUrl"
-          }
-        }
-      ]
+      "content": "${prompt}"
     }
-  ],
-  "max_tokens": 300
+  ]
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createChatCompletion',
-      apiUrl: '$baseUrl/chat/completions',
+      apiUrl: '${baseUrl}/chat/completions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apikey',
+        'Authorization': 'Bearer ${apikey}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -141,22 +137,134 @@ class CreateChatCompletionCall {
     );
   }
 
-  dynamic respText(dynamic response) => getJsonField(
+  String? respText(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.choices[:].message.content''',
-      );
+      ));
 }
 
-class CreateCompletionCall {
+class CreateChatCompletionCopyCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? prompt = '',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
+{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful medical AI assistant for CareMeez, a digital health platform. When a user describes their health concern, respond ONLY with a JSON array of the top 10 most relevant doctor specializations based on their input. Choose only from the following available CareMeez categories: [\\"Psychiatrist\\", \\"Psychologist\\", \\"General Physician\\", \\"Dermatologist\\", \\"Gynecologist\\", \\"Pediatrician\\", \\"Orthopedic\\", \\"Cardiologist\\", \\"Gastroenterologist\\", \\"ENT Specialist\\", \\"Neurologist\\", \\"Endocrinologist\\", \\"Pulmonologist\\", \\"Urologist\\", \\"Dentist\\", \\"Trichologist\\", \\"Nutritionist\\", \\"Homeopath\\", \\"Ayurvedic Doctor\\", \\"Fitness Coach\\", \\"Yoga Instructor\\", \\"Wellness Coach\\"]. Respond strictly as a JSON array of strings with no explanation or formatting around it."
+    },
+    {
+      "role": "user",
+      "content": "${prompt}"
+    }
+  ]
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'createChatCompletion Copy',
+      apiUrl: '${baseUrl}/chat/completions',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${apikey}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? respText(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.choices[:].message.content''',
+      ));
+}
+
+class AroviaVisionCall {
+  Future<ApiCallResponse> call({
+    String? prompt = '',
+    String? image = '',
+    String? apikey =
+        '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',
+  }) async {
+    final baseUrl = OpenAIAPIGroup.getBaseUrl(
+      apikey: apikey,
+    );
+
+    final ffApiRequestBody = '''
+{
+  "model": "gpt-4.1-mini",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Act as a digital doctor receptionist (name - Arovia) — the CareMeez Virtual Health Expert — who:• Listens empathetically to user health concerns•  Offers safe, common first-aid or OTC suggestions when appropriate • Clearly warns of risks and never oversteps into prescription-only advice • ALWAYS Escalates to real doctor consults AND SPECIFY DOCTORS CATEGORY THE SPECIALIST GIVE USER WHOM HE/SHE CAN CONSULT ALSO TELLS ISSUES AND WHY PEOPLE GO TO THESE SPECIALISTS• Keeps tone warm, professional, and simple at all times,be casual friendly humble and make make sure people can understand it keep it lucid as simple as possible"
+    },
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "${prompt}"
+        },
+        {
+          "type": "image_url",
+          "image_url": {
+            "url": "${image}"
+          }
+        }
+      ]
+    }
+  ],
+  "max_tokens": 900
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'arovia vision',
+      apiUrl: '${baseUrl}/chat/completions',
+      callType: ApiCallType.POST,
+      headers: {
+        'Authorization': 'Bearer ${apikey}',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  String? respText(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.choices[:].message.content''',
+      ));
+}
+
+class CreateCompletionCall {
+  Future<ApiCallResponse> call({
+    String? apiKeyAuth = '',
+    String? apikey =
+        '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',
+  }) async {
+    final baseUrl = OpenAIAPIGroup.getBaseUrl(
+      apikey: apikey,
+    );
+
+    final ffApiRequestBody = '''
 {
   "model": "",
   "prompt": "",
@@ -178,10 +286,10 @@ class CreateCompletionCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createCompletion',
-      apiUrl: '$baseUrl/completions',
+      apiUrl: '${baseUrl}/completions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -199,13 +307,14 @@ class CreateCompletionCall {
 class CreateEditCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "instruction": "Fix the spelling mistakes.",
   "model": "text-davinci-edit-001",
@@ -216,10 +325,10 @@ class CreateEditCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createEdit',
-      apiUrl: '$baseUrl/edits',
+      apiUrl: '${baseUrl}/edits',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -237,13 +346,14 @@ class CreateEditCall {
 class CreateImageCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "prompt": "A cute baby sea otter",
   "model": "dall-e-3",
@@ -256,10 +366,10 @@ class CreateImageCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createImage',
-      apiUrl: '$baseUrl/images/generations',
+      apiUrl: '${baseUrl}/images/generations',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -277,7 +387,8 @@ class CreateImageCall {
 class CreateImageEditCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -285,10 +396,10 @@ class CreateImageEditCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createImageEdit',
-      apiUrl: '$baseUrl/images/edits',
+      apiUrl: '${baseUrl}/images/edits',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -305,7 +416,8 @@ class CreateImageEditCall {
 class CreateImageVariationCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -313,10 +425,10 @@ class CreateImageVariationCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createImageVariation',
-      apiUrl: '$baseUrl/images/variations',
+      apiUrl: '${baseUrl}/images/variations',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -333,13 +445,14 @@ class CreateImageVariationCall {
 class CreateEmbeddingCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "input": "The quick brown fox jumped over the lazy dog",
   "model": "text-embedding-ada-002",
@@ -348,10 +461,10 @@ class CreateEmbeddingCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createEmbedding',
-      apiUrl: '$baseUrl/embeddings',
+      apiUrl: '${baseUrl}/embeddings',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -369,13 +482,14 @@ class CreateEmbeddingCall {
 class CreateSpeechCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "model": "",
   "input": "",
@@ -385,10 +499,10 @@ class CreateSpeechCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createSpeech',
-      apiUrl: '$baseUrl/audio/speech',
+      apiUrl: '${baseUrl}/audio/speech',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -406,7 +520,8 @@ class CreateSpeechCall {
 class CreateTranscriptionCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -414,10 +529,10 @@ class CreateTranscriptionCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createTranscription',
-      apiUrl: '$baseUrl/audio/transcriptions',
+      apiUrl: '${baseUrl}/audio/transcriptions',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -434,7 +549,8 @@ class CreateTranscriptionCall {
 class CreateTranslationCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -442,10 +558,10 @@ class CreateTranslationCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createTranslation',
-      apiUrl: '$baseUrl/audio/translations',
+      apiUrl: '${baseUrl}/audio/translations',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -463,7 +579,8 @@ class ListFilesCall {
   Future<ApiCallResponse> call({
     String? purpose = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -471,10 +588,10 @@ class ListFilesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFiles',
-      apiUrl: '$baseUrl/files',
+      apiUrl: '${baseUrl}/files',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'purpose': purpose,
@@ -492,7 +609,8 @@ class ListFilesCall {
 class CreateFileCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -500,10 +618,10 @@ class CreateFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'createFile',
-      apiUrl: '$baseUrl/files',
+      apiUrl: '${baseUrl}/files',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.MULTIPART,
@@ -521,7 +639,8 @@ class DeleteFileCall {
   Future<ApiCallResponse> call({
     String? fileId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -529,10 +648,10 @@ class DeleteFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteFile',
-      apiUrl: '$baseUrl/files/$fileId',
+      apiUrl: '${baseUrl}/files/${fileId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -549,7 +668,8 @@ class RetrieveFileCall {
   Future<ApiCallResponse> call({
     String? fileId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -557,10 +677,10 @@ class RetrieveFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveFile',
-      apiUrl: '$baseUrl/files/$fileId',
+      apiUrl: '${baseUrl}/files/${fileId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -577,7 +697,8 @@ class DownloadFileCall {
   Future<ApiCallResponse> call({
     String? fileId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -585,10 +706,10 @@ class DownloadFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'downloadFile',
-      apiUrl: '$baseUrl/files/$fileId/content',
+      apiUrl: '${baseUrl}/files/${fileId}/content',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -604,13 +725,14 @@ class DownloadFileCall {
 class CreateFineTuningJobCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "model": "gpt-3.5-turbo",
   "training_file": "file-abc123",
@@ -624,10 +746,10 @@ class CreateFineTuningJobCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createFineTuningJob',
-      apiUrl: '$baseUrl/fine_tuning/jobs',
+      apiUrl: '${baseUrl}/fine_tuning/jobs',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -647,7 +769,8 @@ class ListPaginatedFineTuningJobsCall {
     String? after = '',
     int? limit,
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -655,10 +778,10 @@ class ListPaginatedFineTuningJobsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listPaginatedFineTuningJobs',
-      apiUrl: '$baseUrl/fine_tuning/jobs',
+      apiUrl: '${baseUrl}/fine_tuning/jobs',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'after': after,
@@ -678,7 +801,8 @@ class RetrieveFineTuningJobCall {
   Future<ApiCallResponse> call({
     String? fineTuningJobId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -686,10 +810,10 @@ class RetrieveFineTuningJobCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveFineTuningJob',
-      apiUrl: '$baseUrl/fine_tuning/jobs/$fineTuningJobId',
+      apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -708,7 +832,8 @@ class ListFineTuningEventsCall {
     String? after = '',
     int? limit,
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -716,10 +841,10 @@ class ListFineTuningEventsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFineTuningEvents',
-      apiUrl: '$baseUrl/fine_tuning/jobs/$fineTuningJobId/events',
+      apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}/events',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'after': after,
@@ -739,7 +864,8 @@ class CancelFineTuningJobCall {
   Future<ApiCallResponse> call({
     String? fineTuningJobId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -747,10 +873,10 @@ class CancelFineTuningJobCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelFineTuningJob',
-      apiUrl: '$baseUrl/fine_tuning/jobs/$fineTuningJobId/cancel',
+      apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}/cancel',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -767,13 +893,14 @@ class CancelFineTuningJobCall {
 class CreateFineTuneCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "training_file": "file-abc123",
   "batch_size": 0,
@@ -794,10 +921,10 @@ class CreateFineTuneCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createFineTune',
-      apiUrl: '$baseUrl/fine-tunes',
+      apiUrl: '${baseUrl}/fine-tunes',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -815,7 +942,8 @@ class CreateFineTuneCall {
 class ListFineTunesCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -823,10 +951,10 @@ class ListFineTunesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFineTunes',
-      apiUrl: '$baseUrl/fine-tunes',
+      apiUrl: '${baseUrl}/fine-tunes',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -843,7 +971,8 @@ class RetrieveFineTuneCall {
   Future<ApiCallResponse> call({
     String? fineTuneId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -851,10 +980,10 @@ class RetrieveFineTuneCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveFineTune',
-      apiUrl: '$baseUrl/fine-tunes/$fineTuneId',
+      apiUrl: '${baseUrl}/fine-tunes/${fineTuneId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -871,7 +1000,8 @@ class CancelFineTuneCall {
   Future<ApiCallResponse> call({
     String? fineTuneId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -879,10 +1009,10 @@ class CancelFineTuneCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelFineTune',
-      apiUrl: '$baseUrl/fine-tunes/$fineTuneId/cancel',
+      apiUrl: '${baseUrl}/fine-tunes/${fineTuneId}/cancel',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -901,7 +1031,8 @@ class ListFineTuneEventsCall {
     String? fineTuneId = '',
     bool? stream,
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -909,10 +1040,10 @@ class ListFineTuneEventsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFineTuneEvents',
-      apiUrl: '$baseUrl/fine-tunes/$fineTuneId/events',
+      apiUrl: '${baseUrl}/fine-tunes/${fineTuneId}/events',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'stream': stream,
@@ -930,7 +1061,8 @@ class ListFineTuneEventsCall {
 class ListModelsCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -938,10 +1070,10 @@ class ListModelsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listModels',
-      apiUrl: '$baseUrl/models',
+      apiUrl: '${baseUrl}/models',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -958,7 +1090,8 @@ class RetrieveModelCall {
   Future<ApiCallResponse> call({
     String? model = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -966,10 +1099,10 @@ class RetrieveModelCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveModel',
-      apiUrl: '$baseUrl/models/$model',
+      apiUrl: '${baseUrl}/models/${model}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -986,7 +1119,8 @@ class DeleteModelCall {
   Future<ApiCallResponse> call({
     String? model = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -994,10 +1128,10 @@ class DeleteModelCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteModel',
-      apiUrl: '$baseUrl/models/$model',
+      apiUrl: '${baseUrl}/models/${model}',
       callType: ApiCallType.DELETE,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1013,23 +1147,24 @@ class DeleteModelCall {
 class CreateModerationCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "input": "",
   "model": "text-moderation-stable"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createModeration',
-      apiUrl: '$baseUrl/moderations',
+      apiUrl: '${baseUrl}/moderations',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1051,7 +1186,8 @@ class ListAssistantsCall {
     String? after = '',
     String? before = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1059,10 +1195,10 @@ class ListAssistantsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listAssistants',
-      apiUrl: '$baseUrl/assistants',
+      apiUrl: '${baseUrl}/assistants',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -1083,13 +1219,14 @@ class ListAssistantsCall {
 class CreateAssistantCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "model": "",
   "name": "",
@@ -1105,10 +1242,10 @@ class CreateAssistantCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createAssistant',
-      apiUrl: '$baseUrl/assistants',
+      apiUrl: '${baseUrl}/assistants',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1127,7 +1264,8 @@ class GetAssistantCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1135,10 +1273,10 @@ class GetAssistantCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getAssistant',
-      apiUrl: '$baseUrl/assistants/$assistantId',
+      apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1155,13 +1293,14 @@ class ModifyAssistantCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "model": "",
   "name": "",
@@ -1177,10 +1316,10 @@ class ModifyAssistantCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyAssistant',
-      apiUrl: '$baseUrl/assistants/$assistantId',
+      apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1199,7 +1338,8 @@ class DeleteAssistantCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1207,10 +1347,10 @@ class DeleteAssistantCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteAssistant',
-      apiUrl: '$baseUrl/assistants/$assistantId',
+      apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1226,13 +1366,14 @@ class DeleteAssistantCall {
 class CreateThreadCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "messages": [
     {
@@ -1248,10 +1389,10 @@ class CreateThreadCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createThread',
-      apiUrl: '$baseUrl/threads',
+      apiUrl: '${baseUrl}/threads',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1270,7 +1411,8 @@ class GetThreadCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1278,10 +1420,10 @@ class GetThreadCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getThread',
-      apiUrl: '$baseUrl/threads/$threadId',
+      apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1298,22 +1440,23 @@ class ModifyThreadCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "metadata": {}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyThread',
-      apiUrl: '$baseUrl/threads/$threadId',
+      apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1332,7 +1475,8 @@ class DeleteThreadCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1340,10 +1484,10 @@ class DeleteThreadCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteThread',
-      apiUrl: '$baseUrl/threads/$threadId',
+      apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1364,7 +1508,8 @@ class ListMessagesCall {
     String? after = '',
     String? before = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1372,10 +1517,10 @@ class ListMessagesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listMessages',
-      apiUrl: '$baseUrl/threads/$threadId/messages',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -1397,13 +1542,14 @@ class CreateMessageCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "role": "user",
   "content": "",
@@ -1414,10 +1560,10 @@ class CreateMessageCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createMessage',
-      apiUrl: '$baseUrl/threads/$threadId/messages',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1437,7 +1583,8 @@ class GetMessageCall {
     String? threadId = '',
     String? messageId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1445,10 +1592,10 @@ class GetMessageCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getMessage',
-      apiUrl: '$baseUrl/threads/$threadId/messages/$messageId',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1466,22 +1613,23 @@ class ModifyMessageCall {
     String? threadId = '',
     String? messageId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "metadata": {}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyMessage',
-      apiUrl: '$baseUrl/threads/$threadId/messages/$messageId',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1499,13 +1647,14 @@ class ModifyMessageCall {
 class CreateThreadAndRunCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "assistant_id": "",
   "thread": {
@@ -1530,10 +1679,10 @@ class CreateThreadAndRunCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createThreadAndRun',
-      apiUrl: '$baseUrl/threads/runs',
+      apiUrl: '${baseUrl}/threads/runs',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1556,7 +1705,8 @@ class ListRunsCall {
     String? after = '',
     String? before = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1564,10 +1714,10 @@ class ListRunsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listRuns',
-      apiUrl: '$baseUrl/threads/$threadId/runs',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -1589,13 +1739,14 @@ class CreateRunCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "assistant_id": "",
   "model": "",
@@ -1607,10 +1758,10 @@ class CreateRunCall {
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createRun',
-      apiUrl: '$baseUrl/threads/$threadId/runs',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1630,7 +1781,8 @@ class GetRunCall {
     String? threadId = '',
     String? runId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1638,10 +1790,10 @@ class GetRunCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRun',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1659,22 +1811,23 @@ class ModifyRunCall {
     String? threadId = '',
     String? runId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "metadata": {}
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'modifyRun',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1694,13 +1847,14 @@ class SubmitToolOuputsToRunCall {
     String? threadId = '',
     String? runId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "tool_outputs": [
     {
@@ -1712,10 +1866,10 @@ class SubmitToolOuputsToRunCall {
     return ApiManager.instance.makeApiCall(
       callName: 'submitToolOuputsToRun',
       apiUrl:
-          '$baseUrl/threads/$threadId/runs/$runId/submit_tool_outputs',
+          '${baseUrl}/threads/${threadId}/runs/${runId}/submit_tool_outputs',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1735,7 +1889,8 @@ class CancelRunCall {
     String? threadId = '',
     String? runId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1743,10 +1898,10 @@ class CancelRunCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelRun',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId/cancel',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/cancel',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       bodyType: BodyType.JSON,
@@ -1769,7 +1924,8 @@ class ListRunStepsCall {
     String? after = '',
     String? before = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1777,10 +1933,10 @@ class ListRunStepsCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listRunSteps',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId/steps',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/steps',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -1804,7 +1960,8 @@ class GetRunStepCall {
     String? runId = '',
     String? stepId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1812,10 +1969,10 @@ class GetRunStepCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRunStep',
-      apiUrl: '$baseUrl/threads/$threadId/runs/$runId/steps/$stepId',
+      apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/steps/${stepId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1836,7 +1993,8 @@ class ListAssistantFilesCall {
     String? after = '',
     String? before = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1844,10 +2002,10 @@ class ListAssistantFilesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listAssistantFiles',
-      apiUrl: '$baseUrl/assistants/$assistantId/files',
+      apiUrl: '${baseUrl}/assistants/${assistantId}/files',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -1869,22 +2027,23 @@ class CreateAssistantFileCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
     );
 
-    const ffApiRequestBody = '''
+    final ffApiRequestBody = '''
 {
   "file_id": ""
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createAssistantFile',
-      apiUrl: '$baseUrl/assistants/$assistantId/files',
+      apiUrl: '${baseUrl}/assistants/${assistantId}/files',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       body: ffApiRequestBody,
@@ -1904,7 +2063,8 @@ class GetAssistantFileCall {
     String? assistantId = '',
     String? fileId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1912,10 +2072,10 @@ class GetAssistantFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'getAssistantFile',
-      apiUrl: '$baseUrl/assistants/$assistantId/files/$fileId',
+      apiUrl: '${baseUrl}/assistants/${assistantId}/files/${fileId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1933,7 +2093,8 @@ class DeleteAssistantFileCall {
     String? assistantId = '',
     String? fileId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1941,10 +2102,10 @@ class DeleteAssistantFileCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteAssistantFile',
-      apiUrl: '$baseUrl/assistants/$assistantId/files/$fileId',
+      apiUrl: '${baseUrl}/assistants/${assistantId}/files/${fileId}',
       callType: ApiCallType.DELETE,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -1966,7 +2127,8 @@ class ListMessageFilesCall {
     String? after = '',
     String? before = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1974,10 +2136,10 @@ class ListMessageFilesCall {
 
     return ApiManager.instance.makeApiCall(
       callName: 'listMessageFiles',
-      apiUrl: '$baseUrl/threads/$threadId/messages/$messageId/files',
+      apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}/files',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
         'limit': limit,
@@ -2001,7 +2163,8 @@ class GetMessageFileCall {
     String? messageId = '',
     String? fileId = '',
     String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apikey =
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -2010,10 +2173,10 @@ class GetMessageFileCall {
     return ApiManager.instance.makeApiCall(
       callName: 'getMessageFile',
       apiUrl:
-          '$baseUrl/threads/$threadId/messages/$messageId/files/$fileId',
+          '${baseUrl}/threads/${threadId}/messages/${messageId}/files/${fileId}',
       callType: ApiCallType.GET,
       headers: {
-        'Authorization': 'Bearer $apiKeyAuth',
+        'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
       returnBody: true,
@@ -2028,58 +2191,41 @@ class GetMessageFileCall {
 
 /// End OpenAI API Group Code
 
-class GetArtPieceCall {
+class CreatePaymentOrderCall {
   static Future<ApiCallResponse> call({
-    String? objectID = '',
+    String? customerEmail = '',
+    String? customerPhone = '',
+    String? orderId = '',
+    double? orderAmount,
+    String? orderCurrency = '',
+    String? customerId = '',
   }) async {
+    final ffApiRequestBody = '''
+{
+  "customer_details": {
+    "customer_id": "${customerId}",
+    "customer_email": "${customerEmail}",
+    "customer_phone": "${customerPhone}"
+  },
+  "order_id": "${orderId}",
+  "order_amount": ${orderAmount},
+  "order_currency": "${orderCurrency}"
+}''';
     return ApiManager.instance.makeApiCall(
-      callName: 'Get Art Piece',
-      apiUrl:
-          'https://collectionapi.metmuseum.org/public/collection/v1/objects/$objectID',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class GetDepartmentsCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'Get Departments',
-      apiUrl:
-          'https://collectionapi.metmuseum.org/public/collection/v1/departments',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      isStreamingApi: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class SearchArtCall {
-  static Future<ApiCallResponse> call({
-    String? q = '',
-  }) async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'Search Art',
-      apiUrl: 'https://collectionapi.metmuseum.org/public/collection/v1/search',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {
-        'q': q,
+      callName: 'CreatePayment Order',
+      apiUrl: 'https://api.cashfree.com/pg/orders',
+      callType: ApiCallType.POST,
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'x-api-version': '2023-08-01',
+        'x-client-id': '71450858e1953f87640d3984ff805417',
+        'x-client-secret':
+            'cfsk_ma_prod_bfeb62186fa20d98310e7186aa936e29_fe26addc',
       },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -2088,24 +2234,99 @@ class SearchArtCall {
       alwaysAllowBody: false,
     );
   }
+
+  static String? cforderid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.cf_order_id''',
+      ));
+  static String? createdat(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.created_at''',
+      ));
+  static String? customerdetailscustomerid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.customer_details.customer_id''',
+      ));
+  static String? customerdetailscustomeremail(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.customer_details.customer_email''',
+      ));
+  static String? customerdetailscustomerphone(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.customer_details.customer_phone''',
+      ));
+  static String? entity(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.entity''',
+      ));
+  static int? orderamount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.order_amount''',
+      ));
+  static String? ordercurrency(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.order_currency''',
+      ));
+  static String? orderid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.order_id''',
+      ));
+  static String? paymentsessionid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.payment_session_id''',
+      ));
+  static String? orderstatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.order_status''',
+      ));
+  static String? orderexpirytime(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.order_expiry_time''',
+      ));
 }
 
-class DepartmentHighlightsCall {
+class CreatePaymentOrderCopyCall {
   static Future<ApiCallResponse> call({
-    int? departmentId,
-    bool? isHighlight = true,
-    String? q = '*',
+    String? customerEmail = '',
+    String? customerPhone = '',
+    String? orderId = '',
+    double? orderAmount,
+    String? orderCurrency = '',
+    String? customerId = '',
   }) async {
+    final ffApiRequestBody = '''
+{
+  "customer_details": {
+    "customer_id": "${customerId}",
+    "customer_email": "${customerEmail}",
+    "customer_phone": "${customerPhone}"
+  },
+  "order_id": "${orderId}",
+  "order_amount": ${orderAmount},
+  "order_currency": "${orderCurrency}"
+}''';
     return ApiManager.instance.makeApiCall(
-      callName: 'Department Highlights',
-      apiUrl: 'https://collectionapi.metmuseum.org/public/collection/v1/search',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {
-        'departmentId': departmentId,
-        'isHighlight': isHighlight,
-        'q': q,
+      callName: 'CreatePayment Order Copy',
+      apiUrl: 'https://api.cashfree.com/pg/orders',
+      callType: ApiCallType.POST,
+      headers: {
+        'accept': 'application/json',
+        'content-type': 'application/json',
+        'x-api-version': '2023-08-01',
+        'x-client-id': '71450858e1953f87640d3984ff805417',
+        'x-client-secret':
+            'cfsk_ma_prod_bfeb62186fa20d98310e7186aa936e29_fe26addc',
       },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -2114,6 +2335,62 @@ class DepartmentHighlightsCall {
       alwaysAllowBody: false,
     );
   }
+
+  static String? cforderid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.cf_order_id''',
+      ));
+  static String? createdat(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.created_at''',
+      ));
+  static String? customerdetailscustomerid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.customer_details.customer_id''',
+      ));
+  static String? customerdetailscustomeremail(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.customer_details.customer_email''',
+      ));
+  static String? customerdetailscustomerphone(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.customer_details.customer_phone''',
+      ));
+  static String? entity(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.entity''',
+      ));
+  static int? orderamount(dynamic response) => castToType<int>(getJsonField(
+        response,
+        r'''$.order_amount''',
+      ));
+  static String? ordercurrency(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.order_currency''',
+      ));
+  static String? orderid(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.order_id''',
+      ));
+  static String? paymentsessionid(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.payment_session_id''',
+      ));
+  static String? orderstatus(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.order_status''',
+      ));
+  static String? orderexpirytime(dynamic response) =>
+      castToType<String>(getJsonField(
+        response,
+        r'''$.order_expiry_time''',
+      ));
 }
 
 class ApiPagingParams {

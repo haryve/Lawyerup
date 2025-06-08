@@ -1,4 +1,4 @@
-package com.flutterflow.fluttermet
+package com.flutterflow.caremeez
 
 import io.flutter.embedding.android.FlutterActivity
 

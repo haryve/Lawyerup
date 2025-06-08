@@ -34,6 +34,7 @@ abstract class FlutterFlowTheme {
 
   late Color primaryBtnText;
   late Color lineColor;
+  late Color customColor1;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -65,34 +66,49 @@ abstract class FlutterFlowTheme {
   TextStyle get bodyText2 => typography.bodySmall;
 
   String get displayLargeFamily => typography.displayLargeFamily;
+  bool get displayLargeIsCustom => typography.displayLargeIsCustom;
   TextStyle get displayLarge => typography.displayLarge;
   String get displayMediumFamily => typography.displayMediumFamily;
+  bool get displayMediumIsCustom => typography.displayMediumIsCustom;
   TextStyle get displayMedium => typography.displayMedium;
   String get displaySmallFamily => typography.displaySmallFamily;
+  bool get displaySmallIsCustom => typography.displaySmallIsCustom;
   TextStyle get displaySmall => typography.displaySmall;
   String get headlineLargeFamily => typography.headlineLargeFamily;
+  bool get headlineLargeIsCustom => typography.headlineLargeIsCustom;
   TextStyle get headlineLarge => typography.headlineLarge;
   String get headlineMediumFamily => typography.headlineMediumFamily;
+  bool get headlineMediumIsCustom => typography.headlineMediumIsCustom;
   TextStyle get headlineMedium => typography.headlineMedium;
   String get headlineSmallFamily => typography.headlineSmallFamily;
+  bool get headlineSmallIsCustom => typography.headlineSmallIsCustom;
   TextStyle get headlineSmall => typography.headlineSmall;
   String get titleLargeFamily => typography.titleLargeFamily;
+  bool get titleLargeIsCustom => typography.titleLargeIsCustom;
   TextStyle get titleLarge => typography.titleLarge;
   String get titleMediumFamily => typography.titleMediumFamily;
+  bool get titleMediumIsCustom => typography.titleMediumIsCustom;
   TextStyle get titleMedium => typography.titleMedium;
   String get titleSmallFamily => typography.titleSmallFamily;
+  bool get titleSmallIsCustom => typography.titleSmallIsCustom;
   TextStyle get titleSmall => typography.titleSmall;
   String get labelLargeFamily => typography.labelLargeFamily;
+  bool get labelLargeIsCustom => typography.labelLargeIsCustom;
   TextStyle get labelLarge => typography.labelLarge;
   String get labelMediumFamily => typography.labelMediumFamily;
+  bool get labelMediumIsCustom => typography.labelMediumIsCustom;
   TextStyle get labelMedium => typography.labelMedium;
   String get labelSmallFamily => typography.labelSmallFamily;
+  bool get labelSmallIsCustom => typography.labelSmallIsCustom;
   TextStyle get labelSmall => typography.labelSmall;
   String get bodyLargeFamily => typography.bodyLargeFamily;
+  bool get bodyLargeIsCustom => typography.bodyLargeIsCustom;
   TextStyle get bodyLarge => typography.bodyLarge;
   String get bodyMediumFamily => typography.bodyMediumFamily;
+  bool get bodyMediumIsCustom => typography.bodyMediumIsCustom;
   TextStyle get bodyMedium => typography.bodyMedium;
   String get bodySmallFamily => typography.bodySmallFamily;
+  bool get bodySmallIsCustom => typography.bodySmallIsCustom;
   TextStyle get bodySmall => typography.bodySmall;
 
   Typography get typography => ThemeTypography(this);
@@ -106,57 +122,73 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFFD83018);
-  late Color secondary = const Color(0xFFF1F4F8);
-  late Color tertiary = const Color(0xFF8B97A2);
-  late Color alternate = const Color(0xFFE0E3E7);
-  late Color primaryText = const Color(0xFF101213);
-  late Color secondaryText = const Color(0xFF57636C);
-  late Color primaryBackground = const Color(0xFFF1F4F8);
-  late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color accent1 = const Color(0xFF616161);
-  late Color accent2 = const Color(0xFF757575);
-  late Color accent3 = const Color(0xFFE0E0E0);
-  late Color accent4 = const Color(0xFFEEEEEE);
-  late Color success = const Color(0xFF04A24C);
-  late Color warning = const Color(0xFFFCDC0C);
-  late Color error = const Color(0xFFE21C3D);
-  late Color info = const Color(0xFF1C4494);
+  late Color primary = const Color(0xFF3F51B5);
+  late Color secondary = const Color(0xFFFF4081);
+  late Color tertiary = const Color(0xFF4CAF50);
+  late Color alternate = const Color(0xFFFFC107);
+  late Color primaryText = const Color(0xFF212121);
+  late Color secondaryText = const Color(0xFF757575);
+  late Color primaryBackground = const Color(0xFFFFFFFF);
+  late Color secondaryBackground = const Color(0xFFF5F5F5);
+  late Color accent1 = const Color(0xFF9C27B0);
+  late Color accent2 = const Color(0xFF03A9F4);
+  late Color accent3 = const Color(0xFFFF5722);
+  late Color accent4 = const Color(0xFF795548);
+  late Color success = const Color(0xFF4CAF50);
+  late Color warning = const Color(0xFFFF9800);
+  late Color error = const Color(0xFFF44336);
+  late Color info = const Color(0xFF2196F3);
 
   late Color primaryBtnText = const Color(0xFFFFFFFF);
   late Color lineColor = const Color(0xFFE0E3E7);
+  late Color customColor1 = const Color(0xFFD3B3C0);
 }
 
 abstract class Typography {
   String get displayLargeFamily;
+  bool get displayLargeIsCustom;
   TextStyle get displayLarge;
   String get displayMediumFamily;
+  bool get displayMediumIsCustom;
   TextStyle get displayMedium;
   String get displaySmallFamily;
+  bool get displaySmallIsCustom;
   TextStyle get displaySmall;
   String get headlineLargeFamily;
+  bool get headlineLargeIsCustom;
   TextStyle get headlineLarge;
   String get headlineMediumFamily;
+  bool get headlineMediumIsCustom;
   TextStyle get headlineMedium;
   String get headlineSmallFamily;
+  bool get headlineSmallIsCustom;
   TextStyle get headlineSmall;
   String get titleLargeFamily;
+  bool get titleLargeIsCustom;
   TextStyle get titleLarge;
   String get titleMediumFamily;
+  bool get titleMediumIsCustom;
   TextStyle get titleMedium;
   String get titleSmallFamily;
+  bool get titleSmallIsCustom;
   TextStyle get titleSmall;
   String get labelLargeFamily;
+  bool get labelLargeIsCustom;
   TextStyle get labelLarge;
   String get labelMediumFamily;
+  bool get labelMediumIsCustom;
   TextStyle get labelMedium;
   String get labelSmallFamily;
+  bool get labelSmallIsCustom;
   TextStyle get labelSmall;
   String get bodyLargeFamily;
+  bool get bodyLargeIsCustom;
   TextStyle get bodyLarge;
   String get bodyMediumFamily;
+  bool get bodyMediumIsCustom;
   TextStyle get bodyMedium;
   String get bodySmallFamily;
+  bool get bodySmallIsCustom;
   TextStyle get bodySmall;
 }
 
@@ -165,147 +197,156 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Poppins';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'Poppins',
+  String get displayLargeFamily => 'Open Sans';
+  bool get displayLargeIsCustom => false;
+  TextStyle get displayLarge => GoogleFonts.openSans(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
-  String get displayMediumFamily => 'Poppins';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'Poppins',
+  String get displayMediumFamily => 'Open Sans';
+  bool get displayMediumIsCustom => false;
+  TextStyle get displayMedium => GoogleFonts.openSans(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get displaySmallFamily => 'Playfair Display';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'Playfair Display',
-        color: Colors.black,
+  String get displaySmallFamily => 'Open Sans';
+  bool get displaySmallIsCustom => false;
+  TextStyle get displaySmall => GoogleFonts.openSans(
+        color: theme.primaryText,
         fontWeight: FontWeight.w600,
-        fontSize: 22.0,
+        fontSize: 36.0,
       );
-  String get headlineLargeFamily => 'Poppins';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Poppins',
+  String get headlineLargeFamily => 'Open Sans';
+  bool get headlineLargeIsCustom => false;
+  TextStyle get headlineLarge => GoogleFonts.openSans(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Poppins';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF303030),
-        fontWeight: FontWeight.w500,
-        fontSize: 22.0,
+  String get headlineMediumFamily => 'Open Sans';
+  bool get headlineMediumIsCustom => false;
+  TextStyle get headlineMedium => GoogleFonts.openSans(
+        color: theme.primaryText,
+        fontWeight: FontWeight.w600,
+        fontSize: 32.0,
       );
-  String get headlineSmallFamily => 'Poppins';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF303030),
-        fontWeight: FontWeight.w500,
-        fontSize: 20.0,
+  String get headlineSmallFamily => 'Open Sans';
+  bool get headlineSmallIsCustom => false;
+  TextStyle get headlineSmall => GoogleFonts.openSans(
+        color: theme.primaryText,
+        fontWeight: FontWeight.bold,
+        fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Poppins';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'Poppins',
+  String get titleLargeFamily => 'Open Sans';
+  bool get titleLargeIsCustom => false;
+  TextStyle get titleLarge => GoogleFonts.openSans(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Playfair Display';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'Playfair Display',
-        color: theme.secondary,
+  String get titleMediumFamily => 'Mukta';
+  bool get titleMediumIsCustom => false;
+  TextStyle get titleMedium => GoogleFonts.mukta(
+        color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get titleSmallFamily => 'Poppins';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'Poppins',
-        color: const Color(0xFF616161),
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
-      );
-  String get labelLargeFamily => 'Poppins';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
+  String get titleSmallFamily => 'Mukta';
+  bool get titleSmallIsCustom => false;
+  TextStyle get titleSmall => GoogleFonts.mukta(
+        color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get labelMediumFamily => 'Poppins';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
+  String get labelLargeFamily => 'Mukta';
+  bool get labelLargeIsCustom => false;
+  TextStyle get labelLarge => GoogleFonts.mukta(
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 16.0,
+      );
+  String get labelMediumFamily => 'Mukta';
+  bool get labelMediumIsCustom => false;
+  TextStyle get labelMedium => GoogleFonts.mukta(
+        color: theme.secondaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 14.0,
+      );
+  String get labelSmallFamily => 'Mukta';
+  bool get labelSmallIsCustom => false;
+  TextStyle get labelSmall => GoogleFonts.mukta(
+        color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
-  String get labelSmallFamily => 'Poppins';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'Poppins',
+  String get bodyLargeFamily => 'Mukta';
+  bool get bodyLargeIsCustom => false;
+  TextStyle get bodyLarge => GoogleFonts.mukta(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
-        fontSize: 11.0,
-      );
-  String get bodyLargeFamily => 'Poppins';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodyMediumFamily => 'Playfair Display';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Playfair Display',
-        color: theme.tertiary,
-        fontWeight: FontWeight.normal,
+  String get bodyMediumFamily => 'Mukta';
+  bool get bodyMediumIsCustom => false;
+  TextStyle get bodyMedium => GoogleFonts.mukta(
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get bodySmallFamily => 'Playfair Display';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'Playfair Display',
-        color: Colors.black,
-        fontWeight: FontWeight.normal,
-        fontSize: 14.0,
+  String get bodySmallFamily => 'Mukta';
+  bool get bodySmallIsCustom => false;
+  TextStyle get bodySmall => GoogleFonts.mukta(
+        color: theme.primaryText,
+        fontWeight: FontWeight.w500,
+        fontSize: 12.0,
       );
 }
 
 extension TextStyleHelper on TextStyle {
   TextStyle override({
+    TextStyle? font,
     String? fontFamily,
     Color? color,
     double? fontSize,
     FontWeight? fontWeight,
     double? letterSpacing,
     FontStyle? fontStyle,
-    bool useGoogleFonts = true,
+    bool useGoogleFonts = false,
     TextDecoration? decoration,
     double? lineHeight,
     List<Shadow>? shadows,
-  }) =>
-      useGoogleFonts
-          ? GoogleFonts.getFont(
-              fontFamily!,
-              color: color ?? this.color,
-              fontSize: fontSize ?? this.fontSize,
-              letterSpacing: letterSpacing ?? this.letterSpacing,
-              fontWeight: fontWeight ?? this.fontWeight,
-              fontStyle: fontStyle ?? this.fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            )
-          : copyWith(
-              fontFamily: fontFamily,
-              color: color,
-              fontSize: fontSize,
-              letterSpacing: letterSpacing,
-              fontWeight: fontWeight,
-              fontStyle: fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            );
+    String? package,
+  }) {
+    if (useGoogleFonts && fontFamily != null) {
+      font = GoogleFonts.getFont(fontFamily,
+          fontWeight: fontWeight ?? this.fontWeight,
+          fontStyle: fontStyle ?? this.fontStyle);
+    }
+
+    return font != null
+        ? font.copyWith(
+            color: color ?? this.color,
+            fontSize: fontSize ?? this.fontSize,
+            letterSpacing: letterSpacing ?? this.letterSpacing,
+            fontWeight: fontWeight ?? this.fontWeight,
+            fontStyle: fontStyle ?? this.fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          )
+        : copyWith(
+            fontFamily: fontFamily,
+            package: package,
+            color: color,
+            fontSize: fontSize,
+            letterSpacing: letterSpacing,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          );
+  }
 }
