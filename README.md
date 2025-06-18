@@ -15,3 +15,16 @@ All network images now use `CachedNetworkImage` which provides caching, a placeh
 ### Customizing the iOS launch screen
 
 Replace the images in `ios/Runner/Assets.xcassets/LaunchImage.imageset/` to customize the launch screen. See the README in that directory for details.
+
+## Project Status
+
+### Completed improvements
+
+- Migrated all `Image.network` widgets to `CachedNetworkImage` with placeholders
+  and error handlers.
+- Documented basic setup instructions in this README.
+
+### Planned improvements
+
+- Provide more environment setup steps, including `flutter doctor` output.
+- Add static analysis (`flutter analyze`) and automated testing.
