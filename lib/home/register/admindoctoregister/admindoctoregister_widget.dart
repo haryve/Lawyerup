@@ -673,7 +673,8 @@ class _AdmindoctoregisterWidgetState extends State<AdmindoctoregisterWidget>
                   'Orissa',
                   'Gujarat',
                   'Rajasthan',
-                  'Delhi'
+                  'Delhi',
+                  'West Bengal'
                 ],
                 onChanged: (val) => safeSetState(() => _model.stateValue = val),
                 width: double.infinity,
@@ -733,12 +734,13 @@ class _AdmindoctoregisterWidgetState extends State<AdmindoctoregisterWidget>
                     FormFieldController<String>(null),
                 options: [
                   'Doctor',
-                  'Fitness Expert',
+                  'Nutritionist',
                   'Ayurveda Expert',
-                  'Meditation Expert',
                   'Homeopathy',
+                  'Meditation Expert',
                   'Yoga Expert',
-                  'Nutritionist'
+                  'Fitness Expert',
+                  'psychologist'
                 ],
                 onChanged: (val) =>
                     safeSetState(() => _model.professionValue = val),
@@ -824,7 +826,6 @@ class _AdmindoctoregisterWidgetState extends State<AdmindoctoregisterWidget>
                       FormFieldController<String>(null),
                   options: [
                     'Family Physicians',
-                    'psychologist',
                     'Psychiatrist',
                     'Dermatologists',
                     'Pediatricians',
@@ -837,7 +838,7 @@ class _AdmindoctoregisterWidgetState extends State<AdmindoctoregisterWidget>
                     'Endocrinologists',
                     'Pulmonologists',
                     'Urologists',
-                    'Dentists',
+                    'Dentist',
                     'Obstetrician',
                     'Nephrology',
                     'Oncology',
@@ -2060,19 +2061,33 @@ class _AdmindoctoregisterWidgetState extends State<AdmindoctoregisterWidget>
                               await lawyersRecordReference.set({
                                 ...createLawyersRecordData(
                                   author: currentUserReference,
-                                  name: currentUserDisplayName,
-                                  city: _model.cityTextController.text,
-                                  bio: _model.myBioTextController.text,
+                                  name: valueOrDefault<String>(
+                                    currentUserDisplayName,
+                                    'Doctor',
+                                  ),
+                                  city: valueOrDefault<String>(
+                                    _model.cityTextController.text,
+                                    'City',
+                                  ),
+                                  bio: valueOrDefault<String>(
+                                    _model.myBioTextController.text,
+                                    'Caremeez',
+                                  ),
                                   lawyerDp: _model.uploadedFileUrl_uploadDataG7s !=
                                               ''
                                       ? _model.uploadedFileUrl_uploadDataG7s
-                                      : currentUserPhoto,
+                                      : valueOrDefault<String>(
+                                          currentUserPhoto,
+                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7f26YVZVedAcPJZS7-ZnrKQMYKqnYaxJrIA&s',
+                                        ),
                                   lawyerCharge: int.tryParse(
                                       _model.yourNameTextController4.text),
                                   emailAddress:
                                       _model.yourNameTextController2.text,
-                                  displayName:
-                                      _model.yourNameTextController1.text,
+                                  displayName: valueOrDefault<String>(
+                                    _model.yourNameTextController1.text,
+                                    'Doctor',
+                                  ),
                                   uid: currentUserUid,
                                   createdTime: getCurrentTimestamp,
                                   phoneNumber: currentPhoneNumber,
@@ -2099,22 +2114,36 @@ class _AdmindoctoregisterWidgetState extends State<AdmindoctoregisterWidget>
                                   },
                                 ),
                               });
-                              _model.ref = LawyersRecord.getDocumentFromData({
+                              _model.refer = LawyersRecord.getDocumentFromData({
                                 ...createLawyersRecordData(
                                   author: currentUserReference,
-                                  name: currentUserDisplayName,
-                                  city: _model.cityTextController.text,
-                                  bio: _model.myBioTextController.text,
+                                  name: valueOrDefault<String>(
+                                    currentUserDisplayName,
+                                    'Doctor',
+                                  ),
+                                  city: valueOrDefault<String>(
+                                    _model.cityTextController.text,
+                                    'City',
+                                  ),
+                                  bio: valueOrDefault<String>(
+                                    _model.myBioTextController.text,
+                                    'Caremeez',
+                                  ),
                                   lawyerDp: _model.uploadedFileUrl_uploadDataG7s !=
                                               ''
                                       ? _model.uploadedFileUrl_uploadDataG7s
-                                      : currentUserPhoto,
+                                      : valueOrDefault<String>(
+                                          currentUserPhoto,
+                                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7f26YVZVedAcPJZS7-ZnrKQMYKqnYaxJrIA&s',
+                                        ),
                                   lawyerCharge: int.tryParse(
                                       _model.yourNameTextController4.text),
                                   emailAddress:
                                       _model.yourNameTextController2.text,
-                                  displayName:
-                                      _model.yourNameTextController1.text,
+                                  displayName: valueOrDefault<String>(
+                                    _model.yourNameTextController1.text,
+                                    'Doctor',
+                                  ),
                                   uid: currentUserUid,
                                   createdTime: getCurrentTimestamp,
                                   phoneNumber: currentPhoneNumber,
@@ -2146,7 +2175,7 @@ class _AdmindoctoregisterWidgetState extends State<AdmindoctoregisterWidget>
                               await currentUserReference!
                                   .update(createUsersRecordData(
                                 role: 'lawyer',
-                                lawref: _model.ref?.reference,
+                                lawref: _model.refer?.reference,
                               ));
                               logFirebaseEvent('Button_show_snack_bar');
                               ScaffoldMessenger.of(context).showSnackBar(
@@ -2173,7 +2202,7 @@ class _AdmindoctoregisterWidgetState extends State<AdmindoctoregisterWidget>
                                   return Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
                                     child: EditdoctorrprofileWidget(
-                                      referencee: _model.ref!.reference,
+                                      referencee: currentUserDocument!.lawref!,
                                     ),
                                   );
                                 },

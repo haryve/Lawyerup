@@ -10,10 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class LandingpageModel extends FlutterFlowModel<LandingpageWidget> {
+  ///  Local state fields for this page.
+
+  bool pause = false;
+
   ///  State fields for stateful widgets in this page.
 
   // Model for drawer component.
-  late DrawerModel drawerModel;
+  late DrawerModel drawerModel1;
   // Model for USERIMAGE component.
   late UserimageModel userimageModel;
   // Model for Incomming_call_box component.
@@ -27,24 +31,28 @@ class LandingpageModel extends FlutterFlowModel<LandingpageWidget> {
 
   // Models for commentbox dynamic component.
   late FlutterFlowDynamicModels<CommentboxModel> commentboxModels;
+  // Model for drawer component.
+  late DrawerModel drawerModel2;
 
   @override
   void initState(BuildContext context) {
-    drawerModel = createModel(context, () => DrawerModel());
+    drawerModel1 = createModel(context, () => DrawerModel());
     userimageModel = createModel(context, () => UserimageModel());
     incommingCallBoxModel = createModel(context, () => IncommingCallBoxModel());
     commentboxModels = FlutterFlowDynamicModels(() => CommentboxModel());
+    drawerModel2 = createModel(context, () => DrawerModel());
   }
 
   @override
   void dispose() {
-    drawerModel.dispose();
+    drawerModel1.dispose();
     userimageModel.dispose();
     incommingCallBoxModel.dispose();
     listViewStreamSubscriptions.forEach((s) => s?.cancel());
     listViewPagingController?.dispose();
 
     commentboxModels.dispose();
+    drawerModel2.dispose();
   }
 
   /// Additional helper methods.
@@ -74,7 +82,7 @@ class LandingpageModel extends FlutterFlowModel<LandingpageWidget> {
           nextPageMarker: nextPageMarker,
           streamSubscriptions: listViewStreamSubscriptions,
           controller: controller,
-          pageSize: 4,
+          pageSize: 5,
           isStream: true,
         ),
       );

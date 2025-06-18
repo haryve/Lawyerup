@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/backend/firebase_storage/storage.dart';
+import '/components/booking1_widget.dart';
 import '/flutter_flow/flutter_flow_checkbox_group.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -49,6 +50,8 @@ class EditdoctorrprofileWidget extends StatefulWidget {
 class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
   late EditdoctorrprofileModel _model;
 
+  LatLng? currentUserLocationValue;
+
   @override
   void setState(VoidCallback callback) {
     super.setState(callback);
@@ -83,8 +86,6 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
 
     _model.textFieldFocusNode5 ??= FocusNode();
 
-    _model.textFieldFocusNode6 ??= FocusNode();
-
     _model.otherExpertiseFocusNode ??= FocusNode();
 
     _model.accnameFocusNode ??= FocusNode();
@@ -97,9 +98,9 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
 
     _model.upiFocusNode ??= FocusNode();
 
-    _model.textFieldFocusNode7 ??= FocusNode();
+    _model.textFieldFocusNode6 ??= FocusNode();
 
-    _model.textFieldFocusNode8 ??= FocusNode();
+    _model.textFieldFocusNode7 ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -123,7 +124,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
               width: 20.0,
               height: 20.0,
               child: SpinKitFadingCircle(
-                color: Color(0x9D03A9F4),
+                color: Color(0x4D03A9F4),
                 size: 20.0,
               ),
             ),
@@ -239,6 +240,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                           context: context,
                           imageQuality: 75,
                           allowPhoto: true,
+                          includeDimensions: true,
                           includeBlurHash: true,
                         );
                         if (selectedMedia != null &&
@@ -543,82 +545,81 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                       .fontStyle,
                                 ),
                           ),
-                          AuthUserStreamWidget(
-                            builder: (context) => TextFormField(
-                              controller: _model.nameTextController ??=
-                                  TextEditingController(
-                                text: containerLawyersRecord.displayName != ''
-                                    ? containerLawyersRecord.displayName
-                                    : currentUserDisplayName,
-                              ),
-                              focusNode: _model.nameFocusNode,
-                              autofocus: false,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                labelText: 'Full Name',
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyLarge
-                                    .override(
-                                      font: GoogleFonts.mukta(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .fontStyle,
-                                      ),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyLarge
-                                          .fontStyle,
-                                    ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                filled: true,
-                                fillColor: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
+                          TextFormField(
+                            controller: _model.nameTextController ??=
+                                TextEditingController(
+                              text: containerLawyersRecord.displayName,
+                            ),
+                            focusNode: _model.nameFocusNode,
+                            onFieldSubmitted: (_) async {
+                              logFirebaseEvent(
+                                  'EDITDOCTORRPROFILE_Name_ON_TEXTFIELD_SUB');
+                              logFirebaseEvent('Name_backend_call');
+
+                              await containerLawyersRecord.reference
+                                  .update(createLawyersRecordData(
+                                displayName: _model.nameTextController.text,
+                              ));
+                            },
+                            autofocus: false,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              labelText: 'Full Name',
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
                                   .override(
                                     font: GoogleFonts.mukta(
                                       fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .bodyLarge
                                           .fontWeight,
                                       fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
+                                          .bodyLarge
                                           .fontStyle,
                                     ),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .fontStyle,
+                                  ),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(8.0),
+                              ),
+                              filled: true,
+                              fillColor: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.mukta(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
@@ -626,13 +627,33 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                              validator: _model.nameTextControllerValidator
-                                  .asValidator(context),
-                            ),
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                            validator: _model.nameTextControllerValidator
+                                .asValidator(context),
                           ),
                           TextFormField(
                             controller: _model.textController2,
                             focusNode: _model.textFieldFocusNode1,
+                            onFieldSubmitted: (_) async {
+                              logFirebaseEvent(
+                                  'EDITDOCTORRPROFILE_TextField_wqlvju56_ON');
+                              logFirebaseEvent('TextField_backend_call');
+
+                              await containerLawyersRecord.reference
+                                  .update(createLawyersRecordData(
+                                emailAddress: valueOrDefault<String>(
+                                  _model.textController2.text,
+                                  'Email',
+                                ),
+                              ));
+                            },
                             autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -724,8 +745,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                         currentUserDocument?.gender, ''),
                                   ),
                                   options: ['Male', 'Female', 'Other'],
-                                  onChanged: (val) => safeSetState(
-                                      () => _model.genderValue = val),
+                                  onChanged: (val) async {
+                                    safeSetState(
+                                        () => _model.genderValue = val);
+                                    logFirebaseEvent(
+                                        'EDITDOCTORRPROFILE_Gender_ON_FORM_WIDGET');
+                                    logFirebaseEvent('Gender_backend_call');
+
+                                    await containerLawyersRecord.reference
+                                        .update(createLawyersRecordData(
+                                      gender: _model.genderValue,
+                                    ));
+                                  },
                                   width: 158.0,
                                   height: 49.0,
                                   textStyle: FlutterFlowTheme.of(context)
@@ -773,6 +804,19 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                               text: containerLawyersRecord.phoneNumber,
                             ),
                             focusNode: _model.textFieldFocusNode2,
+                            onFieldSubmitted: (_) async {
+                              logFirebaseEvent(
+                                  'EDITDOCTORRPROFILE_TextField_gjedwzj6_ON');
+                              logFirebaseEvent('TextField_backend_call');
+
+                              await containerLawyersRecord.reference
+                                  .update(createLawyersRecordData(
+                                phoneNumber: valueOrDefault<String>(
+                                  _model.textController3.text,
+                                  '+91 999999999',
+                                ),
+                              ));
+                            },
                             autofocus: false,
                             obscureText: false,
                             decoration: InputDecoration(
@@ -860,6 +904,19 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                     text: containerLawyersRecord.city,
                                   ),
                                   focusNode: _model.textFieldFocusNode3,
+                                  onFieldSubmitted: (_) async {
+                                    logFirebaseEvent(
+                                        'EDITDOCTORRPROFILE_TextField_vhl2z632_ON');
+                                    logFirebaseEvent('TextField_backend_call');
+
+                                    await containerLawyersRecord.reference
+                                        .update(createLawyersRecordData(
+                                      city: valueOrDefault<String>(
+                                        _model.textController4.text,
+                                        'City',
+                                      ),
+                                    ));
+                                  },
                                   autofocus: false,
                                   obscureText: false,
                                   decoration: InputDecoration(
@@ -994,8 +1051,20 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                               'Ladakh',
                               'Puducherry'
                             ],
-                            onChanged: (val) =>
-                                safeSetState(() => _model.stateValue = val),
+                            onChanged: (val) async {
+                              safeSetState(() => _model.stateValue = val);
+                              logFirebaseEvent(
+                                  'EDITDOCTORRPROFILE_state_ON_FORM_WIDGET_');
+                              logFirebaseEvent('state_backend_call');
+
+                              await containerLawyersRecord.reference
+                                  .update(createLawyersRecordData(
+                                state: valueOrDefault<String>(
+                                  _model.stateValue,
+                                  'State',
+                                ),
+                              ));
+                            },
                             width: double.infinity,
                             height: 42.0,
                             textStyle: FlutterFlowTheme.of(context)
@@ -1177,10 +1246,23 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Doctor',
                                 'Meditation Expert',
                                 'Homeopathy',
-                                'Ayurveda'
+                                'Ayurveda Expert'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.expertTypeValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.expertTypeValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_ExpertType_ON_FORM_WI');
+                                logFirebaseEvent('ExpertType_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  experttype: valueOrDefault<String>(
+                                    _model.expertTypeValue,
+                                    'Doctor',
+                                  ),
+                                ));
+                              },
                               width: 158.0,
                               height: 49.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1252,10 +1334,21 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                               'Nutritionist',
                               'Physiotherapist',
                               'Hematologist',
-                              'General Physician'
+                              'General Physician',
+                              'General Surgery'
                             ],
-                            onChanged: (val) => safeSetState(
-                                () => _model.maincategoryValue = val),
+                            onChanged: (val) async {
+                              safeSetState(
+                                  () => _model.maincategoryValue = val);
+                              logFirebaseEvent(
+                                  'EDITDOCTORRPROFILE_maincategory_ON_FORM_');
+                              logFirebaseEvent('maincategory_backend_call');
+
+                              await containerLawyersRecord.reference
+                                  .update(createLawyersRecordData(
+                                category: _model.maincategoryValue,
+                              ));
+                            },
                             width: double.infinity,
                             height: 56.0,
                             searchTextStyle: FlutterFlowTheme.of(context)
@@ -1294,7 +1387,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                       .bodyMedium
                                       .fontStyle,
                                 ),
-                            hintText: 'main category',
+                            hintText: 'Speciality',
                             icon: Icon(
                               Icons.keyboard_arrow_down_rounded,
                               color: Color(0xFF57636C),
@@ -1333,8 +1426,19 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Preventive Health Specialist',
                                 'Chronic Disease Management'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.familyphysicianValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.familyphysicianValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Familyphysician_ON_FO');
+                                logFirebaseEvent(
+                                    'Familyphysician_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.familyphysicianValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1354,7 +1458,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                              hintText: 'Specialty',
+                              hintText: 'Sub-Specialty',
                               icon: Icon(
                                 Icons.keyboard_arrow_down_rounded,
                                 color: Color(0xFF57636C),
@@ -1372,7 +1476,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                               isMultiSelect: false,
                             ),
                           ),
-                        if (_model.expertTypeValue == 'Hematologist')
+                        if (_model.maincategoryValue == 'Hematologist')
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 12.0),
@@ -1394,8 +1498,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Hemato-Oncologist',
                                 'Hematologist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.hematologistValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.hematologistValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Hematologist_ON_FORM_');
+                                logFirebaseEvent('Hematologist_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.hematologistValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1451,8 +1565,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'MD – Pediatrics',
                                 'MD – Psychiatry'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.homeopathyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.homeopathyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Homeopathy_ON_FORM_WI');
+                                logFirebaseEvent('Homeopathy_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.homeopathyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1511,8 +1635,17 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Manasa Roga',
                                 'Panchakarma Specialist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.ayurvedaValue = val),
+                              onChanged: (val) async {
+                                safeSetState(() => _model.ayurvedaValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Ayurveda_ON_FORM_WIDG');
+                                logFirebaseEvent('Ayurveda_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.ayurvedaValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1574,8 +1707,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Beauty Nutritionist',
                                 'Women’s Health Nutritionist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.nutritionistValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.nutritionistValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Nutritionist_ON_FORM_');
+                                logFirebaseEvent('Nutritionist_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.nutritionistValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1632,8 +1775,17 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Pharmacologist',
                                 'General Medicine'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.pharmacyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(() => _model.pharmacyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Pharmacy_ON_FORM_WIDG');
+                                logFirebaseEvent('Pharmacy_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.pharmacyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1698,8 +1850,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Lactation Consultant',
                                 'Perinatologist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.gynecologyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.gynecologyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Gynecology_ON_FORM_WI');
+                                logFirebaseEvent('Gynecology_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.gynecologyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1761,8 +1923,17 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Root Canal Specialist',
                                 'Cosmetic Dentist'
                               ],
-                              onChanged: (val) =>
-                                  safeSetState(() => _model.dentistValue = val),
+                              onChanged: (val) async {
+                                safeSetState(() => _model.dentistValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Dentist_ON_FORM_WIDGE');
+                                logFirebaseEvent('Dentist_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.dentistValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1824,8 +1995,19 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Immunotherapy Specialist',
                                 'ENT-Allergy Specialist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.allergyImmunologyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.allergyImmunologyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_AllergyImmunology_ON_');
+                                logFirebaseEvent(
+                                    'AllergyImmunology_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.allergyImmunologyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1887,8 +2069,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Geriatric Pulmonologist ',
                                 'Geriatric Nephrologist '
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.geriatricsValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.geriatricsValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Geriatrics_ON_FORM_WI');
+                                logFirebaseEvent('Geriatrics_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.geriatricsValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -1950,8 +2142,17 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Ocular (Eye) Oncologist',
                                 'Palliative Care Oncologist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.oncologyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(() => _model.oncologyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Oncology_ON_FORM_WIDG');
+                                logFirebaseEvent('Oncology_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.oncologyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2011,8 +2212,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Metabolic Bone Disease Specialist',
                                 'Pain Management Specialist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.rheumatologyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.rheumatologyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Rheumatology_ON_FORM_');
+                                logFirebaseEvent('Rheumatology_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.rheumatologyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2075,8 +2286,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Renal Transplant Specialist',
                                 'Electrolyte & Fluid Balance Expert'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.nephrologyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.nephrologyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Nephrology_ON_FORM_WI');
+                                logFirebaseEvent('Nephrology_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.nephrologyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2139,8 +2360,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Uvea Specialist (Uveitis Expert)',
                                 'Low Vision & Rehabilitation Specialist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.ophthalmologyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.ophthalmologyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Ophthalmology_ON_FORM');
+                                logFirebaseEvent('Ophthalmology_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.ophthalmologyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2202,8 +2433,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Limb Reconstruction & Deformity Correction Specialist',
                                 'Hand & Microvascular Surgeon'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.orthopedicsValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.orthopedicsValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Orthopedics_ON_FORM_W');
+                                logFirebaseEvent('Orthopedics_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.orthopedicsValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2266,8 +2507,17 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Neurocritical Care Specialist',
                                 'Cognitive & Behavioral Neurologist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.neurologyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(() => _model.neurologyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Neurology_ON_FORM_WID');
+                                logFirebaseEvent('Neurology_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.neurologyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2330,8 +2580,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Interstitial Lung Disease (ILD) Specialist',
                                 'Geriartics Pulmonologist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.pulmonologistValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.pulmonologistValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Pulmonologist_ON_FORM');
+                                logFirebaseEvent('Pulmonologist_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.pulmonologistValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2394,8 +2654,19 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Neuro-Gastroenterologist',
                                 'Therapeutic Gastroenterologist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.gastroenterologistValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.gastroenterologistValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Gastroenterologist_ON');
+                                logFirebaseEvent(
+                                    'Gastroenterologist_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.gastroenterologistValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2460,8 +2731,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Thyroid Specialist',
                                 'Diabetologist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.endocrinologyValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.endocrinologyValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Endocrinology_ON_FORM');
+                                logFirebaseEvent('Endocrinology_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.endocrinologyValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2522,8 +2803,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Cardiac Rehabilitation Specialist',
                                 'Cardiothoracic Surgeon (CTVS)'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.cardiologistValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.cardiologistValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Cardiologist_ON_FORM_');
+                                logFirebaseEvent('Cardiologist_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.cardiologistValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2585,8 +2876,18 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Dermatosurgeon',
                                 'Nail Disease Specialist'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.dermatologistValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.dermatologistValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_Dermatologist_ON_FORM');
+                                logFirebaseEvent('Dermatologist_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.dermatologistValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2651,8 +2952,17 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                               'Pediatric Surgery',
                               'Pediatric Dentistry'
                             ],
-                            onChanged: (val) =>
-                                safeSetState(() => _model.pediatricValue = val),
+                            onChanged: (val) async {
+                              safeSetState(() => _model.pediatricValue = val);
+                              logFirebaseEvent(
+                                  'EDITDOCTORRPROFILE_Pediatric_ON_FORM_WID');
+                              logFirebaseEvent('Pediatric_backend_call');
+
+                              await containerLawyersRecord.reference
+                                  .update(createLawyersRecordData(
+                                type: _model.pediatricValue,
+                              ));
+                            },
                             width: double.infinity,
                             height: 56.0,
                             textStyle: FlutterFlowTheme.of(context)
@@ -2713,8 +3023,17 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Allergy ENT Specialist',
                                 'Geriartics ENT Specialist'
                               ],
-                              onChanged: (val) =>
-                                  safeSetState(() => _model.entValue = val),
+                              onChanged: (val) async {
+                                safeSetState(() => _model.entValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_ENT_ON_FORM_WIDGET_SE');
+                                logFirebaseEvent('ENT_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.entValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2777,8 +3096,19 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Perinatal Psychiatrist',
                                 'General consultation'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.psychiatristcatValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.psychiatristcatValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_psychiatristcat_ON_FO');
+                                logFirebaseEvent(
+                                    'psychiatristcat_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.psychiatristcatValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2816,7 +3146,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                               isMultiSelect: false,
                             ),
                           ),
-                        if (_model.maincategoryValue == 'psychologist')
+                        if (containerLawyersRecord.experttype == 'psychologist')
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 12.0),
@@ -2853,8 +3183,19 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 'Social Psychologists',
                                 'General consultation'
                               ],
-                              onChanged: (val) => safeSetState(
-                                  () => _model.psychologistcatValue = val),
+                              onChanged: (val) async {
+                                safeSetState(
+                                    () => _model.psychologistcatValue = val);
+                                logFirebaseEvent(
+                                    'EDITDOCTORRPROFILE_psychologistcat_ON_FO');
+                                logFirebaseEvent(
+                                    'psychologistcat_backend_call');
+
+                                await containerLawyersRecord.reference
+                                    .update(createLawyersRecordData(
+                                  type: _model.psychologistcatValue,
+                                ));
+                              },
                               width: double.infinity,
                               height: 56.0,
                               textStyle: FlutterFlowTheme.of(context)
@@ -2898,6 +3239,16 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                             text: containerLawyersRecord.college,
                           ),
                           focusNode: _model.textFieldFocusNode4,
+                          onFieldSubmitted: (_) async {
+                            logFirebaseEvent(
+                                'EDITDOCTORRPROFILE_TextField_oxy981xf_ON');
+                            logFirebaseEvent('TextField_backend_call');
+
+                            await containerLawyersRecord.reference
+                                .update(createLawyersRecordData(
+                              college: _model.textController5.text,
+                            ));
+                          },
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -2978,21 +3329,34 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
-                              child: TextFormField(
-                                controller: _model.textController6 ??=
-                                    TextEditingController(
-                                  text: containerLawyersRecord.graduationYear
-                                      .toString(),
-                                ),
-                                focusNode: _model.textFieldFocusNode5,
-                                autofocus: false,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Graduation Year',
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .override(
-                                        font: GoogleFonts.mukta(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 12.0),
+                                child: TextFormField(
+                                  controller: _model.textController6 ??=
+                                      TextEditingController(
+                                    text: containerLawyersRecord.practicetime
+                                        .toString(),
+                                  ),
+                                  focusNode: _model.textFieldFocusNode5,
+                                  autofocus: false,
+                                  obscureText: false,
+                                  decoration: InputDecoration(
+                                    labelText: 'Years of Practice',
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          font: GoogleFonts.mukta(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyLarge
+                                                    .fontStyle,
+                                          ),
+                                          letterSpacing: 0.0,
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
                                                   .bodyLarge
@@ -3002,157 +3366,63 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                                   .bodyLarge
                                                   .fontStyle,
                                         ),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyLarge
-                                            .fontStyle,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
                                       ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  filled: true,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
-                                ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.mukta(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
                                       ),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                keyboardType: TextInputType.number,
-                                validator: _model.textController6Validator
-                                    .asValidator(context),
-                              ),
-                            ),
-                            Expanded(
-                              child: TextFormField(
-                                controller: _model.textController7 ??=
-                                    TextEditingController(
-                                  text: containerLawyersRecord.practicetime
-                                      .toString(),
-                                ),
-                                focusNode: _model.textFieldFocusNode6,
-                                autofocus: false,
-                                obscureText: false,
-                                decoration: InputDecoration(
-                                  labelText: 'Years of Practice',
-                                  hintStyle: FlutterFlowTheme.of(context)
-                                      .bodyLarge
+                                    errorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    focusedErrorBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    filled: true,
+                                    fillColor: FlutterFlowTheme.of(context)
+                                        .primaryBackground,
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
                                       .override(
                                         font: GoogleFonts.mukta(
                                           fontWeight:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyLarge
+                                                  .bodyMedium
                                                   .fontWeight,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .bodyLarge
+                                                  .bodyMedium
                                                   .fontStyle,
                                         ),
                                         letterSpacing: 0.0,
                                         fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyLarge
+                                            .bodyMedium
                                             .fontWeight,
                                         fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyLarge
+                                            .bodyMedium
                                             .fontStyle,
                                       ),
-                                  enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                      color: Color(0x00000000),
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  filled: true,
-                                  fillColor: FlutterFlowTheme.of(context)
-                                      .primaryBackground,
+                                  keyboardType: TextInputType.number,
+                                  validator: _model.textController6Validator
+                                      .asValidator(context),
                                 ),
-                                style: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      font: GoogleFonts.mukta(
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .fontStyle,
-                                      ),
-                                      letterSpacing: 0.0,
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                keyboardType: TextInputType.number,
-                                validator: _model.textController7Validator
-                                    .asValidator(context),
                               ),
                             ),
                           ].divide(SizedBox(width: 16.0)),
@@ -3175,7 +3445,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 0.0, 0.0, 0.0, 1.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 if (_model.maincategoryValue == ' Psychiatrist')
                                   Padding(
@@ -3210,35 +3480,6 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                           ),
                                     ),
                                   ),
-                                if (_model.maincategoryValue == 'psychologist')
-                                  Text(
-                                    'Psychologist Expertise',
-                                    style: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .override(
-                                          font: GoogleFonts.mukta(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .titleMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
                                 if (_model.maincategoryValue == 'Psychiatrist')
                                   FlutterFlowCheckboxGroup(
                                     options: [
@@ -3258,8 +3499,24 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                       'Marital counseling',
                                       'Student counseling'
                                     ],
-                                    onChanged: (val) => safeSetState(
-                                        () => _model.checkboxpsychValues = val),
+                                    onChanged: (val) async {
+                                      safeSetState(() =>
+                                          _model.checkboxpsychValues = val);
+                                      logFirebaseEvent(
+                                          'EDITDOCTORRPROFILE_Checkboxpsych_ON_FORM');
+                                      logFirebaseEvent(
+                                          'Checkboxpsych_backend_call');
+
+                                      await containerLawyersRecord.reference
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'expertiselist':
+                                                _model.checkboxpsychValues,
+                                          },
+                                        ),
+                                      });
+                                    },
                                     controller:
                                         _model.checkboxpsychValueController ??=
                                             FormFieldController<List<String>>(
@@ -3302,6 +3559,35 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                         _model.checkboxpsychValues != null,
                                   ),
                                 if (_model.maincategoryValue == 'psychologist')
+                                  Text(
+                                    'Psychologist Expertise',
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          font: GoogleFonts.mukta(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMedium
+                                                  .fontStyle,
+                                        ),
+                                  ),
+                                if (_model.maincategoryValue == 'psychologist')
                                   FlutterFlowCheckboxGroup(
                                     options: [
                                       'Parenting counseling',
@@ -3320,8 +3606,24 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                       'Phobia Counseling',
                                       'Mood swings counselling'
                                     ],
-                                    onChanged: (val) => safeSetState(() =>
-                                        _model.checkpsychologistValues = val),
+                                    onChanged: (val) async {
+                                      safeSetState(() =>
+                                          _model.checkpsychologistValues = val);
+                                      logFirebaseEvent(
+                                          'EDITDOCTORRPROFILE_checkpsychologist_ON_');
+                                      logFirebaseEvent(
+                                          'checkpsychologist_backend_call');
+
+                                      await containerLawyersRecord.reference
+                                          .update({
+                                        ...mapToFirestore(
+                                          {
+                                            'expertiselist':
+                                                _model.checkpsychologistValues,
+                                          },
+                                        ),
+                                      });
+                                    },
                                     controller: _model
                                             .checkpsychologistValueController ??=
                                         FormFieldController<List<String>>(
@@ -3426,6 +3728,21 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                                   ),
                                                   focusNode: _model
                                                       .otherExpertiseFocusNode,
+                                                  onFieldSubmitted: (_) async {
+                                                    logFirebaseEvent(
+                                                        'EDITDOCTORRPROFILE_OtherExpertise_ON_TEX');
+                                                    logFirebaseEvent(
+                                                        'OtherExpertise_backend_call');
+
+                                                    await containerLawyersRecord
+                                                        .reference
+                                                        .update(
+                                                            createLawyersRecordData(
+                                                      expertise: _model
+                                                          .otherExpertiseTextController
+                                                          .text,
+                                                    ));
+                                                  },
                                                   autofocus: false,
                                                   obscureText: false,
                                                   decoration: InputDecoration(
@@ -3592,7 +3909,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                     ),
                                   ),
                                 ),
-                              ].divide(SizedBox(height: 16.0)),
+                              ],
                             ),
                           ),
                         ),
@@ -3742,7 +4059,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                         width: 20.0,
                                         height: 20.0,
                                         child: SpinKitFadingCircle(
-                                          color: Color(0x9D03A9F4),
+                                          color: Color(0x4D03A9F4),
                                           size: 20.0,
                                         ),
                                       ),
@@ -3763,7 +4080,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                       Padding(
                                         padding: EdgeInsets.all(12.0),
                                         child: Text(
-                                          'Bank Account Details',
+                                          'Add Bank Account Details',
                                           style: FlutterFlowTheme.of(context)
                                               .headlineSmall
                                               .override(
@@ -4891,7 +5208,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              'Availability',
+                              ' Set Availability',
                               style: FlutterFlowTheme.of(context)
                                   .titleMedium
                                   .override(
@@ -4923,10 +5240,26 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                   'Evening (4 pm to 8 pm)',
                                   'Night (8 pm to 12 am)'
                                 ],
-                                onChanged: (val) => safeSetState(
-                                    () => _model.availaibilityValues1 = val),
+                                onChanged: (val) async {
+                                  safeSetState(
+                                      () => _model.availaibility1Values = val);
+                                  logFirebaseEvent(
+                                      'EDITDOCTORRPROFILE_Availaibility1_ON_FOR');
+                                  logFirebaseEvent(
+                                      'Availaibility1_backend_call');
+
+                                  await containerLawyersRecord.reference
+                                      .update({
+                                    ...mapToFirestore(
+                                      {
+                                        'availaibilitylist':
+                                            _model.availaibility1Values,
+                                      },
+                                    ),
+                                  });
+                                },
                                 controller:
-                                    _model.availaibilityValueController1 ??=
+                                    _model.availaibility1ValueController ??=
                                         FormFieldController<List<String>>(
                                   [],
                                 ),
@@ -4960,7 +5293,14 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                 checkboxBorderRadius:
                                     BorderRadius.circular(4.0),
                                 initialized:
-                                    _model.availaibilityValues1 != null,
+                                    _model.availaibility1Values != null,
+                              ),
+                            ),
+                            wrapWithModel(
+                              model: _model.booking1Model,
+                              updateCallback: () => safeSetState(() {}),
+                              child: Booking1Widget(
+                                drref: widget.referencee!,
                               ),
                             ),
                             Text(
@@ -5000,8 +5340,8 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                       ))!
                                       .toList(),
                                   onChanged: (val) async {
-                                    safeSetState(() =>
-                                        _model.availaibilityValues2 = val);
+                                    safeSetState(
+                                        () => _model.availaibilityValues = val);
                                     logFirebaseEvent(
                                         'EDITDOCTORRPROFILE_Availaibility_ON_FORM');
                                     logFirebaseEvent(
@@ -5011,13 +5351,13 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                       ...mapToFirestore(
                                         {
                                           'Languages':
-                                              _model.availaibilityValues2,
+                                              _model.availaibilityValues,
                                         },
                                       ),
                                     });
                                   },
                                   controller:
-                                      _model.availaibilityValueController2 ??=
+                                      _model.availaibilityValueController ??=
                                           FormFieldController<List<String>>(
                                     [],
                                   ),
@@ -5053,7 +5393,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                   checkboxBorderRadius:
                                       BorderRadius.circular(4.0),
                                   initialized:
-                                      _model.availaibilityValues2 != null,
+                                      _model.availaibilityValues != null,
                                 ),
                               ),
                           ],
@@ -5092,11 +5432,21 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                         ),
                       ),
                       TextFormField(
-                        controller: _model.textController14 ??=
+                        controller: _model.textController13 ??=
                             TextEditingController(
                           text: containerLawyersRecord.about,
                         ),
-                        focusNode: _model.textFieldFocusNode7,
+                        focusNode: _model.textFieldFocusNode6,
+                        onFieldSubmitted: (_) async {
+                          logFirebaseEvent(
+                              'EDITDOCTORRPROFILE_TextField_e8jc7rec_ON');
+                          logFirebaseEvent('TextField_backend_call');
+
+                          await containerLawyersRecord.reference
+                              .update(createLawyersRecordData(
+                            about: _model.textController13.text,
+                          ));
+                        },
                         autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -5169,7 +5519,7 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                   .fontStyle,
                             ),
                         maxLines: 5,
-                        validator: _model.textController14Validator
+                        validator: _model.textController13Validator
                             .asValidator(context),
                       ),
                     ].divide(SizedBox(height: 4.0)),
@@ -5204,22 +5554,44 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                   ),
                         ),
                       ),
-                      TextFormField(
-                        controller: _model.textController15 ??=
-                            TextEditingController(
-                          text:
-                              '${containerLawyersRecord.lawyerCharge.toString()}',
-                        ),
-                        focusNode: _model.textFieldFocusNode8,
-                        autofocus: false,
-                        textInputAction: TextInputAction.done,
-                        obscureText: false,
-                        decoration: InputDecoration(
-                          labelText: 'Set Your Own Charge',
-                          hintText: '₹15/Min',
-                          hintStyle:
-                              FlutterFlowTheme.of(context).bodyLarge.override(
-                                    font: GoogleFonts.mukta(
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+                        child: TextFormField(
+                          controller: _model.textController14 ??=
+                              TextEditingController(
+                            text:
+                                containerLawyersRecord.lawyerCharge.toString(),
+                          ),
+                          focusNode: _model.textFieldFocusNode7,
+                          onFieldSubmitted: (_) async {
+                            logFirebaseEvent(
+                                'EDITDOCTORRPROFILE_TextField_c6qne8sx_ON');
+                            logFirebaseEvent('TextField_backend_call');
+
+                            await containerLawyersRecord.reference
+                                .update(createLawyersRecordData(
+                              lawyerCharge:
+                                  int.tryParse(_model.textController14.text),
+                            ));
+                          },
+                          autofocus: false,
+                          textInputAction: TextInputAction.done,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText: 'Set Your Own Charge',
+                            hintText: '₹15/Min',
+                            hintStyle:
+                                FlutterFlowTheme.of(context).bodyLarge.override(
+                                      font: GoogleFonts.mukta(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .fontWeight,
@@ -5227,68 +5599,62 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                                           .bodyLarge
                                           .fontStyle,
                                     ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            filled: true,
+                            fillColor:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                          ),
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    font: GoogleFonts.mukta(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyLarge
+                                        .bodyMedium
                                         .fontWeight,
                                     fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyLarge
+                                        .bodyMedium
                                         .fontStyle,
                                   ),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          errorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          focusedErrorBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0x00000000),
-                              width: 1.0,
-                            ),
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          filled: true,
-                          fillColor:
-                              FlutterFlowTheme.of(context).primaryBackground,
+                          maxLength: 3,
+                          maxLengthEnforcement: MaxLengthEnforcement.enforced,
+                          keyboardType: TextInputType.number,
+                          validator: _model.textController14Validator
+                              .asValidator(context),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              font: GoogleFonts.mukta(
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
-                                fontStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontStyle,
-                              ),
-                              letterSpacing: 0.0,
-                              fontWeight: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontWeight,
-                              fontStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .fontStyle,
-                            ),
-                        maxLength: 3,
-                        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                        keyboardType: TextInputType.number,
-                        validator: _model.textController15Validator
-                            .asValidator(context),
                       ),
                     ].divide(SizedBox(height: 16.0)),
                   ),
@@ -5299,148 +5665,125 @@ class _EditdoctorrprofileWidgetState extends State<EditdoctorrprofileWidget> {
                       onPressed: () async {
                         logFirebaseEvent(
                             'EDITDOCTORRPROFILE_UPDATE_CHANGES_BTN_ON');
+                        currentUserLocationValue = await getCurrentUserLocation(
+                            defaultLocation: LatLng(0.0, 0.0));
                         if (containerLawyersRecord.lawyerDp != '') {
+                          logFirebaseEvent('Button_backend_call');
+
+                          await widget.referencee!
+                              .update(createLawyersRecordData(
+                            name: valueOrDefault<String>(
+                              _model.nameTextController.text,
+                              'Doctor',
+                            ),
+                            bio: valueOrDefault<String>(
+                              _model.textController13.text,
+                              'Caremeez',
+                            ),
+                            uid: valueOrDefault<String>(
+                              currentUserUid,
+                              '1234568789',
+                            ),
+                            availability:
+                                _model.availaibility1Values?.firstOrNull,
+                            category: _model.maincategoryValue,
+                            type: () {
+                              if (_model.maincategoryValue == 'Psychiatrist') {
+                                return _model.psychiatristcatValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Psychologist') {
+                                return _model.psychologistcatValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Ear, Nose & Throat (ENT)') {
+                                return _model.entValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Pediatric') {
+                                return _model.pediatricValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Dermatology') {
+                                return _model.dermatologistValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Cardiology') {
+                                return _model.cardiologistValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Endocrinology') {
+                                return _model.endocrinologyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Gastroenterologist') {
+                                return _model.gastroenterologistValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Pulmonology') {
+                                return _model.pulmonologistValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Neurology') {
+                                return _model.neurologyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Orthopedics') {
+                                return _model.orthopedicsValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Ophthalmology') {
+                                return _model.ophthalmologyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Nephrology') {
+                                return _model.nephrologyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Rheumatology') {
+                                return _model.rheumatologyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Oncology') {
+                                return _model.oncologyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Geriatrics') {
+                                return _model.geriatricsValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Allergy & Immunology') {
+                                return _model.allergyImmunologyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Gynecology') {
+                                return _model.gynecologyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Dentist') {
+                                return _model.dentistValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Pharmacy') {
+                                return _model.pharmacyValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Nutritionist') {
+                                return _model.nutritionistValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Homeopathy') {
+                                return _model.familyphysicianValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Ayurveda') {
+                                return _model.ayurvedaValue;
+                              } else if (_model.maincategoryValue ==
+                                  'Family Physician') {
+                                return _model.familyphysicianValue;
+                              } else {
+                                return 'General Public';
+                              }
+                            }(),
+                            author: currentUserReference,
+                            callref: currentUserDocument?.calls,
+                            usercallmanageref:
+                                currentUserDocument?.usercallmanagement,
+                            geoLocation: currentUserLocationValue,
+                            lawyerCharge: containerLawyersRecord.lawyerCharge,
+                            displayName: valueOrDefault<String>(
+                              _model.nameTextController.text,
+                              'Doctor',
+                            ),
+                          ));
                           logFirebaseEvent('Button_backend_call');
 
                           await currentUserReference!
                               .update(createUsersRecordData(
                             photoUrl: containerLawyersRecord.lawyerDp,
+                            displayName: valueOrDefault<String>(
+                              containerLawyersRecord.displayName,
+                              'Doctor',
+                            ),
                           ));
-                          logFirebaseEvent('Button_backend_call');
-
-                          await widget.referencee!.update({
-                            ...createLawyersRecordData(
-                              name: _model.nameTextController.text,
-                              city: valueOrDefault<String>(
-                                _model.textController4.text,
-                                'Delhi',
-                              ),
-                              bio: _model.textController14.text,
-                              emailAddress: _model.textController2.text,
-                              displayName: /* NOT RECOMMENDED */
-                                  _model.nameTextController.text == 'true'
-                                      ? _model.nameTextController.text
-                                      : currentUserDisplayName,
-                              uid: currentUserUid,
-                              phoneNumber: _model.textController3.text,
-                              gender: _model.genderValue,
-                              about: _model.textController14.text,
-                              availability:
-                                  _model.availaibilityValues1?.firstOrNull,
-                              state: _model.stateValue,
-                              college: _model.textController5.text,
-                              category: _model.maincategoryValue,
-                              expertise:
-                                  _model.otherExpertiseTextController.text,
-                              practicetime:
-                                  int.tryParse(_model.textController7.text),
-                              graduationYear:
-                                  int.tryParse(_model.textController6.text),
-                              type: () {
-                                if (_model.maincategoryValue ==
-                                    'Psychiatrist') {
-                                  return _model.psychiatristcatValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Psychologist') {
-                                  return _model.psychologistcatValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Ear, Nose & Throat (ENT)') {
-                                  return _model.entValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Pediatric') {
-                                  return _model.pediatricValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Dermatology') {
-                                  return _model.dermatologistValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Cardiology') {
-                                  return _model.cardiologistValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Endocrinology') {
-                                  return _model.endocrinologyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Gastroenterologist') {
-                                  return _model.gastroenterologistValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Pulmonology') {
-                                  return _model.pulmonologistValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Neurology') {
-                                  return _model.neurologyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Orthopedics') {
-                                  return _model.orthopedicsValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Ophthalmology') {
-                                  return _model.ophthalmologyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Nephrology') {
-                                  return _model.nephrologyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Rheumatology') {
-                                  return _model.rheumatologyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Oncology') {
-                                  return _model.oncologyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Geriatrics') {
-                                  return _model.geriatricsValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Allergy & Immunology') {
-                                  return _model.allergyImmunologyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Gynecology') {
-                                  return _model.gynecologyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Dentist') {
-                                  return _model.dentistValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Pharmacy') {
-                                  return _model.pharmacyValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Nutritionist') {
-                                  return _model.nutritionistValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Homeopathy') {
-                                  return _model.familyphysicianValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Ayurveda') {
-                                  return _model.ayurvedaValue;
-                                } else if (_model.maincategoryValue ==
-                                    'Family Physician') {
-                                  return _model.familyphysicianValue;
-                                } else {
-                                  return 'General Public';
-                                }
-                              }(),
-                              author: currentUserReference,
-                              experttype: _model.expertTypeValue,
-                              lawyerCharge:
-                                  int.tryParse(_model.textController15.text),
-                              online: true,
-                              callref: currentUserDocument?.calls,
-                              usercallmanageref:
-                                  currentUserDocument?.usercallmanagement,
-                            ),
-                            ...mapToFirestore(
-                              {
-                                'availaibilitylist':
-                                    _model.availaibilityValues1,
-                                'expertiselist': () {
-                                  if (_model.maincategoryValue ==
-                                      'Psychiatrist') {
-                                    return _model.checkboxpsychValues;
-                                  } else if (_model.maincategoryValue ==
-                                      'Psychologist') {
-                                    return _model.checkpsychologistValues;
-                                  } else {
-                                    return _model.checkpsychologistValues;
-                                  }
-                                }(),
-                                'Languages': _model.availaibilityValues2,
-                              },
-                            ),
-                          });
                           logFirebaseEvent('Button_navigate_to');
 
                           context.pushNamed(DoctorprofileadminWidget.routeName);

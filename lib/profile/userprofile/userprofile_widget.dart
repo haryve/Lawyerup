@@ -1311,7 +1311,7 @@ class _UserprofileWidgetState extends State<UserprofileWidget>
                                         .clearRedirectLocation();
 
                                     context.goNamedAuth(
-                                        AuthenticateSolo1Widget.routeName,
+                                        Onboarding2Widget.routeName,
                                         context.mounted);
                                   },
                                   text: 'Log Out',

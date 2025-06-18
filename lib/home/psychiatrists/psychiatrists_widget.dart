@@ -20,6 +20,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 import 'psychiatrists_model.dart';
 export 'psychiatrists_model.dart';
 
@@ -129,206 +130,6 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation5': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation6': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation7': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation8': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation9': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation10': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation11': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation12': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation13': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation14': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation15': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation16': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation17': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation18': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation19': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'containerOnPageLoadAnimation20': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 0.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
       'iconOnPageLoadAnimation': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -342,7 +143,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
           ),
         ],
       ),
-      'containerOnPageLoadAnimation21': AnimationInfo(
+      'containerOnPageLoadAnimation5': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
           TintEffect(
@@ -377,6 +178,17 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        drawer: Drawer(
+          elevation: 16.0,
+          child: Padding(
+            padding: EdgeInsets.all(4.0),
+            child: wrapWithModel(
+              model: _model.drawerModel,
+              updateCallback: () => safeSetState(() {}),
+              child: DrawerWidget(),
+            ),
+          ),
+        ),
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -424,31 +236,9 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                 logFirebaseEvent(
                                                     'PSYCHIATRISTS_Container_okdp27ru_ON_TAP');
                                                 logFirebaseEvent(
-                                                    'USERIMAGE_bottom_sheet');
-                                                await showModalBottomSheet(
-                                                  isScrollControlled: true,
-                                                  backgroundColor:
-                                                      Colors.transparent,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return GestureDetector(
-                                                      onTap: () {
-                                                        FocusScope.of(context)
-                                                            .unfocus();
-                                                        FocusManager.instance
-                                                            .primaryFocus
-                                                            ?.unfocus();
-                                                      },
-                                                      child: Padding(
-                                                        padding: MediaQuery
-                                                            .viewInsetsOf(
-                                                                context),
-                                                        child: DrawerWidget(),
-                                                      ),
-                                                    );
-                                                  },
-                                                ).then((value) =>
-                                                    safeSetState(() {}));
+                                                    'USERIMAGE_drawer');
+                                                scaffoldKey.currentState!
+                                                    .openDrawer();
                                               },
                                               child: wrapWithModel(
                                                 model: _model.userimageModel,
@@ -779,7 +569,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                         width: 20.0,
                                         height: 20.0,
                                         child: SpinKitFadingCircle(
-                                          color: Color(0x9D03A9F4),
+                                          color: Color(0x4D03A9F4),
                                           size: 20.0,
                                         ),
                                       ),
@@ -1004,7 +794,15 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                       logFirebaseEvent(
                                                           'PSYCHIATRISTS_PAGE_Tab_qz59juue_ON_TAP');
                                                     },
-                                                    () async {},
+                                                    () async {
+                                                      logFirebaseEvent(
+                                                          'PSYCHIATRISTS_PAGE_Tab_37h2cszg_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Tab_update_page_state');
+                                                      _model.doctor =
+                                                          widget.t3;
+                                                      safeSetState(() {});
+                                                    },
                                                     () async {},
                                                     () async {},
                                                     () async {},
@@ -1063,7 +861,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                 child:
                                                                     SpinKitFadingCircle(
                                                                   color: Color(
-                                                                      0x9D03A9F4),
+                                                                      0x4D03A9F4),
                                                                   size: 20.0,
                                                                 ),
                                                               ),
@@ -1642,7 +1440,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                 child:
                                                                     SpinKitFadingCircle(
                                                                   color: Color(
-                                                                      0x9D03A9F4),
+                                                                      0x4D03A9F4),
                                                                   size: 20.0,
                                                                 ),
                                                               ),
@@ -2187,85 +1985,92 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                   8.0,
                                                                   0.0,
                                                                   0.0),
-                                                      child: FutureBuilder<
-                                                          List<LawyersRecord>>(
-                                                        future:
-                                                            queryLawyersRecordOnce(
-                                                          queryBuilder: (lawyersRecord) =>
-                                                              lawyersRecord
-                                                                  .where(
-                                                                    'type',
-                                                                    isEqualTo:
-                                                                        widget
-                                                                            .t2,
-                                                                  )
-                                                                  .orderBy(
-                                                                      'created_time',
-                                                                      descending:
-                                                                          true),
+                                                      child: PagedListView<
+                                                          DocumentSnapshot<
+                                                              Object?>?,
+                                                          LawyersRecord>(
+                                                        pagingController: _model
+                                                            .setListViewController3(
+                                                          LawyersRecord
+                                                              .collection
+                                                              .where(
+                                                                'type',
+                                                                isEqualTo:
+                                                                    widget.t2,
+                                                              )
+                                                              .orderBy(
+                                                                  'created_time',
+                                                                  descending:
+                                                                      true),
                                                         ),
-                                                        builder: (context,
-                                                            snapshot) {
-                                                          // Customize what your widget looks like when it's loading.
-                                                          if (!snapshot
-                                                              .hasData) {
-                                                            return Center(
-                                                              child: SizedBox(
-                                                                width: 20.0,
-                                                                height: 20.0,
-                                                                child:
-                                                                    SpinKitFadingCircle(
-                                                                  color: Color(
-                                                                      0x9D03A9F4),
-                                                                  size: 20.0,
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        primary: false,
+                                                        shrinkWrap: true,
+                                                        reverse: false,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        builderDelegate:
+                                                            PagedChildBuilderDelegate<
+                                                                LawyersRecord>(
+                                                          // Customize what your widget looks like when it's loading the first page.
+                                                          firstPageProgressIndicatorBuilder:
+                                                              (_) => Center(
+                                                            child: SizedBox(
+                                                              width: 20.0,
+                                                              height: 20.0,
+                                                              child:
+                                                                  SpinKitFadingCircle(
+                                                                color: Color(
+                                                                    0x4D03A9F4),
+                                                                size: 20.0,
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          // Customize what your widget looks like when it's loading another page.
+                                                          newPageProgressIndicatorBuilder:
+                                                              (_) => Center(
+                                                            child: SizedBox(
+                                                              width: 20.0,
+                                                              height: 20.0,
+                                                              child:
+                                                                  SpinKitFadingCircle(
+                                                                color: Color(
+                                                                    0x4D03A9F4),
+                                                                size: 20.0,
+                                                              ),
+                                                            ),
+                                                          ),
+
+                                                          itemBuilder: (context,
+                                                              _,
+                                                              listViewIndex) {
+                                                            final listViewLawyersRecord = _model
+                                                                    .listViewPagingController3!
+                                                                    .itemList![
+                                                                listViewIndex];
+                                                            return wrapWithModel(
+                                                              model: _model
+                                                                  .docrdsasasdcasModels1
+                                                                  .getModel(
+                                                                listViewLawyersRecord
+                                                                    .author!.id,
+                                                                listViewIndex,
+                                                              ),
+                                                              updateCallback: () =>
+                                                                  safeSetState(
+                                                                      () {}),
+                                                              child:
+                                                                  DocrdsasasdcasWidget(
+                                                                key: Key(
+                                                                  'Keynf1_${listViewLawyersRecord.author!.id}',
                                                                 ),
+                                                                lawred:
+                                                                    listViewLawyersRecord,
                                                               ),
                                                             );
-                                                          }
-                                                          List<LawyersRecord>
-                                                              listViewLawyersRecordList =
-                                                              snapshot.data!;
-
-                                                          return ListView
-                                                              .builder(
-                                                            padding:
-                                                                EdgeInsets.zero,
-                                                            primary: false,
-                                                            shrinkWrap: true,
-                                                            scrollDirection:
-                                                                Axis.vertical,
-                                                            itemCount:
-                                                                listViewLawyersRecordList
-                                                                    .length,
-                                                            itemBuilder: (context,
-                                                                listViewIndex) {
-                                                              final listViewLawyersRecord =
-                                                                  listViewLawyersRecordList[
-                                                                      listViewIndex];
-                                                              return wrapWithModel(
-                                                                model: _model
-                                                                    .docrdsasasdcasModels
-                                                                    .getModel(
-                                                                  listViewLawyersRecord
-                                                                      .author!
-                                                                      .id,
-                                                                  listViewIndex,
-                                                                ),
-                                                                updateCallback: () =>
-                                                                    safeSetState(
-                                                                        () {}),
-                                                                child:
-                                                                    DocrdsasasdcasWidget(
-                                                                  key: Key(
-                                                                    'Keynf1_${listViewLawyersRecord.author!.id}',
-                                                                  ),
-                                                                  lawred:
-                                                                      listViewLawyersRecord,
-                                                                ),
-                                                              );
-                                                            },
-                                                          );
-                                                        },
+                                                          },
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -2314,7 +2119,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                     child:
                                                                         SpinKitFadingCircle(
                                                                       color: Color(
-                                                                          0x9D03A9F4),
+                                                                          0x4D03A9F4),
                                                                       size:
                                                                           20.0,
                                                                     ),
@@ -2345,420 +2150,26 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                   final listViewLawyersRecord =
                                                                       listViewLawyersRecordList[
                                                                           listViewIndex];
-                                                                  return Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0),
+                                                                  return wrapWithModel(
+                                                                    model: _model
+                                                                        .docrdsasasdcasModels2
+                                                                        .getModel(
+                                                                      listViewLawyersRecord
+                                                                          .author!
+                                                                          .id,
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
                                                                     child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onLongPress:
-                                                                          () async {
-                                                                        logFirebaseEvent(
-                                                                            'PSYCHIATRISTS_Container_ouqtjycf_ON_LONG');
-                                                                        if (valueOrDefault(currentUserDocument?.role,
-                                                                                '') ==
-                                                                            'admin') {
-                                                                          logFirebaseEvent(
-                                                                              'Container_backend_call');
-                                                                          await listViewLawyersRecord
-                                                                              .reference
-                                                                              .delete();
-                                                                        } else {
-                                                                          logFirebaseEvent(
-                                                                              'Container_bottom_sheet');
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            148.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          boxShadow: [
-                                                                            BoxShadow(
-                                                                              blurRadius: 4.0,
-                                                                              color: Color(0x33000000),
-                                                                              offset: Offset(
-                                                                                0.0,
-                                                                                2.0,
-                                                                              ),
-                                                                            )
-                                                                          ],
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              5.0),
-                                                                          child:
-                                                                              StreamBuilder<UsersRecord>(
-                                                                            stream:
-                                                                                UsersRecord.getDocument(listViewLawyersRecord.author!),
-                                                                            builder:
-                                                                                (context, snapshot) {
-                                                                              // Customize what your widget looks like when it's loading.
-                                                                              if (!snapshot.hasData) {
-                                                                                return Center(
-                                                                                  child: SizedBox(
-                                                                                    width: 20.0,
-                                                                                    height: 20.0,
-                                                                                    child: SpinKitFadingCircle(
-                                                                                      color: Color(0x9D03A9F4),
-                                                                                      size: 20.0,
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              }
-
-                                                                              final rowUsersRecord = snapshot.data!;
-
-                                                                              return InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  logFirebaseEvent('PSYCHIATRISTS_PAGE_Row_6yqq88hk_ON_TAP');
-                                                                                  logFirebaseEvent('Row_navigate_to');
-
-                                                                                  context.pushNamed(
-                                                                                    DoctorProfiledemoWidget.routeName,
-                                                                                    queryParameters: {
-                                                                                      'lawyerrefere': serializeParam(
-                                                                                        listViewLawyersRecord.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: [
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        Stack(
-                                                                                          children: [
-                                                                                            if (listViewLawyersRecord.lawyerDp == '')
-                                                                                              Align(
-                                                                                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 4.0),
-                                                                                                  child: Material(
-                                                                                                    color: Colors.transparent,
-                                                                                                    elevation: 10.0,
-                                                                                                    shape: const CircleBorder(),
-                                                                                                    child: Container(
-                                                                                                      width: 94.0,
-                                                                                                      height: 94.0,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        image: DecorationImage(
-                                                                                                          fit: BoxFit.cover,
-                                                                                                          image: Image.asset(
-                                                                                                            'assets/images/Screenshot_2024-11-10_200914.png',
-                                                                                                          ).image,
-                                                                                                        ),
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation6']!),
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (listViewLawyersRecord.lawyerDp != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 5.0),
-                                                                                                child: Material(
-                                                                                                  color: Colors.transparent,
-                                                                                                  elevation: 4.0,
-                                                                                                  shape: const CircleBorder(),
-                                                                                                  child: Container(
-                                                                                                    width: 100.0,
-                                                                                                    height: 100.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                      image: DecorationImage(
-                                                                                                        fit: BoxFit.fitWidth,
-                                                                                                        image: CachedNetworkImageProvider(
-                                                                                                          listViewLawyersRecord.lawyerDp,
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                      border: Border.all(
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        width: 2.0,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Expanded(
-                                                                                          child: InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              logFirebaseEvent('PSYCHIATRISTS_Container_5fblyg7h_ON_TAP');
-                                                                                              logFirebaseEvent('ratingbar_bottom_sheet');
-                                                                                              await showModalBottomSheet(
-                                                                                                isScrollControlled: true,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                enableDrag: false,
-                                                                                                context: context,
-                                                                                                builder: (context) {
-                                                                                                  return GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: ReviewWidget(
-                                                                                                        lawyerr: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ).then((value) => safeSetState(() {}));
-                                                                                            },
-                                                                                            child: wrapWithModel(
-                                                                                              model: _model.ratingbarModels3.getModel(
-                                                                                                listViewLawyersRecord.author!.id,
-                                                                                                listViewIndex,
-                                                                                              ),
-                                                                                              updateCallback: () => safeSetState(() {}),
-                                                                                              child: RatingbarWidget(
-                                                                                                key: Key(
-                                                                                                  'Key5fb_${listViewLawyersRecord.author!.id}',
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Expanded(
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.min,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.displayName,
-                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        font: GoogleFonts.lora(
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        fontSize: 16.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 5.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.state,
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        font: GoogleFonts.outfit(
-                                                                                                          fontWeight: FontWeight.normal,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                        ),
-                                                                                                        color: Color(0xFF57636C),
-                                                                                                        fontSize: 14.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      listViewLawyersRecord.category,
-                                                                                                      'Doctor',
-                                                                                                    ),
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    'Exp: ${listViewLawyersRecord.practicetime.toString()} Years',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Expanded(
-                                                                                          child: Align(
-                                                                                            alignment: AlignmentDirectional(1.0, 0.0),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 5.0),
-                                                                                              child: SingleChildScrollView(
-                                                                                                primary: false,
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                  children: [
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.callbuttonnewModels3.getModel(
-                                                                                                        listViewLawyersRecord.author!.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: CallbuttonnewWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyga3_${listViewLawyersRecord.author!.id}',
-                                                                                                        ),
-                                                                                                        parameter1: listViewLawyersRecord.author,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter4: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.newchatbuttonModels3.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: NewchatbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keys6g_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        lawref: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.videocallbuttonModels3.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: VideocallbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyoqi_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        parameter1: rowUsersRecord.reference,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter3: rowUsersRecord.calls,
-                                                                                                        parameter5: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ].divide(SizedBox(height: 14.0)).addToStart(SizedBox(height: 10.0)),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '₹ ${listViewLawyersRecord.lawyerCharge.toString()}/min',
-                                                                                                '₹ 15/min',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    font: GoogleFonts.mukta(
-                                                                                                      fontWeight: FontWeight.w800,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                    fontSize: 15.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w800,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        ),
+                                                                        DocrdsasasdcasWidget(
+                                                                      key: Key(
+                                                                        'Keywpg_${listViewLawyersRecord.author!.id}',
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['containerOnPageLoadAnimation5']!),
+                                                                      lawred:
+                                                                          listViewLawyersRecord,
+                                                                    ),
                                                                   );
                                                                 },
                                                               );
@@ -2807,7 +2218,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                 child:
                                                                     SpinKitFadingCircle(
                                                                   color: Color(
-                                                                      0x9D03A9F4),
+                                                                      0x4D03A9F4),
                                                                   size: 20.0,
                                                                 ),
                                                               ),
@@ -2833,435 +2244,26 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                               final listViewLawyersRecord =
                                                                   listViewLawyersRecordList[
                                                                       listViewIndex];
-                                                              return Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0),
-                                                                child: InkWell(
-                                                                  splashColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  focusColor: Colors
-                                                                      .transparent,
-                                                                  hoverColor: Colors
-                                                                      .transparent,
-                                                                  highlightColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  onLongPress:
-                                                                      () async {
-                                                                    logFirebaseEvent(
-                                                                        'PSYCHIATRISTS_Container_vria3i1m_ON_LONG');
-                                                                    if (valueOrDefault(
-                                                                            currentUserDocument?.role,
-                                                                            '') ==
-                                                                        'admin') {
-                                                                      logFirebaseEvent(
-                                                                          'Container_backend_call');
-                                                                      await listViewLawyersRecord
-                                                                          .reference
-                                                                          .delete();
-                                                                    } else {
-                                                                      logFirebaseEvent(
-                                                                          'Container_bottom_sheet');
-                                                                      Navigator.pop(
-                                                                          context);
-                                                                    }
-                                                                  },
-                                                                  child:
-                                                                      Container(
-                                                                    width:
-                                                                        100.0,
-                                                                    height:
-                                                                        148.0,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .primaryBackground,
-                                                                      boxShadow: [
-                                                                        BoxShadow(
-                                                                          blurRadius:
-                                                                              4.0,
-                                                                          color:
-                                                                              Color(0x33000000),
-                                                                          offset:
-                                                                              Offset(
-                                                                            0.0,
-                                                                            2.0,
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                      border:
-                                                                          Border
-                                                                              .all(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .primaryBackground,
-                                                                        width:
-                                                                            1.0,
-                                                                      ),
-                                                                    ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                                                          10.0,
-                                                                          0.0,
-                                                                          10.0,
-                                                                          5.0),
-                                                                      child: StreamBuilder<
-                                                                          UsersRecord>(
-                                                                        stream:
-                                                                            UsersRecord.getDocument(listViewLawyersRecord.author!),
-                                                                        builder:
-                                                                            (context,
-                                                                                snapshot) {
-                                                                          // Customize what your widget looks like when it's loading.
-                                                                          if (!snapshot
-                                                                              .hasData) {
-                                                                            return Center(
-                                                                              child: SizedBox(
-                                                                                width: 20.0,
-                                                                                height: 20.0,
-                                                                                child: SpinKitFadingCircle(
-                                                                                  color: Color(0x9D03A9F4),
-                                                                                  size: 20.0,
-                                                                                ),
-                                                                              ),
-                                                                            );
-                                                                          }
-
-                                                                          final rowUsersRecord =
-                                                                              snapshot.data!;
-
-                                                                          return InkWell(
-                                                                            splashColor:
-                                                                                Colors.transparent,
-                                                                            focusColor:
-                                                                                Colors.transparent,
-                                                                            hoverColor:
-                                                                                Colors.transparent,
-                                                                            highlightColor:
-                                                                                Colors.transparent,
-                                                                            onTap:
-                                                                                () async {
-                                                                              logFirebaseEvent('PSYCHIATRISTS_PAGE_Row_40fyxff1_ON_TAP');
-                                                                              logFirebaseEvent('Row_navigate_to');
-
-                                                                              context.pushNamed(
-                                                                                DoctorProfiledemoWidget.routeName,
-                                                                                queryParameters: {
-                                                                                  'lawyerrefere': serializeParam(
-                                                                                    listViewLawyersRecord.reference,
-                                                                                    ParamType.DocumentReference,
-                                                                                  ),
-                                                                                }.withoutNulls,
-                                                                              );
-                                                                            },
-                                                                            child:
-                                                                                Row(
-                                                                              mainAxisSize: MainAxisSize.max,
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                              children: [
-                                                                                Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                                                  children: [
-                                                                                    Stack(
-                                                                                      children: [
-                                                                                        if (listViewLawyersRecord.lawyerDp == '')
-                                                                                          Align(
-                                                                                            alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 4.0),
-                                                                                              child: Material(
-                                                                                                color: Colors.transparent,
-                                                                                                elevation: 10.0,
-                                                                                                shape: const CircleBorder(),
-                                                                                                child: Container(
-                                                                                                  width: 94.0,
-                                                                                                  height: 94.0,
-                                                                                                  decoration: BoxDecoration(
-                                                                                                    image: DecorationImage(
-                                                                                                      fit: BoxFit.cover,
-                                                                                                      image: Image.asset(
-                                                                                                        'assets/images/Screenshot_2024-11-10_200914.png',
-                                                                                                      ).image,
-                                                                                                    ),
-                                                                                                    shape: BoxShape.circle,
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation8']!),
-                                                                                            ),
-                                                                                          ),
-                                                                                        if (listViewLawyersRecord.lawyerDp != '')
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 5.0),
-                                                                                            child: Material(
-                                                                                              color: Colors.transparent,
-                                                                                              elevation: 4.0,
-                                                                                              shape: const CircleBorder(),
-                                                                                              child: Container(
-                                                                                                width: 100.0,
-                                                                                                height: 100.0,
-                                                                                                decoration: BoxDecoration(
-                                                                                                  color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                  image: DecorationImage(
-                                                                                                    fit: BoxFit.fitWidth,
-                                                                                                    image: CachedNetworkImageProvider(
-                                                                                                      listViewLawyersRecord.lawyerDp,
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                  shape: BoxShape.circle,
-                                                                                                  border: Border.all(
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                    width: 2.0,
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Expanded(
-                                                                                      child: InkWell(
-                                                                                        splashColor: Colors.transparent,
-                                                                                        focusColor: Colors.transparent,
-                                                                                        hoverColor: Colors.transparent,
-                                                                                        highlightColor: Colors.transparent,
-                                                                                        onTap: () async {
-                                                                                          logFirebaseEvent('PSYCHIATRISTS_Container_7xzffrbk_ON_TAP');
-                                                                                          logFirebaseEvent('ratingbar_bottom_sheet');
-                                                                                          await showModalBottomSheet(
-                                                                                            isScrollControlled: true,
-                                                                                            backgroundColor: Colors.transparent,
-                                                                                            enableDrag: false,
-                                                                                            context: context,
-                                                                                            builder: (context) {
-                                                                                              return GestureDetector(
-                                                                                                onTap: () {
-                                                                                                  FocusScope.of(context).unfocus();
-                                                                                                  FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                },
-                                                                                                child: Padding(
-                                                                                                  padding: MediaQuery.viewInsetsOf(context),
-                                                                                                  child: ReviewWidget(
-                                                                                                    lawyerr: listViewLawyersRecord.reference,
-                                                                                                  ),
-                                                                                                ),
-                                                                                              );
-                                                                                            },
-                                                                                          ).then((value) => safeSetState(() {}));
-                                                                                        },
-                                                                                        child: wrapWithModel(
-                                                                                          model: _model.ratingbarModels4.getModel(
-                                                                                            listViewLawyersRecord.author!.id,
-                                                                                            listViewIndex,
-                                                                                          ),
-                                                                                          updateCallback: () => safeSetState(() {}),
-                                                                                          child: RatingbarWidget(
-                                                                                            key: Key(
-                                                                                              'Key7xz_${listViewLawyersRecord.author!.id}',
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                                Expanded(
-                                                                                  child: Align(
-                                                                                    alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                    child: Padding(
-                                                                                      padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                                                                                      child: Column(
-                                                                                        mainAxisSize: MainAxisSize.min,
-                                                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                        children: [
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                            child: Text(
-                                                                                              listViewLawyersRecord.displayName,
-                                                                                              style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                    font: GoogleFonts.lora(
-                                                                                                      fontWeight: FontWeight.w600,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                    fontSize: 16.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w600,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                          Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 5.0),
-                                                                                            child: Text(
-                                                                                              listViewLawyersRecord.state,
-                                                                                              style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                    font: GoogleFonts.outfit(
-                                                                                                      fontWeight: FontWeight.normal,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                    ),
-                                                                                                    color: Color(0xFF57636C),
-                                                                                                    fontSize: 14.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.normal,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                          Expanded(
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                              child: Text(
-                                                                                                valueOrDefault<String>(
-                                                                                                  listViewLawyersRecord.category,
-                                                                                                  'Doctor',
-                                                                                                ),
-                                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                      font: GoogleFonts.mukta(
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                      ),
-                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                      letterSpacing: 0.0,
-                                                                                                      fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                          Expanded(
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                              child: Text(
-                                                                                                'Exp: ${listViewLawyersRecord.practicetime.toString()} Years',
-                                                                                                style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                      font: GoogleFonts.mukta(
-                                                                                                        fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                      ),
-                                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                      letterSpacing: 0.0,
-                                                                                                      fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ],
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                ),
-                                                                                Column(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  children: [
-                                                                                    Expanded(
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(1.0, 0.0),
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 5.0),
-                                                                                          child: SingleChildScrollView(
-                                                                                            primary: false,
-                                                                                            child: Column(
-                                                                                              mainAxisSize: MainAxisSize.max,
-                                                                                              crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                              children: [
-                                                                                                wrapWithModel(
-                                                                                                  model: _model.callbuttonnewModels4.getModel(
-                                                                                                    listViewLawyersRecord.author!.id,
-                                                                                                    listViewIndex,
-                                                                                                  ),
-                                                                                                  updateCallback: () => safeSetState(() {}),
-                                                                                                  child: CallbuttonnewWidget(
-                                                                                                    key: Key(
-                                                                                                      'Keycrl_${listViewLawyersRecord.author!.id}',
-                                                                                                    ),
-                                                                                                    parameter1: listViewLawyersRecord.author,
-                                                                                                    parameter2: rowUsersRecord.reference.id,
-                                                                                                    parameter4: rowUsersRecord.usercallmanagement,
-                                                                                                  ),
-                                                                                                ),
-                                                                                                wrapWithModel(
-                                                                                                  model: _model.newchatbuttonModels4.getModel(
-                                                                                                    rowUsersRecord.reference.id,
-                                                                                                    listViewIndex,
-                                                                                                  ),
-                                                                                                  updateCallback: () => safeSetState(() {}),
-                                                                                                  child: NewchatbuttonWidget(
-                                                                                                    key: Key(
-                                                                                                      'Keyo83_${rowUsersRecord.reference.id}',
-                                                                                                    ),
-                                                                                                    lawref: listViewLawyersRecord.reference,
-                                                                                                  ),
-                                                                                                ),
-                                                                                                wrapWithModel(
-                                                                                                  model: _model.videocallbuttonModels4.getModel(
-                                                                                                    rowUsersRecord.reference.id,
-                                                                                                    listViewIndex,
-                                                                                                  ),
-                                                                                                  updateCallback: () => safeSetState(() {}),
-                                                                                                  child: VideocallbuttonWidget(
-                                                                                                    key: Key(
-                                                                                                      'Keylwz_${rowUsersRecord.reference.id}',
-                                                                                                    ),
-                                                                                                    parameter1: rowUsersRecord.reference,
-                                                                                                    parameter2: rowUsersRecord.reference.id,
-                                                                                                    parameter3: rowUsersRecord.calls,
-                                                                                                    parameter5: rowUsersRecord.usercallmanagement,
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ].divide(SizedBox(height: 14.0)).addToStart(SizedBox(height: 10.0)),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Align(
-                                                                                      alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                      child: Padding(
-                                                                                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                        child: Text(
-                                                                                          valueOrDefault<String>(
-                                                                                            '₹ ${listViewLawyersRecord.lawyerCharge.toString()}/min',
-                                                                                            '₹ 15/min',
-                                                                                          ),
-                                                                                          style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                font: GoogleFonts.mukta(
-                                                                                                  fontWeight: FontWeight.w800,
-                                                                                                  fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                ),
-                                                                                                color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                fontSize: 15.0,
-                                                                                                letterSpacing: 0.0,
-                                                                                                fontWeight: FontWeight.w800,
-                                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                              ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              ],
-                                                                            ),
-                                                                          );
-                                                                        },
-                                                                      ),
-                                                                    ),
+                                                              return wrapWithModel(
+                                                                model: _model
+                                                                    .docrdsasasdcasModels3
+                                                                    .getModel(
+                                                                  listViewLawyersRecord
+                                                                      .author!
+                                                                      .id,
+                                                                  listViewIndex,
+                                                                ),
+                                                                updateCallback: () =>
+                                                                    safeSetState(
+                                                                        () {}),
+                                                                child:
+                                                                    DocrdsasasdcasWidget(
+                                                                  key: Key(
+                                                                    'Keycei_${listViewLawyersRecord.author!.id}',
                                                                   ),
-                                                                ).animateOnPageLoad(
-                                                                    animationsMap[
-                                                                        'containerOnPageLoadAnimation7']!),
+                                                                  lawred:
+                                                                      listViewLawyersRecord,
+                                                                ),
                                                               );
                                                             },
                                                           );
@@ -3314,7 +2316,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                     child:
                                                                         SpinKitFadingCircle(
                                                                       color: Color(
-                                                                          0x9D03A9F4),
+                                                                          0x4D03A9F4),
                                                                       size:
                                                                           20.0,
                                                                     ),
@@ -3345,420 +2347,26 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                   final listViewLawyersRecord =
                                                                       listViewLawyersRecordList[
                                                                           listViewIndex];
-                                                                  return Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0),
+                                                                  return wrapWithModel(
+                                                                    model: _model
+                                                                        .docrdsasasdcasModels4
+                                                                        .getModel(
+                                                                      listViewLawyersRecord
+                                                                          .author!
+                                                                          .id,
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
                                                                     child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onLongPress:
-                                                                          () async {
-                                                                        logFirebaseEvent(
-                                                                            'PSYCHIATRISTS_Container_7xmcnyxu_ON_LONG');
-                                                                        if (valueOrDefault(currentUserDocument?.role,
-                                                                                '') ==
-                                                                            'admin') {
-                                                                          logFirebaseEvent(
-                                                                              'Container_backend_call');
-                                                                          await listViewLawyersRecord
-                                                                              .reference
-                                                                              .delete();
-                                                                        } else {
-                                                                          logFirebaseEvent(
-                                                                              'Container_bottom_sheet');
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            148.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          boxShadow: [
-                                                                            BoxShadow(
-                                                                              blurRadius: 4.0,
-                                                                              color: Color(0x33000000),
-                                                                              offset: Offset(
-                                                                                0.0,
-                                                                                2.0,
-                                                                              ),
-                                                                            )
-                                                                          ],
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              5.0),
-                                                                          child:
-                                                                              StreamBuilder<UsersRecord>(
-                                                                            stream:
-                                                                                UsersRecord.getDocument(listViewLawyersRecord.author!),
-                                                                            builder:
-                                                                                (context, snapshot) {
-                                                                              // Customize what your widget looks like when it's loading.
-                                                                              if (!snapshot.hasData) {
-                                                                                return Center(
-                                                                                  child: SizedBox(
-                                                                                    width: 20.0,
-                                                                                    height: 20.0,
-                                                                                    child: SpinKitFadingCircle(
-                                                                                      color: Color(0x9D03A9F4),
-                                                                                      size: 20.0,
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              }
-
-                                                                              final rowUsersRecord = snapshot.data!;
-
-                                                                              return InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  logFirebaseEvent('PSYCHIATRISTS_PAGE_Row_c179h7qf_ON_TAP');
-                                                                                  logFirebaseEvent('Row_navigate_to');
-
-                                                                                  context.pushNamed(
-                                                                                    DoctorProfiledemoWidget.routeName,
-                                                                                    queryParameters: {
-                                                                                      'lawyerrefere': serializeParam(
-                                                                                        listViewLawyersRecord.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: [
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        Stack(
-                                                                                          children: [
-                                                                                            if (listViewLawyersRecord.lawyerDp == '')
-                                                                                              Align(
-                                                                                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 4.0),
-                                                                                                  child: Material(
-                                                                                                    color: Colors.transparent,
-                                                                                                    elevation: 10.0,
-                                                                                                    shape: const CircleBorder(),
-                                                                                                    child: Container(
-                                                                                                      width: 94.0,
-                                                                                                      height: 94.0,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        image: DecorationImage(
-                                                                                                          fit: BoxFit.cover,
-                                                                                                          image: Image.asset(
-                                                                                                            'assets/images/Screenshot_2024-11-10_200914.png',
-                                                                                                          ).image,
-                                                                                                        ),
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation10']!),
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (listViewLawyersRecord.lawyerDp != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 5.0),
-                                                                                                child: Material(
-                                                                                                  color: Colors.transparent,
-                                                                                                  elevation: 4.0,
-                                                                                                  shape: const CircleBorder(),
-                                                                                                  child: Container(
-                                                                                                    width: 100.0,
-                                                                                                    height: 100.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                      image: DecorationImage(
-                                                                                                        fit: BoxFit.fitWidth,
-                                                                                                        image: CachedNetworkImageProvider(
-                                                                                                          listViewLawyersRecord.lawyerDp,
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                      border: Border.all(
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        width: 2.0,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Expanded(
-                                                                                          child: InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              logFirebaseEvent('PSYCHIATRISTS_Container_0pkr9em5_ON_TAP');
-                                                                                              logFirebaseEvent('ratingbar_bottom_sheet');
-                                                                                              await showModalBottomSheet(
-                                                                                                isScrollControlled: true,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                enableDrag: false,
-                                                                                                context: context,
-                                                                                                builder: (context) {
-                                                                                                  return GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: ReviewWidget(
-                                                                                                        lawyerr: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ).then((value) => safeSetState(() {}));
-                                                                                            },
-                                                                                            child: wrapWithModel(
-                                                                                              model: _model.ratingbarModels5.getModel(
-                                                                                                listViewLawyersRecord.author!.id,
-                                                                                                listViewIndex,
-                                                                                              ),
-                                                                                              updateCallback: () => safeSetState(() {}),
-                                                                                              child: RatingbarWidget(
-                                                                                                key: Key(
-                                                                                                  'Key0pk_${listViewLawyersRecord.author!.id}',
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Expanded(
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.min,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.displayName,
-                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        font: GoogleFonts.lora(
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        fontSize: 16.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 5.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.state,
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        font: GoogleFonts.outfit(
-                                                                                                          fontWeight: FontWeight.normal,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                        ),
-                                                                                                        color: Color(0xFF57636C),
-                                                                                                        fontSize: 14.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      listViewLawyersRecord.category,
-                                                                                                      'Doctor',
-                                                                                                    ),
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    'Exp: ${listViewLawyersRecord.practicetime.toString()} Years',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Expanded(
-                                                                                          child: Align(
-                                                                                            alignment: AlignmentDirectional(1.0, 0.0),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 5.0),
-                                                                                              child: SingleChildScrollView(
-                                                                                                primary: false,
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                  children: [
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.callbuttonnewModels5.getModel(
-                                                                                                        listViewLawyersRecord.author!.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: CallbuttonnewWidget(
-                                                                                                        key: Key(
-                                                                                                          'Key1co_${listViewLawyersRecord.author!.id}',
-                                                                                                        ),
-                                                                                                        parameter1: listViewLawyersRecord.author,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter4: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.newchatbuttonModels5.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: NewchatbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyydg_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        lawref: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.videocallbuttonModels5.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: VideocallbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyxsa_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        parameter1: rowUsersRecord.reference,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter3: rowUsersRecord.calls,
-                                                                                                        parameter5: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ].divide(SizedBox(height: 14.0)).addToStart(SizedBox(height: 10.0)),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '₹ ${listViewLawyersRecord.lawyerCharge.toString()}/min',
-                                                                                                '₹ 15/min',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    font: GoogleFonts.mukta(
-                                                                                                      fontWeight: FontWeight.w800,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                    fontSize: 15.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w800,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        ),
+                                                                        DocrdsasasdcasWidget(
+                                                                      key: Key(
+                                                                        'Keylqv_${listViewLawyersRecord.author!.id}',
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['containerOnPageLoadAnimation9']!),
+                                                                      lawred:
+                                                                          listViewLawyersRecord,
+                                                                    ),
                                                                   );
                                                                 },
                                                               );
@@ -3813,7 +2421,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                     child:
                                                                         SpinKitFadingCircle(
                                                                       color: Color(
-                                                                          0x9D03A9F4),
+                                                                          0x4D03A9F4),
                                                                       size:
                                                                           20.0,
                                                                     ),
@@ -3844,420 +2452,26 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                   final listViewLawyersRecord =
                                                                       listViewLawyersRecordList[
                                                                           listViewIndex];
-                                                                  return Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0),
+                                                                  return wrapWithModel(
+                                                                    model: _model
+                                                                        .docrdsasasdcasModels5
+                                                                        .getModel(
+                                                                      listViewLawyersRecord
+                                                                          .author!
+                                                                          .id,
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
                                                                     child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onLongPress:
-                                                                          () async {
-                                                                        logFirebaseEvent(
-                                                                            'PSYCHIATRISTS_Container_jxc2mgnt_ON_LONG');
-                                                                        if (valueOrDefault(currentUserDocument?.role,
-                                                                                '') ==
-                                                                            'admin') {
-                                                                          logFirebaseEvent(
-                                                                              'Container_backend_call');
-                                                                          await listViewLawyersRecord
-                                                                              .reference
-                                                                              .delete();
-                                                                        } else {
-                                                                          logFirebaseEvent(
-                                                                              'Container_bottom_sheet');
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            148.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          boxShadow: [
-                                                                            BoxShadow(
-                                                                              blurRadius: 4.0,
-                                                                              color: Color(0x33000000),
-                                                                              offset: Offset(
-                                                                                0.0,
-                                                                                2.0,
-                                                                              ),
-                                                                            )
-                                                                          ],
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              5.0),
-                                                                          child:
-                                                                              StreamBuilder<UsersRecord>(
-                                                                            stream:
-                                                                                UsersRecord.getDocument(listViewLawyersRecord.author!),
-                                                                            builder:
-                                                                                (context, snapshot) {
-                                                                              // Customize what your widget looks like when it's loading.
-                                                                              if (!snapshot.hasData) {
-                                                                                return Center(
-                                                                                  child: SizedBox(
-                                                                                    width: 20.0,
-                                                                                    height: 20.0,
-                                                                                    child: SpinKitFadingCircle(
-                                                                                      color: Color(0x9D03A9F4),
-                                                                                      size: 20.0,
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              }
-
-                                                                              final rowUsersRecord = snapshot.data!;
-
-                                                                              return InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  logFirebaseEvent('PSYCHIATRISTS_PAGE_Row_p18rynyt_ON_TAP');
-                                                                                  logFirebaseEvent('Row_navigate_to');
-
-                                                                                  context.pushNamed(
-                                                                                    DoctorProfiledemoWidget.routeName,
-                                                                                    queryParameters: {
-                                                                                      'lawyerrefere': serializeParam(
-                                                                                        listViewLawyersRecord.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: [
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        Stack(
-                                                                                          children: [
-                                                                                            if (listViewLawyersRecord.lawyerDp == '')
-                                                                                              Align(
-                                                                                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 4.0),
-                                                                                                  child: Material(
-                                                                                                    color: Colors.transparent,
-                                                                                                    elevation: 10.0,
-                                                                                                    shape: const CircleBorder(),
-                                                                                                    child: Container(
-                                                                                                      width: 94.0,
-                                                                                                      height: 94.0,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        image: DecorationImage(
-                                                                                                          fit: BoxFit.cover,
-                                                                                                          image: Image.asset(
-                                                                                                            'assets/images/Screenshot_2024-11-10_200914.png',
-                                                                                                          ).image,
-                                                                                                        ),
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation12']!),
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (listViewLawyersRecord.lawyerDp != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 5.0),
-                                                                                                child: Material(
-                                                                                                  color: Colors.transparent,
-                                                                                                  elevation: 4.0,
-                                                                                                  shape: const CircleBorder(),
-                                                                                                  child: Container(
-                                                                                                    width: 100.0,
-                                                                                                    height: 100.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                      image: DecorationImage(
-                                                                                                        fit: BoxFit.fitWidth,
-                                                                                                        image: CachedNetworkImageProvider(
-                                                                                                          listViewLawyersRecord.lawyerDp,
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                      border: Border.all(
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        width: 2.0,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Expanded(
-                                                                                          child: InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              logFirebaseEvent('PSYCHIATRISTS_Container_4ovxn04v_ON_TAP');
-                                                                                              logFirebaseEvent('ratingbar_bottom_sheet');
-                                                                                              await showModalBottomSheet(
-                                                                                                isScrollControlled: true,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                enableDrag: false,
-                                                                                                context: context,
-                                                                                                builder: (context) {
-                                                                                                  return GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: ReviewWidget(
-                                                                                                        lawyerr: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ).then((value) => safeSetState(() {}));
-                                                                                            },
-                                                                                            child: wrapWithModel(
-                                                                                              model: _model.ratingbarModels6.getModel(
-                                                                                                listViewLawyersRecord.author!.id,
-                                                                                                listViewIndex,
-                                                                                              ),
-                                                                                              updateCallback: () => safeSetState(() {}),
-                                                                                              child: RatingbarWidget(
-                                                                                                key: Key(
-                                                                                                  'Key4ov_${listViewLawyersRecord.author!.id}',
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Expanded(
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.min,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.displayName,
-                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        font: GoogleFonts.lora(
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        fontSize: 16.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 5.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.state,
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        font: GoogleFonts.outfit(
-                                                                                                          fontWeight: FontWeight.normal,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                        ),
-                                                                                                        color: Color(0xFF57636C),
-                                                                                                        fontSize: 14.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      listViewLawyersRecord.category,
-                                                                                                      'Doctor',
-                                                                                                    ),
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    'Exp: ${listViewLawyersRecord.practicetime.toString()} Years',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Expanded(
-                                                                                          child: Align(
-                                                                                            alignment: AlignmentDirectional(1.0, 0.0),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 5.0),
-                                                                                              child: SingleChildScrollView(
-                                                                                                primary: false,
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                  children: [
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.callbuttonnewModels6.getModel(
-                                                                                                        listViewLawyersRecord.author!.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: CallbuttonnewWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keynmn_${listViewLawyersRecord.author!.id}',
-                                                                                                        ),
-                                                                                                        parameter1: listViewLawyersRecord.author,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter4: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.newchatbuttonModels6.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: NewchatbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Key6fz_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        lawref: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.videocallbuttonModels6.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: VideocallbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Key0fb_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        parameter1: rowUsersRecord.reference,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter3: rowUsersRecord.calls,
-                                                                                                        parameter5: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ].divide(SizedBox(height: 14.0)).addToStart(SizedBox(height: 10.0)),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '₹ ${listViewLawyersRecord.lawyerCharge.toString()}/min',
-                                                                                                '₹ 15/min',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    font: GoogleFonts.mukta(
-                                                                                                      fontWeight: FontWeight.w800,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                    fontSize: 15.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w800,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        ),
+                                                                        DocrdsasasdcasWidget(
+                                                                      key: Key(
+                                                                        'Keyfry_${listViewLawyersRecord.author!.id}',
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['containerOnPageLoadAnimation11']!),
+                                                                      lawred:
+                                                                          listViewLawyersRecord,
+                                                                    ),
                                                                   );
                                                                 },
                                                               );
@@ -4312,7 +2526,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                     child:
                                                                         SpinKitFadingCircle(
                                                                       color: Color(
-                                                                          0x9D03A9F4),
+                                                                          0x4D03A9F4),
                                                                       size:
                                                                           20.0,
                                                                     ),
@@ -4343,420 +2557,26 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                   final listViewLawyersRecord =
                                                                       listViewLawyersRecordList[
                                                                           listViewIndex];
-                                                                  return Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0),
+                                                                  return wrapWithModel(
+                                                                    model: _model
+                                                                        .docrdsasasdcasModels6
+                                                                        .getModel(
+                                                                      listViewLawyersRecord
+                                                                          .author!
+                                                                          .id,
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
                                                                     child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onLongPress:
-                                                                          () async {
-                                                                        logFirebaseEvent(
-                                                                            'PSYCHIATRISTS_Container_yhsknx30_ON_LONG');
-                                                                        if (valueOrDefault(currentUserDocument?.role,
-                                                                                '') ==
-                                                                            'admin') {
-                                                                          logFirebaseEvent(
-                                                                              'Container_backend_call');
-                                                                          await listViewLawyersRecord
-                                                                              .reference
-                                                                              .delete();
-                                                                        } else {
-                                                                          logFirebaseEvent(
-                                                                              'Container_bottom_sheet');
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            148.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          boxShadow: [
-                                                                            BoxShadow(
-                                                                              blurRadius: 4.0,
-                                                                              color: Color(0x33000000),
-                                                                              offset: Offset(
-                                                                                0.0,
-                                                                                2.0,
-                                                                              ),
-                                                                            )
-                                                                          ],
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              5.0),
-                                                                          child:
-                                                                              StreamBuilder<UsersRecord>(
-                                                                            stream:
-                                                                                UsersRecord.getDocument(listViewLawyersRecord.author!),
-                                                                            builder:
-                                                                                (context, snapshot) {
-                                                                              // Customize what your widget looks like when it's loading.
-                                                                              if (!snapshot.hasData) {
-                                                                                return Center(
-                                                                                  child: SizedBox(
-                                                                                    width: 20.0,
-                                                                                    height: 20.0,
-                                                                                    child: SpinKitFadingCircle(
-                                                                                      color: Color(0x9D03A9F4),
-                                                                                      size: 20.0,
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              }
-
-                                                                              final rowUsersRecord = snapshot.data!;
-
-                                                                              return InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  logFirebaseEvent('PSYCHIATRISTS_PAGE_Row_r1co9x34_ON_TAP');
-                                                                                  logFirebaseEvent('Row_navigate_to');
-
-                                                                                  context.pushNamed(
-                                                                                    DoctorProfiledemoWidget.routeName,
-                                                                                    queryParameters: {
-                                                                                      'lawyerrefere': serializeParam(
-                                                                                        listViewLawyersRecord.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: [
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        Stack(
-                                                                                          children: [
-                                                                                            if (listViewLawyersRecord.lawyerDp == '')
-                                                                                              Align(
-                                                                                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 4.0),
-                                                                                                  child: Material(
-                                                                                                    color: Colors.transparent,
-                                                                                                    elevation: 10.0,
-                                                                                                    shape: const CircleBorder(),
-                                                                                                    child: Container(
-                                                                                                      width: 94.0,
-                                                                                                      height: 94.0,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        image: DecorationImage(
-                                                                                                          fit: BoxFit.cover,
-                                                                                                          image: Image.asset(
-                                                                                                            'assets/images/Screenshot_2024-11-10_200914.png',
-                                                                                                          ).image,
-                                                                                                        ),
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation14']!),
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (listViewLawyersRecord.lawyerDp != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 5.0),
-                                                                                                child: Material(
-                                                                                                  color: Colors.transparent,
-                                                                                                  elevation: 4.0,
-                                                                                                  shape: const CircleBorder(),
-                                                                                                  child: Container(
-                                                                                                    width: 100.0,
-                                                                                                    height: 100.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                      image: DecorationImage(
-                                                                                                        fit: BoxFit.fitWidth,
-                                                                                                        image: CachedNetworkImageProvider(
-                                                                                                          listViewLawyersRecord.lawyerDp,
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                      border: Border.all(
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        width: 2.0,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Expanded(
-                                                                                          child: InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              logFirebaseEvent('PSYCHIATRISTS_Container_9pnlqcrv_ON_TAP');
-                                                                                              logFirebaseEvent('ratingbar_bottom_sheet');
-                                                                                              await showModalBottomSheet(
-                                                                                                isScrollControlled: true,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                enableDrag: false,
-                                                                                                context: context,
-                                                                                                builder: (context) {
-                                                                                                  return GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: ReviewWidget(
-                                                                                                        lawyerr: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ).then((value) => safeSetState(() {}));
-                                                                                            },
-                                                                                            child: wrapWithModel(
-                                                                                              model: _model.ratingbarModels7.getModel(
-                                                                                                listViewLawyersRecord.author!.id,
-                                                                                                listViewIndex,
-                                                                                              ),
-                                                                                              updateCallback: () => safeSetState(() {}),
-                                                                                              child: RatingbarWidget(
-                                                                                                key: Key(
-                                                                                                  'Key9pn_${listViewLawyersRecord.author!.id}',
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Expanded(
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.min,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.displayName,
-                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        font: GoogleFonts.lora(
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        fontSize: 16.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 5.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.state,
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        font: GoogleFonts.outfit(
-                                                                                                          fontWeight: FontWeight.normal,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                        ),
-                                                                                                        color: Color(0xFF57636C),
-                                                                                                        fontSize: 14.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      listViewLawyersRecord.category,
-                                                                                                      'Doctor',
-                                                                                                    ),
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    'Exp: ${listViewLawyersRecord.practicetime.toString()} Years',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Expanded(
-                                                                                          child: Align(
-                                                                                            alignment: AlignmentDirectional(1.0, 0.0),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 5.0),
-                                                                                              child: SingleChildScrollView(
-                                                                                                primary: false,
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                  children: [
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.callbuttonnewModels7.getModel(
-                                                                                                        listViewLawyersRecord.author!.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: CallbuttonnewWidget(
-                                                                                                        key: Key(
-                                                                                                          'Key00y_${listViewLawyersRecord.author!.id}',
-                                                                                                        ),
-                                                                                                        parameter1: listViewLawyersRecord.author,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter4: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.newchatbuttonModels7.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: NewchatbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Key89r_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        lawref: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.videocallbuttonModels7.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: VideocallbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyva4_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        parameter1: rowUsersRecord.reference,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter3: rowUsersRecord.calls,
-                                                                                                        parameter5: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ].divide(SizedBox(height: 14.0)).addToStart(SizedBox(height: 10.0)),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '₹ ${listViewLawyersRecord.lawyerCharge.toString()}/min',
-                                                                                                '₹ 15/min',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    font: GoogleFonts.mukta(
-                                                                                                      fontWeight: FontWeight.w800,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                    fontSize: 15.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w800,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        ),
+                                                                        DocrdsasasdcasWidget(
+                                                                      key: Key(
+                                                                        'Keymsi_${listViewLawyersRecord.author!.id}',
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['containerOnPageLoadAnimation13']!),
+                                                                      lawred:
+                                                                          listViewLawyersRecord,
+                                                                    ),
                                                                   );
                                                                 },
                                                               );
@@ -4811,7 +2631,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                     child:
                                                                         SpinKitFadingCircle(
                                                                       color: Color(
-                                                                          0x9D03A9F4),
+                                                                          0x4D03A9F4),
                                                                       size:
                                                                           20.0,
                                                                     ),
@@ -4842,420 +2662,26 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                   final listViewLawyersRecord =
                                                                       listViewLawyersRecordList[
                                                                           listViewIndex];
-                                                                  return Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0),
+                                                                  return wrapWithModel(
+                                                                    model: _model
+                                                                        .docrdsasasdcasModels7
+                                                                        .getModel(
+                                                                      listViewLawyersRecord
+                                                                          .author!
+                                                                          .id,
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
                                                                     child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onLongPress:
-                                                                          () async {
-                                                                        logFirebaseEvent(
-                                                                            'PSYCHIATRISTS_Container_5gabxd7b_ON_LONG');
-                                                                        if (valueOrDefault(currentUserDocument?.role,
-                                                                                '') ==
-                                                                            'admin') {
-                                                                          logFirebaseEvent(
-                                                                              'Container_backend_call');
-                                                                          await listViewLawyersRecord
-                                                                              .reference
-                                                                              .delete();
-                                                                        } else {
-                                                                          logFirebaseEvent(
-                                                                              'Container_bottom_sheet');
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            148.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          boxShadow: [
-                                                                            BoxShadow(
-                                                                              blurRadius: 4.0,
-                                                                              color: Color(0x33000000),
-                                                                              offset: Offset(
-                                                                                0.0,
-                                                                                2.0,
-                                                                              ),
-                                                                            )
-                                                                          ],
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              5.0),
-                                                                          child:
-                                                                              StreamBuilder<UsersRecord>(
-                                                                            stream:
-                                                                                UsersRecord.getDocument(listViewLawyersRecord.author!),
-                                                                            builder:
-                                                                                (context, snapshot) {
-                                                                              // Customize what your widget looks like when it's loading.
-                                                                              if (!snapshot.hasData) {
-                                                                                return Center(
-                                                                                  child: SizedBox(
-                                                                                    width: 20.0,
-                                                                                    height: 20.0,
-                                                                                    child: SpinKitFadingCircle(
-                                                                                      color: Color(0x9D03A9F4),
-                                                                                      size: 20.0,
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              }
-
-                                                                              final rowUsersRecord = snapshot.data!;
-
-                                                                              return InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  logFirebaseEvent('PSYCHIATRISTS_PAGE_Row_0v7x92ck_ON_TAP');
-                                                                                  logFirebaseEvent('Row_navigate_to');
-
-                                                                                  context.pushNamed(
-                                                                                    DoctorProfiledemoWidget.routeName,
-                                                                                    queryParameters: {
-                                                                                      'lawyerrefere': serializeParam(
-                                                                                        listViewLawyersRecord.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: [
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        Stack(
-                                                                                          children: [
-                                                                                            if (listViewLawyersRecord.lawyerDp == '')
-                                                                                              Align(
-                                                                                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 4.0),
-                                                                                                  child: Material(
-                                                                                                    color: Colors.transparent,
-                                                                                                    elevation: 10.0,
-                                                                                                    shape: const CircleBorder(),
-                                                                                                    child: Container(
-                                                                                                      width: 94.0,
-                                                                                                      height: 94.0,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        image: DecorationImage(
-                                                                                                          fit: BoxFit.cover,
-                                                                                                          image: Image.asset(
-                                                                                                            'assets/images/Screenshot_2024-11-10_200914.png',
-                                                                                                          ).image,
-                                                                                                        ),
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation16']!),
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (listViewLawyersRecord.lawyerDp != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 5.0),
-                                                                                                child: Material(
-                                                                                                  color: Colors.transparent,
-                                                                                                  elevation: 4.0,
-                                                                                                  shape: const CircleBorder(),
-                                                                                                  child: Container(
-                                                                                                    width: 100.0,
-                                                                                                    height: 100.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                      image: DecorationImage(
-                                                                                                        fit: BoxFit.fitWidth,
-                                                                                                        image: CachedNetworkImageProvider(
-                                                                                                          listViewLawyersRecord.lawyerDp,
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                      border: Border.all(
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        width: 2.0,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Expanded(
-                                                                                          child: InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              logFirebaseEvent('PSYCHIATRISTS_Container_1ta0arhf_ON_TAP');
-                                                                                              logFirebaseEvent('ratingbar_bottom_sheet');
-                                                                                              await showModalBottomSheet(
-                                                                                                isScrollControlled: true,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                enableDrag: false,
-                                                                                                context: context,
-                                                                                                builder: (context) {
-                                                                                                  return GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: ReviewWidget(
-                                                                                                        lawyerr: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ).then((value) => safeSetState(() {}));
-                                                                                            },
-                                                                                            child: wrapWithModel(
-                                                                                              model: _model.ratingbarModels8.getModel(
-                                                                                                listViewLawyersRecord.author!.id,
-                                                                                                listViewIndex,
-                                                                                              ),
-                                                                                              updateCallback: () => safeSetState(() {}),
-                                                                                              child: RatingbarWidget(
-                                                                                                key: Key(
-                                                                                                  'Key1ta_${listViewLawyersRecord.author!.id}',
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Expanded(
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.min,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.displayName,
-                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        font: GoogleFonts.lora(
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        fontSize: 16.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 5.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.state,
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        font: GoogleFonts.outfit(
-                                                                                                          fontWeight: FontWeight.normal,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                        ),
-                                                                                                        color: Color(0xFF57636C),
-                                                                                                        fontSize: 14.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      listViewLawyersRecord.category,
-                                                                                                      'Doctor',
-                                                                                                    ),
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    'Exp: ${listViewLawyersRecord.practicetime.toString()} Years',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Expanded(
-                                                                                          child: Align(
-                                                                                            alignment: AlignmentDirectional(1.0, 0.0),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 5.0),
-                                                                                              child: SingleChildScrollView(
-                                                                                                primary: false,
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                  children: [
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.callbuttonnewModels8.getModel(
-                                                                                                        listViewLawyersRecord.author!.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: CallbuttonnewWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyx9u_${listViewLawyersRecord.author!.id}',
-                                                                                                        ),
-                                                                                                        parameter1: listViewLawyersRecord.author,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter4: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.newchatbuttonModels8.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: NewchatbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyh7k_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        lawref: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.videocallbuttonModels8.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: VideocallbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyxiy_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        parameter1: rowUsersRecord.reference,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter3: rowUsersRecord.calls,
-                                                                                                        parameter5: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ].divide(SizedBox(height: 14.0)).addToStart(SizedBox(height: 10.0)),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '₹ ${listViewLawyersRecord.lawyerCharge.toString()}/min',
-                                                                                                '₹ 15/min',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    font: GoogleFonts.mukta(
-                                                                                                      fontWeight: FontWeight.w800,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                    fontSize: 15.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w800,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        ),
+                                                                        DocrdsasasdcasWidget(
+                                                                      key: Key(
+                                                                        'Keym4j_${listViewLawyersRecord.author!.id}',
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['containerOnPageLoadAnimation15']!),
+                                                                      lawred:
+                                                                          listViewLawyersRecord,
+                                                                    ),
                                                                   );
                                                                 },
                                                               );
@@ -5310,7 +2736,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                     child:
                                                                         SpinKitFadingCircle(
                                                                       color: Color(
-                                                                          0x9D03A9F4),
+                                                                          0x4D03A9F4),
                                                                       size:
                                                                           20.0,
                                                                     ),
@@ -5341,420 +2767,26 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                   final listViewLawyersRecord =
                                                                       listViewLawyersRecordList[
                                                                           listViewIndex];
-                                                                  return Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0),
+                                                                  return wrapWithModel(
+                                                                    model: _model
+                                                                        .docrdsasasdcasModels8
+                                                                        .getModel(
+                                                                      listViewLawyersRecord
+                                                                          .author!
+                                                                          .id,
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
                                                                     child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onLongPress:
-                                                                          () async {
-                                                                        logFirebaseEvent(
-                                                                            'PSYCHIATRISTS_Container_tjzfvebk_ON_LONG');
-                                                                        if (valueOrDefault(currentUserDocument?.role,
-                                                                                '') ==
-                                                                            'admin') {
-                                                                          logFirebaseEvent(
-                                                                              'Container_backend_call');
-                                                                          await listViewLawyersRecord
-                                                                              .reference
-                                                                              .delete();
-                                                                        } else {
-                                                                          logFirebaseEvent(
-                                                                              'Container_bottom_sheet');
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            148.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          boxShadow: [
-                                                                            BoxShadow(
-                                                                              blurRadius: 4.0,
-                                                                              color: Color(0x33000000),
-                                                                              offset: Offset(
-                                                                                0.0,
-                                                                                2.0,
-                                                                              ),
-                                                                            )
-                                                                          ],
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              5.0),
-                                                                          child:
-                                                                              StreamBuilder<UsersRecord>(
-                                                                            stream:
-                                                                                UsersRecord.getDocument(listViewLawyersRecord.author!),
-                                                                            builder:
-                                                                                (context, snapshot) {
-                                                                              // Customize what your widget looks like when it's loading.
-                                                                              if (!snapshot.hasData) {
-                                                                                return Center(
-                                                                                  child: SizedBox(
-                                                                                    width: 20.0,
-                                                                                    height: 20.0,
-                                                                                    child: SpinKitFadingCircle(
-                                                                                      color: Color(0x9D03A9F4),
-                                                                                      size: 20.0,
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              }
-
-                                                                              final rowUsersRecord = snapshot.data!;
-
-                                                                              return InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  logFirebaseEvent('PSYCHIATRISTS_PAGE_Row_s098yylu_ON_TAP');
-                                                                                  logFirebaseEvent('Row_navigate_to');
-
-                                                                                  context.pushNamed(
-                                                                                    DoctorProfiledemoWidget.routeName,
-                                                                                    queryParameters: {
-                                                                                      'lawyerrefere': serializeParam(
-                                                                                        listViewLawyersRecord.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: [
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        Stack(
-                                                                                          children: [
-                                                                                            if (listViewLawyersRecord.lawyerDp == '')
-                                                                                              Align(
-                                                                                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 4.0),
-                                                                                                  child: Material(
-                                                                                                    color: Colors.transparent,
-                                                                                                    elevation: 10.0,
-                                                                                                    shape: const CircleBorder(),
-                                                                                                    child: Container(
-                                                                                                      width: 94.0,
-                                                                                                      height: 94.0,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        image: DecorationImage(
-                                                                                                          fit: BoxFit.cover,
-                                                                                                          image: Image.asset(
-                                                                                                            'assets/images/Screenshot_2024-11-10_200914.png',
-                                                                                                          ).image,
-                                                                                                        ),
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation18']!),
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (listViewLawyersRecord.lawyerDp != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 5.0),
-                                                                                                child: Material(
-                                                                                                  color: Colors.transparent,
-                                                                                                  elevation: 4.0,
-                                                                                                  shape: const CircleBorder(),
-                                                                                                  child: Container(
-                                                                                                    width: 100.0,
-                                                                                                    height: 100.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                      image: DecorationImage(
-                                                                                                        fit: BoxFit.fitWidth,
-                                                                                                        image: CachedNetworkImageProvider(
-                                                                                                          listViewLawyersRecord.lawyerDp,
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                      border: Border.all(
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        width: 2.0,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Expanded(
-                                                                                          child: InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              logFirebaseEvent('PSYCHIATRISTS_Container_9966ze2l_ON_TAP');
-                                                                                              logFirebaseEvent('ratingbar_bottom_sheet');
-                                                                                              await showModalBottomSheet(
-                                                                                                isScrollControlled: true,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                enableDrag: false,
-                                                                                                context: context,
-                                                                                                builder: (context) {
-                                                                                                  return GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: ReviewWidget(
-                                                                                                        lawyerr: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ).then((value) => safeSetState(() {}));
-                                                                                            },
-                                                                                            child: wrapWithModel(
-                                                                                              model: _model.ratingbarModels9.getModel(
-                                                                                                listViewLawyersRecord.author!.id,
-                                                                                                listViewIndex,
-                                                                                              ),
-                                                                                              updateCallback: () => safeSetState(() {}),
-                                                                                              child: RatingbarWidget(
-                                                                                                key: Key(
-                                                                                                  'Key996_${listViewLawyersRecord.author!.id}',
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Expanded(
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.min,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.displayName,
-                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        font: GoogleFonts.lora(
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        fontSize: 16.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 5.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.state,
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        font: GoogleFonts.outfit(
-                                                                                                          fontWeight: FontWeight.normal,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                        ),
-                                                                                                        color: Color(0xFF57636C),
-                                                                                                        fontSize: 14.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      listViewLawyersRecord.category,
-                                                                                                      'Doctor',
-                                                                                                    ),
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    'Exp: ${listViewLawyersRecord.practicetime.toString()} Years',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Expanded(
-                                                                                          child: Align(
-                                                                                            alignment: AlignmentDirectional(1.0, 0.0),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 5.0),
-                                                                                              child: SingleChildScrollView(
-                                                                                                primary: false,
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                  children: [
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.callbuttonnewModels9.getModel(
-                                                                                                        listViewLawyersRecord.author!.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: CallbuttonnewWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyemd_${listViewLawyersRecord.author!.id}',
-                                                                                                        ),
-                                                                                                        parameter1: listViewLawyersRecord.author,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter4: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.newchatbuttonModels9.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: NewchatbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Key5vd_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        lawref: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.videocallbuttonModels9.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: VideocallbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Key0n4_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        parameter1: rowUsersRecord.reference,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter3: rowUsersRecord.calls,
-                                                                                                        parameter5: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ].divide(SizedBox(height: 14.0)).addToStart(SizedBox(height: 10.0)),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '₹ ${listViewLawyersRecord.lawyerCharge.toString()}/min',
-                                                                                                '₹ 15/min',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    font: GoogleFonts.mukta(
-                                                                                                      fontWeight: FontWeight.w800,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                    fontSize: 15.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w800,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        ),
+                                                                        DocrdsasasdcasWidget(
+                                                                      key: Key(
+                                                                        'Keyzif_${listViewLawyersRecord.author!.id}',
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['containerOnPageLoadAnimation17']!),
+                                                                      lawred:
+                                                                          listViewLawyersRecord,
+                                                                    ),
                                                                   );
                                                                 },
                                                               );
@@ -5809,7 +2841,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                     child:
                                                                         SpinKitFadingCircle(
                                                                       color: Color(
-                                                                          0x9D03A9F4),
+                                                                          0x4D03A9F4),
                                                                       size:
                                                                           20.0,
                                                                     ),
@@ -5840,420 +2872,26 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                                   final listViewLawyersRecord =
                                                                       listViewLawyersRecordList[
                                                                           listViewIndex];
-                                                                  return Padding(
-                                                                    padding: EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            4.0,
-                                                                            0.0,
-                                                                            4.0,
-                                                                            8.0),
+                                                                  return wrapWithModel(
+                                                                    model: _model
+                                                                        .docrdsasasdcasModels9
+                                                                        .getModel(
+                                                                      listViewLawyersRecord
+                                                                          .author!
+                                                                          .id,
+                                                                      listViewIndex,
+                                                                    ),
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
                                                                     child:
-                                                                        InkWell(
-                                                                      splashColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      focusColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      hoverColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      highlightColor:
-                                                                          Colors
-                                                                              .transparent,
-                                                                      onLongPress:
-                                                                          () async {
-                                                                        logFirebaseEvent(
-                                                                            'PSYCHIATRISTS_Container_toqxm367_ON_LONG');
-                                                                        if (valueOrDefault(currentUserDocument?.role,
-                                                                                '') ==
-                                                                            'admin') {
-                                                                          logFirebaseEvent(
-                                                                              'Container_backend_call');
-                                                                          await listViewLawyersRecord
-                                                                              .reference
-                                                                              .delete();
-                                                                        } else {
-                                                                          logFirebaseEvent(
-                                                                              'Container_bottom_sheet');
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        }
-                                                                      },
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            100.0,
-                                                                        height:
-                                                                            148.0,
-                                                                        decoration:
-                                                                            BoxDecoration(
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBackground,
-                                                                          boxShadow: [
-                                                                            BoxShadow(
-                                                                              blurRadius: 4.0,
-                                                                              color: Color(0x33000000),
-                                                                              offset: Offset(
-                                                                                0.0,
-                                                                                2.0,
-                                                                              ),
-                                                                            )
-                                                                          ],
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(8.0),
-                                                                          border:
-                                                                              Border.all(
-                                                                            color:
-                                                                                FlutterFlowTheme.of(context).primaryBackground,
-                                                                            width:
-                                                                                1.0,
-                                                                          ),
-                                                                        ),
-                                                                        child:
-                                                                            Padding(
-                                                                          padding: EdgeInsetsDirectional.fromSTEB(
-                                                                              10.0,
-                                                                              0.0,
-                                                                              10.0,
-                                                                              5.0),
-                                                                          child:
-                                                                              StreamBuilder<UsersRecord>(
-                                                                            stream:
-                                                                                UsersRecord.getDocument(listViewLawyersRecord.author!),
-                                                                            builder:
-                                                                                (context, snapshot) {
-                                                                              // Customize what your widget looks like when it's loading.
-                                                                              if (!snapshot.hasData) {
-                                                                                return Center(
-                                                                                  child: SizedBox(
-                                                                                    width: 20.0,
-                                                                                    height: 20.0,
-                                                                                    child: SpinKitFadingCircle(
-                                                                                      color: Color(0x9D03A9F4),
-                                                                                      size: 20.0,
-                                                                                    ),
-                                                                                  ),
-                                                                                );
-                                                                              }
-
-                                                                              final rowUsersRecord = snapshot.data!;
-
-                                                                              return InkWell(
-                                                                                splashColor: Colors.transparent,
-                                                                                focusColor: Colors.transparent,
-                                                                                hoverColor: Colors.transparent,
-                                                                                highlightColor: Colors.transparent,
-                                                                                onTap: () async {
-                                                                                  logFirebaseEvent('PSYCHIATRISTS_PAGE_Row_wooeueyv_ON_TAP');
-                                                                                  logFirebaseEvent('Row_navigate_to');
-
-                                                                                  context.pushNamed(
-                                                                                    DoctorProfiledemoWidget.routeName,
-                                                                                    queryParameters: {
-                                                                                      'lawyerrefere': serializeParam(
-                                                                                        listViewLawyersRecord.reference,
-                                                                                        ParamType.DocumentReference,
-                                                                                      ),
-                                                                                    }.withoutNulls,
-                                                                                  );
-                                                                                },
-                                                                                child: Row(
-                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                                  children: [
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      mainAxisAlignment: MainAxisAlignment.center,
-                                                                                      children: [
-                                                                                        Stack(
-                                                                                          children: [
-                                                                                            if (listViewLawyersRecord.lawyerDp == '')
-                                                                                              Align(
-                                                                                                alignment: AlignmentDirectional(-1.0, -1.0),
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 4.0),
-                                                                                                  child: Material(
-                                                                                                    color: Colors.transparent,
-                                                                                                    elevation: 10.0,
-                                                                                                    shape: const CircleBorder(),
-                                                                                                    child: Container(
-                                                                                                      width: 94.0,
-                                                                                                      height: 94.0,
-                                                                                                      decoration: BoxDecoration(
-                                                                                                        image: DecorationImage(
-                                                                                                          fit: BoxFit.cover,
-                                                                                                          image: Image.asset(
-                                                                                                            'assets/images/Screenshot_2024-11-10_200914.png',
-                                                                                                          ).image,
-                                                                                                        ),
-                                                                                                        shape: BoxShape.circle,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ).animateOnPageLoad(animationsMap['containerOnPageLoadAnimation20']!),
-                                                                                                ),
-                                                                                              ),
-                                                                                            if (listViewLawyersRecord.lawyerDp != '')
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 5.0),
-                                                                                                child: Material(
-                                                                                                  color: Colors.transparent,
-                                                                                                  elevation: 4.0,
-                                                                                                  shape: const CircleBorder(),
-                                                                                                  child: Container(
-                                                                                                    width: 100.0,
-                                                                                                    height: 100.0,
-                                                                                                    decoration: BoxDecoration(
-                                                                                                      color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                      image: DecorationImage(
-                                                                                                        fit: BoxFit.fitWidth,
-                                                                                                        image: CachedNetworkImageProvider(
-                                                                                                          listViewLawyersRecord.lawyerDp,
-                                                                                                        ),
-                                                                                                      ),
-                                                                                                      shape: BoxShape.circle,
-                                                                                                      border: Border.all(
-                                                                                                        color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                        width: 2.0,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                          ],
-                                                                                        ),
-                                                                                        Expanded(
-                                                                                          child: InkWell(
-                                                                                            splashColor: Colors.transparent,
-                                                                                            focusColor: Colors.transparent,
-                                                                                            hoverColor: Colors.transparent,
-                                                                                            highlightColor: Colors.transparent,
-                                                                                            onTap: () async {
-                                                                                              logFirebaseEvent('PSYCHIATRISTS_Container_nzkdz3wt_ON_TAP');
-                                                                                              logFirebaseEvent('ratingbar_bottom_sheet');
-                                                                                              await showModalBottomSheet(
-                                                                                                isScrollControlled: true,
-                                                                                                backgroundColor: Colors.transparent,
-                                                                                                enableDrag: false,
-                                                                                                context: context,
-                                                                                                builder: (context) {
-                                                                                                  return GestureDetector(
-                                                                                                    onTap: () {
-                                                                                                      FocusScope.of(context).unfocus();
-                                                                                                      FocusManager.instance.primaryFocus?.unfocus();
-                                                                                                    },
-                                                                                                    child: Padding(
-                                                                                                      padding: MediaQuery.viewInsetsOf(context),
-                                                                                                      child: ReviewWidget(
-                                                                                                        lawyerr: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  );
-                                                                                                },
-                                                                                              ).then((value) => safeSetState(() {}));
-                                                                                            },
-                                                                                            child: wrapWithModel(
-                                                                                              model: _model.ratingbarModels10.getModel(
-                                                                                                listViewLawyersRecord.author!.id,
-                                                                                                listViewIndex,
-                                                                                              ),
-                                                                                              updateCallback: () => safeSetState(() {}),
-                                                                                              child: RatingbarWidget(
-                                                                                                key: Key(
-                                                                                                  'Keynzk_${listViewLawyersRecord.author!.id}',
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                    Expanded(
-                                                                                      child: Align(
-                                                                                        alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                        child: Padding(
-                                                                                          padding: EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 0.0, 10.0),
-                                                                                          child: Column(
-                                                                                            mainAxisSize: MainAxisSize.min,
-                                                                                            mainAxisAlignment: MainAxisAlignment.center,
-                                                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                            children: [
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.displayName,
-                                                                                                  style: FlutterFlowTheme.of(context).titleMedium.override(
-                                                                                                        font: GoogleFonts.lora(
-                                                                                                          fontWeight: FontWeight.w600,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                        ),
-                                                                                                        color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                        fontSize: 16.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.w600,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Padding(
-                                                                                                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 0.0, 5.0),
-                                                                                                child: Text(
-                                                                                                  listViewLawyersRecord.state,
-                                                                                                  style: FlutterFlowTheme.of(context).bodySmall.override(
-                                                                                                        font: GoogleFonts.outfit(
-                                                                                                          fontWeight: FontWeight.normal,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                        ),
-                                                                                                        color: Color(0xFF57636C),
-                                                                                                        fontSize: 14.0,
-                                                                                                        letterSpacing: 0.0,
-                                                                                                        fontWeight: FontWeight.normal,
-                                                                                                        fontStyle: FlutterFlowTheme.of(context).bodySmall.fontStyle,
-                                                                                                      ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    valueOrDefault<String>(
-                                                                                                      listViewLawyersRecord.category,
-                                                                                                      'Doctor',
-                                                                                                    ),
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                              Expanded(
-                                                                                                child: Padding(
-                                                                                                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                                                  child: Text(
-                                                                                                    'Exp: ${listViewLawyersRecord.practicetime.toString()} Years',
-                                                                                                    style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                          font: GoogleFonts.mukta(
-                                                                                                            fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                            fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                          ),
-                                                                                                          color: FlutterFlowTheme.of(context).primaryText,
-                                                                                                          letterSpacing: 0.0,
-                                                                                                          fontWeight: FlutterFlowTheme.of(context).labelMedium.fontWeight,
-                                                                                                          fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                        ),
-                                                                                                  ),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ],
-                                                                                          ),
-                                                                                        ),
-                                                                                      ),
-                                                                                    ),
-                                                                                    Column(
-                                                                                      mainAxisSize: MainAxisSize.max,
-                                                                                      children: [
-                                                                                        Expanded(
-                                                                                          child: Align(
-                                                                                            alignment: AlignmentDirectional(1.0, 0.0),
-                                                                                            child: Padding(
-                                                                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 10.0, 5.0),
-                                                                                              child: SingleChildScrollView(
-                                                                                                primary: false,
-                                                                                                child: Column(
-                                                                                                  mainAxisSize: MainAxisSize.max,
-                                                                                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                                                                                  children: [
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.callbuttonnewModels10.getModel(
-                                                                                                        listViewLawyersRecord.author!.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: CallbuttonnewWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyj0w_${listViewLawyersRecord.author!.id}',
-                                                                                                        ),
-                                                                                                        parameter1: listViewLawyersRecord.author,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter4: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.newchatbuttonModels10.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: NewchatbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyr5l_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        lawref: listViewLawyersRecord.reference,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                    wrapWithModel(
-                                                                                                      model: _model.videocallbuttonModels10.getModel(
-                                                                                                        rowUsersRecord.reference.id,
-                                                                                                        listViewIndex,
-                                                                                                      ),
-                                                                                                      updateCallback: () => safeSetState(() {}),
-                                                                                                      child: VideocallbuttonWidget(
-                                                                                                        key: Key(
-                                                                                                          'Keyitr_${rowUsersRecord.reference.id}',
-                                                                                                        ),
-                                                                                                        parameter1: rowUsersRecord.reference,
-                                                                                                        parameter2: rowUsersRecord.reference.id,
-                                                                                                        parameter3: rowUsersRecord.calls,
-                                                                                                        parameter5: rowUsersRecord.usercallmanagement,
-                                                                                                      ),
-                                                                                                    ),
-                                                                                                  ].divide(SizedBox(height: 14.0)).addToStart(SizedBox(height: 10.0)),
-                                                                                                ),
-                                                                                              ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                        Align(
-                                                                                          alignment: AlignmentDirectional(-1.0, 0.0),
-                                                                                          child: Padding(
-                                                                                            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 10.0, 0.0),
-                                                                                            child: Text(
-                                                                                              valueOrDefault<String>(
-                                                                                                '₹ ${listViewLawyersRecord.lawyerCharge.toString()}/min',
-                                                                                                '₹ 15/min',
-                                                                                              ),
-                                                                                              style: FlutterFlowTheme.of(context).labelMedium.override(
-                                                                                                    font: GoogleFonts.mukta(
-                                                                                                      fontWeight: FontWeight.w800,
-                                                                                                      fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                    ),
-                                                                                                    color: FlutterFlowTheme.of(context).tertiary,
-                                                                                                    fontSize: 15.0,
-                                                                                                    letterSpacing: 0.0,
-                                                                                                    fontWeight: FontWeight.w800,
-                                                                                                    fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
-                                                                                                  ),
-                                                                                            ),
-                                                                                          ),
-                                                                                        ),
-                                                                                      ],
-                                                                                    ),
-                                                                                  ],
-                                                                                ),
-                                                                              );
-                                                                            },
-                                                                          ),
-                                                                        ),
+                                                                        DocrdsasasdcasWidget(
+                                                                      key: Key(
+                                                                        'Keyprc_${listViewLawyersRecord.author!.id}',
                                                                       ),
-                                                                    ).animateOnPageLoad(
-                                                                            animationsMap['containerOnPageLoadAnimation19']!),
+                                                                      lawred:
+                                                                          listViewLawyersRecord,
+                                                                    ),
                                                                   );
                                                                 },
                                                               );
@@ -6437,7 +3075,7 @@ class _PsychiatristsWidgetState extends State<PsychiatristsWidget>
                                                 ),
                                               ),
                                             ).animateOnPageLoad(animationsMap[
-                                                'containerOnPageLoadAnimation21']!),
+                                                'containerOnPageLoadAnimation5']!),
                                           ),
                                           Padding(
                                             padding:

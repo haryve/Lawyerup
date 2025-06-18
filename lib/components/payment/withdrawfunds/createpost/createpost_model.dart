@@ -1,9 +1,14 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'createpost_widget.dart' show CreatepostWidget;
 import 'package:flutter/material.dart';
 
 class CreatepostModel extends FlutterFlowModel<CreatepostWidget> {
+  ///  Local state fields for this component.
+
+  String? string;
+
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for TabBar widget.
@@ -19,6 +24,8 @@ class CreatepostModel extends FlutterFlowModel<CreatepostWidget> {
   String? Function(BuildContext, String?)? fullName1TextControllerValidator;
   // Stores action output result for [Backend Call - API (createChatCompletion)] action in Container widget.
   ApiCallResponse? apiResultmkd;
+  // Stores action output result for [Backend Call - Read Document] action in Row widget.
+  LawyersRecord? lawyer;
   // State field(s) for fullName2 widget.
   FocusNode? fullName2FocusNode;
   TextEditingController? fullName2TextController;
@@ -28,6 +35,10 @@ class CreatepostModel extends FlutterFlowModel<CreatepostWidget> {
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl_postimageui = '';
 
+  // Stores action output result for [Backend Call - Read Document] action in Row widget.
+  LawyersRecord? law1;
+  // Stores action output result for [Backend Call - Read Document] action in Row widget.
+  LawyersRecord? law2;
   // State field(s) for fullName3 widget.
   FocusNode? fullName3FocusNode;
   TextEditingController? fullName3TextController;
@@ -36,6 +47,13 @@ class CreatepostModel extends FlutterFlowModel<CreatepostWidget> {
   FFUploadedFile uploadedLocalFile_postimageuiv =
       FFUploadedFile(bytes: Uint8List.fromList([]));
   String uploadedFileUrl_postimageuiv = '';
+
+  // Stores action output result for [Backend Call - Read Document] action in Row widget.
+  LawyersRecord? law3;
+  // Stores action output result for [Custom Action - generateCompressedVideoThumbnail] action in Row widget.
+  String? compressedimage;
+  // Stores action output result for [Backend Call - Read Document] action in Row widget.
+  LawyersRecord? law4;
 
   @override
   void initState(BuildContext context) {}

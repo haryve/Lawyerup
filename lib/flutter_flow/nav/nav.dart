@@ -83,17 +83,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => _RouteErrorBuilder(
         state: state,
-        child: appStateNotifier.loggedIn
-            ? ExpCopyWidget()
-            : AuthenticateSolo1Widget(),
+        child: appStateNotifier.loggedIn ? DocWidget() : Onboarding2Widget(),
       ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? ExpCopyWidget()
-              : AuthenticateSolo1Widget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? DocWidget() : Onboarding2Widget(),
         ),
         FFRoute(
           name: AuthenticateSolo1Widget.routeName,
@@ -369,11 +366,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: Onboarding02Widget.routeName,
-          path: Onboarding02Widget.routePath,
-          builder: (context, params) => Onboarding02Widget(),
-        ),
-        FFRoute(
           name: AichatWidget.routeName,
           path: AichatWidget.routePath,
           builder: (context, params) => AichatWidget(),
@@ -402,6 +394,41 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ExpCopyWidget.routeName,
           path: ExpCopyWidget.routePath,
           builder: (context, params) => ExpCopyWidget(),
+        ),
+        FFRoute(
+          name: VideoWidget.routeName,
+          path: VideoWidget.routePath,
+          builder: (context, params) => VideoWidget(),
+        ),
+        FFRoute(
+          name: Video2CopyWidget.routeName,
+          path: Video2CopyWidget.routePath,
+          builder: (context, params) => Video2CopyWidget(),
+        ),
+        FFRoute(
+          name: DocfindermapWidget.routeName,
+          path: DocfindermapWidget.routePath,
+          builder: (context, params) => DocfindermapWidget(),
+        ),
+        FFRoute(
+          name: FinddoconmapWidget.routeName,
+          path: FinddoconmapWidget.routePath,
+          builder: (context, params) => FinddoconmapWidget(),
+        ),
+        FFRoute(
+          name: OnboardingWidget.routeName,
+          path: OnboardingWidget.routePath,
+          builder: (context, params) => OnboardingWidget(),
+        ),
+        FFRoute(
+          name: Onboarding2Widget.routeName,
+          path: Onboarding2Widget.routePath,
+          builder: (context, params) => Onboarding2Widget(),
+        ),
+        FFRoute(
+          name: VideoCopyWidget.routeName,
+          path: VideoCopyWidget.routePath,
+          builder: (context, params) => VideoCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -575,7 +602,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/authenticateSolo1';
+            return '/onboarding2';
           }
           return null;
         },

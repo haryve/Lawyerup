@@ -78,7 +78,7 @@ class _ReplyWidgetState extends State<ReplyWidget> {
                     width: 20.0,
                     height: 20.0,
                     child: SpinKitFadingCircle(
-                      color: Color(0x9D03A9F4),
+                      color: Color(0x4D03A9F4),
                       size: 20.0,
                     ),
                   ),
@@ -138,7 +138,7 @@ class _ReplyWidgetState extends State<ReplyWidget> {
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: FlutterFlowTheme.of(context).accent2,
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
@@ -230,7 +230,7 @@ class _ReplyWidgetState extends State<ReplyWidget> {
                               ),
                           elevation: 0.0,
                           borderSide: BorderSide(
-                            color: FlutterFlowTheme.of(context).alternate,
+                            color: Color(0xFFF00E15),
                             width: 1.0,
                           ),
                           borderRadius: BorderRadius.circular(20.0),
@@ -246,7 +246,7 @@ class _ReplyWidgetState extends State<ReplyWidget> {
                                 width: 20.0,
                                 height: 20.0,
                                 child: SpinKitFadingCircle(
-                                  color: Color(0x9D03A9F4),
+                                  color: Color(0x4D03A9F4),
                                   size: 20.0,
                                 ),
                               ),

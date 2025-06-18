@@ -200,6 +200,21 @@ class LawyersRecord extends FirestoreRecord {
   DocumentReference? get usercallmanageref => _usercallmanageref;
   bool hasUsercallmanageref() => _usercallmanageref != null;
 
+  // "lat" field.
+  double? _lat;
+  double get lat => _lat ?? 0.0;
+  bool hasLat() => _lat != null;
+
+  // "Long" field.
+  double? _long;
+  double get long => _long ?? 0.0;
+  bool hasLong() => _long != null;
+
+  // "geo_location" field.
+  LatLng? _geoLocation;
+  LatLng? get geoLocation => _geoLocation;
+  bool hasGeoLocation() => _geoLocation != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _author = snapshotData['author'] as DocumentReference?;
@@ -239,6 +254,9 @@ class LawyersRecord extends FirestoreRecord {
     _callref = snapshotData['callref'] as DocumentReference?;
     _usercallmanageref =
         snapshotData['Usercallmanageref'] as DocumentReference?;
+    _lat = castToType<double>(snapshotData['lat']);
+    _long = castToType<double>(snapshotData['Long']);
+    _geoLocation = snapshotData['geo_location'] as LatLng?;
   }
 
   static CollectionReference get collection =>
@@ -305,6 +323,9 @@ Map<String, dynamic> createLawyersRecordData({
   String? experttype,
   DocumentReference? callref,
   DocumentReference? usercallmanageref,
+  double? lat,
+  double? long,
+  LatLng? geoLocation,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -337,6 +358,9 @@ Map<String, dynamic> createLawyersRecordData({
       'Experttype': experttype,
       'callref': callref,
       'Usercallmanageref': usercallmanageref,
+      'lat': lat,
+      'Long': long,
+      'geo_location': geoLocation,
     }.withoutNulls,
   );
 
@@ -385,7 +409,10 @@ class LawyersRecordDocumentEquality implements Equality<LawyersRecord> {
         e1?.experttype == e2?.experttype &&
         listEquality.equals(e1?.languages, e2?.languages) &&
         e1?.callref == e2?.callref &&
-        e1?.usercallmanageref == e2?.usercallmanageref;
+        e1?.usercallmanageref == e2?.usercallmanageref &&
+        e1?.lat == e2?.lat &&
+        e1?.long == e2?.long &&
+        e1?.geoLocation == e2?.geoLocation;
   }
 
   @override
@@ -426,7 +453,10 @@ class LawyersRecordDocumentEquality implements Equality<LawyersRecord> {
         e?.experttype,
         e?.languages,
         e?.callref,
-        e?.usercallmanageref
+        e?.usercallmanageref,
+        e?.lat,
+        e?.long,
+        e?.geoLocation
       ]);
 
   @override

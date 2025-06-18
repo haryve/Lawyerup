@@ -111,7 +111,7 @@ class _ReplymessageWidgetState extends State<ReplymessageWidget> {
                       ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: FlutterFlowTheme.of(context).alternate,
+                      color: FlutterFlowTheme.of(context).accent2,
                       width: 1.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
@@ -197,7 +197,7 @@ class _ReplymessageWidgetState extends State<ReplymessageWidget> {
                               ),
                       elevation: 0.0,
                       borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).alternate,
+                        color: Color(0xFFFF071E),
                         width: 1.0,
                       ),
                       borderRadius: BorderRadius.circular(20.0),

@@ -9,9 +9,11 @@ import '/components/newchatbutton/newchatbutton_widget.dart';
 import '/components/userimage_widget.dart';
 import '/components/videocallbutton/videocallbutton_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -131,7 +133,7 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
                 width: 20.0,
                 height: 20.0,
                 child: SpinKitFadingCircle(
-                  color: Color(0x9D03A9F4),
+                  color: Color(0x4D03A9F4),
                   size: 20.0,
                 ),
               ),
@@ -148,7 +150,16 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
           },
           child: Scaffold(
             key: scaffoldKey,
+            resizeToAvoidBottomInset: false,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            drawer: Drawer(
+              elevation: 16.0,
+              child: wrapWithModel(
+                model: _model.drawerModel,
+                updateCallback: () => safeSetState(() {}),
+                child: DrawerWidget(),
+              ),
+            ),
             body: StreamBuilder<UsersRecord>(
               stream: UsersRecord.getDocument(
                   doctorProfiledemoLawyersRecord.author!),
@@ -160,7 +171,7 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
                       width: 20.0,
                       height: 20.0,
                       child: SpinKitFadingCircle(
-                        color: Color(0x9D03A9F4),
+                        color: Color(0x4D03A9F4),
                         size: 20.0,
                       ),
                     ),
@@ -220,27 +231,8 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
                                     onTap: () async {
                                       logFirebaseEvent(
                                           'DOCTOR_PROFILEDEMO_Container_bajqbc9h_ON');
-                                      logFirebaseEvent(
-                                          'USERIMAGE_bottom_sheet');
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        context: context,
-                                        builder: (context) {
-                                          return GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: DrawerWidget(),
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => safeSetState(() {}));
+                                      logFirebaseEvent('USERIMAGE_drawer');
+                                      scaffoldKey.currentState!.openDrawer();
                                     },
                                     child: wrapWithModel(
                                       model: _model.userimageModel,
@@ -706,44 +698,11 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 5.0),
                                                   child: Text(
-                                                    doctorProfiledemoLawyersRecord
-                                                        .state,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font: GoogleFonts
-                                                              .plusJakartaSans(
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 14.0,
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FontWeight.w500,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 5.0),
-                                                  child: Text(
-                                                    doctorProfiledemoLawyersRecord
-                                                        .category,
+                                                    '${valueOrDefault<String>(
+                                                      doctorProfiledemoLawyersRecord
+                                                          .experttype,
+                                                      'Doc',
+                                                    )} : ${doctorProfiledemoLawyersRecord.category}',
                                                     textAlign: TextAlign.center,
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -779,8 +738,11 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 5.0),
                                                   child: Text(
-                                                    doctorProfiledemoLawyersRecord
-                                                        .emailAddress,
+                                                    valueOrDefault<String>(
+                                                      doctorProfiledemoLawyersRecord
+                                                          .type,
+                                                      'Specialist',
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -1986,8 +1948,6 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Container(
-                                            width: double.infinity,
-                                            height: 140.0,
                                             decoration: BoxDecoration(
                                               color:
                                                   FlutterFlowTheme.of(context)
@@ -2000,42 +1960,6 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
                                                         .alternate,
                                               ),
                                             ),
-                                            child: Align(
-                                              alignment: AlignmentDirectional(
-                                                  0.0, 0.0),
-                                              child: Text(
-                                                'Map goes here...',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.mukta(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                              ),
-                                            ),
                                           ),
                                         ),
                                       ],
@@ -2046,7 +1970,71 @@ class _DoctorProfiledemoWidgetState extends State<DoctorProfiledemoWidget>
                             ),
                           ),
                         ),
-                      ],
+                        if (doctorProfiledemoLawyersRecord.geoLocation != null)
+                          InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onDoubleTap: () async {
+                              logFirebaseEvent(
+                                  'DOCTOR_PROFILEDEMO_Container_0ou5hrqc_ON');
+                              logFirebaseEvent('Container_navigate_to');
+
+                              context.pushNamed(FinddoconmapWidget.routeName);
+                            },
+                            child: Container(
+                              width: 350.0,
+                              height: 600.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              child: AuthUserStreamWidget(
+                                builder: (context) =>
+                                    Builder(builder: (context) {
+                                  final _googleMapMarker =
+                                      doctorProfiledemoLawyersRecord;
+                                  return FlutterFlowGoogleMap(
+                                    controller: _model.googleMapsController,
+                                    onCameraIdle: (latLng) =>
+                                        _model.googleMapsCenter = latLng,
+                                    initialLocation: _model.googleMapsCenter ??=
+                                        currentUserDocument?.userlocation !=
+                                                null
+                                            ? currentUserDocument!.userlocation!
+                                            : functions.defaultDelhiLocation(),
+                                    markers: [
+                                      FlutterFlowMarker(
+                                        _googleMapMarker.reference.path,
+                                        _googleMapMarker.geoLocation!,
+                                      ),
+                                    ],
+                                    markerColor: GoogleMarkerColor.red,
+                                    markerImage: MarkerImage(
+                                      imagePath:
+                                          'assets/images/ChatGPT_Image_Apr_12,_2025,_08_53_43_PM.png',
+                                      isAssetImage: true,
+                                      size: 40.0 ?? 20,
+                                    ),
+                                    mapType: MapType.normal,
+                                    style: GoogleMapStyle.standard,
+                                    initialZoom: 14.0,
+                                    allowInteraction: true,
+                                    allowZoom: true,
+                                    showZoomControls: true,
+                                    showLocation: true,
+                                    showCompass: false,
+                                    showMapToolbar: true,
+                                    showTraffic: true,
+                                    centerMapOnMarkerTap: true,
+                                    mapTakesGesturePreference: false,
+                                  );
+                                }),
+                              ),
+                            ),
+                          ),
+                      ].addToEnd(SizedBox(height: 100.0)),
                     ),
                   ),
                 );

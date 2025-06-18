@@ -38,6 +38,12 @@ class FFAppState extends ChangeNotifier {
     _safeInit(() {
       _Recommended = prefs.getStringList('ff_Recommended') ?? _Recommended;
     });
+    _safeInit(() {
+      _filter = prefs.getString('ff_filter') ?? _filter;
+    });
+    _safeInit(() {
+      _sort = prefs.getString('ff_sort') ?? _sort;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -214,6 +220,49 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInRecommended(int index, String value) {
     Recommended.insert(index, value);
     prefs.setStringList('ff_Recommended', _Recommended);
+  }
+
+  List<dynamic> _Doctorsmap = [];
+  List<dynamic> get Doctorsmap => _Doctorsmap;
+  set Doctorsmap(List<dynamic> value) {
+    _Doctorsmap = value;
+  }
+
+  void addToDoctorsmap(dynamic value) {
+    Doctorsmap.add(value);
+  }
+
+  void removeFromDoctorsmap(dynamic value) {
+    Doctorsmap.remove(value);
+  }
+
+  void removeAtIndexFromDoctorsmap(int index) {
+    Doctorsmap.removeAt(index);
+  }
+
+  void updateDoctorsmapAtIndex(
+    int index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    Doctorsmap[index] = updateFn(_Doctorsmap[index]);
+  }
+
+  void insertAtIndexInDoctorsmap(int index, dynamic value) {
+    Doctorsmap.insert(index, value);
+  }
+
+  String _filter = 'Doctor';
+  String get filter => _filter;
+  set filter(String value) {
+    _filter = value;
+    prefs.setString('ff_filter', value);
+  }
+
+  String _sort = '';
+  String get sort => _sort;
+  set sort(String value) {
+    _sort = value;
+    prefs.setString('ff_sort', value);
   }
 
   final _docnoManager = FutureRequestManager<int>();

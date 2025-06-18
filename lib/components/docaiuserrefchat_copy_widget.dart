@@ -44,6 +44,15 @@ class _DocaiuserrefchatCopyWidgetState
 
   @override
   void dispose() {
+    // On component dispose action.
+    () async {
+      logFirebaseEvent('DOCAIUSERREFCHAT_COPY_DocaiuserrefchatCo');
+      logFirebaseEvent('DocaiuserrefchatCopy_clear_text_fields_p');
+      safeSetState(() {
+        _model.textController?.clear();
+      });
+    }();
+
     _model.maybeDispose();
 
     super.dispose();
@@ -219,7 +228,7 @@ class _DocaiuserrefchatCopyWidgetState
                               Row(
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
-                                  if (_model.refrseh)
+                                  if (!_model.refrseh)
                                     Align(
                                       alignment:
                                           AlignmentDirectional(-1.0, -1.0),

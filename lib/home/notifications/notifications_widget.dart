@@ -422,7 +422,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                           width: 20.0,
                                           height: 20.0,
                                           child: SpinKitFadingCircle(
-                                            color: Color(0x9D03A9F4),
+                                            color: Color(0x4D03A9F4),
                                             size: 20.0,
                                           ),
                                         ),
@@ -454,7 +454,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                   width: 20.0,
                                                   height: 20.0,
                                                   child: SpinKitFadingCircle(
-                                                    color: Color(0x9D03A9F4),
+                                                    color: Color(0x4D03A9F4),
                                                     size: 20.0,
                                                   ),
                                                 ),
@@ -2190,37 +2190,20 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       16.0, 16.0, 16.0, 0.0),
-                                  child: SingleChildScrollView(
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 0.0),
-                                          child: Text(
-                                            'Client Requests',
-                                            style: FlutterFlowTheme.of(context)
-                                                .headlineSmall
-                                                .override(
-                                                  font: GoogleFonts.openSans(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .headlineSmall
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .headlineSmall
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  letterSpacing: 0.0,
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        child: Text(
+                                          'Client Requests',
+                                          style: FlutterFlowTheme.of(context)
+                                              .headlineSmall
+                                              .override(
+                                                font: GoogleFonts.openSans(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -2232,9 +2215,23 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                           .headlineSmall
                                                           .fontStyle,
                                                 ),
-                                          ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .fontStyle,
+                                              ),
                                         ),
-                                        Padding(
+                                      ),
+                                      Expanded(
+                                        child: Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 0.0),
@@ -2267,7 +2264,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                     width: 20.0,
                                                     height: 20.0,
                                                     child: SpinKitFadingCircle(
-                                                      color: Color(0x9D03A9F4),
+                                                      color: Color(0x4D03A9F4),
                                                       size: 20.0,
                                                     ),
                                                   ),
@@ -2308,7 +2305,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                             child:
                                                                 SpinKitFadingCircle(
                                                               color: Color(
-                                                                  0x9D03A9F4),
+                                                                  0x4D03A9F4),
                                                               size: 20.0,
                                                             ),
                                                           ),
@@ -2730,32 +2727,17 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                             },
                                           ),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 0.0, 16.0, 0.0),
-                                          child: Text(
-                                            'No more invitations',
-                                            textAlign: TextAlign.center,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  font: GoogleFonts.mukta(
-                                                    fontWeight:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontWeight,
-                                                    fontStyle:
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodyMedium
-                                                            .fontStyle,
-                                                  ),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .secondaryText,
-                                                  letterSpacing: 0.0,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16.0, 0.0, 16.0, 0.0),
+                                        child: Text(
+                                          'No more invitations',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.mukta(
                                                   fontWeight:
                                                       FlutterFlowTheme.of(
                                                               context)
@@ -2767,10 +2749,22 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                           .bodyMedium
                                                           .fontStyle,
                                                 ),
-                                          ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                         ),
-                                      ].divide(SizedBox(height: 16.0)),
-                                    ),
+                                      ),
+                                    ].divide(SizedBox(height: 16.0)),
                                   ),
                                 ),
                                 Column(
@@ -2866,7 +2860,7 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                                 child:
                                                                     SpinKitFadingCircle(
                                                                   color: Color(
-                                                                      0x9D03A9F4),
+                                                                      0x4D03A9F4),
                                                                   size: 20.0,
                                                                 ),
                                                               ),
@@ -3282,211 +3276,226 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                 Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    AuthUserStreamWidget(
-                                      builder: (context) =>
-                                          FutureBuilder<List<BookingsRecord>>(
-                                        future: FFAppState().booking(
-                                          requestFn: () =>
-                                              queryBookingsRecordOnce(
-                                            queryBuilder: (bookingsRecord) =>
-                                                bookingsRecord.where(
-                                              'drref',
-                                              isEqualTo:
-                                                  currentUserDocument?.lawref,
+                                    Expanded(
+                                      child: AuthUserStreamWidget(
+                                        builder: (context) =>
+                                            FutureBuilder<List<BookingsRecord>>(
+                                          future: FFAppState().booking(
+                                            requestFn: () =>
+                                                queryBookingsRecordOnce(
+                                              queryBuilder: (bookingsRecord) =>
+                                                  bookingsRecord.where(
+                                                'drref',
+                                                isEqualTo:
+                                                    currentUserDocument?.lawref,
+                                              ),
                                             ),
                                           ),
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 20.0,
-                                                height: 20.0,
-                                                child: SpinKitFadingCircle(
-                                                  color: Color(0x9D03A9F4),
-                                                  size: 20.0,
+                                          builder: (context, snapshot) {
+                                            // Customize what your widget looks like when it's loading.
+                                            if (!snapshot.hasData) {
+                                              return Center(
+                                                child: SizedBox(
+                                                  width: 20.0,
+                                                  height: 20.0,
+                                                  child: SpinKitFadingCircle(
+                                                    color: Color(0x4D03A9F4),
+                                                    size: 20.0,
+                                                  ),
                                                 ),
-                                              ),
-                                            );
-                                          }
-                                          List<BookingsRecord>
-                                              listViewBookingsRecordList =
-                                              snapshot.data!;
+                                              );
+                                            }
+                                            List<BookingsRecord>
+                                                listViewBookingsRecordList =
+                                                snapshot.data!;
 
-                                          return ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            shrinkWrap: true,
-                                            scrollDirection: Axis.vertical,
-                                            itemCount:
-                                                listViewBookingsRecordList
-                                                    .length,
-                                            itemBuilder:
-                                                (context, listViewIndex) {
-                                              final listViewBookingsRecord =
-                                                  listViewBookingsRecordList[
-                                                      listViewIndex];
-                                              return StreamBuilder<UsersRecord>(
-                                                stream: UsersRecord.getDocument(
-                                                    listViewBookingsRecord
-                                                        .userref!),
-                                                builder: (context, snapshot) {
-                                                  // Customize what your widget looks like when it's loading.
-                                                  if (!snapshot.hasData) {
-                                                    return Center(
-                                                      child: SizedBox(
-                                                        width: 20.0,
-                                                        height: 20.0,
-                                                        child:
-                                                            SpinKitFadingCircle(
-                                                          color:
-                                                              Color(0x9D03A9F4),
-                                                          size: 20.0,
+                                            return ListView.builder(
+                                              padding: EdgeInsets.zero,
+                                              primary: false,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              itemCount:
+                                                  listViewBookingsRecordList
+                                                      .length,
+                                              itemBuilder:
+                                                  (context, listViewIndex) {
+                                                final listViewBookingsRecord =
+                                                    listViewBookingsRecordList[
+                                                        listViewIndex];
+                                                return StreamBuilder<
+                                                    UsersRecord>(
+                                                  stream:
+                                                      UsersRecord.getDocument(
+                                                          listViewBookingsRecord
+                                                              .userref!),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 20.0,
+                                                          height: 20.0,
+                                                          child:
+                                                              SpinKitFadingCircle(
+                                                            color: Color(
+                                                                0x4D03A9F4),
+                                                            size: 20.0,
+                                                          ),
                                                         ),
-                                                      ),
-                                                    );
-                                                  }
+                                                      );
+                                                    }
 
-                                                  final containerUsersRecord =
-                                                      snapshot.data!;
+                                                    final containerUsersRecord =
+                                                        snapshot.data!;
 
-                                                  return Material(
-                                                    color: Colors.transparent,
-                                                    elevation: 2.0,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              12.0),
-                                                    ),
-                                                    child: Container(
-                                                      width: MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width *
-                                                          1.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .primaryBackground,
+                                                    return Material(
+                                                      color: Colors.transparent,
+                                                      elevation: 2.0,
+                                                      shape:
+                                                          RoundedRectangleBorder(
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(12.0),
                                                       ),
-                                                      child: Padding(
-                                                        padding:
-                                                            EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    16.0,
-                                                                    16.0,
-                                                                    16.0),
-                                                        child: Column(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          children: [
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .max,
-                                                                  children: [
-                                                                    Container(
-                                                                      width:
-                                                                          50.0,
-                                                                      height:
-                                                                          50.0,
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .accent1,
-                                                                        image:
-                                                                            DecorationImage(
-                                                                          fit: BoxFit
-                                                                              .cover,
+                                                      child: Container(
+                                                        width:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .width *
+                                                                1.0,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      12.0),
+                                                        ),
+                                                        child: Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      16.0,
+                                                                      16.0,
+                                                                      16.0,
+                                                                      16.0),
+                                                          child: Column(
+                                                            mainAxisSize:
+                                                                MainAxisSize
+                                                                    .min,
+                                                            children: [
+                                                              Row(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .max,
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Container(
+                                                                        width:
+                                                                            50.0,
+                                                                        height:
+                                                                            50.0,
+                                                                        decoration:
+                                                                            BoxDecoration(
+                                                                          color:
+                                                                              FlutterFlowTheme.of(context).accent1,
                                                                           image:
-                                                                              CachedNetworkImageProvider(
-                                                                            containerUsersRecord.photoUrl,
+                                                                              DecorationImage(
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                            image:
+                                                                                CachedNetworkImageProvider(
+                                                                              containerUsersRecord.photoUrl,
+                                                                            ),
                                                                           ),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(25.0),
                                                                         ),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(25.0),
                                                                       ),
-                                                                    ),
-                                                                    Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .min,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Text(
-                                                                          containerUsersRecord
-                                                                              .displayName,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyLarge
-                                                                              .override(
-                                                                                font: GoogleFonts.mukta(
+                                                                      Column(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.min,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            containerUsersRecord.displayName,
+                                                                            style: FlutterFlowTheme.of(context).bodyLarge.override(
+                                                                                  font: GoogleFonts.mukta(
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                                                                                  ),
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  letterSpacing: 0.0,
                                                                                   fontWeight: FontWeight.w600,
                                                                                   fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
                                                                                 ),
-                                                                                color: FlutterFlowTheme.of(context).primaryText,
-                                                                                letterSpacing: 0.0,
-                                                                                fontWeight: FontWeight.w600,
-                                                                                fontStyle: FlutterFlowTheme.of(context).bodyLarge.fontStyle,
-                                                                              ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ].divide(SizedBox(
-                                                                      width:
-                                                                          12.0)),
-                                                                ),
-                                                                wrapWithModel(
-                                                                  model: _model
-                                                                      .newchatbuttonModels
-                                                                      .getModel(
-                                                                    listViewBookingsRecord
-                                                                        .reference
-                                                                        .id,
-                                                                    listViewIndex,
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ].divide(SizedBox(
+                                                                        width:
+                                                                            12.0)),
                                                                   ),
-                                                                  updateCallback: () =>
-                                                                      safeSetState(
-                                                                          () {}),
-                                                                  child:
-                                                                      NewchatbuttonWidget(
-                                                                    key: Key(
-                                                                      'Keybt6_${listViewBookingsRecord.reference.id}',
+                                                                  wrapWithModel(
+                                                                    model: _model
+                                                                        .newchatbuttonModels
+                                                                        .getModel(
+                                                                      listViewBookingsRecord
+                                                                          .reference
+                                                                          .id,
+                                                                      listViewIndex,
                                                                     ),
-                                                                    lawref: containerUsersRecord
-                                                                        .lawref!,
+                                                                    updateCallback: () =>
+                                                                        safeSetState(
+                                                                            () {}),
+                                                                    child:
+                                                                        NewchatbuttonWidget(
+                                                                      key: Key(
+                                                                        'Keybt6_${listViewBookingsRecord.reference.id}',
+                                                                      ),
+                                                                      lawref: containerUsersRecord
+                                                                          .lawref!,
+                                                                    ),
                                                                   ),
-                                                                ),
-                                                              ],
-                                                            ),
-                                                            Text(
-                                                              'Hi, I\'d like to discuss my case with you. Are you available on  ${dateTimeFormat(
-                                                                "MMMEd",
-                                                                listViewBookingsRecord
-                                                                    .date,
-                                                                locale: FFLocalizations.of(
+                                                                ],
+                                                              ),
+                                                              Text(
+                                                                'Hi, I\'d like to discuss my case with you. Are you available on  ${dateTimeFormat(
+                                                                  "MMMEd",
+                                                                  listViewBookingsRecord
+                                                                      .date,
+                                                                  locale: FFLocalizations.of(
+                                                                          context)
+                                                                      .languageCode,
+                                                                )}  At  ${listViewBookingsRecord.time}',
+                                                                style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .languageCode,
-                                                              )}  At  ${listViewBookingsRecord.time}',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .mukta(
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      font: GoogleFonts
+                                                                          .mukta(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      letterSpacing:
+                                                                          0.0,
                                                                       fontWeight: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyMedium
@@ -3496,32 +3505,19 @@ class _NotificationsWidgetState extends State<NotificationsWidget>
                                                                           .bodyMedium
                                                                           .fontStyle,
                                                                     ),
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primaryText,
-                                                                    letterSpacing:
-                                                                        0.0,
-                                                                    fontWeight: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontWeight,
-                                                                    fontStyle: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .fontStyle,
-                                                                  ),
-                                                            ),
-                                                          ].divide(SizedBox(
-                                                              height: 12.0)),
+                                                              ),
+                                                            ].divide(SizedBox(
+                                                                height: 12.0)),
+                                                          ),
                                                         ),
                                                       ),
-                                                    ),
-                                                  );
-                                                },
-                                              );
-                                            },
-                                          );
-                                        },
+                                                    );
+                                                  },
+                                                );
+                                              },
+                                            );
+                                          },
+                                        ),
                                       ),
                                     ),
                                   ],

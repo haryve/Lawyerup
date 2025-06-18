@@ -67,7 +67,6 @@ class _MybookingsWidgetState extends State<MybookingsWidget> {
         child: Padding(
           padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
           child: SingleChildScrollView(
-            primary: false,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -134,7 +133,7 @@ class _MybookingsWidgetState extends State<MybookingsWidget> {
                           width: 20.0,
                           height: 20.0,
                           child: SpinKitFadingCircle(
-                            color: Color(0x9D03A9F4),
+                            color: Color(0x4D03A9F4),
                             size: 20.0,
                           ),
                         ),
@@ -145,6 +144,7 @@ class _MybookingsWidgetState extends State<MybookingsWidget> {
 
                     return ListView.separated(
                       padding: EdgeInsets.zero,
+                      primary: false,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
                       itemCount: listViewBookingsRecordList.length,
@@ -166,7 +166,7 @@ class _MybookingsWidgetState extends State<MybookingsWidget> {
                                     width: 20.0,
                                     height: 20.0,
                                     child: SpinKitFadingCircle(
-                                      color: Color(0x9D03A9F4),
+                                      color: Color(0x4D03A9F4),
                                       size: 20.0,
                                     ),
                                   ),

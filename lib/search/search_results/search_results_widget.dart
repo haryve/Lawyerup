@@ -99,20 +99,8 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
             ),
             onPressed: () async {
               logFirebaseEvent('SEARCH_RESULTS_arrow_back_rounded_ICN_ON');
-              logFirebaseEvent('IconButton_navigate_to');
-              if (Navigator.of(context).canPop()) {
-                context.pop();
-              }
-              context.pushNamed(
-                PsychologistsWidget.routeName,
-                extra: <String, dynamic>{
-                  kTransitionInfoKey: TransitionInfo(
-                    hasTransition: true,
-                    transitionType: PageTransitionType.fade,
-                    duration: Duration(milliseconds: 0),
-                  ),
-                },
-              );
+              logFirebaseEvent('IconButton_navigate_back');
+              context.safePop();
             },
           ),
           title: Text(
@@ -266,7 +254,8 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                       record.displayName,
                                                       record.type,
                                                       record.experttype,
-                                                      record.category
+                                                      record.category,
+                                                      record.state
                                                     ]),
                                                   )
                                                   .toList(),
@@ -275,7 +264,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                             .textController
                                                             .text)
                                                         .map((r) => r.object)
-                                                        .take(10)
+                                                        .take(20)
                                                         .toList(),
                                           )
                                           .onError((_, __) =>
@@ -344,7 +333,7 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                       focusedBorder: UnderlineInputBorder(
                                         borderSide: BorderSide(
                                           color: FlutterFlowTheme.of(context)
-                                              .primary,
+                                              .primaryBackground,
                                           width: 2.0,
                                         ),
                                         borderRadius:
@@ -443,7 +432,11 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                                     record, [
                                               record.name,
                                               record.expertise,
-                                              record.displayName
+                                              record.displayName,
+                                              record.type,
+                                              record.experttype,
+                                              record.category,
+                                              record.state
                                             ]),
                                           )
                                           .toList(),

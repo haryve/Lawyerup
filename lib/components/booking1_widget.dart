@@ -1,6 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/components/schedule_widget.dart';
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
@@ -73,7 +72,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                 width: 20.0,
                 height: 20.0,
                 child: SpinKitFadingCircle(
-                  color: Color(0x9D03A9F4),
+                  color: Color(0x4D03A9F4),
                   size: 20.0,
                 ),
               ),
@@ -87,10 +86,6 @@ class _Booking1WidgetState extends State<Booking1Widget> {
             decoration: BoxDecoration(
               color: FlutterFlowTheme.of(context).secondaryBackground,
               borderRadius: BorderRadius.circular(12.0),
-              border: Border.all(
-                color: FlutterFlowTheme.of(context).alternate,
-                width: 1.0,
-              ),
             ),
             child: Padding(
               padding: EdgeInsetsDirectional.fromSTEB(12.0, 12.0, 12.0, 0.0),
@@ -249,7 +244,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                     color: FlutterFlowTheme.of(context).primary,
                                     iconColor: FlutterFlowTheme.of(context)
                                         .secondaryText,
-                                    weekFormat: false,
+                                    weekFormat: true,
                                     weekStartsMonday: true,
                                     initialDate: _model.startdate,
                                     rowHeight: 80.0,
@@ -523,67 +518,6 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          dateTimeFormat(
-                                            "MMMEd",
-                                            _model.calendarSelectedDay!.start,
-                                            locale: FFLocalizations.of(context)
-                                                .languageCode,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.mukta(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
-                                          'Available at',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.mukta(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
                                           'Morning',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -614,6 +548,43 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                         .fontStyle,
                                               ),
                                         ),
+                                        Text(
+                                          dateTimeFormat(
+                                            "MMMEd",
+                                            _model.calendarSelectedDay!.start,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.mukta(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 10.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
                                       ],
                                     ),
                                     Expanded(
@@ -632,7 +603,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                         selectedChipStyle: ChipStyle(
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
-                                                  .primary,
+                                                  .accent2,
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
                                               .bodyMedium
@@ -651,7 +622,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                 ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .info,
+                                                        .primaryBackground,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
@@ -666,7 +637,8 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                               FlutterFlowTheme.of(context)
                                                   .primaryBackground,
                                           iconSize: 16.0,
-                                          elevation: 0.0,
+                                          elevation: 4.0,
+                                          borderWidth: 1.0,
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                         ),
@@ -705,9 +677,9 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                               ),
                                           iconColor:
                                               FlutterFlowTheme.of(context)
-                                                  .secondaryText,
+                                                  .primaryBackground,
                                           iconSize: 16.0,
-                                          elevation: 0.0,
+                                          elevation: 4.0,
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                         ),
@@ -742,6 +714,37 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
+                                          'Afternoon',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.mukta(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
+                                        Text(
                                           dateTimeFormat(
                                             "MMMEd",
                                             _model.calendarSelectedDay!.start,
@@ -763,65 +766,10 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                           .bodyMedium
                                                           .fontStyle,
                                                 ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
-                                          'Available at',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.mukta(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
-                                          'Afternoon',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.mukta(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .primary,
+                                                        .secondaryText,
+                                                fontSize: 10.0,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
@@ -853,7 +801,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                         selectedChipStyle: ChipStyle(
                                           backgroundColor:
                                               FlutterFlowTheme.of(context)
-                                                  .primary,
+                                                  .accent2,
                                           textStyle: FlutterFlowTheme.of(
                                                   context)
                                               .bodyMedium
@@ -872,7 +820,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                 ),
                                                 color:
                                                     FlutterFlowTheme.of(context)
-                                                        .info,
+                                                        .primaryBackground,
                                                 letterSpacing: 0.0,
                                                 fontWeight:
                                                     FlutterFlowTheme.of(context)
@@ -884,9 +832,11 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                         .fontStyle,
                                               ),
                                           iconColor:
-                                              FlutterFlowTheme.of(context).info,
+                                              FlutterFlowTheme.of(context)
+                                                  .primaryBackground,
                                           iconSize: 16.0,
-                                          elevation: 0.0,
+                                          elevation: 4.0,
+                                          borderWidth: 1.0,
                                           borderRadius:
                                               BorderRadius.circular(8.0),
                                         ),
@@ -962,67 +912,6 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          dateTimeFormat(
-                                            "MMMEd",
-                                            _model.calendarSelectedDay!.start,
-                                            locale: FFLocalizations.of(context)
-                                                .languageCode,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.mukta(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
-                                          'Available at',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.mukta(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
                                           'Evening',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -1053,6 +942,43 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                         .fontStyle,
                                               ),
                                         ),
+                                        Text(
+                                          dateTimeFormat(
+                                            "MMMEd",
+                                            _model.calendarSelectedDay!.start,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.mukta(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 10.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
                                       ],
                                     ),
                                     FlutterFlowChoiceChips(
@@ -1071,7 +997,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                       selectedChipStyle: ChipStyle(
                                         backgroundColor:
                                             FlutterFlowTheme.of(context)
-                                                .primary,
+                                                .accent2,
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1087,7 +1013,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                               ),
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .info,
+                                                      .primaryBackground,
                                               letterSpacing: 0.0,
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
@@ -1098,10 +1024,10 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
-                                        iconColor:
-                                            FlutterFlowTheme.of(context).info,
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         iconSize: 16.0,
-                                        elevation: 0.0,
+                                        elevation: 4.0,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
@@ -1136,7 +1062,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                       .fontStyle,
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .primaryBackground,
                                         iconSize: 16.0,
                                         elevation: 0.0,
                                         borderRadius:
@@ -1170,67 +1096,6 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          dateTimeFormat(
-                                            "MMMEd",
-                                            _model.calendarSelectedDay!.start,
-                                            locale: FFLocalizations.of(context)
-                                                .languageCode,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.mukta(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
-                                          'Available at',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                font: GoogleFonts.mukta(
-                                                  fontWeight:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontWeight,
-                                                  fontStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMedium
-                                                          .fontStyle,
-                                                ),
-                                                letterSpacing: 0.0,
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                        ),
-                                        Text(
                                           'Night',
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -1261,6 +1126,43 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                         .fontStyle,
                                               ),
                                         ),
+                                        Text(
+                                          dateTimeFormat(
+                                            "MMMEd",
+                                            _model.calendarSelectedDay!.start,
+                                            locale: FFLocalizations.of(context)
+                                                .languageCode,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.mukta(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 10.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                        ),
                                       ],
                                     ),
                                     FlutterFlowChoiceChips(
@@ -1277,9 +1179,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                       onChanged: (val) => safeSetState(
                                           () => _model.nightValues = val),
                                       selectedChipStyle: ChipStyle(
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .primary,
+                                        backgroundColor: Color(0xFF03A9F4),
                                         textStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -1295,7 +1195,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                               ),
                                               color:
                                                   FlutterFlowTheme.of(context)
-                                                      .info,
+                                                      .primaryBackground,
                                               letterSpacing: 0.0,
                                               fontWeight:
                                                   FlutterFlowTheme.of(context)
@@ -1306,10 +1206,11 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
-                                        iconColor:
-                                            FlutterFlowTheme.of(context).info,
+                                        iconColor: FlutterFlowTheme.of(context)
+                                            .primaryBackground,
                                         iconSize: 16.0,
-                                        elevation: 0.0,
+                                        elevation: 4.0,
+                                        borderWidth: 1.0,
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
@@ -1344,7 +1245,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                                       .fontStyle,
                                             ),
                                         iconColor: FlutterFlowTheme.of(context)
-                                            .secondaryText,
+                                            .primary,
                                         iconSize: 16.0,
                                         elevation: 0.0,
                                         borderRadius:
@@ -1388,7 +1289,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                               await BookingsRecord.collection.doc().set({
                                 ...createBookingsRecordData(
                                   userref: currentUserReference,
-                                  drref: widget.drref,
+                                  drref: containerLawyersRecord.reference,
                                   date: _model.calendarSelectedDay?.start,
                                   enddate: _model.calendarSelectedDay?.end,
                                 ),
@@ -1417,19 +1318,6 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                       FlutterFlowTheme.of(context).secondary,
                                 ),
                               );
-                              logFirebaseEvent('Button_bottom_sheet');
-                              await showModalBottomSheet(
-                                isScrollControlled: true,
-                                backgroundColor: Colors.transparent,
-                                enableDrag: false,
-                                context: context,
-                                builder: (context) {
-                                  return Padding(
-                                    padding: MediaQuery.viewInsetsOf(context),
-                                    child: ScheduleWidget(),
-                                  );
-                                },
-                              ).then((value) => safeSetState(() {}));
                             },
                             text: 'Set Sessions Availibility ',
                             options: FFButtonOptions(
@@ -1461,7 +1349,7 @@ class _Booking1WidgetState extends State<Booking1Widget> {
                                         .titleSmall
                                         .fontStyle,
                                   ),
-                              elevation: 0.0,
+                              elevation: 4.0,
                               borderRadius: BorderRadius.circular(25.0),
                             ),
                           ),

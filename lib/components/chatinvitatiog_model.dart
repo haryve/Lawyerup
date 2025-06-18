@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'chatinvitatiog_widget.dart' show ChatinvitatiogWidget;
 import 'package:flutter/material.dart';
@@ -9,6 +10,8 @@ class ChatinvitatiogModel extends FlutterFlowModel<ChatinvitatiogWidget> {
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
+  ChatsRecord? chatsref;
 
   @override
   void initState(BuildContext context) {}

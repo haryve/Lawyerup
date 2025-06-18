@@ -4,18 +4,20 @@ import '/components/callbuttonnew/callbuttonnew_widget.dart';
 import '/components/docaiuserrefchat_copy_widget.dart';
 import '/components/docaiuserrefchat_widget.dart';
 import '/components/drawer/drawer_widget.dart';
-import '/components/incomming_call_box/incomming_call_box_widget.dart';
 import '/components/newchatbutton/newchatbutton_widget.dart';
 import '/components/ratingbar/ratingbar_widget.dart';
 import '/components/review/review_widget.dart';
 import '/components/userimage_widget.dart';
 import '/components/videocallbutton/videocallbutton_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
+import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -65,8 +67,16 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
         safeSetState(() {});
         logFirebaseEvent('Doc_firestore_query');
         _model.dclist = await queryLawyersRecordOnce(
-          queryBuilder: (lawyersRecord) =>
-              lawyersRecord.orderBy('created_time', descending: true),
+          queryBuilder: (lawyersRecord) => lawyersRecord.where(Filter.or(
+            Filter(
+              'category',
+              isEqualTo: FFAppState().filter,
+            ),
+            Filter(
+              'Experttype',
+              isEqualTo: FFAppState().filter,
+            ),
+          )),
           limit: 25,
         );
         logFirebaseEvent('Doc_wait__delay');
@@ -99,6 +109,19 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
           ),
         ],
       ),
+      'listViewOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          ShimmerEffect(
+            curve: Curves.easeInOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            color: FlutterFlowTheme.of(context).primaryBackground,
+            angle: 0.524,
+          ),
+        ],
+      ),
       'containerOnPageLoadAnimation1': AnimationInfo(
         trigger: AnimationTrigger.onPageLoad,
         effectsBuilder: () => [
@@ -106,7 +129,7 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
           FadeEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 600.0.ms,
+            duration: 230.0.ms,
             begin: 0.0,
             end: 1.0,
           ),
@@ -119,9 +142,22 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
           RotateEffect(
             curve: Curves.easeInOut,
             delay: 0.0.ms,
-            duration: 1990.0.ms,
-            begin: -2.0,
+            duration: 3000.0.ms,
+            begin: -3.5,
             end: 5.0,
+          ),
+        ],
+      ),
+      'buttonOnPageLoadAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onPageLoad,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          FadeEffect(
+            curve: Curves.easeInOut,
+            delay: 4000.0.ms,
+            duration: 600.0.ms,
+            begin: 0.0,
+            end: 1.0,
           ),
         ],
       ),
@@ -296,6 +332,7 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                 },
               ).then((value) => safeSetState(() {}));
             },
+            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             elevation: 8.0,
             child: Opacity(
               opacity: 0.4,
@@ -304,6 +341,17 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                 color: FlutterFlowTheme.of(context).primary,
                 size: 28.0,
               ).animateOnPageLoad(animationsMap['iconOnPageLoadAnimation']!),
+            ),
+          ),
+        ),
+        drawer: Drawer(
+          elevation: 16.0,
+          child: Padding(
+            padding: EdgeInsets.all(4.0),
+            child: wrapWithModel(
+              model: _model.drawerModel,
+              updateCallback: () => safeSetState(() {}),
+              child: DrawerWidget(),
             ),
           ),
         ),
@@ -343,27 +391,8 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                     onTap: () async {
                                       logFirebaseEvent(
                                           'DOC_PAGE_Container_fh8b3lth_ON_TAP');
-                                      logFirebaseEvent(
-                                          'USERIMAGE_bottom_sheet');
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        context: context,
-                                        builder: (context) {
-                                          return GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: DrawerWidget(),
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => safeSetState(() {}));
+                                      logFirebaseEvent('USERIMAGE_drawer');
+                                      scaffoldKey.currentState!.openDrawer();
                                     },
                                     child: wrapWithModel(
                                       model: _model.userimageModel,
@@ -608,8 +637,8 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                 elevation: 2.0,
                                                 shape: const CircleBorder(),
                                                 child: Container(
-                                                  width: 45.0,
-                                                  height: 45.0,
+                                                  width: 40.0,
+                                                  height: 40.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
@@ -655,81 +684,6 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SingleChildScrollView(
-                    primary: false,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        AuthUserStreamWidget(
-                          builder: (context) =>
-                              StreamBuilder<UsercallmanagementRecord>(
-                            stream: UsercallmanagementRecord.getDocument(
-                                currentUserDocument!.usercallmanagement!),
-                            builder: (context, snapshot) {
-                              // Customize what your widget looks like when it's loading.
-                              if (!snapshot.hasData) {
-                                return Center(
-                                  child: LinearProgressIndicator(
-                                    color: Color(0x68F5F5F5),
-                                  ),
-                                );
-                              }
-
-                              final callUsercallmanagementRecord =
-                                  snapshot.data!;
-
-                              return SingleChildScrollView(
-                                primary: false,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    if (callUsercallmanagementRecord.incoming)
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Expanded(
-                                            child: Container(
-                                              height: 202.0,
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 10.0, 5.0),
-                                                child: wrapWithModel(
-                                                  model: _model
-                                                      .incommingCallBoxModel,
-                                                  updateCallback: () =>
-                                                      safeSetState(() {}),
-                                                  child: IncommingCallBoxWidget(
-                                                    parameter1:
-                                                        callUsercallmanagementRecord
-                                                            .videoCallRequest,
-                                                    voiceall:
-                                                        !callUsercallmanagementRecord
-                                                            .videoCallRequest,
-                                                    callref:
-                                                        callUsercallmanagementRecord
-                                                            .activecallref,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                  ]
-                                      .divide(SizedBox(height: 5.0))
-                                      .addToStart(SizedBox(height: 10.0)),
-                                ),
-                              );
-                            },
                           ),
                         ),
                       ],
@@ -792,7 +746,15 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                 future: FFAppState().docno(
                                   uniqueQueryKey: currentUserUid,
                                   overrideCache: FFAppState().Refresh,
-                                  requestFn: () => queryLawyersRecordCount(),
+                                  requestFn: () =>
+                                      queryLawyersRecordCount().then((result) {
+                                    try {
+                                      _model.firestoreRequestCompleted = true;
+                                      _model.firestoreRequestLastUniqueKey =
+                                          currentUserUid;
+                                    } finally {}
+                                    return result;
+                                  }),
                                 ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
@@ -841,6 +803,460 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
+                                      Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            FlutterFlowDropDown<String>(
+                                              controller: _model
+                                                      .dropDownValueController ??=
+                                                  FormFieldController<String>(
+                                                _model.dropDownValue ??= '',
+                                              ),
+                                              options: List<String>.from([
+                                                'General Physician',
+                                                'Family Physician',
+                                                'Pediatrics',
+                                                'Gynecology',
+                                                'Dermatology',
+                                                'Dentist',
+                                                'Cardiology',
+                                                'Orthopedics',
+                                                'Neurology',
+                                                'Ear, Nose & Throat (ENT)\t',
+                                                'Psychiatrist',
+                                                'Ophthalmology',
+                                                'Gastroenterologist',
+                                                'Nutritionist',
+                                                'Physiotherapist',
+                                                'Pulmonology',
+                                                'Endocrinology',
+                                                'Allergy & Immunology',
+                                                'Nephrology',
+                                                'Rheumatology',
+                                                'Oncology',
+                                                'Geriatrics',
+                                                'Hematologist',
+                                                'General Surgery',
+                                                'Pharmacy'
+                                              ]),
+                                              optionLabels: [
+                                                'General Doctor',
+                                                'Family Doctor',
+                                                'Child Specialist',
+                                                'Women\'s Health',
+                                                'Skin Specialist',
+                                                'Tooth Doctor',
+                                                'Heart Specialist',
+                                                'Bone & Joint Doctor',
+                                                'Brain & Nerves Specialist',
+                                                'Ear, Nose & Throat Specialist',
+                                                'Mental Health Doctor\n',
+                                                'Eye Specialist',
+                                                '\tStomach & Digestion Doctor',
+                                                'Nutrition & Diet Advisor',
+                                                '\tPhysical Therapy',
+                                                'Lung Specialist',
+                                                'Hormones & Diabetes Specialist',
+                                                'Allergy Specialist\n',
+                                                'Kidney Specialist',
+                                                'Joint & Arthritis Specialist',
+                                                'Cancer Specialist',
+                                                'Senior Care Doctor',
+                                                'Blood Specialist',
+                                                'Surgeon (General)',
+                                                'Pharmacy & Medicines'
+                                              ],
+                                              onChanged: (val) async {
+                                                safeSetState(() =>
+                                                    _model.dropDownValue = val);
+                                                logFirebaseEvent(
+                                                    'DOC_DropDown_7lblr009_ON_FORM_WIDGET_SEL');
+                                                logFirebaseEvent(
+                                                    'DropDown_firestore_query');
+                                                _model.doclistcat =
+                                                    await queryLawyersRecordOnce(
+                                                  queryBuilder:
+                                                      (lawyersRecord) =>
+                                                          lawyersRecord.where(
+                                                    'category',
+                                                    isEqualTo:
+                                                        _model.dropDownValue,
+                                                  ),
+                                                  limit: 25,
+                                                );
+                                                logFirebaseEvent(
+                                                    'DropDown_update_app_state');
+                                                FFAppState().filter =
+                                                    _model.dropDownValue!;
+                                                logFirebaseEvent(
+                                                    'DropDown_update_page_state');
+                                                _model.doclist = _model
+                                                    .doclistcat!
+                                                    .toList()
+                                                    .cast<LawyersRecord>();
+                                                safeSetState(() {});
+                                                logFirebaseEvent(
+                                                    'DropDown_widget_animation');
+                                                if (animationsMap[
+                                                        'listViewOnActionTriggerAnimation'] !=
+                                                    null) {
+                                                  await animationsMap[
+                                                          'listViewOnActionTriggerAnimation']!
+                                                      .controller
+                                                      .forward(from: 0.0);
+                                                }
+                                                logFirebaseEvent(
+                                                    'DropDown_refresh_database_request');
+                                                safeSetState(() {
+                                                  FFAppState()
+                                                      .clearDocnoCacheKey(_model
+                                                          .firestoreRequestLastUniqueKey);
+                                                  _model.firestoreRequestCompleted =
+                                                      false;
+                                                });
+                                                await _model
+                                                    .waitForFirestoreRequestCompleted();
+
+                                                safeSetState(() {});
+                                              },
+                                              width: 100.0,
+                                              height: 30.0,
+                                              searchHintTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .override(
+                                                        font: GoogleFonts.mukta(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                              searchTextStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts.mukta(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts.mukta(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                              hintText: 'Doctors >>',
+                                              searchHintText: 'Search...',
+                                              searchCursorColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent2,
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.userMd,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 14.0,
+                                              ),
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              elevation: 2.0,
+                                              borderColor: Colors.transparent,
+                                              borderWidth: 0.0,
+                                              borderRadius: 8.0,
+                                              margin: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              hidesUnderline: true,
+                                              isOverButton: false,
+                                              isSearchable: true,
+                                              isMultiSelect: false,
+                                            ),
+                                            FlutterFlowDropDown<String>(
+                                              controller: _model
+                                                      .dropexpertValueController ??=
+                                                  FormFieldController<String>(
+                                                      null),
+                                              options: [
+                                                'Doctor',
+                                                'Nutritionist',
+                                                'Ayurveda Expert',
+                                                'Homeopathy',
+                                                'Meditation Expert',
+                                                'Yoga Expert',
+                                                'Fitness Expert',
+                                                'psychologist'
+                                              ],
+                                              onChanged: (val) async {
+                                                safeSetState(() => _model
+                                                    .dropexpertValue = val);
+                                                logFirebaseEvent(
+                                                    'DOC_Dropexpert_ON_FORM_WIDGET_SELECTED');
+                                                logFirebaseEvent(
+                                                    'Dropexpert_firestore_query');
+                                                _model.doclistcatCopy =
+                                                    await queryLawyersRecordOnce(
+                                                  queryBuilder:
+                                                      (lawyersRecord) =>
+                                                          lawyersRecord.where(
+                                                    'Experttype',
+                                                    isEqualTo:
+                                                        _model.dropexpertValue,
+                                                  ),
+                                                  limit: 25,
+                                                );
+                                                logFirebaseEvent(
+                                                    'Dropexpert_update_app_state');
+                                                FFAppState().filter =
+                                                    valueOrDefault<String>(
+                                                  _model.dropexpertValue,
+                                                  'Doctor',
+                                                );
+                                                logFirebaseEvent(
+                                                    'Dropexpert_update_page_state');
+                                                _model.doclist = _model
+                                                    .doclistcatCopy!
+                                                    .toList()
+                                                    .cast<LawyersRecord>();
+                                                safeSetState(() {});
+                                                logFirebaseEvent(
+                                                    'Dropexpert_widget_animation');
+                                                if (animationsMap[
+                                                        'listViewOnActionTriggerAnimation'] !=
+                                                    null) {
+                                                  await animationsMap[
+                                                          'listViewOnActionTriggerAnimation']!
+                                                      .controller
+                                                      .forward(from: 0.0);
+                                                }
+                                                logFirebaseEvent(
+                                                    'Dropexpert_refresh_database_request');
+                                                safeSetState(() {
+                                                  FFAppState()
+                                                      .clearDocnoCacheKey(_model
+                                                          .firestoreRequestLastUniqueKey);
+                                                  _model.firestoreRequestCompleted =
+                                                      false;
+                                                });
+                                                await _model
+                                                    .waitForFirestoreRequestCompleted();
+
+                                                safeSetState(() {});
+                                              },
+                                              width: 100.0,
+                                              height: 30.0,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts.mukta(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                              hintText: 'Experts >>',
+                                              icon: FaIcon(
+                                                FontAwesomeIcons.userTie,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 12.0,
+                                              ),
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              elevation: 4.0,
+                                              borderColor: Colors.transparent,
+                                              borderWidth: 0.0,
+                                              borderRadius: 8.0,
+                                              margin: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              hidesUnderline: true,
+                                              isOverButton: false,
+                                              isSearchable: false,
+                                              isMultiSelect: false,
+                                            ),
+                                            FlutterFlowDropDown<String>(
+                                              controller: _model
+                                                      .dropsortValueController ??=
+                                                  FormFieldController<String>(
+                                                      null),
+                                              options: [
+                                                'Online Now',
+                                                'Low To HIgh',
+                                                'High To Low',
+                                                'Oldest',
+                                                'Newest',
+                                                'Popularity',
+                                                'Ratings & Reviews'
+                                              ],
+                                              onChanged: (val) async {
+                                                safeSetState(() =>
+                                                    _model.dropsortValue = val);
+                                                logFirebaseEvent(
+                                                    'DOC_Dropsort_ON_FORM_WIDGET_SELECTED');
+                                                logFirebaseEvent(
+                                                    'Dropsort_update_app_state');
+                                                FFAppState().sort =
+                                                    _model.dropsortValue!;
+                                                safeSetState(() {});
+                                              },
+                                              width: 100.0,
+                                              height: 30.0,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        font: GoogleFonts.mukta(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        fontSize: 12.0,
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
+                                              hintText: 'Sort By >>',
+                                              icon: Icon(
+                                                Icons.currency_rupee_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                size: 12.0,
+                                              ),
+                                              fillColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryBackground,
+                                              elevation: 4.0,
+                                              borderColor: Colors.transparent,
+                                              borderWidth: 0.0,
+                                              borderRadius: 8.0,
+                                              margin: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      12.0, 0.0, 12.0, 0.0),
+                                              hidesUnderline: true,
+                                              isOverButton: false,
+                                              isSearchable: false,
+                                              isMultiSelect: false,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                       Builder(
                                         builder: (context) {
                                           final doclisf =
@@ -864,7 +1280,7 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                               return Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        4.0, 0.0, 4.0, 8.0),
+                                                        4.0, 0.0, 4.0, 4.0),
                                                 child: Container(
                                                   width: 100.0,
                                                   height: 148.0,
@@ -1016,8 +1432,8 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                                             ),
                                                                             child:
                                                                                 CachedNetworkImage(
-                                                                              fadeInDuration: Duration(milliseconds: 1000),
-                                                                              fadeOutDuration: Duration(milliseconds: 1000),
+                                                                              fadeInDuration: Duration(milliseconds: 200),
+                                                                              fadeOutDuration: Duration(milliseconds: 200),
                                                                               imageUrl: doclisfItem.lawyerDp,
                                                                               fit: BoxFit.cover,
                                                                             ),
@@ -1627,6 +2043,9 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                 ),
                                               );
                                             },
+                                          ).animateOnActionTrigger(
+                                            animationsMap[
+                                                'listViewOnActionTriggerAnimation']!,
                                           );
                                         },
                                       ),
@@ -1762,10 +2181,14 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                         BorderRadius.circular(
                                                             8.0),
                                                   ),
-                                                ).animateOnActionTrigger(
-                                                  animationsMap[
-                                                      'buttonOnActionTriggerAnimation']!,
-                                                ),
+                                                )
+                                                    .animateOnPageLoad(
+                                                        animationsMap[
+                                                            'buttonOnPageLoadAnimation']!)
+                                                    .animateOnActionTrigger(
+                                                      animationsMap[
+                                                          'buttonOnActionTriggerAnimation']!,
+                                                    ),
                                               ),
                                             ],
                                           ),
@@ -1873,7 +2296,7 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                             ),
                                                             't3':
                                                                 serializeParam(
-                                                              'Women’s Primary Care',
+                                                              'Women\'s Primary Care',
                                                               ParamType.String,
                                                             ),
                                                             't4':
@@ -3576,12 +3999,12 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                             'Container_navigate_to');
 
                                                         context.pushNamed(
-                                                          PsychiatristsWidget
+                                                          SearchResultscategoryWidget
                                                               .routeName,
                                                           queryParameters: {
-                                                            'doctortype':
+                                                            'category':
                                                                 serializeParam(
-                                                              'Psychiatrist',
+                                                              'Adult Counseling',
                                                               ParamType.String,
                                                             ),
                                                           }.withoutNulls,
@@ -3692,12 +4115,12 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                             'Container_navigate_to');
 
                                                         context.pushNamed(
-                                                          PsychiatristsWidget
+                                                          SearchResultscategoryWidget
                                                               .routeName,
                                                           queryParameters: {
-                                                            'doctortype':
+                                                            'category':
                                                                 serializeParam(
-                                                              'Psychiatrist',
+                                                              'Adult Counseling',
                                                               ParamType.String,
                                                             ),
                                                           }.withoutNulls,
@@ -3805,12 +4228,12 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                             'Container_navigate_to');
 
                                                         context.pushNamed(
-                                                          PsychiatristsWidget
+                                                          SearchResultscategoryWidget
                                                               .routeName,
                                                           queryParameters: {
-                                                            'doctortype':
+                                                            'category':
                                                                 serializeParam(
-                                                              'Psychiatrist',
+                                                              'Student Counseling',
                                                               ParamType.String,
                                                             ),
                                                           }.withoutNulls,
@@ -3930,12 +4353,12 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                             'Container_navigate_to');
 
                                                         context.pushNamed(
-                                                          PsychiatristsWidget
+                                                          SearchResultscategoryWidget
                                                               .routeName,
                                                           queryParameters: {
-                                                            'doctortype':
+                                                            'category':
                                                                 serializeParam(
-                                                              'Psychiatrist',
+                                                              'Marital Counseling',
                                                               ParamType.String,
                                                             ),
                                                           }.withoutNulls,
@@ -6838,7 +7261,7 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                             ),
                                                             't4':
                                                                 serializeParam(
-                                                              'Nutritionist ',
+                                                              'Nutritionist',
                                                               ParamType.String,
                                                             ),
                                                             't5':
@@ -6918,77 +7341,37 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                             padding:
                                                                 EdgeInsets.all(
                                                                     4.0),
-                                                            child: InkWell(
-                                                              splashColor: Colors
-                                                                  .transparent,
-                                                              focusColor: Colors
-                                                                  .transparent,
-                                                              hoverColor: Colors
-                                                                  .transparent,
-                                                              highlightColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              onTap: () async {
-                                                                logFirebaseEvent(
-                                                                    'DOC_PAGE_Column_r8y7cqf9_ON_TAP');
-                                                                logFirebaseEvent(
-                                                                    'Column_navigate_to');
-
-                                                                context
-                                                                    .pushNamed(
-                                                                  PsychiatristsWidget
-                                                                      .routeName,
-                                                                  queryParameters:
-                                                                      {
-                                                                    'doctortype':
-                                                                        serializeParam(
-                                                                      'Skin',
-                                                                      ParamType
-                                                                          .String,
-                                                                    ),
-                                                                  }.withoutNulls,
-                                                                );
-                                                              },
-                                                              child: Column(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                children: [
-                                                                  Expanded(
-                                                                    child:
-                                                                        ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8.0),
-                                                                      child: Image
-                                                                          .asset(
-                                                                        'assets/images/Screenshot_2025-04-25_125543.png',
-                                                                        width:
-                                                                            70.0,
-                                                                        height:
-                                                                            50.0,
-                                                                        fit: BoxFit
-                                                                            .cover,
-                                                                      ),
+                                                            child: Column(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .max,
+                                                              children: [
+                                                                Expanded(
+                                                                  child:
+                                                                      ClipRRect(
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            8.0),
+                                                                    child: Image
+                                                                        .asset(
+                                                                      'assets/images/Screenshot_2025-04-25_125543.png',
+                                                                      width:
+                                                                          70.0,
+                                                                      height:
+                                                                          50.0,
+                                                                      fit: BoxFit
+                                                                          .cover,
                                                                     ),
                                                                   ),
-                                                                  Text(
-                                                                    'DrySkin',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .titleMedium
-                                                                        .override(
-                                                                          font:
-                                                                              GoogleFonts.mukta(
-                                                                            fontWeight:
-                                                                                FlutterFlowTheme.of(context).titleMedium.fontWeight,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).titleMedium.fontStyle,
-                                                                          ),
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryText,
-                                                                          letterSpacing:
-                                                                              0.0,
+                                                                ),
+                                                                Text(
+                                                                  'DrySkin',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleMedium
+                                                                      .override(
+                                                                        font: GoogleFonts
+                                                                            .mukta(
                                                                           fontWeight: FlutterFlowTheme.of(context)
                                                                               .titleMedium
                                                                               .fontWeight,
@@ -6996,9 +7379,19 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                                                                               .titleMedium
                                                                               .fontStyle,
                                                                         ),
-                                                                  ),
-                                                                ],
-                                                              ),
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .primaryText,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .titleMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .titleMedium
+                                                                            .fontStyle,
+                                                                      ),
+                                                                ),
+                                                              ],
                                                             ),
                                                           ),
                                                         ),
@@ -11182,7 +11575,7 @@ class _DocWidgetState extends State<DocWidget> with TickerProviderStateMixin {
                 child: Lottie.asset(
                   'assets/jsons/Animation_-_1746864793853.json',
                   width: 379.1,
-                  height: 131.65,
+                  height: 131.7,
                   fit: BoxFit.contain,
                   frameRate: FrameRate(60.0),
                   animate: true,

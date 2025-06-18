@@ -117,7 +117,7 @@ class _DoctorprofileWidgetState extends State<DoctorprofileWidget>
                 width: 20.0,
                 height: 20.0,
                 child: SpinKitFadingCircle(
-                  color: Color(0x9D03A9F4),
+                  color: Color(0x4D03A9F4),
                   size: 20.0,
                 ),
               ),
@@ -135,6 +135,17 @@ class _DoctorprofileWidgetState extends State<DoctorprofileWidget>
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+            drawer: Drawer(
+              elevation: 16.0,
+              child: Padding(
+                padding: EdgeInsets.all(4.0),
+                child: wrapWithModel(
+                  model: _model.drawerModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: DrawerWidget(),
+                ),
+              ),
+            ),
             body: StreamBuilder<UsersRecord>(
               stream:
                   UsersRecord.getDocument(doctorprofileLawyersRecord.author!),
@@ -146,7 +157,7 @@ class _DoctorprofileWidgetState extends State<DoctorprofileWidget>
                       width: 20.0,
                       height: 20.0,
                       child: SpinKitFadingCircle(
-                        color: Color(0x9D03A9F4),
+                        color: Color(0x4D03A9F4),
                         size: 20.0,
                       ),
                     ),
@@ -198,26 +209,8 @@ class _DoctorprofileWidgetState extends State<DoctorprofileWidget>
                                 onTap: () async {
                                   logFirebaseEvent(
                                       'DOCTORPROFILE_Container_oa2jpmbu_ON_TAP');
-                                  logFirebaseEvent('USERIMAGE_bottom_sheet');
-                                  await showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    backgroundColor: Colors.transparent,
-                                    context: context,
-                                    builder: (context) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          FocusScope.of(context).unfocus();
-                                          FocusManager.instance.primaryFocus
-                                              ?.unfocus();
-                                        },
-                                        child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child: DrawerWidget(),
-                                        ),
-                                      );
-                                    },
-                                  ).then((value) => safeSetState(() {}));
+                                  logFirebaseEvent('USERIMAGE_drawer');
+                                  scaffoldKey.currentState!.openDrawer();
                                 },
                                 child: wrapWithModel(
                                   model: _model.userimageModel,
@@ -2311,7 +2304,7 @@ class _DoctorprofileWidgetState extends State<DoctorprofileWidget>
                                                               child:
                                                                   SpinKitFadingCircle(
                                                                 color: Color(
-                                                                    0x9D03A9F4),
+                                                                    0x4D03A9F4),
                                                                 size: 20.0,
                                                               ),
                                                             ),
@@ -3182,7 +3175,7 @@ class _DoctorprofileWidgetState extends State<DoctorprofileWidget>
                                                                     child:
                                                                         SpinKitFadingCircle(
                                                                       color: Color(
-                                                                          0x9D03A9F4),
+                                                                          0x4D03A9F4),
                                                                       size:
                                                                           20.0,
                                                                     ),

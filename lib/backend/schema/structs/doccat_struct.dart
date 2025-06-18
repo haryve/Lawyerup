@@ -3,55 +3,48 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class DoccatStruct extends FFFirebaseStruct {
   DoccatStruct({
-    List<String>? doc1,
+    String? displayName,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _doc1 = doc1,
+  })  : _displayName = displayName,
         super(firestoreUtilData);
 
-  // "DOC1" field.
-  List<String>? _doc1;
-  List<String> get doc1 => _doc1 ?? const [];
-  set doc1(List<String>? val) => _doc1 = val;
+  // "display_name" field.
+  String? _displayName;
+  String get displayName => _displayName ?? '';
+  set displayName(String? val) => _displayName = val;
 
-  void updateDoc1(Function(List<String>) updateFn) {
-    updateFn(_doc1 ??= []);
-  }
-
-  bool hasDoc1() => _doc1 != null;
+  bool hasDisplayName() => _displayName != null;
 
   static DoccatStruct fromMap(Map<String, dynamic> data) => DoccatStruct(
-        doc1: getDataList(data['DOC1']),
+        displayName: data['display_name'] as String?,
       );
 
   static DoccatStruct? maybeFromMap(dynamic data) =>
       data is Map ? DoccatStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
-        'DOC1': _doc1,
+        'display_name': _displayName,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'DOC1': serializeParam(
-          _doc1,
+        'display_name': serializeParam(
+          _displayName,
           ParamType.String,
-          isList: true,
         ),
       }.withoutNulls;
 
   static DoccatStruct fromSerializableMap(Map<String, dynamic> data) =>
       DoccatStruct(
-        doc1: deserializeParam<String>(
-          data['DOC1'],
+        displayName: deserializeParam(
+          data['display_name'],
           ParamType.String,
-          true,
+          false,
         ),
       );
 
@@ -60,21 +53,22 @@ class DoccatStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
-    const listEquality = ListEquality();
-    return other is DoccatStruct && listEquality.equals(doc1, other.doc1);
+    return other is DoccatStruct && displayName == other.displayName;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([doc1]);
+  int get hashCode => const ListEquality().hash([displayName]);
 }
 
 DoccatStruct createDoccatStruct({
+  String? displayName,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     DoccatStruct(
+      displayName: displayName,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -95,7 +96,7 @@ class _ChatinvitatiogWidgetState extends State<ChatinvitatiogWidget> {
                           width: 20.0,
                           height: 20.0,
                           child: SpinKitFadingCircle(
-                            color: Color(0x9D03A9F4),
+                            color: Color(0x4D03A9F4),
                             size: 20.0,
                           ),
                         ),
@@ -312,55 +313,131 @@ class _ChatinvitatiogWidgetState extends State<ChatinvitatiogWidget> {
                           onPressed: () async {
                             logFirebaseEvent(
                                 'CHATINVITATIOG_SEND_MESSAGE_BTN_ON_TAP');
-                            logFirebaseEvent('Button_backend_call');
-
-                            await ChatinvitationRecord.createDoc(
-                                    columnLawyersRecord.author!)
-                                .set(createChatinvitationRecordData(
-                              sender: currentUserReference,
-                              time: getCurrentTimestamp,
-                              chataccepted: false,
-                              chatRejected: false,
-                              state: 'pending',
-                              message: _model.textController.text,
-                            ));
-                            logFirebaseEvent('Button_backend_call');
-
-                            await columnLawyersRecord.author!.update({
-                              ...mapToFirestore(
-                                {
-                                  'pendingrequests': FieldValue.arrayUnion(
-                                      [currentUserReference]),
-                                },
+                            logFirebaseEvent('Button_firestore_query');
+                            _model.chatsref = await queryChatsRecordOnce(
+                              queryBuilder: (chatsRecord) => chatsRecord.where(
+                                'participantids',
+                                arrayContains: columnLawyersRecord.author,
                               ),
-                            });
-                            logFirebaseEvent('Button_backend_call');
+                              singleRecord: true,
+                            ).then((s) => s.firstOrNull);
+                            if (_model.chatsref!.participantids
+                                .contains(columnLawyersRecord.author)) {
+                              logFirebaseEvent('Button_backend_call');
 
-                            await NotificationsRecord.createDoc(
-                                    columnLawyersRecord.author!)
-                                .set(createNotificationsRecordData(
-                              type: 'chat',
-                              seen: false,
-                              person: currentUserReference,
-                              time: getCurrentTimestamp,
-                              senderdp: currentUserPhoto,
-                              message: _model.textController.text,
-                            ));
-                            logFirebaseEvent(
-                                'Button_trigger_push_notification');
-                            triggerPushNotification(
-                              notificationTitle: currentUserDisplayName,
-                              notificationText: 'Invited you for a chat',
-                              notificationImageUrl: currentUserPhoto,
-                              notificationSound: 'default',
-                              userRefs: [columnLawyersRecord.author!],
-                              initialPageName: 'Exp',
-                              parameterData: {
-                                'rest': 'Chat',
-                              },
-                            );
-                            logFirebaseEvent('Button_bottom_sheet');
-                            Navigator.pop(context);
+                              await _model.chatsref!.reference
+                                  .update(createChatsRecordData(
+                                lastmessage: _model.textController.text,
+                                lastmessagetime:
+                                    columnLawyersRecord.createdTime,
+                                lastmessagetype: 'Text',
+                                lastmessageseen: false,
+                              ));
+                              logFirebaseEvent('Button_backend_call');
+
+                              await columnLawyersRecord.author!.update({
+                                ...mapToFirestore(
+                                  {
+                                    'pendingrequests': FieldValue.arrayUnion(
+                                        [currentUserReference]),
+                                  },
+                                ),
+                              });
+                              logFirebaseEvent('Button_backend_call');
+
+                              await NotificationsRecord.createDoc(
+                                      columnLawyersRecord.author!)
+                                  .set(createNotificationsRecordData(
+                                type: 'chat',
+                                seen: false,
+                                person: currentUserReference,
+                                time: getCurrentTimestamp,
+                                senderdp: currentUserPhoto,
+                                message: _model.textController.text,
+                              ));
+                              logFirebaseEvent('Button_backend_call');
+
+                              await MessagesRecord.createDoc(
+                                      _model.chatsref!.reference)
+                                  .set(createMessagesRecordData(
+                                senderID: currentUserReference,
+                                sendername: currentUserDisplayName,
+                                senderImage: currentUserPhoto,
+                                messagetext: _model.textController.text,
+                                type: 'text',
+                              ));
+                              logFirebaseEvent(
+                                  'Button_trigger_push_notification');
+                              triggerPushNotification(
+                                notificationTitle: currentUserDisplayName,
+                                notificationText: 'Invited you for a chat',
+                                notificationImageUrl: currentUserPhoto,
+                                notificationSound: 'default',
+                                userRefs: [columnLawyersRecord.author!],
+                                initialPageName: 'chatting_page',
+                                parameterData: {
+                                  'participantsimages':
+                                      _model.chatsref?.participantimages,
+                                  'participantnames':
+                                      _model.chatsref?.participantsnames,
+                                  'chatID': _model.chatsref?.reference,
+                                },
+                              );
+                              logFirebaseEvent('Button_bottom_sheet');
+                              Navigator.pop(context);
+                            } else {
+                              logFirebaseEvent('Button_backend_call');
+
+                              await ChatinvitationRecord.createDoc(
+                                      columnLawyersRecord.author!)
+                                  .set(createChatinvitationRecordData(
+                                sender: currentUserReference,
+                                time: getCurrentTimestamp,
+                                chataccepted: false,
+                                chatRejected: false,
+                                state: 'pending',
+                                message: _model.textController.text,
+                              ));
+                              logFirebaseEvent('Button_backend_call');
+
+                              await columnLawyersRecord.author!.update({
+                                ...mapToFirestore(
+                                  {
+                                    'pendingrequests': FieldValue.arrayUnion(
+                                        [currentUserReference]),
+                                  },
+                                ),
+                              });
+                              logFirebaseEvent('Button_backend_call');
+
+                              await NotificationsRecord.createDoc(
+                                      columnLawyersRecord.author!)
+                                  .set(createNotificationsRecordData(
+                                type: 'chat',
+                                seen: false,
+                                person: currentUserReference,
+                                time: getCurrentTimestamp,
+                                senderdp: currentUserPhoto,
+                                message: _model.textController.text,
+                              ));
+                              logFirebaseEvent(
+                                  'Button_trigger_push_notification');
+                              triggerPushNotification(
+                                notificationTitle: currentUserDisplayName,
+                                notificationText: 'Invited you for a chat',
+                                notificationImageUrl: currentUserPhoto,
+                                notificationSound: 'default',
+                                userRefs: [columnLawyersRecord.author!],
+                                initialPageName: 'Exp',
+                                parameterData: {
+                                  'rest': 'Chat',
+                                },
+                              );
+                              logFirebaseEvent('Button_bottom_sheet');
+                              Navigator.pop(context);
+                            }
+
+                            safeSetState(() {});
                           },
                           text: 'Send Message',
                           options: FFButtonOptions(

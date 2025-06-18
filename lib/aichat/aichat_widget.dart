@@ -267,7 +267,7 @@ class _AichatWidgetState extends State<AichatWidget>
                                         width: 20.0,
                                         height: 20.0,
                                         child: SpinKitFadingCircle(
-                                          color: Color(0x9D03A9F4),
+                                          color: Color(0x4D03A9F4),
                                           size: 20.0,
                                         ),
                                       ),
@@ -1045,9 +1045,7 @@ class _AichatWidgetState extends State<AichatWidget>
                               _model.aiworking = true;
                               safeSetState(() {});
                               logFirebaseEvent('IconButton_backend_call');
-                              _model.aroviareso = await OpenAIAPIGroup
-                                  .createChatCompletionCall
-                                  .call(
+                              _model.aroviareso = await SendPromptCall.call(
                                 prompt: _model.textController.text,
                               );
 
@@ -1060,9 +1058,7 @@ class _AichatWidgetState extends State<AichatWidget>
                                     .set(createAichat1RecordData(
                                       userref: currentUserReference,
                                       propmt: _model.textController.text,
-                                      response1: OpenAIAPIGroup
-                                          .createChatCompletionCall
-                                          .respText(
+                                      response1: SendPromptCall.response(
                                         (_model.aroviareso?.jsonBody ?? ''),
                                       ),
                                       time: getCurrentTimestamp,

@@ -28,10 +28,6 @@ class BProfileCreateEditModel
   FocusNode? cityFocusNode;
   TextEditingController? cityTextController;
   String? Function(BuildContext, String?)? cityTextControllerValidator;
-  // State field(s) for bio widget.
-  FocusNode? bioFocusNode;
-  TextEditingController? bioTextController;
-  String? Function(BuildContext, String?)? bioTextControllerValidator;
   // State field(s) for state widget.
   String? stateValue;
   FormFieldController<String>? stateValueController;
@@ -41,6 +37,10 @@ class BProfileCreateEditModel
   set checkboxGroupValues(List<String>? v) =>
       checkboxGroupValueController?.value = v;
 
+  // State field(s) for bio widget.
+  FocusNode? bioFocusNode;
+  TextEditingController? bioTextController;
+  String? Function(BuildContext, String?)? bioTextControllerValidator;
   // State field(s) for phone widget.
   FocusNode? phoneFocusNode;
   TextEditingController? phoneTextController;

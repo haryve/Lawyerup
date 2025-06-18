@@ -44,8 +44,8 @@ class _UserimageWidgetState extends State<UserimageWidget> {
         if (currentUserPhoto != '')
           AuthUserStreamWidget(
             builder: (context) => Container(
-              width: 60.0,
-              height: 60.0,
+              width: 50.0,
+              height: 50.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).primaryBackground,
                 image: DecorationImage(
@@ -62,8 +62,8 @@ class _UserimageWidgetState extends State<UserimageWidget> {
             (valueOrDefault(currentUserDocument?.gender, '') == 'Male'))
           AuthUserStreamWidget(
             builder: (context) => Container(
-              width: 60.0,
-              height: 60.0,
+              width: 50.0,
+              height: 50.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.scaleDown,
@@ -79,8 +79,8 @@ class _UserimageWidgetState extends State<UserimageWidget> {
             (valueOrDefault(currentUserDocument?.gender, '') == 'Female'))
           AuthUserStreamWidget(
             builder: (context) => Container(
-              width: 60.0,
-              height: 60.0,
+              width: 50.0,
+              height: 50.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,

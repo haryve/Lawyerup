@@ -64,6 +64,8 @@
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
 
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>In order to search nearby, this app requires access to your current location.</string>
 	<key>NSCameraUsageDescription</key>
     <string>Please turn on your camera</string>
 	<key>NSMicrophoneUsageDescription</key>
@@ -72,8 +74,6 @@
     <string>Need Access to Photo Library</string>
 	<key>PermissionGroupNotification</key>
     <string>Need notification access</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-    <string> Turn on your Location</string>
 	<key>NSContactsUsageDescription</key>
     <string>Turn on contacts sync</string>
     <key>UIBackgroundModes</key>

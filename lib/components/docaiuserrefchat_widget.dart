@@ -63,7 +63,7 @@ class _DocaiuserrefchatWidgetState extends State<DocaiuserrefchatWidget> {
               width: 20.0,
               height: 20.0,
               child: SpinKitFadingCircle(
-                color: Color(0x9D03A9F4),
+                color: Color(0x4D03A9F4),
                 size: 20.0,
               ),
             ),
@@ -444,25 +444,27 @@ class _DocaiuserrefchatWidgetState extends State<DocaiuserrefchatWidget> {
                                             .primary,
                                         size: 20.0,
                                       ),
-                                    Text(
-                                      'Let\'s see How ${containerLawyersRecord.displayName}  can help you',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.mukta(
+                                    Expanded(
+                                      child: Text(
+                                        'Let\'s see How ${containerLawyersRecord.displayName}  can help you',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.mukta(
+                                                fontWeight: FontWeight.w600,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w600,
                                               fontStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
                                                       .fontStyle,
                                             ),
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w600,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
+                                      ),
                                     ),
                                   ].divide(SizedBox(width: 8.0)),
                                 ),
@@ -500,7 +502,7 @@ class _DocaiuserrefchatWidgetState extends State<DocaiuserrefchatWidget> {
                                                 width: 20.0,
                                                 height: 20.0,
                                                 child: SpinKitFadingCircle(
-                                                  color: Color(0x9D03A9F4),
+                                                  color: Color(0x4D03A9F4),
                                                   size: 20.0,
                                                 ),
                                               ),

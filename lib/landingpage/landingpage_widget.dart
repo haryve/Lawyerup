@@ -5,13 +5,15 @@ import '/components/commentbox/commentbox_widget.dart';
 import '/components/docc_r_d_copy_widget.dart';
 import '/components/drawer/drawer_widget.dart';
 import '/components/incomming_call_box/incomming_call_box_widget.dart';
+import '/components/payment/withdrawfunds/createpost/createpost_widget.dart';
 import '/components/userimage_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/flutter_flow_video_player.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +59,7 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
       FFAppState().aiworking = true;
       safeSetState(() {});
       logFirebaseEvent('Landingpage_wait__delay');
-      await Future.delayed(const Duration(milliseconds: 2000));
+      await Future.delayed(const Duration(milliseconds: 300));
       logFirebaseEvent('Landingpage_update_app_state');
       FFAppState().aiworking = false;
       safeSetState(() {});
@@ -69,37 +71,11 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
         effectsBuilder: () => [
           TintEffect(
             curve: Curves.easeInOut,
-            delay: 1800.0.ms,
+            delay: 0.0.ms,
             duration: 600.0.ms,
             color: FlutterFlowTheme.of(context).primaryBackground,
             begin: 1.0,
             end: 0.0,
-          ),
-        ],
-      ),
-      'circleImageOnPageLoadAnimation1': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 3100.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 1800.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
-          ),
-        ],
-      ),
-      'circleImageOnPageLoadAnimation2': AnimationInfo(
-        trigger: AnimationTrigger.onPageLoad,
-        effectsBuilder: () => [
-          VisibilityEffect(duration: 1.ms),
-          FadeEffect(
-            curve: Curves.easeInOut,
-            delay: 1800.0.ms,
-            duration: 600.0.ms,
-            begin: 0.0,
-            end: 1.0,
           ),
         ],
       ),
@@ -154,6 +130,48 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        floatingActionButton: Align(
+          alignment: AlignmentDirectional(0.9, 0.7),
+          child: FloatingActionButton(
+            onPressed: () async {
+              logFirebaseEvent('LANDINGFloatingActionButton_gwx2ufvd_ON_');
+              logFirebaseEvent('FloatingActionButton_bottom_sheet');
+              await showModalBottomSheet(
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                enableDrag: false,
+                context: context,
+                builder: (context) {
+                  return GestureDetector(
+                    onTap: () {
+                      FocusScope.of(context).unfocus();
+                      FocusManager.instance.primaryFocus?.unfocus();
+                    },
+                    child: Padding(
+                      padding: MediaQuery.viewInsetsOf(context),
+                      child: CreatepostWidget(),
+                    ),
+                  );
+                },
+              ).then((value) => safeSetState(() {}));
+            },
+            backgroundColor: Color(0xA33F51B5),
+            elevation: 8.0,
+            child: FaIcon(
+              FontAwesomeIcons.pencilAlt,
+              color: Color(0xFFF5F5F5),
+              size: 20.0,
+            ),
+          ),
+        ),
+        drawer: Drawer(
+          elevation: 16.0,
+          child: wrapWithModel(
+            model: _model.drawerModel2,
+            updateCallback: () => safeSetState(() {}),
+            child: DrawerWidget(),
+          ),
+        ),
         body: Stack(
           children: [
             Column(
@@ -175,7 +193,7 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                         child: wrapWithModel(
-                          model: _model.drawerModel,
+                          model: _model.drawerModel1,
                           updateCallback: () => safeSetState(() {}),
                           child: DrawerWidget(),
                         ),
@@ -248,39 +266,10 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                             logFirebaseEvent(
                                                                 'LANDINGContainer_6lz258b0_ON_TAP');
                                                             logFirebaseEvent(
-                                                                'USERIMAGE_bottom_sheet');
-                                                            await showModalBottomSheet(
-                                                              isScrollControlled:
-                                                                  true,
-                                                              backgroundColor:
-                                                                  Colors
-                                                                      .transparent,
-                                                              context: context,
-                                                              builder:
-                                                                  (context) {
-                                                                return GestureDetector(
-                                                                  onTap: () {
-                                                                    FocusScope.of(
-                                                                            context)
-                                                                        .unfocus();
-                                                                    FocusManager
-                                                                        .instance
-                                                                        .primaryFocus
-                                                                        ?.unfocus();
-                                                                  },
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: MediaQuery
-                                                                        .viewInsetsOf(
-                                                                            context),
-                                                                    child:
-                                                                        DrawerWidget(),
-                                                                  ),
-                                                                );
-                                                              },
-                                                            ).then((value) =>
-                                                                safeSetState(
-                                                                    () {}));
+                                                                'USERIMAGE_drawer');
+                                                            scaffoldKey
+                                                                .currentState!
+                                                                .openDrawer();
                                                           },
                                                           child: wrapWithModel(
                                                             model: _model
@@ -326,7 +315,7 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                             .fontStyle,
                                                                       ),
                                                                       fontSize:
-                                                                          18.0,
+                                                                          16.0,
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
@@ -367,7 +356,7 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                           color:
                                                                               FlutterFlowTheme.of(context).primaryText,
                                                                           fontSize:
-                                                                              16.0,
+                                                                              14.0,
                                                                           letterSpacing:
                                                                               2.0,
                                                                           fontWeight:
@@ -598,7 +587,7 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                           width: 20.0,
                                           height: 20.0,
                                           child: SpinKitFadingCircle(
-                                            color: Color(0x9D03A9F4),
+                                            color: Color(0x4D03A9F4),
                                             size: 20.0,
                                           ),
                                         ),
@@ -758,67 +747,87 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
-                                                            .fromSTEB(2.0, 0.0,
-                                                                2.0, 0.0),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        logFirebaseEvent(
-                                                            'LANDINGContainer_e8nmagfk_ON_TAP');
-                                                        logFirebaseEvent(
-                                                            'Container_navigate_to');
-
-                                                        context.pushNamed(
-                                                          DoctorprofileWidget
-                                                              .routeName,
-                                                          queryParameters: {
-                                                            'lawyrref':
-                                                                serializeParam(
+                                                            .fromSTEB(4.0, 8.0,
+                                                                4.0, 8.0),
+                                                    child: StreamBuilder<
+                                                        UsersRecord>(
+                                                      stream: UsersRecord
+                                                          .getDocument(
                                                               listViewLawyrPostRecord
-                                                                  .lawyers,
-                                                              ParamType
-                                                                  .DocumentReference,
+                                                                  .postuser!),
+                                                      builder:
+                                                          (context, snapshot) {
+                                                        // Customize what your widget looks like when it's loading.
+                                                        if (!snapshot.hasData) {
+                                                          return Center(
+                                                            child: SizedBox(
+                                                              width: 20.0,
+                                                              height: 20.0,
+                                                              child:
+                                                                  SpinKitFadingCircle(
+                                                                color: Color(
+                                                                    0x4D03A9F4),
+                                                                size: 20.0,
+                                                              ),
                                                             ),
-                                                          }.withoutNulls,
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryBackground,
-                                                          borderRadius:
-                                                              BorderRadius.only(
-                                                            bottomLeft:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    0.0),
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    10.0),
-                                                            topRight:
-                                                                Radius.circular(
-                                                                    10.0),
-                                                          ),
-                                                        ),
-                                                        child: Padding(
-                                                          padding:
-                                                              EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      8.0,
-                                                                      0.0,
-                                                                      8.0),
+                                                          );
+                                                        }
+
+                                                        final rowUsersRecord =
+                                                            snapshot.data!;
+
+                                                        return InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onTap: () async {
+                                                            logFirebaseEvent(
+                                                                'LANDINGPAGE_PAGE_Row_3g1pwif7_ON_TAP');
+                                                            if (listViewLawyrPostRecord
+                                                                    .lawyers ==
+                                                                null) {
+                                                              logFirebaseEvent(
+                                                                  'Row_navigate_to');
+
+                                                              context.pushNamed(
+                                                                DoctorprofileWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'lawyrref':
+                                                                      serializeParam(
+                                                                    rowUsersRecord
+                                                                        .lawref,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            } else {
+                                                              logFirebaseEvent(
+                                                                  'Row_navigate_to');
+
+                                                              context.pushNamed(
+                                                                DoctorprofileWidget
+                                                                    .routeName,
+                                                                queryParameters:
+                                                                    {
+                                                                  'lawyrref':
+                                                                      serializeParam(
+                                                                    listViewLawyrPostRecord
+                                                                        .lawyers,
+                                                                    ParamType
+                                                                        .DocumentReference,
+                                                                  ),
+                                                                }.withoutNulls,
+                                                              );
+                                                            }
+                                                          },
                                                           child: Row(
                                                             mainAxisSize:
                                                                 MainAxisSize
@@ -848,10 +857,12 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                     'assets/images/adaptive_foreground_icon.png',
                                                                     fit: BoxFit
                                                                         .cover,
+                                                                    alignment:
+                                                                        Alignment(
+                                                                            1.0,
+                                                                            1.0),
                                                                   ),
-                                                                ).animateOnPageLoad(
-                                                                    animationsMap[
-                                                                        'circleImageOnPageLoadAnimation1']!),
+                                                                ),
                                                               if (listViewLawyrPostRecord
                                                                           .postuserimage !=
                                                                       '')
@@ -870,20 +881,18 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                     fadeInDuration:
                                                                         Duration(
                                                                             milliseconds:
-                                                                                3000),
+                                                                                100),
                                                                     fadeOutDuration:
                                                                         Duration(
                                                                             milliseconds:
-                                                                                3000),
+                                                                                100),
                                                                     imageUrl:
                                                                         listViewLawyrPostRecord
                                                                             .postuserimage,
                                                                     fit: BoxFit
                                                                         .cover,
                                                                   ),
-                                                                ).animateOnPageLoad(
-                                                                    animationsMap[
-                                                                        'circleImageOnPageLoadAnimation2']!),
+                                                                ),
                                                               Expanded(
                                                                 child: Padding(
                                                                   padding: EdgeInsetsDirectional
@@ -910,7 +919,7 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                           children: [
                                                                             Expanded(
                                                                               child: Text(
-                                                                                listViewLawyrPostRecord.postusername,
+                                                                                listViewLawyrPostRecord.posterName,
                                                                                 style: FlutterFlowTheme.of(context).bodyLarge.override(
                                                                                       font: GoogleFonts.roboto(
                                                                                         fontWeight: FontWeight.w600,
@@ -981,8 +990,8 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                               ),
                                                             ],
                                                           ),
-                                                        ),
-                                                      ),
+                                                        );
+                                                      },
                                                     ),
                                                   ),
                                                   Expanded(
@@ -1025,7 +1034,7 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                   logFirebaseEvent(
                                                                       'LANDINGPAGE_PAGE_Text_275fm9np_ON_TAP');
                                                                   logFirebaseEvent(
-                                                                      'Text_navigate_to');
+                                                                      'RichText_navigate_to');
 
                                                                   context
                                                                       .pushNamed(
@@ -1043,39 +1052,55 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                     }.withoutNulls,
                                                                   );
                                                                 },
-                                                                child: Text(
-                                                                  listViewLawyrPostRecord
-                                                                      .posttext
-                                                                      .maybeHandleOverflow(
-                                                                    maxChars:
-                                                                        350,
-                                                                    replacement:
-                                                                        '…',
-                                                                  ),
-                                                                  style: FlutterFlowTheme.of(
+                                                                child: RichText(
+                                                                  textScaler: MediaQuery.of(
                                                                           context)
-                                                                      .labelMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .roboto(
+                                                                      .textScaler,
+                                                                  text:
+                                                                      TextSpan(
+                                                                    children: [
+                                                                      TextSpan(
+                                                                        text: listViewLawyrPostRecord
+                                                                            .posttext,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .labelMedium
+                                                                            .override(
+                                                                              font: GoogleFonts.roboto(
+                                                                                fontWeight: FontWeight.w500,
+                                                                                fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                              ),
+                                                                              color: Color(0xFF0C0101),
+                                                                              fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FontWeight.w500,
+                                                                              fontStyle: FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                            ),
+                                                                      )
+                                                                    ],
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .labelMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.roboto(
+                                                                            fontWeight:
+                                                                                FontWeight.w500,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                                                                          ),
+                                                                          color:
+                                                                              Color(0xFF0C0101),
+                                                                          fontSize:
+                                                                              14.0,
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight:
                                                                               FontWeight.w500,
                                                                           fontStyle: FlutterFlowTheme.of(context)
                                                                               .labelMedium
                                                                               .fontStyle,
                                                                         ),
-                                                                        color: Color(
-                                                                            0xFF0C0101),
-                                                                        fontSize:
-                                                                            14.0,
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight:
-                                                                            FontWeight.w500,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .labelMedium
-                                                                            .fontStyle,
-                                                                      ),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
@@ -1218,44 +1243,229 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                   if (listViewLawyrPostRecord
                                                               .postvideo !=
                                                           '')
-                                                    Container(
-                                                      width: 400.0,
-                                                      decoration: BoxDecoration(
-                                                        color: FlutterFlowTheme
-                                                                .of(context)
-                                                            .secondaryBackground,
-                                                        borderRadius:
-                                                            BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  0.0),
-                                                        ),
-                                                      ),
-                                                      child:
-                                                          FlutterFlowVideoPlayer(
-                                                        path:
-                                                            listViewLawyrPostRecord
-                                                                .postvideo,
-                                                        videoType:
-                                                            VideoType.network,
+                                                    Expanded(
+                                                      child: Container(
                                                         width: 400.0,
-                                                        height: 600.0,
-                                                        autoPlay: true,
-                                                        looping: false,
-                                                        showControls: false,
-                                                        allowFullScreen: true,
-                                                        allowPlaybackSpeedMenu:
-                                                            false,
-                                                        lazyLoad: false,
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .secondaryBackground,
+                                                          borderRadius:
+                                                              BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    0.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    0.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    0.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    0.0),
+                                                          ),
+                                                        ),
+                                                        child: InkWell(
+                                                          splashColor: Colors
+                                                              .transparent,
+                                                          focusColor: Colors
+                                                              .transparent,
+                                                          hoverColor: Colors
+                                                              .transparent,
+                                                          highlightColor: Colors
+                                                              .transparent,
+                                                          onDoubleTap:
+                                                              () async {
+                                                            logFirebaseEvent(
+                                                                'LANDINGContainer_rhkpricd_ON_DOUBLE_TAP');
+                                                            if (listViewLawyrPostRecord
+                                                                    .userLikes
+                                                                    .contains(
+                                                                        currentUserReference) ==
+                                                                true) {
+                                                              logFirebaseEvent(
+                                                                  'CustomVidPlayer_backend_call');
+
+                                                              await listViewLawyrPostRecord
+                                                                  .reference
+                                                                  .update({
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'UserLikes':
+                                                                        FieldValue
+                                                                            .arrayRemove([
+                                                                      currentUserReference
+                                                                    ]),
+                                                                  },
+                                                                ),
+                                                              });
+                                                            } else {
+                                                              logFirebaseEvent(
+                                                                  'CustomVidPlayer_backend_call');
+
+                                                              await listViewLawyrPostRecord
+                                                                  .reference
+                                                                  .update({
+                                                                ...mapToFirestore(
+                                                                  {
+                                                                    'UserLikes':
+                                                                        FieldValue
+                                                                            .arrayUnion([
+                                                                      currentUserReference
+                                                                    ]),
+                                                                  },
+                                                                ),
+                                                              });
+                                                              logFirebaseEvent(
+                                                                  'CustomVidPlayer_backend_call');
+
+                                                              await NotificationsRecord
+                                                                      .createDoc(
+                                                                          listViewLawyrPostRecord
+                                                                              .postuser!)
+                                                                  .set(
+                                                                      createNotificationsRecordData(
+                                                                type: 'like',
+                                                                seen: false,
+                                                                person:
+                                                                    currentUserReference,
+                                                                time:
+                                                                    getCurrentTimestamp,
+                                                                senderdp:
+                                                                    currentUserPhoto,
+                                                                post: listViewLawyrPostRecord
+                                                                    .reference,
+                                                              ));
+                                                            }
+                                                          },
+                                                          onLongPress:
+                                                              () async {
+                                                            logFirebaseEvent(
+                                                                'LANDINGContainer_rhkpricd_ON_LONG_PRESS');
+                                                            logFirebaseEvent(
+                                                                'CustomVidPlayer_navigate_to');
+
+                                                            context.pushNamed(
+                                                                VideoWidget
+                                                                    .routeName);
+                                                          },
+                                                          child: Container(
+                                                            width: () {
+                                                              if (MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width <
+                                                                  kBreakpointSmall) {
+                                                                return 90.0;
+                                                              } else if (MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width <
+                                                                  kBreakpointMedium) {
+                                                                return 80.0;
+                                                              } else if (MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width <
+                                                                  kBreakpointLarge) {
+                                                                return 100.0;
+                                                              } else {
+                                                                return 80.0;
+                                                              }
+                                                            }(),
+                                                            height: () {
+                                                              if (MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .width <
+                                                                  kBreakpointSmall) {
+                                                                return 500.0;
+                                                              } else if (MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width <
+                                                                  kBreakpointMedium) {
+                                                                return 700.0;
+                                                              } else if (MediaQuery
+                                                                          .sizeOf(
+                                                                              context)
+                                                                      .width <
+                                                                  kBreakpointLarge) {
+                                                                return 800.0;
+                                                              } else {
+                                                                return 500.0;
+                                                              }
+                                                            }(),
+                                                            child: custom_widgets
+                                                                .CustomVidPlayer(
+                                                              width: () {
+                                                                if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointSmall) {
+                                                                  return 90.0;
+                                                                } else if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointMedium) {
+                                                                  return 80.0;
+                                                                } else if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointLarge) {
+                                                                  return 100.0;
+                                                                } else {
+                                                                  return 80.0;
+                                                                }
+                                                              }(),
+                                                              height: () {
+                                                                if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointSmall) {
+                                                                  return 500.0;
+                                                                } else if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointMedium) {
+                                                                  return 700.0;
+                                                                } else if (MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width <
+                                                                    kBreakpointLarge) {
+                                                                  return 800.0;
+                                                                } else {
+                                                                  return 500.0;
+                                                                }
+                                                              }(),
+                                                              videoPath: functions
+                                                                  .videourl(
+                                                                      listViewLawyrPostRecord
+                                                                          .postvideo)!,
+                                                              playPauseVideoAction:
+                                                                  true,
+                                                              looping: false,
+                                                              showControls:
+                                                                  false,
+                                                              allowFullScreen:
+                                                                  false,
+                                                              allowPlayBackSpeedChanging:
+                                                                  true,
+                                                              controlAudio:
+                                                                  true,
+                                                              enablePlayOnFocus:
+                                                                  false,
+                                                              imageThumbnail:
+                                                                  'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/projects/constitutionsimplified-t3p8lc/assets/0g3x53rgx3is/36fb7dd5-c347-4d82-bc4c-1ed6c9ffba18_(1)-modified.png',
+                                                              playbackSpeed:
+                                                                  1.0,
+                                                              startTimeSeconds:
+                                                                  0,
+                                                              actualTimestamp:
+                                                                  (timestampSeconds) async {},
+                                                            ),
+                                                          ),
+                                                        ),
                                                       ),
                                                     ),
                                                   Padding(
@@ -1349,6 +1559,12 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                               post: listViewLawyrPostRecord.reference,
                                                                             ));
                                                                           }
+
+                                                                          logFirebaseEvent(
+                                                                              'Liked_update_page_state');
+
+                                                                          safeSetState(
+                                                                              () {});
                                                                         },
                                                                         child:
                                                                             Icon(
@@ -1425,6 +1641,12 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                               post: listViewLawyrPostRecord.reference,
                                                                             ));
                                                                           }
+
+                                                                          logFirebaseEvent(
+                                                                              'Unliked_update_page_state');
+
+                                                                          safeSetState(
+                                                                              () {});
                                                                         },
                                                                         child:
                                                                             Icon(
@@ -1625,7 +1847,7 @@ class _LandingpageWidgetState extends State<LandingpageWidget>
                                                                                 20.0,
                                                                             child:
                                                                                 SpinKitFadingCircle(
-                                                                              color: Color(0x9D03A9F4),
+                                                                              color: Color(0x4D03A9F4),
                                                                               size: 20.0,
                                                                             ),
                                                                           ),

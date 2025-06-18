@@ -1,3 +1,4 @@
+import '/components/drawer/drawer_widget.dart';
 import '/components/incomming_call_box/incomming_call_box_widget.dart';
 import '/components/userimage_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -42,17 +43,21 @@ class ExpCopyModel extends FlutterFlowModel<ExpCopyWidget> {
       : 0;
   // Model for Incomming_call_box component.
   late IncommingCallBoxModel incommingCallBoxModel;
+  // Model for drawer component.
+  late DrawerModel drawerModel;
 
   @override
   void initState(BuildContext context) {
     userimageModel = createModel(context, () => UserimageModel());
     incommingCallBoxModel = createModel(context, () => IncommingCallBoxModel());
+    drawerModel = createModel(context, () => DrawerModel());
   }
 
   @override
   void dispose() {
     userimageModel.dispose();
     incommingCallBoxModel.dispose();
+    drawerModel.dispose();
   }
 
   /// Action blocks.

@@ -195,6 +195,11 @@ class UsersRecord extends FirestoreRecord {
   List<String> get languages => _languages ?? const [];
   bool hasLanguages() => _languages != null;
 
+  // "Userlocation" field.
+  LatLng? _userlocation;
+  LatLng? get userlocation => _userlocation;
+  bool hasUserlocation() => _userlocation != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -236,6 +241,7 @@ class UsersRecord extends FirestoreRecord {
     _aIchatref = snapshotData['AIchatref'] as DocumentReference?;
     _bankrf = snapshotData['bankrf'] as DocumentReference?;
     _languages = getDataList(snapshotData['Languages']);
+    _userlocation = snapshotData['Userlocation'] as LatLng?;
   }
 
   static CollectionReference get collection =>
@@ -300,6 +306,7 @@ Map<String, dynamic> createUsersRecordData({
   int? age,
   DocumentReference? aIchatref,
   DocumentReference? bankrf,
+  LatLng? userlocation,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -331,6 +338,7 @@ Map<String, dynamic> createUsersRecordData({
       'Age': age,
       'AIchatref': aIchatref,
       'bankrf': bankrf,
+      'Userlocation': userlocation,
     }.withoutNulls,
   );
 
@@ -378,7 +386,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.age == e2?.age &&
         e1?.aIchatref == e2?.aIchatref &&
         e1?.bankrf == e2?.bankrf &&
-        listEquality.equals(e1?.languages, e2?.languages);
+        listEquality.equals(e1?.languages, e2?.languages) &&
+        e1?.userlocation == e2?.userlocation;
   }
 
   @override
@@ -418,7 +427,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.age,
         e?.aIchatref,
         e?.bankrf,
-        e?.languages
+        e?.languages,
+        e?.userlocation
       ]);
 
   @override

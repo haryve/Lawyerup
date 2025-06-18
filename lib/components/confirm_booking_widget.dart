@@ -62,7 +62,7 @@ class _ConfirmBookingWidgetState extends State<ConfirmBookingWidget> {
               width: 20.0,
               height: 20.0,
               child: SpinKitFadingCircle(
-                color: Color(0x9D03A9F4),
+                color: Color(0x4D03A9F4),
                 size: 20.0,
               ),
             ),
@@ -194,34 +194,6 @@ class _ConfirmBookingWidgetState extends State<ConfirmBookingWidget> {
                                       ),
                                     ),
                                   ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: Text(
-                                  'You',
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelSmall
-                                      .override(
-                                        font: GoogleFonts.mukta(
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelSmall
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelSmall
-                                                  .fontStyle,
-                                        ),
-                                        letterSpacing: 0.0,
-                                        fontWeight: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontWeight,
-                                        fontStyle: FlutterFlowTheme.of(context)
-                                            .labelSmall
-                                            .fontStyle,
-                                      ),
                                 ),
                               ),
                               Expanded(

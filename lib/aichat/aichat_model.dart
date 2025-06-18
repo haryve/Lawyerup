@@ -26,7 +26,7 @@ class AichatModel extends FlutterFlowModel<AichatWidget> {
 
   // Stores action output result for [Backend Call - API (arovia vision)] action in Icon widget.
   ApiCallResponse? docrepCopy;
-  // Stores action output result for [Backend Call - API (createChatCompletion)] action in IconButton widget.
+  // Stores action output result for [Backend Call - API (sendPrompt)] action in IconButton widget.
   ApiCallResponse? aroviareso;
 
   @override

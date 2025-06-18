@@ -200,7 +200,6 @@ final parametersBuilderMap =
           't10': getParameter<String>(data, 't10'),
         },
       ),
-  'Onboarding02': ParameterData.none(),
   'aichat': ParameterData.none(),
   'Exp': (data) async => ParameterData(
         allParams: {
@@ -210,6 +209,13 @@ final parametersBuilderMap =
   'Landingpage': ParameterData.none(),
   'Doc': ParameterData.none(),
   'ExpCopy': ParameterData.none(),
+  'video': ParameterData.none(),
+  'video2Copy': ParameterData.none(),
+  'Docfindermap': ParameterData.none(),
+  'Finddoconmap': ParameterData.none(),
+  'onboarding': ParameterData.none(),
+  'Onboarding2': ParameterData.none(),
+  'videoCopy': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

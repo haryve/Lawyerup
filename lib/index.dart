@@ -56,9 +56,15 @@ export '/support/privacypolicy/privacypolicy_widget.dart'
 export '/home/register/doctors/drarovia/drarovia_widget.dart'
     show DraroviaWidget;
 export '/home/psychiatrists/psychiatrists_widget.dart' show PsychiatristsWidget;
-export '/onboarding02/onboarding02_widget.dart' show Onboarding02Widget;
 export '/aichat/aichat_widget.dart' show AichatWidget;
 export '/exp/exp_widget.dart' show ExpWidget;
 export '/landingpage/landingpage_widget.dart' show LandingpageWidget;
 export '/doc/doc_widget.dart' show DocWidget;
 export '/exp_copy/exp_copy_widget.dart' show ExpCopyWidget;
+export '/video/video_widget.dart' show VideoWidget;
+export '/video2_copy/video2_copy_widget.dart' show Video2CopyWidget;
+export '/docfindermap/docfindermap_widget.dart' show DocfindermapWidget;
+export '/finddoconmap/finddoconmap_widget.dart' show FinddoconmapWidget;
+export '/onboarding/onboarding_widget.dart' show OnboardingWidget;
+export '/onboarding2/onboarding2_widget.dart' show Onboarding2Widget;
+export '/video_copy/video_copy_widget.dart' show VideoCopyWidget;

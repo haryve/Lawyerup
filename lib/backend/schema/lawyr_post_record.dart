@@ -85,6 +85,21 @@ class LawyrPostRecord extends FirestoreRecord {
   DocumentReference? get comments => _comments;
   bool hasComments() => _comments != null;
 
+  // "Postype" field.
+  String? _postype;
+  String get postype => _postype ?? '';
+  bool hasPostype() => _postype != null;
+
+  // "compressimage" field.
+  List<String>? _compressimage;
+  List<String> get compressimage => _compressimage ?? const [];
+  bool hasCompressimage() => _compressimage != null;
+
+  // "imagethumbvnail" field.
+  String? _imagethumbvnail;
+  String get imagethumbvnail => _imagethumbvnail ?? '';
+  bool hasImagethumbvnail() => _imagethumbvnail != null;
+
   void _initializeFields() {
     _postimage = snapshotData['postimage'] as String?;
     _postuser = snapshotData['Postuser'] as DocumentReference?;
@@ -100,6 +115,9 @@ class LawyrPostRecord extends FirestoreRecord {
     _lawyers = snapshotData['lawyers'] as DocumentReference?;
     _postvideo = snapshotData['postvideo'] as String?;
     _comments = snapshotData['comments'] as DocumentReference?;
+    _postype = snapshotData['Postype'] as String?;
+    _compressimage = getDataList(snapshotData['compressimage']);
+    _imagethumbvnail = snapshotData['imagethumbvnail'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -149,6 +167,8 @@ Map<String, dynamic> createLawyrPostRecordData({
   DocumentReference? lawyers,
   String? postvideo,
   DocumentReference? comments,
+  String? postype,
+  String? imagethumbvnail,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -164,6 +184,8 @@ Map<String, dynamic> createLawyrPostRecordData({
       'lawyers': lawyers,
       'postvideo': postvideo,
       'comments': comments,
+      'Postype': postype,
+      'imagethumbvnail': imagethumbvnail,
     }.withoutNulls,
   );
 
@@ -189,7 +211,10 @@ class LawyrPostRecordDocumentEquality implements Equality<LawyrPostRecord> {
         e1?.posterName == e2?.posterName &&
         e1?.lawyers == e2?.lawyers &&
         e1?.postvideo == e2?.postvideo &&
-        e1?.comments == e2?.comments;
+        e1?.comments == e2?.comments &&
+        e1?.postype == e2?.postype &&
+        listEquality.equals(e1?.compressimage, e2?.compressimage) &&
+        e1?.imagethumbvnail == e2?.imagethumbvnail;
   }
 
   @override
@@ -207,7 +232,10 @@ class LawyrPostRecordDocumentEquality implements Equality<LawyrPostRecord> {
         e?.posterName,
         e?.lawyers,
         e?.postvideo,
-        e?.comments
+        e?.comments,
+        e?.postype,
+        e?.compressimage,
+        e?.imagethumbvnail
       ]);
 
   @override

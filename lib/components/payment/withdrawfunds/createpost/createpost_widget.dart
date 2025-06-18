@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/upload_data.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -45,12 +46,9 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
     )..addListener(() => safeSetState(() {}));
 
     _model.fullName1TextController ??= TextEditingController(
-        text: valueOrDefault<String>(
-      OpenAIAPIGroup.createChatCompletionCall.respText(
-        (_model.apiResultmkd?.jsonBody ?? ''),
-      ),
-      'Hi,',
-    ));
+        text: _model.string != null && _model.string != ''
+            ? _model.string
+            : 'Hi');
     _model.fullName1FocusNode ??= FocusNode();
 
     _model.fullName2TextController ??= TextEditingController();
@@ -73,11 +71,11 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsets.all(14.0),
-      child: Stack(
-        children: [
-          Material(
+    return Stack(
+      children: [
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 100.0),
+          child: Material(
             color: Colors.transparent,
             elevation: 5.0,
             shape: RoundedRectangleBorder(
@@ -90,6 +88,7 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
             ),
             child: Container(
               width: 350.0,
+              height: 600.0,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
                 borderRadius: BorderRadius.only(
@@ -289,149 +288,181 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
                                     ),
-                                    child: TextFormField(
-                                      controller:
-                                          _model.fullName1TextController,
-                                      focusNode: _model.fullName1FocusNode,
-                                      onChanged: (_) => EasyDebounce.debounce(
-                                        '_model.fullName1TextController',
-                                        Duration(milliseconds: 2000),
-                                        () => safeSetState(() {}),
-                                      ),
-                                      autofocus: true,
-                                      textInputAction: TextInputAction.done,
-                                      obscureText: false,
-                                      decoration: InputDecoration(
-                                        labelStyle: FlutterFlowTheme.of(context)
-                                            .bodySmall
-                                            .override(
-                                              font: GoogleFonts.mukta(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .fontStyle,
-                                              ),
-                                              letterSpacing: 0.0,
-                                              fontWeight:
+                                    child: SingleChildScrollView(
+                                      primary: false,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          TextFormField(
+                                            controller:
+                                                _model.fullName1TextController,
+                                            focusNode:
+                                                _model.fullName1FocusNode,
+                                            onChanged: (_) =>
+                                                EasyDebounce.debounce(
+                                              '_model.fullName1TextController',
+                                              Duration(milliseconds: 2000),
+                                              () => safeSetState(() {}),
+                                            ),
+                                            autofocus: true,
+                                            textInputAction:
+                                                TextInputAction.done,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              labelStyle:
                                                   FlutterFlowTheme.of(context)
                                                       .bodySmall
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmall
-                                                      .fontStyle,
-                                            ),
-                                        hintText:
-                                            'Type here Post something new...',
-                                        hintStyle: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.lexendDeca(
-                                                fontWeight: FontWeight.normal,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              fontSize: 14.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight: FontWeight.normal,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                        enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                        ),
-                                        focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                        ),
-                                        errorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                        ),
-                                        focusedErrorBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                            color: Color(0x00000000),
-                                            width: 1.0,
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(4.0),
-                                        ),
-                                        filled: true,
-                                        fillColor: FlutterFlowTheme.of(context)
-                                            .secondaryBackground,
-                                        contentPadding:
-                                            EdgeInsetsDirectional.fromSTEB(
-                                                16.0, 24.0, 20.0, 24.0),
-                                        suffixIcon: _model
-                                                .fullName1TextController!
-                                                .text
-                                                .isNotEmpty
-                                            ? InkWell(
-                                                onTap: () async {
-                                                  _model.fullName1TextController
-                                                      ?.clear();
-                                                  safeSetState(() {});
-                                                },
-                                                child: Icon(
-                                                  Icons.clear,
-                                                  color: Color(0xFF757575),
-                                                  size: 22.0,
+                                                      .override(
+                                                        font: GoogleFonts.mukta(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
+                                                        ),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .fontStyle,
+                                                      ),
+                                              hintText:
+                                                  'Type here Post something new...',
+                                              hintStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.lexendDeca(
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .secondaryText,
+                                                    fontSize: 14.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                              enabledBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  width: 1.0,
                                                 ),
-                                              )
-                                            : null,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            font: GoogleFonts.mukta(
-                                              fontWeight:
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              focusedBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              errorBorder: OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              focusedErrorBorder:
+                                                  OutlineInputBorder(
+                                                borderSide: BorderSide(
+                                                  color: Color(0x00000000),
+                                                  width: 1.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(4.0),
+                                              ),
+                                              filled: true,
+                                              fillColor:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
+                                                      .secondaryBackground,
+                                              contentPadding:
+                                                  EdgeInsetsDirectional
+                                                      .fromSTEB(16.0, 24.0,
+                                                          20.0, 24.0),
+                                              suffixIcon: _model
+                                                      .fullName1TextController!
+                                                      .text
+                                                      .isNotEmpty
+                                                  ? InkWell(
+                                                      onTap: () async {
+                                                        _model
+                                                            .fullName1TextController
+                                                            ?.clear();
+                                                        safeSetState(() {});
+                                                      },
+                                                      child: Icon(
+                                                        Icons.clear,
+                                                        color:
+                                                            Color(0xFF757575),
+                                                        size: 22.0,
+                                                      ),
+                                                    )
+                                                  : null,
                                             ),
-                                            letterSpacing: 0.0,
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  font: GoogleFonts.mukta(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                            maxLines: null,
+                                            validator: _model
+                                                .fullName1TextControllerValidator
+                                                .asValidator(context),
                                           ),
-                                      maxLines: null,
-                                      validator: _model
-                                          .fullName1TextControllerValidator
-                                          .asValidator(context),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Divider(
@@ -491,7 +522,7 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                       .createChatCompletionCall
                                                       .call(
                                                 apikey:
-                                                    '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',
+                                                    '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',
                                                 prompt: _model
                                                     .fullName1TextController
                                                     .text,
@@ -503,6 +534,16 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                 _model.fullName1TextController
                                                     ?.clear();
                                               });
+                                              logFirebaseEvent(
+                                                  'Container_update_component_state');
+                                              _model.string = OpenAIAPIGroup
+                                                  .createChatCompletionCall
+                                                  .respText(
+                                                (_model.apiResultmkd
+                                                        ?.jsonBody ??
+                                                    ''),
+                                              );
+                                              safeSetState(() {});
                                               logFirebaseEvent(
                                                   'Container_update_app_state');
                                               FFAppState().aiworking = false;
@@ -643,6 +684,13 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                       'CREATEPOST_COMP_Row_pwjy9s2p_ON_TAP');
                                                   logFirebaseEvent(
                                                       'Row_backend_call');
+                                                  _model.lawyer =
+                                                      await LawyersRecord
+                                                          .getDocumentOnce(
+                                                              currentUserDocument!
+                                                                  .lawref!);
+                                                  logFirebaseEvent(
+                                                      'Row_backend_call');
 
                                                   await LawyrPostRecord
                                                       .collection
@@ -656,16 +704,26 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                             .text,
                                                         postusername:
                                                             currentUserDisplayName,
-                                                        postuserimage:
-                                                            currentUserPhoto,
-                                                        posterName:
-                                                            currentUserDisplayName,
+                                                        postuserimage: _model
+                                                            .lawyer?.lawyerDp,
+                                                        posterName: _model
+                                                            .lawyer
+                                                            ?.displayName,
                                                         createdtime:
                                                             getCurrentTimestamp,
                                                       ));
                                                   logFirebaseEvent(
+                                                      'Row_clear_text_fields_pin_codes');
+                                                  safeSetState(() {
+                                                    _model
+                                                        .fullName1TextController
+                                                        ?.clear();
+                                                  });
+                                                  logFirebaseEvent(
                                                       'Row_bottom_sheet');
                                                   Navigator.pop(context);
+
+                                                  safeSetState(() {});
                                                 },
                                                 child: Row(
                                                   mainAxisSize:
@@ -744,12 +802,11 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                               ),
                               Column(
                                 mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Container(
                                     width: double.infinity,
-                                    height: 230.0,
+                                    height: 262.34,
                                     decoration: BoxDecoration(
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
@@ -1021,7 +1078,8 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment: AlignmentDirectional(0.0, 1.0),
+                                      alignment:
+                                          AlignmentDirectional(0.0, -1.0),
                                       child: Material(
                                         color: Colors.transparent,
                                         elevation: 4.0,
@@ -1205,10 +1263,13 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                               'Row_show_snack_bar');
                                                           ScaffoldMessenger.of(
                                                                   context)
+                                                              .clearSnackBars();
+                                                          ScaffoldMessenger.of(
+                                                                  context)
                                                               .showSnackBar(
                                                             SnackBar(
                                                               content: Text(
-                                                                'Please Enter A text',
+                                                                'Please Enter a text',
                                                                 style:
                                                                     TextStyle(
                                                                   color: FlutterFlowTheme.of(
@@ -1218,7 +1279,7 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                               ),
                                                               duration: Duration(
                                                                   milliseconds:
-                                                                      4000),
+                                                                      2200),
                                                               backgroundColor:
                                                                   FlutterFlowTheme.of(
                                                                           context)
@@ -1230,6 +1291,12 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                                   '') {
                                                             logFirebaseEvent(
                                                                 'Row_backend_call');
+                                                            _model.law1 = await LawyersRecord
+                                                                .getDocumentOnce(
+                                                                    currentUserDocument!
+                                                                        .lawref!);
+                                                            logFirebaseEvent(
+                                                                'Row_backend_call');
 
                                                             await LawyrPostRecord
                                                                 .collection
@@ -1242,22 +1309,32 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                                       .fullName2TextController
                                                                       .text,
                                                                   postusername:
-                                                                      valueOrDefault(
-                                                                          currentUserDocument
-                                                                              ?.userName,
-                                                                          ''),
+                                                                      _model
+                                                                          .law1
+                                                                          ?.displayName,
                                                                   postuserimage:
-                                                                      currentUserPhoto,
+                                                                      _model
+                                                                          .law1
+                                                                          ?.lawyerDp,
                                                                   posterName:
                                                                       currentUserDisplayName,
                                                                   createdtime:
                                                                       getCurrentTimestamp,
+                                                                  lawyers: _model
+                                                                      .lawyer
+                                                                      ?.reference,
                                                                 ));
                                                             logFirebaseEvent(
                                                                 'Row_bottom_sheet');
                                                             Navigator.pop(
                                                                 context);
                                                           } else {
+                                                            logFirebaseEvent(
+                                                                'Row_backend_call');
+                                                            _model.law2 = await LawyersRecord
+                                                                .getDocumentOnce(
+                                                                    currentUserDocument!
+                                                                        .lawref!);
                                                             logFirebaseEvent(
                                                                 'Row_backend_call');
 
@@ -1267,23 +1344,29 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                                 .set(
                                                                     createLawyrPostRecordData(
                                                                   postimage: _model
-                                                                      .uploadedFileUrl_postimageui,
+                                                                      .compressedimage,
                                                                   postuser:
                                                                       currentUserReference,
                                                                   posttext: _model
                                                                       .fullName2TextController
                                                                       .text,
                                                                   postusername:
-                                                                      valueOrDefault(
-                                                                          currentUserDocument
-                                                                              ?.userName,
-                                                                          ''),
-                                                                  postuserimage:
-                                                                      currentUserPhoto,
-                                                                  posterName:
                                                                       currentUserDisplayName,
+                                                                  postuserimage:
+                                                                      _model
+                                                                          .law2
+                                                                          ?.lawyerDp,
+                                                                  posterName: _model
+                                                                      .law2
+                                                                      ?.displayName,
                                                                   createdtime:
                                                                       getCurrentTimestamp,
+                                                                  lawyers: _model
+                                                                      .lawyer
+                                                                      ?.reference,
+                                                                  imagethumbvnail:
+                                                                      _model
+                                                                          .compressedimage,
                                                                 ));
                                                             logFirebaseEvent(
                                                                 'Row_bottom_sheet');
@@ -1291,6 +1374,8 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                                 context);
                                                           }
                                                         }
+
+                                                        safeSetState(() {});
                                                       },
                                                       child: Row(
                                                         mainAxisSize:
@@ -1369,543 +1454,500 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                   ),
                                 ],
                               ),
-                              SingleChildScrollView(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Column(
+                              Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 12.0),
+                                    child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Expanded(
-                                          child: Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 12.0),
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: FlutterFlowVideoPlayer(
-                                                    path: _model
-                                                        .uploadedFileUrl_postimageuiv,
-                                                    videoType:
-                                                        VideoType.network,
-                                                    autoPlay: false,
-                                                    looping: true,
-                                                    showControls: true,
-                                                    allowFullScreen: true,
-                                                    allowPlaybackSpeedMenu:
-                                                        false,
-                                                  ),
-                                                ),
-                                              ],
+                                        if (_model.uploadedFileUrl_postimageuiv !=
+                                                '')
+                                          Expanded(
+                                            child: FlutterFlowVideoPlayer(
+                                              path: _model
+                                                  .uploadedFileUrl_postimageuiv,
+                                              videoType: VideoType.network,
+                                              autoPlay: false,
+                                              looping: true,
+                                              showControls: true,
+                                              allowFullScreen: true,
+                                              allowPlaybackSpeedMenu: false,
                                             ),
                                           ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 10.0),
+                                    child: Container(
+                                      width: double.infinity,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                      ),
+                                      child: TextFormField(
+                                        controller:
+                                            _model.fullName3TextController,
+                                        focusNode: _model.fullName3FocusNode,
+                                        onChanged: (_) => EasyDebounce.debounce(
+                                          '_model.fullName3TextController',
+                                          Duration(milliseconds: 2000),
+                                          () => safeSetState(() {}),
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 10.0),
-                                          child: Container(
-                                            width: double.infinity,
-                                            decoration: BoxDecoration(
+                                        autofocus: true,
+                                        textInputAction: TextInputAction.done,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                font: GoogleFonts.mukta(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .fontStyle,
+                                                ),
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodySmall
+                                                        .fontStyle,
+                                              ),
+                                          hintText:
+                                              'Type here Post something new...',
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.lexendDeca(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .secondaryBackground,
+                                              width: 1.0,
                                             ),
-                                            child: TextFormField(
-                                              controller: _model
-                                                  .fullName3TextController,
-                                              focusNode:
-                                                  _model.fullName3FocusNode,
-                                              onChanged: (_) =>
-                                                  EasyDebounce.debounce(
-                                                '_model.fullName3TextController',
-                                                Duration(milliseconds: 2000),
-                                                () => safeSetState(() {}),
-                                              ),
-                                              autofocus: true,
-                                              textInputAction:
-                                                  TextInputAction.done,
-                                              obscureText: false,
-                                              decoration: InputDecoration(
-                                                labelStyle:
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(4.0),
+                                          ),
+                                          filled: true,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .secondaryBackground,
+                                          contentPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 24.0, 20.0, 24.0),
+                                          suffixIcon: _model
+                                                  .fullName3TextController!
+                                                  .text
+                                                  .isNotEmpty
+                                              ? InkWell(
+                                                  onTap: () async {
+                                                    _model
+                                                        .fullName3TextController
+                                                        ?.clear();
+                                                    safeSetState(() {});
+                                                  },
+                                                  child: Icon(
+                                                    Icons.clear,
+                                                    color: Color(0xFF757575),
+                                                    size: 22.0,
+                                                  ),
+                                                )
+                                              : null,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              font: GoogleFonts.mukta(
+                                                fontWeight:
                                                     FlutterFlowTheme.of(context)
-                                                        .bodySmall
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.mukta(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmall
-                                                                    .fontStyle,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmall
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodySmall
-                                                                  .fontStyle,
-                                                        ),
-                                                hintText:
-                                                    'Type here Post something new...',
-                                                hintStyle: FlutterFlowTheme.of(
-                                                        context)
-                                                    .bodyMedium
-                                                    .override(
-                                                      font: GoogleFonts
-                                                          .lexendDeca(
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .secondaryText,
-                                                      fontSize: 14.0,
-                                                      letterSpacing: 0.0,
-                                                      fontWeight:
-                                                          FontWeight.normal,
-                                                      fontStyle:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .fontStyle,
-                                                    ),
-                                                enabledBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.0),
-                                                ),
-                                                focusedBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.0),
-                                                ),
-                                                errorBorder: OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.0),
-                                                ),
-                                                focusedErrorBorder:
-                                                    OutlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                    color: Color(0x00000000),
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          4.0),
-                                                ),
-                                                filled: true,
-                                                fillColor:
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
                                                     FlutterFlowTheme.of(context)
-                                                        .secondaryBackground,
-                                                contentPadding:
-                                                    EdgeInsetsDirectional
-                                                        .fromSTEB(16.0, 24.0,
-                                                            20.0, 24.0),
-                                                suffixIcon: _model
-                                                        .fullName3TextController!
-                                                        .text
-                                                        .isNotEmpty
-                                                    ? InkWell(
-                                                        onTap: () async {
-                                                          _model
-                                                              .fullName3TextController
-                                                              ?.clear();
-                                                          safeSetState(() {});
-                                                        },
-                                                        child: Icon(
-                                                          Icons.clear,
-                                                          color:
-                                                              Color(0xFF757575),
-                                                          size: 22.0,
-                                                        ),
-                                                      )
-                                                    : null,
+                                                        .bodyMedium
+                                                        .fontStyle,
                                               ),
-                                              style:
+                                              letterSpacing: 0.0,
+                                              fontWeight:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
-                                                      .override(
-                                                        font: GoogleFonts.mukta(
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                        letterSpacing: 0.0,
-                                                        fontWeight:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontWeight,
-                                                        fontStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .fontStyle,
-                                                      ),
-                                              maxLines: null,
-                                              validator: _model
-                                                  .fullName3TextControllerValidator
-                                                  .asValidator(context),
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
-                                          ),
-                                        ),
-                                        Divider(
-                                          height: 4.0,
-                                          thickness: 1.0,
-                                          color: Color(0xFFE0E3E7),
-                                        ),
+                                        maxLines: null,
+                                        validator: _model
+                                            .fullName3TextControllerValidator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(
+                                    height: 4.0,
+                                    thickness: 1.0,
+                                    color: Color(0xFFE0E3E7),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 4.0, 16.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  8.0, 4.0, 16.0, 0.0),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        8.0, 0.0, 0.0, 0.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderRadius: 8.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 50.0,
-                                                  icon: Icon(
-                                                    Icons
-                                                        .video_collection_sharp,
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    size: 24.0,
-                                                  ),
-                                                  onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'CREATEPOST_video_collection_sharp_ICN_ON');
-                                                    logFirebaseEvent(
-                                                        'IconButton_upload_media_to_firebase');
-                                                    final selectedMedia =
-                                                        await selectMediaWithSourceBottomSheet(
-                                                      context: context,
-                                                      allowPhoto: false,
-                                                      allowVideo: true,
-                                                    );
-                                                    if (selectedMedia != null &&
-                                                        selectedMedia.every((m) =>
-                                                            validateFileFormat(
-                                                                m.storagePath,
-                                                                context))) {
-                                                      safeSetState(() => _model
-                                                              .isDataUploading_postimageuiv =
-                                                          true);
-                                                      var selectedUploadedFiles =
-                                                          <FFUploadedFile>[];
+                                                  8.0, 0.0, 0.0, 0.0),
+                                          child: FlutterFlowIconButton(
+                                            borderRadius: 8.0,
+                                            borderWidth: 1.0,
+                                            buttonSize: 50.0,
+                                            icon: Icon(
+                                              Icons.video_collection_sharp,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 24.0,
+                                            ),
+                                            onPressed: () async {
+                                              logFirebaseEvent(
+                                                  'CREATEPOST_video_collection_sharp_ICN_ON');
+                                              logFirebaseEvent(
+                                                  'IconButton_upload_media_to_firebase');
+                                              final selectedMedia =
+                                                  await selectMediaWithSourceBottomSheet(
+                                                context: context,
+                                                allowPhoto: false,
+                                                allowVideo: true,
+                                              );
+                                              if (selectedMedia != null &&
+                                                  selectedMedia.every((m) =>
+                                                      validateFileFormat(
+                                                          m.storagePath,
+                                                          context))) {
+                                                safeSetState(() => _model
+                                                        .isDataUploading_postimageuiv =
+                                                    true);
+                                                var selectedUploadedFiles =
+                                                    <FFUploadedFile>[];
 
-                                                      var downloadUrls =
-                                                          <String>[];
-                                                      try {
-                                                        showUploadMessage(
-                                                          context,
-                                                          'Uploading file...',
-                                                          showLoading: true,
-                                                        );
-                                                        selectedUploadedFiles =
-                                                            selectedMedia
-                                                                .map((m) =>
-                                                                    FFUploadedFile(
-                                                                      name: m
-                                                                          .storagePath
-                                                                          .split(
-                                                                              '/')
-                                                                          .last,
-                                                                      bytes: m
-                                                                          .bytes,
-                                                                      height: m
-                                                                          .dimensions
-                                                                          ?.height,
-                                                                      width: m
-                                                                          .dimensions
-                                                                          ?.width,
-                                                                      blurHash:
-                                                                          m.blurHash,
-                                                                    ))
-                                                                .toList();
+                                                var downloadUrls = <String>[];
+                                                try {
+                                                  showUploadMessage(
+                                                    context,
+                                                    'Uploading file...',
+                                                    showLoading: true,
+                                                  );
+                                                  selectedUploadedFiles =
+                                                      selectedMedia
+                                                          .map((m) =>
+                                                              FFUploadedFile(
+                                                                name: m
+                                                                    .storagePath
+                                                                    .split('/')
+                                                                    .last,
+                                                                bytes: m.bytes,
+                                                                height: m
+                                                                    .dimensions
+                                                                    ?.height,
+                                                                width: m
+                                                                    .dimensions
+                                                                    ?.width,
+                                                                blurHash:
+                                                                    m.blurHash,
+                                                              ))
+                                                          .toList();
 
-                                                        downloadUrls =
-                                                            (await Future.wait(
-                                                          selectedMedia.map(
-                                                            (m) async =>
-                                                                await uploadData(
-                                                                    m.storagePath,
-                                                                    m.bytes),
-                                                          ),
-                                                        ))
-                                                                .where((u) =>
-                                                                    u != null)
-                                                                .map((u) => u!)
-                                                                .toList();
-                                                      } finally {
-                                                        ScaffoldMessenger.of(
-                                                                context)
-                                                            .hideCurrentSnackBar();
-                                                        _model.isDataUploading_postimageuiv =
-                                                            false;
-                                                      }
-                                                      if (selectedUploadedFiles
-                                                                  .length ==
-                                                              selectedMedia
-                                                                  .length &&
-                                                          downloadUrls.length ==
-                                                              selectedMedia
-                                                                  .length) {
-                                                        safeSetState(() {
-                                                          _model.uploadedLocalFile_postimageuiv =
-                                                              selectedUploadedFiles
-                                                                  .first;
-                                                          _model.uploadedFileUrl_postimageuiv =
-                                                              downloadUrls
-                                                                  .first;
-                                                        });
-                                                        showUploadMessage(
-                                                            context,
-                                                            'Success!');
-                                                      } else {
-                                                        safeSetState(() {});
-                                                        showUploadMessage(
-                                                            context,
-                                                            'Failed to upload data');
-                                                        return;
-                                                      }
-                                                    }
-                                                  },
+                                                  downloadUrls =
+                                                      (await Future.wait(
+                                                    selectedMedia.map(
+                                                      (m) async =>
+                                                          await uploadData(
+                                                              m.storagePath,
+                                                              m.bytes),
+                                                    ),
+                                                  ))
+                                                          .where(
+                                                              (u) => u != null)
+                                                          .map((u) => u!)
+                                                          .toList();
+                                                } finally {
+                                                  ScaffoldMessenger.of(context)
+                                                      .hideCurrentSnackBar();
+                                                  _model.isDataUploading_postimageuiv =
+                                                      false;
+                                                }
+                                                if (selectedUploadedFiles
+                                                            .length ==
+                                                        selectedMedia.length &&
+                                                    downloadUrls.length ==
+                                                        selectedMedia.length) {
+                                                  safeSetState(() {
+                                                    _model.uploadedLocalFile_postimageuiv =
+                                                        selectedUploadedFiles
+                                                            .first;
+                                                    _model.uploadedFileUrl_postimageuiv =
+                                                        downloadUrls.first;
+                                                  });
+                                                  showUploadMessage(
+                                                      context, 'Success!');
+                                                } else {
+                                                  safeSetState(() {});
+                                                  showUploadMessage(context,
+                                                      'Failed to upload data');
+                                                  return;
+                                                }
+                                              }
+                                            },
+                                          ),
+                                        ),
+                                        Expanded(
+                                          child: Material(
+                                            color: Colors.transparent,
+                                            elevation: 2.0,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.only(
+                                                bottomLeft:
+                                                    Radius.circular(0.0),
+                                                bottomRight:
+                                                    Radius.circular(8.0),
+                                                topLeft: Radius.circular(0.0),
+                                                topRight: Radius.circular(8.0),
+                                              ),
+                                            ),
+                                            child: Container(
+                                              width: 150.0,
+                                              height: 63.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                borderRadius: BorderRadius.only(
+                                                  bottomLeft:
+                                                      Radius.circular(0.0),
+                                                  bottomRight:
+                                                      Radius.circular(8.0),
+                                                  topLeft: Radius.circular(0.0),
+                                                  topRight:
+                                                      Radius.circular(8.0),
                                                 ),
                                               ),
-                                              Expanded(
-                                                child: Material(
-                                                  color: Colors.transparent,
-                                                  elevation: 2.0,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.only(
-                                                      bottomLeft:
-                                                          Radius.circular(0.0),
-                                                      bottomRight:
-                                                          Radius.circular(8.0),
-                                                      topLeft:
-                                                          Radius.circular(0.0),
-                                                      topRight:
-                                                          Radius.circular(8.0),
-                                                    ),
-                                                  ),
-                                                  child: Container(
-                                                    width: 150.0,
-                                                    height: 63.0,
-                                                    decoration: BoxDecoration(
-                                                      color: FlutterFlowTheme
-                                                              .of(context)
-                                                          .secondaryBackground,
-                                                      borderRadius:
-                                                          BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                8.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                0.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                8.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  logFirebaseEvent(
+                                                      'CREATEPOST_COMP_Row_w92jfvh2_ON_TAP');
+                                                  if (_model.fullName3TextController
+                                                              .text ==
+                                                          '') {
+                                                    logFirebaseEvent(
+                                                        'Row_show_snack_bar');
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          'Please Enter A text',
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
                                                       ),
-                                                    ),
-                                                    child: InkWell(
-                                                      splashColor:
-                                                          Colors.transparent,
-                                                      focusColor:
-                                                          Colors.transparent,
-                                                      hoverColor:
-                                                          Colors.transparent,
-                                                      highlightColor:
-                                                          Colors.transparent,
-                                                      onTap: () async {
-                                                        logFirebaseEvent(
-                                                            'CREATEPOST_COMP_Row_w92jfvh2_ON_TAP');
-                                                        if (_model.fullName3TextController
-                                                                    .text ==
-                                                                '') {
-                                                          logFirebaseEvent(
-                                                              'Row_show_snack_bar');
-                                                          ScaffoldMessenger.of(
-                                                                  context)
-                                                              .showSnackBar(
-                                                            SnackBar(
-                                                              content: Text(
-                                                                'Please Enter A text',
-                                                                style:
-                                                                    TextStyle(
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                ),
-                                                              ),
-                                                              duration: Duration(
-                                                                  milliseconds:
-                                                                      4000),
-                                                              backgroundColor:
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .secondary,
-                                                            ),
-                                                          );
-                                                        } else {
-                                                          if (_model.uploadedFileUrl_postimageuiv ==
-                                                                  '') {
-                                                            logFirebaseEvent(
-                                                                'Row_backend_call');
+                                                    );
+                                                  } else {
+                                                    if (_model.uploadedFileUrl_postimageuiv ==
+                                                            '') {
+                                                      logFirebaseEvent(
+                                                          'Row_backend_call');
+                                                      _model.law3 =
+                                                          await LawyersRecord
+                                                              .getDocumentOnce(
+                                                                  currentUserDocument!
+                                                                      .lawref!);
+                                                      logFirebaseEvent(
+                                                          'Row_custom_action');
+                                                      _model.compressedimage =
+                                                          await actions
+                                                              .generateCompressedVideoThumbnail(
+                                                        _model
+                                                            .uploadedFileUrl_postimageuiv,
+                                                      );
+                                                      logFirebaseEvent(
+                                                          'Row_backend_call');
 
-                                                            await LawyrPostRecord
-                                                                .collection
-                                                                .doc()
-                                                                .set(
-                                                                    createLawyrPostRecordData(
-                                                                  postuser:
-                                                                      currentUserReference,
-                                                                  posttext: _model
-                                                                      .fullName3TextController
-                                                                      .text,
-                                                                  postusername:
-                                                                      valueOrDefault(
-                                                                          currentUserDocument
-                                                                              ?.userName,
-                                                                          ''),
-                                                                  postuserimage:
-                                                                      currentUserPhoto,
-                                                                  posterName:
-                                                                      currentUserDisplayName,
-                                                                  createdtime:
-                                                                      getCurrentTimestamp,
-                                                                ));
-                                                            logFirebaseEvent(
-                                                                'Row_bottom_sheet');
-                                                            Navigator.pop(
-                                                                context);
-                                                          } else {
-                                                            logFirebaseEvent(
-                                                                'Row_backend_call');
+                                                      await LawyrPostRecord
+                                                          .collection
+                                                          .doc()
+                                                          .set(
+                                                              createLawyrPostRecordData(
+                                                            postuser:
+                                                                currentUserReference,
+                                                            posttext: _model
+                                                                .fullName3TextController
+                                                                .text,
+                                                            postusername:
+                                                                valueOrDefault(
+                                                                    currentUserDocument
+                                                                        ?.userName,
+                                                                    ''),
+                                                            postuserimage:
+                                                                currentUserPhoto,
+                                                            posterName:
+                                                                currentUserDisplayName,
+                                                            createdtime:
+                                                                getCurrentTimestamp,
+                                                            lawyers: _model.law3
+                                                                ?.reference,
+                                                            imagethumbvnail: _model
+                                                                .compressedimage,
+                                                          ));
+                                                      logFirebaseEvent(
+                                                          'Row_bottom_sheet');
+                                                      Navigator.pop(context);
+                                                    } else {
+                                                      logFirebaseEvent(
+                                                          'Row_backend_call');
+                                                      _model.law4 =
+                                                          await LawyersRecord
+                                                              .getDocumentOnce(
+                                                                  currentUserDocument!
+                                                                      .lawref!);
+                                                      logFirebaseEvent(
+                                                          'Row_backend_call');
 
-                                                            await LawyrPostRecord
-                                                                .collection
-                                                                .doc()
-                                                                .set(
-                                                                    createLawyrPostRecordData(
-                                                                  postuser:
-                                                                      currentUserReference,
-                                                                  posttext: _model
-                                                                      .fullName3TextController
-                                                                      .text,
-                                                                  postusername:
-                                                                      valueOrDefault(
-                                                                          currentUserDocument
-                                                                              ?.userName,
-                                                                          ''),
-                                                                  postuserimage:
-                                                                      currentUserPhoto,
-                                                                  posterName:
-                                                                      currentUserDisplayName,
-                                                                  createdtime:
-                                                                      getCurrentTimestamp,
-                                                                  postvideo: _model
-                                                                      .uploadedFileUrl_postimageuiv,
-                                                                ));
-                                                            logFirebaseEvent(
-                                                                'Row_bottom_sheet');
-                                                            Navigator.pop(
-                                                                context);
-                                                          }
-                                                        }
-                                                      },
-                                                      child: Row(
-                                                        mainAxisSize:
-                                                            MainAxisSize.max,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .center,
-                                                        children: [
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        10.0,
-                                                                        0.0,
-                                                                        12.0,
-                                                                        0.0),
-                                                            child: Text(
-                                                              'Post',
-                                                              style: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .bodyMedium
-                                                                  .override(
-                                                                    font: GoogleFonts
-                                                                        .mukta(
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w500,
-                                                                      fontStyle: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .fontStyle,
-                                                                    ),
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .secondary,
-                                                                    letterSpacing:
-                                                                        0.0,
+                                                      await LawyrPostRecord
+                                                          .collection
+                                                          .doc()
+                                                          .set(
+                                                              createLawyrPostRecordData(
+                                                            postuser:
+                                                                currentUserReference,
+                                                            posttext: _model
+                                                                .fullName3TextController
+                                                                .text,
+                                                            postusername:
+                                                                valueOrDefault(
+                                                                    currentUserDocument
+                                                                        ?.userName,
+                                                                    ''),
+                                                            postuserimage:
+                                                                currentUserPhoto,
+                                                            posterName:
+                                                                currentUserDisplayName,
+                                                            createdtime:
+                                                                getCurrentTimestamp,
+                                                            postvideo: _model
+                                                                .uploadedFileUrl_postimageuiv,
+                                                            lawyers: _model.law4
+                                                                ?.reference,
+                                                          ));
+                                                      logFirebaseEvent(
+                                                          'Row_bottom_sheet');
+                                                      Navigator.pop(context);
+                                                    }
+                                                  }
+
+                                                  safeSetState(() {});
+                                                },
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  12.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        'Post',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  font:
+                                                                      GoogleFonts
+                                                                          .mukta(
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w500,
@@ -1914,38 +1956,48 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
                                                                         .bodyMedium
                                                                         .fontStyle,
                                                                   ),
-                                                            ),
-                                                          ),
-                                                          Padding(
-                                                            padding:
-                                                                EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        0.0,
-                                                                        1.0,
-                                                                        0.0),
-                                                            child: Icon(
-                                                              Icons
-                                                                  .send_rounded,
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .secondary,
-                                                              size: 28.0,
-                                                            ),
-                                                          ),
-                                                        ],
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .secondary,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                       ),
                                                     ),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  1.0,
+                                                                  0.0),
+                                                      child: Icon(
+                                                        Icons.send_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondary,
+                                                        size: 28.0,
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
-                                            ],
+                                            ),
                                           ),
                                         ),
                                       ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -1957,19 +2009,19 @@ class _CreatepostWidgetState extends State<CreatepostWidget>
               ),
             ),
           ),
-          if (FFAppState().aiworking)
-            Align(
-              alignment: AlignmentDirectional(0.0, 0.24),
-              child: Lottie.asset(
-                'assets/jsons/Animation_-_1730887418501.json',
-                width: 384.0,
-                height: 225.0,
-                fit: BoxFit.contain,
-                animate: true,
-              ),
+        ),
+        if (FFAppState().aiworking)
+          Align(
+            alignment: AlignmentDirectional(0.0, 0.24),
+            child: Lottie.asset(
+              'assets/jsons/Animation_-_1730887418501.json',
+              width: 384.0,
+              height: 225.0,
+              fit: BoxFit.contain,
+              animate: true,
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 }

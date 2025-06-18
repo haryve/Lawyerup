@@ -653,7 +653,7 @@ class _MobileloginWidgetState extends State<MobileloginWidget>
                                             }
 
                                             context.goNamedAuth(
-                                                ExpCopyWidget.routeName,
+                                                DocWidget.routeName,
                                                 context.mounted);
                                           },
                                           text: 'Continue with Apple',

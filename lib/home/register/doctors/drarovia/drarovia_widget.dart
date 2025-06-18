@@ -70,7 +70,7 @@ class _DraroviaWidgetState extends State<DraroviaWidget> {
           title: Align(
             alignment: AlignmentDirectional(-1.0, 0.0),
             child: Text(
-              'Dr Aroviai\'s Profile',
+              'Dr Arovia\'s Profile',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
                     font: GoogleFonts.outfit(
                       fontWeight: FontWeight.w500,

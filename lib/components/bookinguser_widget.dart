@@ -87,7 +87,7 @@ class _BookinguserWidgetState extends State<BookinguserWidget> {
                     width: 20.0,
                     height: 20.0,
                     child: SpinKitFadingCircle(
-                      color: Color(0x9D03A9F4),
+                      color: Color(0x4D03A9F4),
                       size: 20.0,
                     ),
                   ),
@@ -671,9 +671,7 @@ class _BookinguserWidgetState extends State<BookinguserWidget> {
                                                   width: 42.0,
                                                   height: 18.0,
                                                   decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .accent2,
+                                                    color: Color(0xFF03A9F4),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12.0),

@@ -14,10 +14,12 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 class OpenAIAPIGroup {
   static String getBaseUrl({
     String? apikey =
-        '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',
+        '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',
   }) =>
       'https://api.openai.com/v1';
-  static Map<String, String> headers = {};
+  static Map<String, String> headers = {
+    'Content-Type': 'application/json',
+  };
   static CreateChatCompletionCall createChatCompletionCall =
       CreateChatCompletionCall();
   static CreateChatCompletionCopyCall createChatCompletionCopyCall =
@@ -97,8 +99,10 @@ class OpenAIAPIGroup {
 class CreateChatCompletionCall {
   Future<ApiCallResponse> call({
     String? prompt = '',
+    String? userId = '',
+    String? sessionId = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -106,24 +110,14 @@ class CreateChatCompletionCall {
 
     final ffApiRequestBody = '''
 {
-  "model": "gpt-4o",
-  "messages": [
-    {
-      "role": "system",
-      "content": "Don't use emojis,dont use too much ** ,be little friendly indian Act as a digital doctor receptionist (name - Arovia) — the CareMeez Virtual Health Expert — who:• Listens empathetically to user health concerns•  Offers safe, common first-aid or OTC suggestions when appropriate • Clearly warns of risks and never oversteps into prescription-only advice • ALWAYS Escalates to real doctor consults AND SPECIFY DOCTORS CATEGORY THE SPECIALIST GIVE USER WHOM HE/SHE CAN CONSULT ALSO TELLS ISSUES AND WHY PEOPLE GO TO THESE SPECIALISTS• Keeps tone warm, professional, and simple at all times,be casual friendly humble and make make sure people can understand it keep it lucid as simple as possible"
-    },
-    {
-      "role": "user",
-      "content": "${prompt}"
-    }
-  ]
+  "prompt": "${prompt}"
 }''';
     return ApiManager.instance.makeApiCall(
       callName: 'createChatCompletion',
-      apiUrl: '${baseUrl}/chat/completions',
+      apiUrl: '${baseUrl}/chat',
       callType: ApiCallType.POST,
       headers: {
-        'Authorization': 'Bearer ${apikey}',
+        'Content-Type': 'application/json',
       },
       params: {},
       body: ffApiRequestBody,
@@ -147,7 +141,7 @@ class CreateChatCompletionCopyCall {
   Future<ApiCallResponse> call({
     String? prompt = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -172,6 +166,7 @@ class CreateChatCompletionCopyCall {
       apiUrl: '${baseUrl}/chat/completions',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apikey}',
       },
       params: {},
@@ -197,7 +192,7 @@ class AroviaVisionCall {
     String? prompt = '',
     String? image = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -234,6 +229,7 @@ class AroviaVisionCall {
       apiUrl: '${baseUrl}/chat/completions',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apikey}',
       },
       params: {},
@@ -258,7 +254,7 @@ class CreateCompletionCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -289,6 +285,7 @@ class CreateCompletionCall {
       apiUrl: '${baseUrl}/completions',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -308,7 +305,7 @@ class CreateEditCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -328,6 +325,7 @@ class CreateEditCall {
       apiUrl: '${baseUrl}/edits',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -347,7 +345,7 @@ class CreateImageCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -369,6 +367,7 @@ class CreateImageCall {
       apiUrl: '${baseUrl}/images/generations',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -388,7 +387,7 @@ class CreateImageEditCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -399,6 +398,7 @@ class CreateImageEditCall {
       apiUrl: '${baseUrl}/images/edits',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -417,7 +417,7 @@ class CreateImageVariationCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -428,6 +428,7 @@ class CreateImageVariationCall {
       apiUrl: '${baseUrl}/images/variations',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -446,7 +447,7 @@ class CreateEmbeddingCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -464,6 +465,7 @@ class CreateEmbeddingCall {
       apiUrl: '${baseUrl}/embeddings',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -483,7 +485,7 @@ class CreateSpeechCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -502,6 +504,7 @@ class CreateSpeechCall {
       apiUrl: '${baseUrl}/audio/speech',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -521,7 +524,7 @@ class CreateTranscriptionCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -532,6 +535,7 @@ class CreateTranscriptionCall {
       apiUrl: '${baseUrl}/audio/transcriptions',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -550,7 +554,7 @@ class CreateTranslationCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -561,6 +565,7 @@ class CreateTranslationCall {
       apiUrl: '${baseUrl}/audio/translations',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -580,7 +585,7 @@ class ListFilesCall {
     String? purpose = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -591,6 +596,7 @@ class ListFilesCall {
       apiUrl: '${baseUrl}/files',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -610,7 +616,7 @@ class CreateFileCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -621,6 +627,7 @@ class CreateFileCall {
       apiUrl: '${baseUrl}/files',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -640,7 +647,7 @@ class DeleteFileCall {
     String? fileId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -651,6 +658,7 @@ class DeleteFileCall {
       apiUrl: '${baseUrl}/files/${fileId}',
       callType: ApiCallType.DELETE,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -669,7 +677,7 @@ class RetrieveFileCall {
     String? fileId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -680,6 +688,7 @@ class RetrieveFileCall {
       apiUrl: '${baseUrl}/files/${fileId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -698,7 +707,7 @@ class DownloadFileCall {
     String? fileId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -709,6 +718,7 @@ class DownloadFileCall {
       apiUrl: '${baseUrl}/files/${fileId}/content',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -726,7 +736,7 @@ class CreateFineTuningJobCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -749,6 +759,7 @@ class CreateFineTuningJobCall {
       apiUrl: '${baseUrl}/fine_tuning/jobs',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -770,7 +781,7 @@ class ListPaginatedFineTuningJobsCall {
     int? limit,
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -781,6 +792,7 @@ class ListPaginatedFineTuningJobsCall {
       apiUrl: '${baseUrl}/fine_tuning/jobs',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -802,7 +814,7 @@ class RetrieveFineTuningJobCall {
     String? fineTuningJobId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -813,6 +825,7 @@ class RetrieveFineTuningJobCall {
       apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -833,7 +846,7 @@ class ListFineTuningEventsCall {
     int? limit,
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -844,6 +857,7 @@ class ListFineTuningEventsCall {
       apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}/events',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -865,7 +879,7 @@ class CancelFineTuningJobCall {
     String? fineTuningJobId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -876,6 +890,7 @@ class CancelFineTuningJobCall {
       apiUrl: '${baseUrl}/fine_tuning/jobs/${fineTuningJobId}/cancel',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -894,7 +909,7 @@ class CreateFineTuneCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -924,6 +939,7 @@ class CreateFineTuneCall {
       apiUrl: '${baseUrl}/fine-tunes',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -943,7 +959,7 @@ class ListFineTunesCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -954,6 +970,7 @@ class ListFineTunesCall {
       apiUrl: '${baseUrl}/fine-tunes',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -972,7 +989,7 @@ class RetrieveFineTuneCall {
     String? fineTuneId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -983,6 +1000,7 @@ class RetrieveFineTuneCall {
       apiUrl: '${baseUrl}/fine-tunes/${fineTuneId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1001,7 +1019,7 @@ class CancelFineTuneCall {
     String? fineTuneId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1012,6 +1030,7 @@ class CancelFineTuneCall {
       apiUrl: '${baseUrl}/fine-tunes/${fineTuneId}/cancel',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1032,7 +1051,7 @@ class ListFineTuneEventsCall {
     bool? stream,
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1043,6 +1062,7 @@ class ListFineTuneEventsCall {
       apiUrl: '${baseUrl}/fine-tunes/${fineTuneId}/events',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -1062,7 +1082,7 @@ class ListModelsCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1073,6 +1093,7 @@ class ListModelsCall {
       apiUrl: '${baseUrl}/models',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1091,7 +1112,7 @@ class RetrieveModelCall {
     String? model = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1102,6 +1123,7 @@ class RetrieveModelCall {
       apiUrl: '${baseUrl}/models/${model}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1120,7 +1142,7 @@ class DeleteModelCall {
     String? model = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1131,6 +1153,7 @@ class DeleteModelCall {
       apiUrl: '${baseUrl}/models/${model}',
       callType: ApiCallType.DELETE,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1148,7 +1171,7 @@ class CreateModerationCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1164,6 +1187,7 @@ class CreateModerationCall {
       apiUrl: '${baseUrl}/moderations',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1187,7 +1211,7 @@ class ListAssistantsCall {
     String? before = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1198,6 +1222,7 @@ class ListAssistantsCall {
       apiUrl: '${baseUrl}/assistants',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -1220,7 +1245,7 @@ class CreateAssistantCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1245,6 +1270,7 @@ class CreateAssistantCall {
       apiUrl: '${baseUrl}/assistants',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1265,7 +1291,7 @@ class GetAssistantCall {
     String? assistantId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1276,6 +1302,7 @@ class GetAssistantCall {
       apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1294,7 +1321,7 @@ class ModifyAssistantCall {
     String? assistantId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1319,6 +1346,7 @@ class ModifyAssistantCall {
       apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1339,7 +1367,7 @@ class DeleteAssistantCall {
     String? assistantId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1350,6 +1378,7 @@ class DeleteAssistantCall {
       apiUrl: '${baseUrl}/assistants/${assistantId}',
       callType: ApiCallType.DELETE,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1367,7 +1396,7 @@ class CreateThreadCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1392,6 +1421,7 @@ class CreateThreadCall {
       apiUrl: '${baseUrl}/threads',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1412,7 +1442,7 @@ class GetThreadCall {
     String? threadId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1423,6 +1453,7 @@ class GetThreadCall {
       apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1441,7 +1472,7 @@ class ModifyThreadCall {
     String? threadId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1456,6 +1487,7 @@ class ModifyThreadCall {
       apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1476,7 +1508,7 @@ class DeleteThreadCall {
     String? threadId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1487,6 +1519,7 @@ class DeleteThreadCall {
       apiUrl: '${baseUrl}/threads/${threadId}',
       callType: ApiCallType.DELETE,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1509,7 +1542,7 @@ class ListMessagesCall {
     String? before = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1520,6 +1553,7 @@ class ListMessagesCall {
       apiUrl: '${baseUrl}/threads/${threadId}/messages',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -1543,7 +1577,7 @@ class CreateMessageCall {
     String? threadId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1563,6 +1597,7 @@ class CreateMessageCall {
       apiUrl: '${baseUrl}/threads/${threadId}/messages',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1584,7 +1619,7 @@ class GetMessageCall {
     String? messageId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1595,6 +1630,7 @@ class GetMessageCall {
       apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1614,7 +1650,7 @@ class ModifyMessageCall {
     String? messageId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1629,6 +1665,7 @@ class ModifyMessageCall {
       apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1648,7 +1685,7 @@ class CreateThreadAndRunCall {
   Future<ApiCallResponse> call({
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1682,6 +1719,7 @@ class CreateThreadAndRunCall {
       apiUrl: '${baseUrl}/threads/runs',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1706,7 +1744,7 @@ class ListRunsCall {
     String? before = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1717,6 +1755,7 @@ class ListRunsCall {
       apiUrl: '${baseUrl}/threads/${threadId}/runs',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -1740,7 +1779,7 @@ class CreateRunCall {
     String? threadId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1761,6 +1800,7 @@ class CreateRunCall {
       apiUrl: '${baseUrl}/threads/${threadId}/runs',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1782,7 +1822,7 @@ class GetRunCall {
     String? runId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1793,6 +1833,7 @@ class GetRunCall {
       apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1812,7 +1853,7 @@ class ModifyRunCall {
     String? runId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1827,6 +1868,7 @@ class ModifyRunCall {
       apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1848,7 +1890,7 @@ class SubmitToolOuputsToRunCall {
     String? runId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1869,6 +1911,7 @@ class SubmitToolOuputsToRunCall {
           '${baseUrl}/threads/${threadId}/runs/${runId}/submit_tool_outputs',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1890,7 +1933,7 @@ class CancelRunCall {
     String? runId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1901,6 +1944,7 @@ class CancelRunCall {
       apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/cancel',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1925,7 +1969,7 @@ class ListRunStepsCall {
     String? before = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1936,6 +1980,7 @@ class ListRunStepsCall {
       apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/steps',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -1961,7 +2006,7 @@ class GetRunStepCall {
     String? stepId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -1972,6 +2017,7 @@ class GetRunStepCall {
       apiUrl: '${baseUrl}/threads/${threadId}/runs/${runId}/steps/${stepId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -1994,7 +2040,7 @@ class ListAssistantFilesCall {
     String? before = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -2005,6 +2051,7 @@ class ListAssistantFilesCall {
       apiUrl: '${baseUrl}/assistants/${assistantId}/files',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -2028,7 +2075,7 @@ class CreateAssistantFileCall {
     String? assistantId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -2043,6 +2090,7 @@ class CreateAssistantFileCall {
       apiUrl: '${baseUrl}/assistants/${assistantId}/files',
       callType: ApiCallType.POST,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -2064,7 +2112,7 @@ class GetAssistantFileCall {
     String? fileId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -2075,6 +2123,7 @@ class GetAssistantFileCall {
       apiUrl: '${baseUrl}/assistants/${assistantId}/files/${fileId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -2094,7 +2143,7 @@ class DeleteAssistantFileCall {
     String? fileId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -2105,6 +2154,7 @@ class DeleteAssistantFileCall {
       apiUrl: '${baseUrl}/assistants/${assistantId}/files/${fileId}',
       callType: ApiCallType.DELETE,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -2128,7 +2178,7 @@ class ListMessageFilesCall {
     String? before = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -2139,6 +2189,7 @@ class ListMessageFilesCall {
       apiUrl: '${baseUrl}/threads/${threadId}/messages/${messageId}/files',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {
@@ -2164,7 +2215,7 @@ class GetMessageFileCall {
     String? fileId = '',
     String? apiKeyAuth = '',
     String? apikey =
-        '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',
+        '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',
   }) async {
     final baseUrl = OpenAIAPIGroup.getBaseUrl(
       apikey: apikey,
@@ -2176,6 +2227,7 @@ class GetMessageFileCall {
           '${baseUrl}/threads/${threadId}/messages/${messageId}/files/${fileId}',
       callType: ApiCallType.GET,
       headers: {
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer ${apiKeyAuth}',
       },
       params: {},
@@ -2393,6 +2445,50 @@ class CreatePaymentOrderCopyCall {
       ));
 }
 
+class SendPromptCall {
+  static Future<ApiCallResponse> call({
+    String? prompt = '',
+    String? userId = '',
+    String? sessionId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "prompt": "${escapeStringForJson(prompt)}"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'sendPrompt',
+      apiUrl:
+          'https://us-central1-constitution-simplified.cloudfunctions.net/chat',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static String? response(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.response''',
+      ));
+  static String? sessionId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.sessionId''',
+      ));
+  static String? userId(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.userId''',
+      ));
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
@@ -2438,4 +2534,15 @@ String _serializeJson(dynamic jsonVar, [bool isList = false]) {
     }
     return isList ? '[]' : '{}';
   }
+}
+
+String? escapeStringForJson(String? input) {
+  if (input == null) {
+    return null;
+  }
+  return input
+      .replaceAll('\\', '\\\\')
+      .replaceAll('"', '\\"')
+      .replaceAll('\n', '\\n')
+      .replaceAll('\t', '\\t');
 }

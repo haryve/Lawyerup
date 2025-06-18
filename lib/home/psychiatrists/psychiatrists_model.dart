@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/components/callbuttonnew/callbuttonnew_widget.dart';
 import '/components/docrdsasasdcas_widget.dart';
+import '/components/drawer/drawer_widget.dart';
 import '/components/incomming_call_box/incomming_call_box_widget.dart';
 import '/components/newchatbutton/newchatbutton_widget.dart';
 import '/components/ratingbar/ratingbar_widget.dart';
@@ -12,6 +13,7 @@ import '/flutter_flow/request_manager.dart';
 import '/index.dart';
 import 'psychiatrists_widget.dart' show PsychiatristsWidget;
 import 'package:flutter/material.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 class PsychiatristsModel extends FlutterFlowModel<PsychiatristsWidget> {
   ///  Local state fields for this page.
@@ -55,72 +57,32 @@ class PsychiatristsModel extends FlutterFlowModel<PsychiatristsWidget> {
   late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels2;
   // Models for videocallbutton dynamic component.
   late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels2;
+  // State field(s) for ListView widget.
+
+  PagingController<DocumentSnapshot?, LawyersRecord>? listViewPagingController3;
+  Query? listViewPagingQuery3;
+  List<StreamSubscription?> listViewStreamSubscriptions3 = [];
+
   // Models for docrdsasasdcas dynamic component.
-  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels;
-  // Models for ratingbar dynamic component.
-  late FlutterFlowDynamicModels<RatingbarModel> ratingbarModels3;
-  // Models for callbuttonnew dynamic component.
-  late FlutterFlowDynamicModels<CallbuttonnewModel> callbuttonnewModels3;
-  // Models for newchatbutton dynamic component.
-  late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels3;
-  // Models for videocallbutton dynamic component.
-  late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels3;
-  // Models for ratingbar dynamic component.
-  late FlutterFlowDynamicModels<RatingbarModel> ratingbarModels4;
-  // Models for callbuttonnew dynamic component.
-  late FlutterFlowDynamicModels<CallbuttonnewModel> callbuttonnewModels4;
-  // Models for newchatbutton dynamic component.
-  late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels4;
-  // Models for videocallbutton dynamic component.
-  late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels4;
-  // Models for ratingbar dynamic component.
-  late FlutterFlowDynamicModels<RatingbarModel> ratingbarModels5;
-  // Models for callbuttonnew dynamic component.
-  late FlutterFlowDynamicModels<CallbuttonnewModel> callbuttonnewModels5;
-  // Models for newchatbutton dynamic component.
-  late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels5;
-  // Models for videocallbutton dynamic component.
-  late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels5;
-  // Models for ratingbar dynamic component.
-  late FlutterFlowDynamicModels<RatingbarModel> ratingbarModels6;
-  // Models for callbuttonnew dynamic component.
-  late FlutterFlowDynamicModels<CallbuttonnewModel> callbuttonnewModels6;
-  // Models for newchatbutton dynamic component.
-  late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels6;
-  // Models for videocallbutton dynamic component.
-  late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels6;
-  // Models for ratingbar dynamic component.
-  late FlutterFlowDynamicModels<RatingbarModel> ratingbarModels7;
-  // Models for callbuttonnew dynamic component.
-  late FlutterFlowDynamicModels<CallbuttonnewModel> callbuttonnewModels7;
-  // Models for newchatbutton dynamic component.
-  late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels7;
-  // Models for videocallbutton dynamic component.
-  late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels7;
-  // Models for ratingbar dynamic component.
-  late FlutterFlowDynamicModels<RatingbarModel> ratingbarModels8;
-  // Models for callbuttonnew dynamic component.
-  late FlutterFlowDynamicModels<CallbuttonnewModel> callbuttonnewModels8;
-  // Models for newchatbutton dynamic component.
-  late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels8;
-  // Models for videocallbutton dynamic component.
-  late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels8;
-  // Models for ratingbar dynamic component.
-  late FlutterFlowDynamicModels<RatingbarModel> ratingbarModels9;
-  // Models for callbuttonnew dynamic component.
-  late FlutterFlowDynamicModels<CallbuttonnewModel> callbuttonnewModels9;
-  // Models for newchatbutton dynamic component.
-  late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels9;
-  // Models for videocallbutton dynamic component.
-  late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels9;
-  // Models for ratingbar dynamic component.
-  late FlutterFlowDynamicModels<RatingbarModel> ratingbarModels10;
-  // Models for callbuttonnew dynamic component.
-  late FlutterFlowDynamicModels<CallbuttonnewModel> callbuttonnewModels10;
-  // Models for newchatbutton dynamic component.
-  late FlutterFlowDynamicModels<NewchatbuttonModel> newchatbuttonModels10;
-  // Models for videocallbutton dynamic component.
-  late FlutterFlowDynamicModels<VideocallbuttonModel> videocallbuttonModels10;
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels1;
+  // Models for docrdsasasdcas dynamic component.
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels2;
+  // Models for docrdsasasdcas dynamic component.
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels3;
+  // Models for docrdsasasdcas dynamic component.
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels4;
+  // Models for docrdsasasdcas dynamic component.
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels5;
+  // Models for docrdsasasdcas dynamic component.
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels6;
+  // Models for docrdsasasdcas dynamic component.
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels7;
+  // Models for docrdsasasdcas dynamic component.
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels8;
+  // Models for docrdsasasdcas dynamic component.
+  late FlutterFlowDynamicModels<DocrdsasasdcasModel> docrdsasasdcasModels9;
+  // Model for drawer component.
+  late DrawerModel drawerModel;
 
   /// Query cache managers for this widget.
 
@@ -153,50 +115,25 @@ class PsychiatristsModel extends FlutterFlowModel<PsychiatristsWidget> {
     newchatbuttonModels2 = FlutterFlowDynamicModels(() => NewchatbuttonModel());
     videocallbuttonModels2 =
         FlutterFlowDynamicModels(() => VideocallbuttonModel());
-    docrdsasasdcasModels =
+    docrdsasasdcasModels1 =
         FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
-    ratingbarModels3 = FlutterFlowDynamicModels(() => RatingbarModel());
-    callbuttonnewModels3 = FlutterFlowDynamicModels(() => CallbuttonnewModel());
-    newchatbuttonModels3 = FlutterFlowDynamicModels(() => NewchatbuttonModel());
-    videocallbuttonModels3 =
-        FlutterFlowDynamicModels(() => VideocallbuttonModel());
-    ratingbarModels4 = FlutterFlowDynamicModels(() => RatingbarModel());
-    callbuttonnewModels4 = FlutterFlowDynamicModels(() => CallbuttonnewModel());
-    newchatbuttonModels4 = FlutterFlowDynamicModels(() => NewchatbuttonModel());
-    videocallbuttonModels4 =
-        FlutterFlowDynamicModels(() => VideocallbuttonModel());
-    ratingbarModels5 = FlutterFlowDynamicModels(() => RatingbarModel());
-    callbuttonnewModels5 = FlutterFlowDynamicModels(() => CallbuttonnewModel());
-    newchatbuttonModels5 = FlutterFlowDynamicModels(() => NewchatbuttonModel());
-    videocallbuttonModels5 =
-        FlutterFlowDynamicModels(() => VideocallbuttonModel());
-    ratingbarModels6 = FlutterFlowDynamicModels(() => RatingbarModel());
-    callbuttonnewModels6 = FlutterFlowDynamicModels(() => CallbuttonnewModel());
-    newchatbuttonModels6 = FlutterFlowDynamicModels(() => NewchatbuttonModel());
-    videocallbuttonModels6 =
-        FlutterFlowDynamicModels(() => VideocallbuttonModel());
-    ratingbarModels7 = FlutterFlowDynamicModels(() => RatingbarModel());
-    callbuttonnewModels7 = FlutterFlowDynamicModels(() => CallbuttonnewModel());
-    newchatbuttonModels7 = FlutterFlowDynamicModels(() => NewchatbuttonModel());
-    videocallbuttonModels7 =
-        FlutterFlowDynamicModels(() => VideocallbuttonModel());
-    ratingbarModels8 = FlutterFlowDynamicModels(() => RatingbarModel());
-    callbuttonnewModels8 = FlutterFlowDynamicModels(() => CallbuttonnewModel());
-    newchatbuttonModels8 = FlutterFlowDynamicModels(() => NewchatbuttonModel());
-    videocallbuttonModels8 =
-        FlutterFlowDynamicModels(() => VideocallbuttonModel());
-    ratingbarModels9 = FlutterFlowDynamicModels(() => RatingbarModel());
-    callbuttonnewModels9 = FlutterFlowDynamicModels(() => CallbuttonnewModel());
-    newchatbuttonModels9 = FlutterFlowDynamicModels(() => NewchatbuttonModel());
-    videocallbuttonModels9 =
-        FlutterFlowDynamicModels(() => VideocallbuttonModel());
-    ratingbarModels10 = FlutterFlowDynamicModels(() => RatingbarModel());
-    callbuttonnewModels10 =
-        FlutterFlowDynamicModels(() => CallbuttonnewModel());
-    newchatbuttonModels10 =
-        FlutterFlowDynamicModels(() => NewchatbuttonModel());
-    videocallbuttonModels10 =
-        FlutterFlowDynamicModels(() => VideocallbuttonModel());
+    docrdsasasdcasModels2 =
+        FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
+    docrdsasasdcasModels3 =
+        FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
+    docrdsasasdcasModels4 =
+        FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
+    docrdsasasdcasModels5 =
+        FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
+    docrdsasasdcasModels6 =
+        FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
+    docrdsasasdcasModels7 =
+        FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
+    docrdsasasdcasModels8 =
+        FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
+    docrdsasasdcasModels9 =
+        FlutterFlowDynamicModels(() => DocrdsasasdcasModel());
+    drawerModel = createModel(context, () => DrawerModel());
   }
 
   @override
@@ -212,42 +149,54 @@ class PsychiatristsModel extends FlutterFlowModel<PsychiatristsWidget> {
     callbuttonnewModels2.dispose();
     newchatbuttonModels2.dispose();
     videocallbuttonModels2.dispose();
-    docrdsasasdcasModels.dispose();
-    ratingbarModels3.dispose();
-    callbuttonnewModels3.dispose();
-    newchatbuttonModels3.dispose();
-    videocallbuttonModels3.dispose();
-    ratingbarModels4.dispose();
-    callbuttonnewModels4.dispose();
-    newchatbuttonModels4.dispose();
-    videocallbuttonModels4.dispose();
-    ratingbarModels5.dispose();
-    callbuttonnewModels5.dispose();
-    newchatbuttonModels5.dispose();
-    videocallbuttonModels5.dispose();
-    ratingbarModels6.dispose();
-    callbuttonnewModels6.dispose();
-    newchatbuttonModels6.dispose();
-    videocallbuttonModels6.dispose();
-    ratingbarModels7.dispose();
-    callbuttonnewModels7.dispose();
-    newchatbuttonModels7.dispose();
-    videocallbuttonModels7.dispose();
-    ratingbarModels8.dispose();
-    callbuttonnewModels8.dispose();
-    newchatbuttonModels8.dispose();
-    videocallbuttonModels8.dispose();
-    ratingbarModels9.dispose();
-    callbuttonnewModels9.dispose();
-    newchatbuttonModels9.dispose();
-    videocallbuttonModels9.dispose();
-    ratingbarModels10.dispose();
-    callbuttonnewModels10.dispose();
-    newchatbuttonModels10.dispose();
-    videocallbuttonModels10.dispose();
+    listViewStreamSubscriptions3.forEach((s) => s?.cancel());
+    listViewPagingController3?.dispose();
+
+    docrdsasasdcasModels1.dispose();
+    docrdsasasdcasModels2.dispose();
+    docrdsasasdcasModels3.dispose();
+    docrdsasasdcasModels4.dispose();
+    docrdsasasdcasModels5.dispose();
+    docrdsasasdcasModels6.dispose();
+    docrdsasasdcasModels7.dispose();
+    docrdsasasdcasModels8.dispose();
+    docrdsasasdcasModels9.dispose();
+    drawerModel.dispose();
 
     /// Dispose query cache managers for this widget.
 
     clearDoclistpageCache();
+  }
+
+  /// Additional helper methods.
+  PagingController<DocumentSnapshot?, LawyersRecord> setListViewController3(
+    Query query, {
+    DocumentReference<Object?>? parent,
+  }) {
+    listViewPagingController3 ??= _createListViewController3(query, parent);
+    if (listViewPagingQuery3 != query) {
+      listViewPagingQuery3 = query;
+      listViewPagingController3?.refresh();
+    }
+    return listViewPagingController3!;
+  }
+
+  PagingController<DocumentSnapshot?, LawyersRecord> _createListViewController3(
+    Query query,
+    DocumentReference<Object?>? parent,
+  ) {
+    final controller =
+        PagingController<DocumentSnapshot?, LawyersRecord>(firstPageKey: null);
+    return controller
+      ..addPageRequestListener(
+        (nextPageMarker) => queryLawyersRecordPage(
+          queryBuilder: (_) => listViewPagingQuery3 ??= query,
+          nextPageMarker: nextPageMarker,
+          streamSubscriptions: listViewStreamSubscriptions3,
+          controller: controller,
+          pageSize: 10,
+          isStream: true,
+        ),
+      );
   }
 }

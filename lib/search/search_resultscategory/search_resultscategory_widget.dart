@@ -2245,7 +2245,7 @@ class _SearchResultscategoryWidgetState
                                             width: 20.0,
                                             height: 20.0,
                                             child: SpinKitFadingCircle(
-                                              color: Color(0x9D03A9F4),
+                                              color: Color(0x4D03A9F4),
                                               size: 20.0,
                                             ),
                                           ),
@@ -2335,7 +2335,7 @@ class _SearchResultscategoryWidgetState
                                                           child:
                                                               SpinKitFadingCircle(
                                                             color: Color(
-                                                                0x9D03A9F4),
+                                                                0x4D03A9F4),
                                                             size: 20.0,
                                                           ),
                                                         ),

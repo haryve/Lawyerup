@@ -1,5 +1,6 @@
 import '/components/callbuttonnew/callbuttonnew_widget.dart';
 import '/components/commentbox/commentbox_widget.dart';
+import '/components/drawer/drawer_widget.dart';
 import '/components/newchatbutton/newchatbutton_widget.dart';
 import '/components/ratingbar2/ratingbar2_widget.dart';
 import '/components/userimage_widget.dart';
@@ -45,6 +46,8 @@ class DoctorprofileModel extends FlutterFlowModel<DoctorprofileWidget> {
   String? Function(BuildContext, String?)? textControllerValidator;
   // Models for ratingbar2 dynamic component.
   late FlutterFlowDynamicModels<Ratingbar2Model> ratingbar2Models2;
+  // Model for drawer component.
+  late DrawerModel drawerModel;
 
   @override
   void initState(BuildContext context) {
@@ -56,6 +59,7 @@ class DoctorprofileModel extends FlutterFlowModel<DoctorprofileWidget> {
     commentboxModels = FlutterFlowDynamicModels(() => CommentboxModel());
     ratingbar2Model1 = createModel(context, () => Ratingbar2Model());
     ratingbar2Models2 = FlutterFlowDynamicModels(() => Ratingbar2Model());
+    drawerModel = createModel(context, () => DrawerModel());
   }
 
   @override
@@ -72,5 +76,6 @@ class DoctorprofileModel extends FlutterFlowModel<DoctorprofileWidget> {
     textController?.dispose();
 
     ratingbar2Models2.dispose();
+    drawerModel.dispose();
   }
 }

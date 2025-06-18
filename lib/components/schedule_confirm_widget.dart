@@ -129,7 +129,7 @@ class _ScheduleConfirmWidgetState extends State<ScheduleConfirmWidget> {
             Divider(
               height: 2.0,
               thickness: 1.0,
-              color: FlutterFlowTheme.of(context).alternate,
+              color: FlutterFlowTheme.of(context).accent2,
             ),
             Padding(
               padding: EdgeInsets.all(12.0),

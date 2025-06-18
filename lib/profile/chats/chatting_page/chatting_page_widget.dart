@@ -85,7 +85,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: Image.asset(
-                          'assets/images/enhanced_ChatGPT_Image_Apr_13_2025_12_19_36_PM.png',
+                          'assets/images/ChatGPT_Image_Jun_13,_2025,_03_16_31_AM_(1).png',
                         ).image,
                       ),
                     ),
@@ -107,7 +107,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                                     width: 20.0,
                                     height: 20.0,
                                     child: SpinKitFadingCircle(
-                                      color: Color(0x9D03A9F4),
+                                      color: Color(0x4D03A9F4),
                                       size: 20.0,
                                     ),
                                   ),
@@ -267,7 +267,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                                                                               width: 20.0,
                                                                               height: 20.0,
                                                                               child: SpinKitFadingCircle(
-                                                                                color: Color(0x9D03A9F4),
+                                                                                color: Color(0x4D03A9F4),
                                                                                 size: 20.0,
                                                                               ),
                                                                             ),
@@ -392,29 +392,44 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                                                                     padding:
                                                                         EdgeInsets.all(
                                                                             8.0),
-                                                                    child: Text(
-                                                                      listViewMessagesRecord
-                                                                          .messagetext,
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            font:
-                                                                                GoogleFonts.roboto(
+                                                                    child:
+                                                                        RichText(
+                                                                      textScaler:
+                                                                          MediaQuery.of(context)
+                                                                              .textScaler,
+                                                                      text:
+                                                                          TextSpan(
+                                                                        children: [
+                                                                          TextSpan(
+                                                                            text:
+                                                                                listViewMessagesRecord.messagetext,
+                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                  font: GoogleFonts.roboto(
+                                                                                    fontWeight: FontWeight.w600,
+                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                  ),
+                                                                                  color: Colors.black,
+                                                                                  fontSize: 14.0,
+                                                                                  letterSpacing: 0.0,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                                ),
+                                                                          )
+                                                                        ],
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              font: GoogleFonts.roboto(
+                                                                                fontWeight: FontWeight.w600,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
+                                                                              color: Colors.black,
+                                                                              fontSize: 14.0,
+                                                                              letterSpacing: 0.0,
                                                                               fontWeight: FontWeight.w600,
                                                                               fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                                                                             ),
-                                                                            color:
-                                                                                Colors.black,
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            letterSpacing:
-                                                                                0.0,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            fontStyle:
-                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                          ),
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                 if (listViewMessagesRecord
@@ -700,7 +715,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                                                                                 20.0,
                                                                             child:
                                                                                 SpinKitFadingCircle(
-                                                                              color: Color(0x9D03A9F4),
+                                                                              color: Color(0x4D03A9F4),
                                                                               size: 20.0,
                                                                             ),
                                                                           ),
@@ -827,15 +842,42 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                                                                     EdgeInsets
                                                                         .all(
                                                                             8.0),
-                                                                child: Text(
-                                                                  listViewMessagesRecord
-                                                                      .messagetext,
-                                                                  style: FlutterFlowTheme.of(
+                                                                child: RichText(
+                                                                  textScaler: MediaQuery.of(
                                                                           context)
-                                                                      .bodyMedium
-                                                                      .override(
-                                                                        font: GoogleFonts
-                                                                            .roboto(
+                                                                      .textScaler,
+                                                                  text:
+                                                                      TextSpan(
+                                                                    children: [
+                                                                      TextSpan(
+                                                                        text: listViewMessagesRecord
+                                                                            .messagetext,
+                                                                        style: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .override(
+                                                                              font: GoogleFonts.roboto(
+                                                                                fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                                fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                              ),
+                                                                              letterSpacing: 0.0,
+                                                                              fontWeight: FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                              fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                            ),
+                                                                      )
+                                                                    ],
+                                                                    style: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .override(
+                                                                          font:
+                                                                              GoogleFonts.roboto(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
+                                                                          letterSpacing:
+                                                                              0.0,
                                                                           fontWeight: FlutterFlowTheme.of(context)
                                                                               .bodyMedium
                                                                               .fontWeight,
@@ -843,15 +885,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                                                                               .bodyMedium
                                                                               .fontStyle,
                                                                         ),
-                                                                        letterSpacing:
-                                                                            0.0,
-                                                                        fontWeight: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontWeight,
-                                                                        fontStyle: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .fontStyle,
-                                                                      ),
+                                                                  ),
                                                                 ),
                                                               ),
                                                               if (listViewMessagesRecord
@@ -989,7 +1023,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                                                                                 20.0,
                                                                             child:
                                                                                 SpinKitFadingCircle(
-                                                                              color: Color(0x9D03A9F4),
+                                                                              color: Color(0x4D03A9F4),
                                                                               size: 20.0,
                                                                             ),
                                                                           ),
@@ -1084,19 +1118,19 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                     ),
                   ),
                   Container(
-                    height: 102.0,
+                    height: 82.04,
                     decoration: BoxDecoration(
                       color: Color(0xEEF5F5F5),
                       borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(0.0),
-                        bottomRight: Radius.circular(0.0),
+                        bottomLeft: Radius.circular(8.0),
+                        bottomRight: Radius.circular(8.0),
                         topLeft: Radius.circular(0.0),
                         topRight: Radius.circular(0.0),
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          10.0, 50.0, 10.0, 10.0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 10.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -1175,7 +1209,7 @@ class _ChattingPageWidgetState extends State<ChattingPageWidget> {
                             ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 10.0, 0.0, 0.0),
+                                8.0, 10.0, 0.0, 0.0),
                             child: AuthUserStreamWidget(
                               builder: (context) => Text(
                                 valueOrDefault<String>(

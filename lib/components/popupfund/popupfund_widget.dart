@@ -70,59 +70,61 @@ class _PopupfundWidgetState extends State<PopupfundWidget> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      logFirebaseEvent('POPUPFUND_COMP_Icon_2quxq1d9_ON_TAP');
-                      logFirebaseEvent('Icon_bottom_sheet');
-                      Navigator.pop(context);
-                    },
-                    child: Icon(
-                      Icons.chevron_left,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      size: 28.0,
+              Expanded(
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        logFirebaseEvent('POPUPFUND_COMP_Icon_2quxq1d9_ON_TAP');
+                        logFirebaseEvent('Icon_bottom_sheet');
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.chevron_left,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 28.0,
+                      ),
                     ),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Expanded(
-                        child: AuthUserStreamWidget(
-                          builder: (context) => Text(
-                            valueOrDefault<String>(
-                              'Dear , ${currentUserDisplayName}',
-                              'Dear , User',
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  font: GoogleFonts.lora(
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Expanded(
+                          child: AuthUserStreamWidget(
+                            builder: (context) => Text(
+                              valueOrDefault<String>(
+                                'Dear , ${currentUserDisplayName}',
+                                'Dear , User',
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    font: GoogleFonts.lora(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FontStyle.italic,
+                                    ),
+                                    fontSize: 18.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
                                     fontStyle: FontStyle.italic,
                                   ),
-                                  fontSize: 25.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
-                                  fontStyle: FontStyle.italic,
-                                ),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ].divide(SizedBox(width: 40.0)),
+                      ],
+                    ),
+                  ].divide(SizedBox(width: 40.0)),
+                ),
               ),
               Icon(
                 Icons.warning_rounded,

@@ -841,7 +841,7 @@ class _DrawerWidgetState extends State<DrawerWidget>
                                                   logFirebaseEvent(
                                                       'DRAWER_chevron_left_rounded_ICN_ON_TAP');
                                                   logFirebaseEvent(
-                                                      'IconButton_bottom_sheet');
+                                                      'IconButton_close_dialog_drawer_etc');
                                                   Navigator.pop(context);
                                                 },
                                               ),

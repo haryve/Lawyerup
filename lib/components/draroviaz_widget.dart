@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'draroviaz_model.dart';
 export 'draroviaz_model.dart';
 
@@ -195,9 +196,9 @@ class _DraroviazWidgetState extends State<DraroviazWidget>
                                                           context)
                                                       .secondaryBackground,
                                                   image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: Image.asset(
-                                                      'assets/images/Screenshot_2024-11-10_200914.png',
+                                                    fit: BoxFit.contain,
+                                                    image: Image.network(
+                                                      '',
                                                     ).image,
                                                   ),
                                                   shape: BoxShape.circle,
@@ -207,6 +208,13 @@ class _DraroviazWidgetState extends State<DraroviazWidget>
                                                         .alternate,
                                                     width: 2.0,
                                                   ),
+                                                ),
+                                                child: Lottie.network(
+                                                  'https://lottie.host/0d84a480-ce19-40b4-8e79-d46d400129ae/EeKNl8TuZM.json',
+                                                  width: 200.0,
+                                                  height: 200.0,
+                                                  fit: BoxFit.contain,
+                                                  animate: true,
                                                 ),
                                               ).animateOnPageLoad(animationsMap[
                                                   'containerOnPageLoadAnimation']!),
@@ -893,7 +901,7 @@ class _DraroviazWidgetState extends State<DraroviazWidget>
                                                           child:
                                                               SpinKitFadingCircle(
                                                             color: Color(
-                                                                0x9D03A9F4),
+                                                                0x4D03A9F4),
                                                             size: 20.0,
                                                           ),
                                                         ),
@@ -1753,7 +1761,7 @@ class _DraroviazWidgetState extends State<DraroviazWidget>
                                                   width: 20.0,
                                                   height: 20.0,
                                                   child: SpinKitFadingCircle(
-                                                    color: Color(0x9D03A9F4),
+                                                    color: Color(0x4D03A9F4),
                                                     size: 20.0,
                                                   ),
                                                 ),

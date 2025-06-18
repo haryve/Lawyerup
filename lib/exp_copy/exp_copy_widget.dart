@@ -314,6 +314,17 @@ class _ExpCopyWidgetState extends State<ExpCopyWidget>
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        drawer: Drawer(
+          elevation: 16.0,
+          child: Padding(
+            padding: EdgeInsets.all(4.0),
+            child: wrapWithModel(
+              model: _model.drawerModel,
+              updateCallback: () => safeSetState(() {}),
+              child: DrawerWidget(),
+            ),
+          ),
+        ),
         body: Stack(
           children: [
             if (!_model.loading)
@@ -347,27 +358,8 @@ class _ExpCopyWidgetState extends State<ExpCopyWidget>
                                     onTap: () async {
                                       logFirebaseEvent(
                                           'EXP_COPY_PAGE_Container_71zmy6dl_ON_TAP');
-                                      logFirebaseEvent(
-                                          'USERIMAGE_bottom_sheet');
-                                      await showModalBottomSheet(
-                                        isScrollControlled: true,
-                                        backgroundColor: Colors.transparent,
-                                        context: context,
-                                        builder: (context) {
-                                          return GestureDetector(
-                                            onTap: () {
-                                              FocusScope.of(context).unfocus();
-                                              FocusManager.instance.primaryFocus
-                                                  ?.unfocus();
-                                            },
-                                            child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: DrawerWidget(),
-                                            ),
-                                          );
-                                        },
-                                      ).then((value) => safeSetState(() {}));
+                                      logFirebaseEvent('USERIMAGE_drawer');
+                                      scaffoldKey.currentState!.openDrawer();
                                     },
                                     child: wrapWithModel(
                                       model: _model.userimageModel,
@@ -5616,7 +5608,15 @@ class _ExpCopyWidgetState extends State<ExpCopyWidget>
                                                 'Text_navigate_to');
 
                                             context.pushNamed(
-                                                PsychiatristsWidget.routeName);
+                                              SearchResultscategoryWidget
+                                                  .routeName,
+                                              queryParameters: {
+                                                'category': serializeParam(
+                                                  'Adult Counseling',
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
                                           },
                                           child: Text(
                                             'View All ',
@@ -9451,26 +9451,29 @@ class _ExpCopyWidgetState extends State<ExpCopyWidget>
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 4.0, 0.0, 8.0),
-                                              child: Text(
-                                                'Follow us on',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.mukta(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .labelMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          letterSpacing: 0.0,
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  logFirebaseEvent(
+                                                      'EXP_COPY_PAGE_Text_azt8h4xe_ON_TAP');
+                                                  logFirebaseEvent(
+                                                      'Text_navigate_to');
+
+                                                  context.pushNamed(
+                                                      Video2CopyWidget
+                                                          .routeName);
+                                                },
+                                                child: Text(
+                                                  'Follow us on',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelMedium
+                                                      .override(
+                                                        font: GoogleFonts.mukta(
                                                           fontWeight:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -9482,6 +9485,19 @@ class _ExpCopyWidgetState extends State<ExpCopyWidget>
                                                                   .labelMedium
                                                                   .fontStyle,
                                                         ),
+                                                        letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .labelMedium
+                                                                .fontStyle,
+                                                      ),
+                                                ),
                                               ),
                                             ),
                                             Padding(

@@ -299,6 +299,18 @@ List<LawyersRecord> mergeDocumentLists(
   return mergedList;
 }
 
+List<LawyrPostRecord> mergeDocumentListsCopy(
+  List<LawyrPostRecord> list1,
+  List<LawyrPostRecord> list2,
+) {
+  // merge two document lists and return merged lists
+// Combine both lists and remove duplicates
+  var mergedList = List<LawyrPostRecord>.from(list1);
+  mergedList.addAll(list2);
+  mergedList = mergedList.toSet().toList(); // Remove duplicates
+  return mergedList;
+}
+
 List<String> stringToListOfStrings(String data) {
   try {
     final result = jsonDecode(data);
@@ -306,4 +318,13 @@ List<String> stringToListOfStrings(String data) {
   } catch (e) {
     return [];
   }
+}
+
+String? videourl(String video) {
+  // covert Video Path into string
+  return video.toString(); // Convert video path to string
+}
+
+LatLng defaultDelhiLocation() {
+  return LatLng(28.6139, 77.2090);
 }

@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/booking1_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'editdoctorrprofile_widget.dart' show EditdoctorrprofileWidget;
@@ -132,10 +133,6 @@ class EditdoctorrprofileModel
   FocusNode? textFieldFocusNode5;
   TextEditingController? textController6;
   String? Function(BuildContext, String?)? textController6Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode6;
-  TextEditingController? textController7;
-  String? Function(BuildContext, String?)? textController7Validator;
   // State field(s) for Checkboxpsych widget.
   FormFieldController<List<String>>? checkboxpsychValueController;
   List<String>? get checkboxpsychValues => checkboxpsychValueController?.value;
@@ -176,31 +173,34 @@ class EditdoctorrprofileModel
   String? Function(BuildContext, String?)? upiTextControllerValidator;
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
   BankRecord? ban;
-  // State field(s) for Availaibility widget.
-  FormFieldController<List<String>>? availaibilityValueController1;
-  List<String>? get availaibilityValues1 =>
-      availaibilityValueController1?.value;
-  set availaibilityValues1(List<String>? v) =>
-      availaibilityValueController1?.value = v;
+  // State field(s) for Availaibility1 widget.
+  FormFieldController<List<String>>? availaibility1ValueController;
+  List<String>? get availaibility1Values =>
+      availaibility1ValueController?.value;
+  set availaibility1Values(List<String>? v) =>
+      availaibility1ValueController?.value = v;
 
+  // Model for booking1 component.
+  late Booking1Model booking1Model;
   // State field(s) for Availaibility widget.
-  FormFieldController<List<String>>? availaibilityValueController2;
-  List<String>? get availaibilityValues2 =>
-      availaibilityValueController2?.value;
-  set availaibilityValues2(List<String>? v) =>
-      availaibilityValueController2?.value = v;
+  FormFieldController<List<String>>? availaibilityValueController;
+  List<String>? get availaibilityValues => availaibilityValueController?.value;
+  set availaibilityValues(List<String>? v) =>
+      availaibilityValueController?.value = v;
 
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode6;
+  TextEditingController? textController13;
+  String? Function(BuildContext, String?)? textController13Validator;
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode7;
   TextEditingController? textController14;
   String? Function(BuildContext, String?)? textController14Validator;
-  // State field(s) for TextField widget.
-  FocusNode? textFieldFocusNode8;
-  TextEditingController? textController15;
-  String? Function(BuildContext, String?)? textController15Validator;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    booking1Model = createModel(context, () => Booking1Model());
+  }
 
   @override
   void dispose() {
@@ -222,9 +222,6 @@ class EditdoctorrprofileModel
     textFieldFocusNode5?.dispose();
     textController6?.dispose();
 
-    textFieldFocusNode6?.dispose();
-    textController7?.dispose();
-
     otherExpertiseFocusNode?.dispose();
     otherExpertiseTextController?.dispose();
 
@@ -243,10 +240,11 @@ class EditdoctorrprofileModel
     upiFocusNode?.dispose();
     upiTextController?.dispose();
 
+    booking1Model.dispose();
+    textFieldFocusNode6?.dispose();
+    textController13?.dispose();
+
     textFieldFocusNode7?.dispose();
     textController14?.dispose();
-
-    textFieldFocusNode8?.dispose();
-    textController15?.dispose();
   }
 }

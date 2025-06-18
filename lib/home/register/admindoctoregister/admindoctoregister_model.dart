@@ -94,7 +94,7 @@ class AdmindoctoregisterModel
       checkboxGroupValueController2?.value = v;
 
   // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  LawyersRecord? ref;
+  LawyersRecord? refer;
 
   @override
   void initState(BuildContext context) {}
