@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'lawyer_profileu_model.dart';
@@ -188,12 +189,17 @@ class _LawyerProfileuWidgetState extends State<LawyerProfileuWidget>
                             topLeft: Radius.circular(0.0),
                             topRight: Radius.circular(0.0),
                           ),
-                          child: Image.network(
-                            lawyerProfileuLawyersRecord!.lawyerDp,
-                            width: double.infinity,
-                            height: 470.0,
-                            fit: BoxFit.cover,
-                          ),
+                            child: CachedNetworkImage(
+                              imageUrl:
+                                  lawyerProfileuLawyersRecord!.lawyerDp,
+                              width: double.infinity,
+                              height: 470.0,
+                              fit: BoxFit.cover,
+                              placeholder: (context, url) => const Center(
+                                  child: CircularProgressIndicator()),
+                              errorWidget: (context, url, error) =>
+                                  const Icon(Icons.error),
+                            ),
                         ).animateOnPageLoad(
                             animationsMap['imageOnPageLoadAnimation']!),
                         Align(

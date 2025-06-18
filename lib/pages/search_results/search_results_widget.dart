@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:text_search/text_search.dart';
 import 'search_results_model.dart';
@@ -937,18 +938,25 @@ class _SearchResultsWidgetState extends State<SearchResultsWidget>
                                         },
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(40.0),
-                                              child: Image.network(
-                                                searchResultsLawyersRecordList
-                                                    .first.lawyerDp,
-                                                width: 60.0,
-                                                height: 60.0,
-                                                fit: BoxFit.cover,
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(40.0),
+                                                child: CachedNetworkImage(
+                                                  imageUrl:
+                                                      searchResultsLawyersRecordList
+                                                          .first.lawyerDp,
+                                                  width: 60.0,
+                                                  height: 60.0,
+                                                  fit: BoxFit.cover,
+                                                  placeholder: (context, url) =>
+                                                      const Center(
+                                                          child:
+                                                              CircularProgressIndicator()),
+                                                  errorWidget: (context, url, error) =>
+                                                      const Icon(Icons.error),
+                                                ),
                                               ),
-                                            ),
                                             Expanded(
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.max,
