@@ -280,6 +280,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
+          name: 'aiChat',
+          path: '/aiChat',
+          builder: (context, params) => const AiChatWidget(),
+        ),
+        FFRoute(
           name: 'propertCopy',
           path: '/propertCopy',
           builder: (context, params) => PropertCopyWidget(

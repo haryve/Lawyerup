@@ -124,6 +124,7 @@ class _NavBarPageState extends State<NavBarPage> {
       'profilesettings': const ProfilesettingsWidget(),
       'bProfileCreateEditCopy': const BProfileCreateEditCopyWidget(),
       'feedCopy2': const FeedCopy2Widget(),
+      'aiChat': const AiChatWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -235,6 +236,28 @@ class _NavBarPageState extends State<NavBarPage> {
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 3
+                        ? const Color(0xFFA0D23C)
+                        : const Color(0xFF0A0A0A),
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.smart_toy_outlined,
+                  color:
+                      currentIndex == 4 ? const Color(0xFFA0D23C) : const Color(0xFF0A0A0A),
+                ),
+                Text(
+                  'AI Chat',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 4
                         ? const Color(0xFFA0D23C)
                         : const Color(0xFF0A0A0A),
                     fontSize: 11.0,

@@ -42,3 +42,4 @@ export '/pages/feed_copy2/feed_copy2_widget.dart' show FeedCopy2Widget;
 export '/propert/propert_widget.dart' show PropertWidget;
 export '/callpage/callpage_widget.dart' show CallpageWidget;
 export '/propert_copy/propert_copy_widget.dart' show PropertCopyWidget;
+export '/pages/ai_chat/ai_chat_widget.dart' show AiChatWidget;

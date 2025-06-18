@@ -5,6 +5,10 @@ import 'package:flutter/foundation.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
+/// API key for OpenAI requests is read from a compile-time environment
+/// variable. Provide it using `--dart-define=OPENAI_API_KEY=YOUR_KEY`.
+const String kOpenAIApiKey = String.fromEnvironment('OPENAI_API_KEY');
+
 export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
@@ -12,10 +16,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 /// Start OpenAI API Group Code
 
 class OpenAIAPIGroup {
-  static String getBaseUrl({
-    String? apikey = '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',
-  }) =>
-      'https://api.openai.com/v1';
+  static String getBaseUrl() => 'https://api.openai.com/v1';
   static Map<String, String> headers = {};
   static CreateChatCompletionCall createChatCompletionCall =
       CreateChatCompletionCall();
@@ -94,11 +95,9 @@ class CreateChatCompletionCall {
   Future<ApiCallResponse> call({
     String? query = '',
     String? imageUrl = '',
-    String? apikey = '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',
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     final ffApiRequestBody = '''
 {
@@ -149,12 +148,10 @@ class CreateChatCompletionCall {
 
 class CreateCompletionCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -198,12 +195,10 @@ class CreateCompletionCall {
 
 class CreateEditCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -236,12 +231,10 @@ class CreateEditCall {
 
 class CreateImageCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -276,12 +269,10 @@ class CreateImageCall {
 
 class CreateImageEditCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'createImageEdit',
@@ -304,12 +295,10 @@ class CreateImageEditCall {
 
 class CreateImageVariationCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'createImageVariation',
@@ -332,12 +321,10 @@ class CreateImageVariationCall {
 
 class CreateEmbeddingCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -368,12 +355,10 @@ class CreateEmbeddingCall {
 
 class CreateSpeechCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -405,12 +390,10 @@ class CreateSpeechCall {
 
 class CreateTranscriptionCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'createTranscription',
@@ -433,12 +416,10 @@ class CreateTranscriptionCall {
 
 class CreateTranslationCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'createTranslation',
@@ -462,12 +443,10 @@ class CreateTranslationCall {
 class ListFilesCall {
   Future<ApiCallResponse> call({
     String? purpose = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFiles',
@@ -491,12 +470,10 @@ class ListFilesCall {
 
 class CreateFileCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'createFile',
@@ -520,12 +497,10 @@ class CreateFileCall {
 class DeleteFileCall {
   Future<ApiCallResponse> call({
     String? fileId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteFile',
@@ -548,12 +523,10 @@ class DeleteFileCall {
 class RetrieveFileCall {
   Future<ApiCallResponse> call({
     String? fileId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveFile',
@@ -576,12 +549,10 @@ class RetrieveFileCall {
 class DownloadFileCall {
   Future<ApiCallResponse> call({
     String? fileId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'downloadFile',
@@ -603,12 +574,10 @@ class DownloadFileCall {
 
 class CreateFineTuningJobCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -646,12 +615,10 @@ class ListPaginatedFineTuningJobsCall {
   Future<ApiCallResponse> call({
     String? after = '',
     int? limit,
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listPaginatedFineTuningJobs',
@@ -677,12 +644,10 @@ class ListPaginatedFineTuningJobsCall {
 class RetrieveFineTuningJobCall {
   Future<ApiCallResponse> call({
     String? fineTuningJobId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveFineTuningJob',
@@ -707,12 +672,10 @@ class ListFineTuningEventsCall {
     String? fineTuningJobId = '',
     String? after = '',
     int? limit,
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFineTuningEvents',
@@ -738,12 +701,10 @@ class ListFineTuningEventsCall {
 class CancelFineTuningJobCall {
   Future<ApiCallResponse> call({
     String? fineTuningJobId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelFineTuningJob',
@@ -766,12 +727,10 @@ class CancelFineTuningJobCall {
 
 class CreateFineTuneCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -814,12 +773,10 @@ class CreateFineTuneCall {
 
 class ListFineTunesCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFineTunes',
@@ -842,12 +799,10 @@ class ListFineTunesCall {
 class RetrieveFineTuneCall {
   Future<ApiCallResponse> call({
     String? fineTuneId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveFineTune',
@@ -870,12 +825,10 @@ class RetrieveFineTuneCall {
 class CancelFineTuneCall {
   Future<ApiCallResponse> call({
     String? fineTuneId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelFineTune',
@@ -900,12 +853,10 @@ class ListFineTuneEventsCall {
   Future<ApiCallResponse> call({
     String? fineTuneId = '',
     bool? stream,
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listFineTuneEvents',
@@ -929,12 +880,10 @@ class ListFineTuneEventsCall {
 
 class ListModelsCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listModels',
@@ -957,12 +906,10 @@ class ListModelsCall {
 class RetrieveModelCall {
   Future<ApiCallResponse> call({
     String? model = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'retrieveModel',
@@ -985,12 +932,10 @@ class RetrieveModelCall {
 class DeleteModelCall {
   Future<ApiCallResponse> call({
     String? model = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteModel',
@@ -1012,12 +957,10 @@ class DeleteModelCall {
 
 class CreateModerationCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1050,12 +993,10 @@ class ListAssistantsCall {
     String? order = '',
     String? after = '',
     String? before = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listAssistants',
@@ -1082,12 +1023,10 @@ class ListAssistantsCall {
 
 class CreateAssistantCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1126,12 +1065,10 @@ class CreateAssistantCall {
 class GetAssistantCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getAssistant',
@@ -1154,12 +1091,10 @@ class GetAssistantCall {
 class ModifyAssistantCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1198,12 +1133,10 @@ class ModifyAssistantCall {
 class DeleteAssistantCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteAssistant',
@@ -1225,12 +1158,10 @@ class DeleteAssistantCall {
 
 class CreateThreadCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1269,12 +1200,10 @@ class CreateThreadCall {
 class GetThreadCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getThread',
@@ -1297,12 +1226,10 @@ class GetThreadCall {
 class ModifyThreadCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1331,12 +1258,10 @@ class ModifyThreadCall {
 class DeleteThreadCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteThread',
@@ -1363,12 +1288,10 @@ class ListMessagesCall {
     String? order = '',
     String? after = '',
     String? before = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listMessages',
@@ -1396,12 +1319,10 @@ class ListMessagesCall {
 class CreateMessageCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1436,12 +1357,10 @@ class GetMessageCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? messageId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getMessage',
@@ -1465,12 +1384,10 @@ class ModifyMessageCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? messageId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1498,12 +1415,10 @@ class ModifyMessageCall {
 
 class CreateThreadAndRunCall {
   Future<ApiCallResponse> call({
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1555,12 +1470,10 @@ class ListRunsCall {
     String? order = '',
     String? after = '',
     String? before = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listRuns',
@@ -1588,12 +1501,10 @@ class ListRunsCall {
 class CreateRunCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1629,12 +1540,10 @@ class GetRunCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? runId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRun',
@@ -1658,12 +1567,10 @@ class ModifyRunCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? runId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1693,12 +1600,10 @@ class SubmitToolOuputsToRunCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? runId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1734,12 +1639,10 @@ class CancelRunCall {
   Future<ApiCallResponse> call({
     String? threadId = '',
     String? runId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'cancelRun',
@@ -1768,12 +1671,10 @@ class ListRunStepsCall {
     String? order = '',
     String? after = '',
     String? before = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listRunSteps',
@@ -1803,12 +1704,10 @@ class GetRunStepCall {
     String? threadId = '',
     String? runId = '',
     String? stepId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getRunStep',
@@ -1835,12 +1734,10 @@ class ListAssistantFilesCall {
     String? order = '',
     String? after = '',
     String? before = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listAssistantFiles',
@@ -1868,12 +1765,10 @@ class ListAssistantFilesCall {
 class CreateAssistantFileCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     const ffApiRequestBody = '''
 {
@@ -1903,12 +1798,10 @@ class GetAssistantFileCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
     String? fileId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getAssistantFile',
@@ -1932,12 +1825,10 @@ class DeleteAssistantFileCall {
   Future<ApiCallResponse> call({
     String? assistantId = '',
     String? fileId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'deleteAssistantFile',
@@ -1965,12 +1856,10 @@ class ListMessageFilesCall {
     String? order = '',
     String? after = '',
     String? before = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'listMessageFiles',
@@ -2000,12 +1889,10 @@ class GetMessageFileCall {
     String? threadId = '',
     String? messageId = '',
     String? fileId = '',
-    String? apiKeyAuth = '',
-    String? apikey = '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',
+    String? apiKeyAuth = kOpenAIApiKey,
+    String? apikey = kOpenAIApiKey,
   }) async {
-    final baseUrl = OpenAIAPIGroup.getBaseUrl(
-      apikey: apikey,
-    );
+    final baseUrl = OpenAIAPIGroup.getBaseUrl();
 
     return ApiManager.instance.makeApiCall(
       callName: 'getMessageFile',
