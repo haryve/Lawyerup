@@ -30,9 +30,17 @@ Replace the images in `ios/Runner/Assets.xcassets/LaunchImage.imageset/` to cust
 - Verified images load correctly on both Android and iOS devices.
 
 ### Planned improvements
-
 - Provide more environment setup steps, including `flutter doctor` output.
 - Add static analysis (`flutter analyze`) and automated testing.
 - Document overall app architecture and feature roadmap.
 - Set up a simple CI workflow to build and analyze pull requests.
 - Evaluate offline caching options for feed data.
+### Progress tracking
+
+- [x] Convert all network images to use caching with placeholders and error icons.
+- [x] Document initial setup steps and iOS launch screen customization.
+- [ ] Provide detailed environment setup guidance including `flutter doctor` output.
+- [ ] Introduce static analysis and automated testing.
+- [ ] Describe overall app architecture and planned features.
+- [ ] Configure a CI workflow for pull request builds.
+- [ ] Investigate offline caching options for feed data.
