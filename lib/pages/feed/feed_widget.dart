@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'feed_model.dart';
 export 'feed_model.dart';
@@ -318,15 +319,21 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                                     .circular(
                                                                         40.0),
                                                             child:
-                                                                Image.network(
-                                                              listViewLawyersRecord
-                                                                  .lawyerDp,
+                                                                CachedNetworkImage(
+                                                              imageUrl:
+                                                                  listViewLawyersRecord
+                                                                      .lawyerDp,
                                                               width: 91.0,
                                                               height: 112.0,
                                                               fit: BoxFit.cover,
                                                               alignment:
                                                                   const Alignment(
                                                                       0.0, 0.0),
+                                                              placeholder: (context, url) =>
+                                                                  const Center(
+                                                                      child: CircularProgressIndicator()),
+                                                              errorWidget: (context, url, error) =>
+                                                                  const Icon(Icons.error),
                                                             ),
                                                           ),
                                                         ),
@@ -1270,15 +1277,21 @@ class _FeedWidgetState extends State<FeedWidget> with TickerProviderStateMixin {
                                                         borderRadius:
                                                             BorderRadius
                                                                 .circular(40.0),
-                                                        child: Image.network(
-                                                          listViewLawyersRecord
-                                                              .lawyerDp,
-                                                          width: 91.0,
-                                                          height: 112.0,
-                                                          fit: BoxFit.cover,
-                                                          alignment: const Alignment(
-                                                              0.0, 0.0),
-                                                        ),
+                                                          child: CachedNetworkImage(
+                                                            imageUrl:
+                                                                listViewLawyersRecord
+                                                                    .lawyerDp,
+                                                            width: 91.0,
+                                                            height: 112.0,
+                                                            fit: BoxFit.cover,
+                                                            alignment: const Alignment(
+                                                                0.0, 0.0),
+                                                            placeholder: (context, url) =>
+                                                                const Center(
+                                                                    child: CircularProgressIndicator()),
+                                                            errorWidget: (context, url, error) =>
+                                                                const Icon(Icons.error),
+                                                          ),
                                                       ),
                                                     ),
                                                   ),
