@@ -8,6 +8,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'b_profile_create_edit_copy_model.dart';
 export 'b_profile_create_edit_copy_model.dart';
@@ -191,14 +192,18 @@ class _BProfileCreateEditCopyWidgetState
                                   decoration: const BoxDecoration(
                                     shape: BoxShape.circle,
                                   ),
-                                  child: Image.network(
-                                    currentUserPhoto != ''
+                                  child: CachedNetworkImage(
+                                    imageUrl: currentUserPhoto != ''
                                         ? currentUserPhoto
                                         : random_data.randomImageUrl(
                                             0,
                                             0,
                                           ),
                                     fit: BoxFit.cover,
+                                    placeholder: (context, url) => const Center(
+                                        child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error),
                                   ),
                                 ),
                               ),
