@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/upload_data.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'profilesettings_model.dart';
 export 'profilesettings_model.dart';
@@ -197,16 +198,22 @@ class _ProfilesettingsWidgetState extends State<ProfilesettingsWidget> {
                                           photoUrl: _model.uploadedFileUrl,
                                         ));
                                       },
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(24.0),
-                                        child: Image.network(
-                                          currentUserPhoto,
-                                          width: 300.0,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(24.0),
+                                          child: CachedNetworkImage(
+                                            imageUrl: currentUserPhoto,
+                                            width: 300.0,
+                                            height: 200.0,
+                                            fit: BoxFit.cover,
+                                            placeholder: (context, url) =>
+                                                const Center(
+                                                    child:
+                                                        CircularProgressIndicator()),
+                                            errorWidget: (context, url, error) =>
+                                                const Icon(Icons.error),
+                                          ),
                                         ),
-                                      ),
                                     ),
                                   ),
                                 ),
