@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'details36_article_details_model.dart';
 export 'details36_article_details_model.dart';
@@ -135,15 +136,20 @@ class _Details36ArticleDetailsWidgetState
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(2.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10.0),
-                              child: Image.network(
-                                details36ArticleDetailsLawyersRecord!.lawyerDp,
-                                width: 44.0,
-                                height: 44.0,
-                                fit: BoxFit.cover,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10.0),
+                                child: CachedNetworkImage(
+                                  imageUrl:
+                                      details36ArticleDetailsLawyersRecord!.lawyerDp,
+                                  width: 44.0,
+                                  height: 44.0,
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) => const Center(
+                                      child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
+                                ),
                               ),
-                            ),
                           ),
                         ),
                         Expanded(
@@ -260,15 +266,19 @@ class _Details36ArticleDetailsWidgetState
                                     ? imageLawyersRecordList.first
                                     : null;
 
-                            return ClipRRect(
-                              borderRadius: BorderRadius.circular(0.0),
-                              child: Image.network(
-                                imageLawyersRecord!.lawyerDp,
-                                width: double.infinity,
-                                height: 200.0,
-                                fit: BoxFit.cover,
-                              ),
-                            );
+                              return ClipRRect(
+                                borderRadius: BorderRadius.circular(0.0),
+                                child: CachedNetworkImage(
+                                  imageUrl: imageLawyersRecord!.lawyerDp,
+                                  width: double.infinity,
+                                  height: 200.0,
+                                  fit: BoxFit.cover,
+                                  placeholder: (context, url) => const Center(
+                                      child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      const Icon(Icons.error),
+                                ),
+                              );
                           },
                         ),
                         Align(
