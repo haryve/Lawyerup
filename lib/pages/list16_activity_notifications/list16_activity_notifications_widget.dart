@@ -1,6 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'list16_activity_notifications_model.dart';
 export 'list16_activity_notifications_model.dart';
@@ -132,19 +133,26 @@ class _List16ActivityNotificationsWidgetState
                                         color: const Color(0xFFE5E7EB),
                                       ),
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        child: Image.network(
-                                          'https://source.unsplash.com/random/1280x720?profile&5',
-                                          width: 44.0,
-                                          height: 44.0,
-                                          fit: BoxFit.cover,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(2.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                'https://source.unsplash.com/random/1280x720?profile&5',
+                                            width: 44.0,
+                                            height: 44.0,
+                                            fit: BoxFit.cover,
+                                            placeholder: (context, url) =>
+                                                const Center(
+                                                    child:
+                                                        CircularProgressIndicator()),
+                                            errorWidget: (context, url, error) =>
+                                                const Icon(Icons.error),
+                                          ),
                                         ),
                                       ),
-                                    ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -300,19 +308,26 @@ class _List16ActivityNotificationsWidgetState
                                         color: const Color(0xFFE5E7EB),
                                       ),
                                     ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                        child: Image.network(
-                                          'https://source.unsplash.com/random/1280x720?profile&2',
-                                          width: 44.0,
-                                          height: 44.0,
-                                          fit: BoxFit.cover,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(2.0),
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(10.0),
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                'https://source.unsplash.com/random/1280x720?profile&2',
+                                            width: 44.0,
+                                            height: 44.0,
+                                            fit: BoxFit.cover,
+                                            placeholder: (context, url) =>
+                                                const Center(
+                                                    child:
+                                                        CircularProgressIndicator()),
+                                            errorWidget: (context, url, error) =>
+                                                const Icon(Icons.error),
+                                          ),
                                         ),
                                       ),
-                                    ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
@@ -452,19 +467,24 @@ class _List16ActivityNotificationsWidgetState
                                     ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 12.0, 0.0, 0.0),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8.0),
-                                child: Image.network(
-                                  'https://source.unsplash.com/random/1280x720?beach&3',
-                                  width: 300.0,
-                                  height: 200.0,
-                                  fit: BoxFit.cover,
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 12.0, 0.0, 0.0),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  child: CachedNetworkImage(
+                                    imageUrl:
+                                        'https://source.unsplash.com/random/1280x720?beach&3',
+                                    width: 300.0,
+                                    height: 200.0,
+                                    fit: BoxFit.cover,
+                                    placeholder: (context, url) => const Center(
+                                        child: CircularProgressIndicator()),
+                                    errorWidget: (context, url, error) =>
+                                        const Icon(Icons.error),
+                                  ),
                                 ),
                               ),
-                            ),
                             Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 4.0),
